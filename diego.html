@@ -85,17 +85,7 @@
             text-decoration: none;
         }
 
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-color);
-            font-size: 1.5rem;
-            border: 2px solid var(--accent-color);
+       
         }
 
         .logo-text {
@@ -114,6 +104,22 @@
             color: var(--accent-color);
             margin-top: 2px;
         }
+        .logo-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden; /* très important */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* évite que l'image soit écrasée */
+    border-radius: 50%;
+}
 
         /* Navigation */
         .nav-desktop {
@@ -2604,4 +2610,5 @@
         window.addEventListener('scroll', handleScroll);
     </script>
 </body>
+
 </html>
