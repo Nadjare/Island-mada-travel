@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morondava Explorer - Allée des Baobabs & Trésors de l'Ouest Malgache</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a1a 0%, #1a2d2d 100%);
+            color: #f0f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== PALETTE DE COULEURS MORONDAVA ===== */
+        :root {
+            --color-sunset: #e74c3c;
+            --color-sunset-light: #f39c12;
+            --color-baobab: #8b4513;
+            --color-baobab-light: #d2691e;
+            --color-ocean: #3498db;
+            --color-ocean-dark: #2980b9;
+            --color-emerald: #2ecc71;
+            --color-emerald-light: #27ae60;
+            --color-sand: #f1c40f;
+            --color-sand-light: #f7dc6f;
+            --color-white: #ffffff;
+            --color-night: #0a1a1a;
+            --color-mangrove: #229954;
+        }
+
+        /* ===== HEADER RESPONSIVE ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 5%;
+            border-bottom: 3px solid var(--color-baobab);
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--color-baobab), var(--color-sunset));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+            border: 2px solid var(--color-sand);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--color-sand);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ===== NAVIGATION DESKTOP ===== */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-baobab);
+            background: rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--color-baobab);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-baobab), var(--color-sand));
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.4);
+        }
+
+        /* ===== BOUTON LANGUE DESKTOP ===== */
+        .language-desktop-btn {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(231, 76, 60, 0.2));
+            border: 2px solid var(--color-baobab);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 90px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        }
+
+        .language-desktop-btn:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(231, 76, 60, 0.3));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(139, 69, 19, 0.4);
+            border-color: var(--color-sand);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px;
+            background: rgba(10, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-baobab);
+            z-index: 1001;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(241, 196, 15, 0.2));
+            transform: translateX(8px);
+            border-left: 3px solid var(--color-baobab);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.3), rgba(241, 196, 15, 0.3));
+            color: var(--color-baobab);
+            font-weight: 700;
+            border-left: 3px solid var(--color-sand);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--color-sand);
+        }
+
+        /* ===== CONTROLES MOBILE ===== */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        /* Bouton Langue Mobile */
+        .language-mobile-btn {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(231, 76, 60, 0.2));
+            border: 2px solid var(--color-baobab);
+            color: var(--color-white);
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .language-mobile-btn:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(231, 76, 60, 0.3));
+            transform: scale(1.05);
+            border-color: var(--color-sand);
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--color-baobab), var(--color-sunset));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, var(--color-sunset), var(--color-baobab));
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 26, 26, 0.98), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(20px);
+            padding: 100px 35px 35px;
+            box-shadow: -5px 0 30px rgba(139, 69, 19, 0.3);
+            transition: right 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            border-left: 3px solid var(--color-baobab);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--color-baobab), var(--color-sunset));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .close-menu:hover {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--color-sunset), var(--color-baobab));
+        }
+
+        /* ===== NAVIGATION MOBILE ===== */
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.1), rgba(241, 196, 15, 0.05));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(241, 196, 15, 0.1));
+            border-left-color: var(--color-baobab);
+            transform: translateX(10px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .mobile-nav i {
+            width: 28px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-sand);
+        }
+
+        /* ===== SECTION LANGUE MOBILE ===== */
+        .mobile-language-section {
+            padding: 30px 0;
+            border-top: 2px solid rgba(139, 69, 19, 0.3);
+            border-bottom: 2px solid rgba(241, 196, 15, 0.3);
+            margin-bottom: 35px;
+        }
+
+        .mobile-language-title {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-language-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .mobile-language-option:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(241, 196, 15, 0.2));
+            transform: translateX(8px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .mobile-language-option.active {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(241, 196, 15, 0.3));
+            color: var(--color-baobab);
+            font-weight: 700;
+            border-left: 5px solid var(--color-sand);
+            border-color: var(--color-sand);
+        }
+
+        /* ===== HEADER SPACER RESPONSIVE ===== */
+        .header-spacer {
+            height: 85px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header-spacer {
+                height: 75px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+            
+            .menu-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .language-mobile-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                min-width: 65px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .logo-title {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .mobile-controls {
+                gap: 15px;
+            }
+            
+            .language-mobile-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                max-width: 320px;
+                padding: 90px 25px 25px;
+            }
+        }
+
+        /* ===== SECTION HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 26, 26, 0.85), rgba(10, 26, 26, 0.9)),
+                        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(241, 196, 15, 0.1));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--color-baobab), var(--color-sand), var(--color-sunset));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--color-white);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+            padding: 0 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FEATURE CARDS */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 50px 0;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-baobab), var(--color-sand));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(231, 76, 60, 0.15));
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #e0f7ff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--color-baobab), var(--color-sunset));
+            color: var(--color-white);
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-sand);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, var(--color-sunset), var(--color-baobab));
+            border-color: var(--color-baobab);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--color-baobab);
+            color: var(--color-baobab);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(139, 69, 19, 0.15);
+            color: var(--color-white);
+            border-color: var(--color-sand);
+        }
+
+        /* SECTIONS GENERIQUES */
+        section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            position: relative;
+            font-weight: 800;
+            color: var(--color-white);
+            padding: 0 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-baobab), var(--color-sand), var(--color-sunset));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(50px, 7vw, 80px);
+            color: #e6d4ff;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.7;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+
+        /* ===== SECTION SITES EMBLEMATIQUES ===== */
+        .emblematic-sites {
+            background: linear-gradient(135deg, #102525 0%, #1a3a3a 100%);
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .site-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-baobab), var(--color-sand), var(--color-sunset));
+            z-index: 2;
+        }
+
+        .site-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+        }
+
+        .site-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--color-emerald), var(--color-sand));
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .site-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .site-image {
+                height: 220px;
+            }
+        }
+
+        .site-card:hover .site-image {
+            transform: scale(1.08);
+        }
+
+        .site-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .site-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .site-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-baobab);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .site-features {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .site-features li {
+            color: #d4eaff;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-features li:before {
+            content: '✓';
+            color: var(--color-emerald);
+            font-weight: bold;
+        }
+
+        .site-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-baobab);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(231, 76, 60, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .site-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.25), rgba(241, 196, 15, 0.25));
+            border-color: var(--color-baobab);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        /* ===== SECTION DESTINATIONS DETAILLEES ===== */
+        .detailed-destinations {
+            background: linear-gradient(135deg, #1a3a3a 0%, #102525 100%);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-baobab), var(--color-sand));
+            z-index: 2;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .destination-image {
+                height: 220px;
+            }
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .destination-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .destination-distance {
+            color: var(--color-emerald);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .destination-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 120px;
+            font-weight: 300;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-baobab);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(231, 76, 60, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .destination-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.25), rgba(241, 196, 15, 0.25));
+            border-color: var(--color-baobab);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        /* SERVICES */
+        .services {
+            background: linear-gradient(135deg, #102525 0%, #1a3a3a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(231, 76, 60, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3.2rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #1a3a3a 0%, #102525 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(231, 76, 60, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-baobab);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(231, 76, 60, 0.15));
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--color-baobab);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-info a {
+            color: #d4eaff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-baobab);
+            background: rgba(139, 69, 19, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 15px;
+        }
+
+        .contact-buttons .btn {
+            margin: 0 15px 15px;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons .btn {
+                margin: 0 0 15px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0a1a1a 0%, #152525 100%);
+            padding: 50px 0 25px;
+            border-top: 5px solid var(--color-baobab);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-baobab), var(--color-sand), var(--color-sunset));
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-tagline {
+            color: #e6d4ff;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(231, 76, 60, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-baobab);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--color-baobab), var(--color-sunset));
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--color-sand);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: #e6d4ff;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--color-sand);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .copyright {
+            color: #c9b3ff;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(139, 69, 19, 0.3);
+            font-weight: 300;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* IMAGE LOADING */
+        .loading {
+            background: linear-gradient(90deg, #1d2d2d 25%, #2a3d3d 50%, #1d2d2d 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* TOUCH OPTIMIZATIONS */
+        @media (hover: none) {
+            .destination-card:hover,
+            .site-card:hover,
+            .service-card:hover,
+            .contact-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .nav-link:hover,
+            .language-option:hover,
+            .mobile-nav a:hover,
+            .social-link:hover,
+            .contact-info a:hover,
+            .destination-link:hover,
+            .site-link:hover {
+                background: none;
+                transform: none;
+            }
+            
+            .btn:hover,
+            .btn-outline:hover {
+                transform: none;
+            }
+        }
+
+        /* ORIENTATION PAYSAGE */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .mobile-menu {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title" data-translate="logo-title">Island Mada Travel</div>
+                        <div class="logo-tagline" data-translate="logo-tagline">Allée des Baobabs & Trésors de l'Ouest Malgache</div>
+                    </div>
+                </a>
+
+                <!-- Navigation et Langue Desktop -->
+                <div class="nav-desktop">
+                    <!-- Navigation -->
+                    <nav>
+                        <a href="#home" class="nav-link active" data-translate="nav-home">Accueil</a>
+                        <a href="#emblematic" class="nav-link" data-translate="nav-emblematic">Sites Emblématiques</a>
+                        <a href="#destinations" class="nav-link" data-translate="nav-destinations">Destinations</a>
+                        <a href="#services" class="nav-link" data-translate="nav-services">Services</a>
+                        <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+                    </nav>
+                    
+                    <!-- Bouton Langue Desktop -->
+                    <div class="language-selector">
+                        <button class="language-desktop-btn">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                                <span data-translate="lang-fr">Français</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                                <span data-translate="lang-en">English</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                                <span data-translate="lang-de">Deutsch</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                                <span data-translate="lang-es">Español</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                                <span data-translate="lang-it">Italiano</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="ar">
+                                <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                                <span data-translate="lang-ar">العربية</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                                <span data-translate="lang-zh">中文</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles Mobile -->
+                <div class="mobile-controls">
+                    <!-- Bouton Langue Mobile -->
+                    <button class="language-mobile-btn" id="mobileLangBtn">
+                        <i class="fas fa-globe-americas"></i>
+                        <span class="current-lang-mobile">FR</span>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Navigation Mobile -->
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> <span data-translate="nav-home">Accueil</span></a></li>
+            <li><a href="#emblematic"><i class="fas fa-tree"></i> <span data-translate="nav-emblematic">Sites Emblématiques</span></a></li>
+            <li><a href="#destinations"><i class="fas fa-map-marker-alt"></i> <span data-translate="nav-destinations">Destinations</span></a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> <span data-translate="nav-services">Services</span></a></li>
+            <li><a href="#contact"><i class="fas fa-phone-alt"></i> <span data-translate="nav-contact">Contact</span></a></li>
+        </ul>
+        
+        <!-- Sélecteur de Langue Mobile -->
+        <div class="mobile-language-section">
+            <div class="mobile-language-title">
+                <i class="fas fa-language"></i>
+                <span data-translate="select-language">Changer la langue</span>
+            </div>
+            <div class="mobile-language-grid">
+                <a href="#" class="mobile-language-option active" data-lang="fr">
+                    <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                    <span data-translate="lang-fr">Français</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="en">
+                    <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                    <span data-translate="lang-en">English</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="de">
+                    <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                    <span data-translate="lang-de">Deutsch</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="es">
+                    <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                    <span data-translate="lang-es">Español</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="it">
+                    <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                    <span data-translate="lang-it">Italiano</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="ar">
+                    <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                    <span data-translate="lang-ar">العربية</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="zh">
+                    <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                    <span data-translate="lang-zh">中文</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-translate="hero-title">Découvrez Morondava</h1>
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    Porte d'entrée de l'Ouest Malgache ! La mythique Allée des Baobabs, les majestueux Tsingy de Bemaraha, 
+                    les plages de sable blanc et la culture unique des peuples nomades de la mer vous attendent pour une aventure 
+                    inoubliable au coucher du soleil.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card fade-in delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 data-translate="feature1-title">Allée des Baobabs</h3>
+                        <p data-translate="feature1-desc">Alignement spectaculaire de baobabs centenaires. Site le plus photographié de Madagascar au coucher du soleil.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 data-translate="feature2-title">Tsingy de Bemaraha</h3>
+                        <p data-translate="feature2-desc">Forêt de pierre classée au patrimoine mondial de l'UNESCO. Formation géologique unique au monde.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 data-translate="feature3-title">Baobab Amoureux</h3>
+                        <p data-translate="feature3-desc">Deux baobabs entrelacés formant un cœur naturel. Symbole d'amour éternel et site romantique unique.</p>
+                    </div>
+                </div>
+                
+                <a href="#emblematic" class="btn fade-in delay-4">
+                    <i class="fas fa-compass"></i>
+                    <span data-translate="hero-btn">Explorer les Sites</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SITES EMBLEMATIQUES ===== -->
+    <section id="emblematic" class="emblematic-sites">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="emblematic-title">Sites Emblématiques de Morondava</h2>
+            <p class="section-intro fade-in delay-1" data-translate="emblematic-intro">
+                Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique 
+                et des paysages à couper le souffle qui font la renommée de Morondava.
+            </p>
+            
+            <div class="sites-grid">
+                <!-- Allée des Baobabs -->
+                <div class="site-card fade-in">
+                    <div class="site-badge" data-translate="badge-iconic">ICONIQUE</div>
+                    <img src="6a.jpg" 
+                         alt="Allée des Baobabs" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-tree"></i> Allée des Baobabs</h3>
+                        <div class="site-subtitle" data-translate="baobab-subtitle">Site le plus photographié</div>
+                        <p data-translate="baobab-avenue-desc">Alignement majestueux de baobabs Adansonia grandidieri centenaires. Spectacle magique au lever et coucher du soleil sur la route de Morondava à Belon'i Tsiribihina.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-baobab1">Baobabs de 30m de hauteur</li>
+                            <li data-translate="feature-baobab2">Sunsets spectaculaires</li>
+                            <li data-translate="feature-baobab3">Site UNESCO potentiel</li>
+                            <li data-translate="feature-baobab4">Photos uniques au monde</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Parc National du Tsingy de Bemaraha -->
+                <div class="site-card fade-in delay-1">
+                    <div class="site-badge" data-translate="badge-unesco">UNESCO</div>
+                    <img src="6b.jpg" 
+                         alt="Tsingy de Bemaraha" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-mountain"></i> Tsingy de Bemaraha</h3>
+                        <div class="site-subtitle" data-translate="tsingy-subtitle">Forêt de pierre</div>
+                        <p data-translate="tsingy-desc">Formation karstique unique de pics calcaires acérés. Réserve naturelle intégrale classée au patrimoine mondial de l'UNESCO depuis 1990.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-tsingy1">Paysage lunaire unique</li>
+                            <li data-translate="feature-tsingy2">Riche biodiversité</li>
+                            <li data-translate="feature-tsingy3">Ponts suspendus</li>
+                            <li data-translate="feature-tsingy4">Lémuriens endémiques</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Baobab Amoureux -->
+                <div class="site-card fade-in delay-2">
+                    <div class="site-badge" data-translate="badge-romantic">ROMANTIQUE</div>
+                    <img src="6c.webp" 
+                         alt="Baobab Amoureux" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-heart"></i> Baobab Amoureux</h3>
+                        <div class="site-subtitle" data-translate="lovers-subtitle">Symbole d'amour</div>
+                        <p data-translate="lovers-baobab-desc">Deux baobabs Adansonia za entrelacés formant un cœur naturel. Légende locale d'un amour impossible devenu éternel.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-lovers1">Formation naturelle unique</li>
+                            <li data-translate="feature-lovers2">Site de pèlerinage</li>
+                            <li data-translate="feature-lovers3">Cérémonies traditionnelles</li>
+                            <li data-translate="feature-lovers4">Photos souvenirs romantiques</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Parc National de Kirindy Mite -->
+                <div class="site-card fade-in delay-3">
+                    <div class="site-badge" data-translate="badge-wildlife">FAUNE</div>
+                    <img src="6d.jpg" 
+                         alt="Kirindy Mite" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-paw"></i> Kirindy Mite</h3>
+                        <div class="site-subtitle" data-translate="kirindy-subtitle">Forêt sèche</div>
+                        <p data-translate="kirindy-desc">Forêt sèche caducifoliée abritant une biodiversité exceptionnelle. Réserve privée connue pour ses lémuriens et fossas nocturnes.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-kirindy1">Fossa (prédateur endémique)</li>
+                            <li data-translate="feature-kirindy2">Lémuriens nocturnes</li>
+                            <li data-translate="feature-kirindy3">Forêt dense épineuse</li>
+                            <li data-translate="feature-kirindy4">Observation guidée</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Baie de Morondava -->
+                <div class="site-card fade-in delay-4">
+                    <div class="site-badge" data-translate="badge-bay">BAIE</div>
+                    <img src="6e.jpeg" 
+                         alt="Baie de Morondava" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-water"></i> Baie de Morondava</h3>
+                        <div class="site-subtitle" data-translate="bay-subtitle">Port naturel</div>
+                        <p data-translate="morondava-bay-desc">Vaste baie abritant le port de Morondava. Activités de pêche traditionnelle et vue imprenable sur l'océan Indien.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-bay1">Port de pêche animé</li>
+                            <li data-translate="feature-bay2">Bateaux traditionnels</li>
+                            <li data-translate="feature-bay3">Ventes aux enchères</li>
+                            <li data-translate="feature-bay4">Restaurants de poisson</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mangroves de la Tsiribihina -->
+                <div class="site-card fade-in delay-5">
+                    <div class="site-badge" data-translate="badge-ecosystem">ÉCOSYSTÈME</div>
+                    <img src="6f.jpeg" 
+                         alt="Mangroves Tsiribihina" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-leaf"></i> Mangroves Tsiribihina</h3>
+                        <div class="site-subtitle" data-translate="mangrove-subtitle">Forêt amphibie</div>
+                        <p data-translate="mangroves-desc">Écosystème de mangrove unique le long du fleuve Tsiribihina. Nurserie naturelle pour la faune marine et zone de reproduction.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-mangrove1">Écosystème vital</li>
+                            <li data-translate="feature-mangrove2">Pirogue traditionnelle</li>
+                            <li data-translate="feature-mangrove3">Observation d'oiseaux</li>
+                            <li data-translate="feature-mangrove4">Racines aériennes</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DESTINATIONS DETAILLEES ===== -->
+    <section id="destinations" class="detailed-destinations">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="destinations-title">Destinations Complètes</h2>
+            <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                Explorez en détail les trésors de la région de Morondava. Chaque destination offre 
+                une expérience unique et des paysages exceptionnels pour un voyage inoubliable.
+            </p>
+            
+            <div class="destinations-grid">
+                <!-- Plages de Sable Blanc -->
+                <div class="destination-card fade-in">
+                    <img src="6g.png" 
+                         alt="Plages de Sable Blanc" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-umbrella-beach"></i> <span data-translate="destination-white-beaches">Plages de Sable Blanc</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-coast">Côte de Morondava</span>
+                        </div>
+                        <p data-translate="white-beaches-desc">Plages immaculées de sable blanc fin bordées de cocotiers. Eaux turquoise cristallines idéales pour la baignade et la détente.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-beach1">Sable blanc immaculé</li>
+                            <li data-translate="feature-beach2">Eaux turquoise claires</li>
+                            <li data-translate="feature-beach3">Cocotiers naturels</li>
+                            <li data-translate="feature-beach4">Sunsets spectaculaires</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Marché de Morondava -->
+                <div class="destination-card fade-in delay-1">
+                    <img src="6h.jpeg" 
+                         alt="Marché de Morondava" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-shopping-basket"></i> <span data-translate="destination-market">Marché de Morondava</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-center">Centre-ville de Morondava</span>
+                        </div>
+                        <p data-translate="market-desc">Marché traditionnel animé avec produits locaux, artisanat et épices. Immersion dans la vie quotidienne malgache et rencontres authentiques.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-market1">Produits locaux frais</li>
+                            <li data-translate="feature-market2">Artisanat traditionnel</li>
+                            <li data-translate="feature-market3">Épices et vanille</li>
+                            <li data-translate="feature-market4">Rencontres authentiques</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Peuple Nomade de la Mer -->
+                <div class="destination-card fade-in delay-2">
+                    <img src="6i.jpg" 
+                         alt="Peuple Nomade de la Mer" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-ship"></i> <span data-translate="destination-sea-nomads">Peuple Nomade de la Mer</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-villages">Villages côtiers</span>
+                        </div>
+                        <p data-translate="sea-nomads-desc">Communautés de pêcheurs Vezo vivant en harmonie avec l'océan. Culture maritime unique, pirogues à balancier et traditions ancestrales.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-nomads1">Culture Vezo unique</li>
+                            <li data-translate="feature-nomads2">Pirogues traditionnelles</li>
+                            <li data-translate="feature-nomads3">Pêche ancestrale</li>
+                            <li data-translate="feature-nomads4">Villages sur pilotis</li>
+                        </ul>
+                        <a href="galeries.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Réserve de Andranomena -->
+                <div class="destination-card fade-in delay-3">
+                    <img src="6j.webp" 
+                         alt="Réserve de Andranomena" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-dove"></i> <span data-translate="destination-andranomena">Réserve de Andranomena</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-northeast">Nord-est de Morondava</span>
+                        </div>
+                        <p data-translate="andranomena-desc">Réserve spéciale de forêt sèche abritant une biodiversité unique. Sanctuaire pour les lémuriens et oiseaux endémiques de Madagascar.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-andranomena1">Lémuriens rares</li>
+                            <li data-translate="feature-andranomena2">Oiseaux endémiques</li>
+                            <li data-translate="feature-andranomena3">Forêt sèche préservée</li>
+                            <li data-translate="feature-andranomena4">Sentiers de randonnée</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Delta de la Tsiribihina -->
+                <div class="destination-card fade-in delay-4">
+                    <img src="6k.webp" 
+                         alt="Delta de la Tsiribihina" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-water"></i> <span data-translate="destination-tsiribihina">Delta de la Tsiribihina</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-north">Nord de Morondava</span>
+                        </div>
+                        <p data-translate="tsiribihina-desc">Vaste delta où le fleuve Tsiribihina rencontre l'océan Indien. Écosystème riche en faune aquatique et sites de nidification d'oiseaux.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-delta1">Écosystème unique</li>
+                            <li data-translate="feature-delta2">Observation d'oiseaux</li>
+                            <li data-translate="feature-delta3">Excursions en pirogue</li>
+                            <li data-translate="feature-delta4">Paysages fluviaux</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Cimetière de Pirogues -->
+                <div class="destination-card fade-in delay-5">
+                    <img src="4l.jpg" 
+                         alt="Cimetière de Pirogues" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-anchor"></i> <span data-translate="destination-cemetery">Cimetière de Pirogues</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-beach">Plage de Morondava</span>
+                        </div>
+                        <p data-translate="cemetery-desc">Site émouvant où les pirogues traditionnelles sont abandonnées après leur vie utile. Témoignage de la culture maritime des Vezo.</p>
+                        <ul class="site-features">
+                            <li data-translate="feature-cemetery1">Pirogues traditionnelles</li>
+                            <li data-translate="feature-cemetery2">Histoire maritime</li>
+                            <li data-translate="feature-cemetery3">Photos artistiques</li>
+                            <li data-translate="feature-cemetery4">Tradition Vezo</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="services-title">Nos Services Exclusifs</h2>
+            <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                Morondava Explorer vous accompagne pour créer le voyage de vos rêves. 
+                Des services sur mesure pour une expérience authentique et inoubliable.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 data-translate="service1-title">Sunsets aux Baobabs</h3>
+                    <p data-translate="service1-desc">Transport organisé à l'Allée des Baobabs pour les meilleurs moments photos au coucher du soleil magique.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3 data-translate="service2-title">Randonnées Tsingy</h3>
+                    <p data-translate="service2-desc">Guides experts pour explorer en sécurité les formations karstiques uniques du parc de Bemaraha.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 data-translate="service3-title">Croisières Tsiribihina</h3>
+                    <p data-translate="service3-desc">Navigation traditionnelle en pirogue à travers les mangroves et villages de pêcheurs Vezo.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 data-translate="service4-title">Photographie Professionnelle</h3>
+                    <p data-translate="service4-desc">Photographe local pour immortaliser vos moments aux sites emblématiques dans la meilleure lumière.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service5-title">Dégustations Locales</h3>
+                    <p data-translate="service5-desc">Découverte de la cuisine Vezo avec poissons frais, fruits de mer et spécialités malgaches.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 data-translate="service6-title">Écolodges Authentiques</h3>
+                    <p data-translate="service6-desc">Hébergement en harmonie avec la nature chez l'habitant ou en écolodge écologique.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;" class="fade-in delay-3">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span data-translate="services-btn">Demander un Devis Personnalisé</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="contact-title">Contactez Morondava Explorer</h2>
+            <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                Prêt à découvrir les trésors de Morondava ? Notre équipe locale est à votre disposition 
+                pour organiser votre séjour de rêve dans l'Ouest Malgache.
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Téléphone -->
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-phone">Téléphone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+261325539635">
+                            <i class="fas fa-phone"></i>
+                            +261 32 55 396 35
+                        </a>
+                        <a href="tel:+261325539635" style="margin-top: 15px;">
+                            <i class="fas fa-mobile-alt"></i>
+                            Appel / WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-translate="contact-email">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:anjaraamadym@gmail.com">
+                            <i class="fas fa-at"></i>
+                            anjaraamadym@gmail.com
+                        </a>
+                        <a href="mailto:anjaraamadym@gmail.com" style="margin-top: 15px;">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réservations
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Adresse -->
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-address">Adresse</h3>
+                    <div class="contact-info">
+                        <p style="text-align: center; color: #d4eaff; line-height: 1.8;">
+                            <i class="fas fa-tree"></i><br>
+                            Morondava Explorer<br>
+                            Agence de Tourisme<br>
+                            Morondava, Madagascar<br>
+                            Spécialiste de l'Ouest
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-buttons fade-in delay-3">
+                <a href="https://wa.me/261325539635" class="btn" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="whatsapp-btn">WhatsApp Direct</span>
+                </a>
+                <a href="mailto:anjaraamadym@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="email-btn">Envoyer un Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <i class="fas fa-tree"></i>
+                    <span data-translate="logo-title">MORONDAVA EXPLORER</span>
+                </div>
+                
+                <p class="footer-tagline fade-in delay-1" data-translate="footer-tagline">
+                    Votre guide expert pour découvrir les trésors cachés de Morondava et sa région. 
+                    Des expériences authentiques, des paysages uniques, des souvenirs inoubliables au cœur de l'Ouest Malgache.
+                </p>
+                
+                <div class="social-links fade-in delay-2">
+                    <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/261325539635" class="social-link" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://tripadvisor.com" class="social-link" target="_blank" aria-label="TripAdvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="mailto:anjaraamadym@gmail.com" class="social-link" target="_blank" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-info fade-in delay-3">
+                    <p><i class="fas fa-phone"></i> +261 32 55 396 35</p>
+                    <p><i class="fas fa-envelope"></i> anjaraamadym@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Morondava, Madagascar</p>
+                </div>
+                
+                <div class="copyright fade-in delay-4">
+                    <p>&copy; <span id="currentYear"></span> Morondava Explorer. <span data-translate="copyright">Tous droits réservés.</span></p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">
+                        <a href="#" style="color: var(--color-baobab);" data-translate="privacy">Politique de confidentialité</a> | 
+                        <a href="#" style="color: var(--color-baobab);" data-translate="terms">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Données de traduction complètes pour Morondava
+        const translations = {
+            fr: {
+                // Header
+                
+                'logo-tagline': 'Allée des Baobabs & Trésors de l\'Ouest Malgache',
+                'nav-home': 'Accueil',
+                'nav-emblematic': 'Sites Emblématiques',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Changer la langue',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Découvrez Morondava',
+                'hero-subtitle': 'Porte d\'entrée de l\'Ouest Malgache ! La mythique Allée des Baobabs, les majestueux Tsingy de Bemaraha, les plages de sable blanc et la culture unique des peuples nomades de la mer vous attendent pour une aventure inoubliable au coucher du soleil.',
+                'feature1-title': 'Allée des Baobabs',
+                'feature1-desc': 'Alignement spectaculaire de baobabs centenaires. Site le plus photographié de Madagascar au coucher du soleil.',
+                'feature2-title': 'Tsingy de Bemaraha',
+                'feature2-desc': 'Forêt de pierre classée au patrimoine mondial de l\'UNESCO. Formation géologique unique au monde.',
+                'feature3-title': 'Baobab Amoureux',
+                'feature3-desc': 'Deux baobabs entrelacés formant un cœur naturel. Symbole d\'amour éternel et site romantique unique.',
+                'hero-btn': 'Explorer les Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Sites Emblématiques de Morondava',
+                'emblematic-intro': 'Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique et des paysages à couper le souffle qui font la renommée de Morondava.',
+                'badge-iconic': 'ICONIQUE',
+                'badge-unesco': 'UNESCO',
+                'badge-romantic': 'ROMANTIQUE',
+                'badge-wildlife': 'FAUNE',
+                'badge-bay': 'BAIE',
+                'badge-ecosystem': 'ÉCOSYSTÈME',
+                'baobab-subtitle': 'Site le plus photographié',
+                'tsingy-subtitle': 'Forêt de pierre',
+                'lovers-subtitle': 'Symbole d\'amour',
+                'kirindy-subtitle': 'Forêt sèche',
+                'bay-subtitle': 'Port naturel',
+                'mangrove-subtitle': 'Forêt amphibie',
+                'baobab-avenue-desc': 'Alignement majestueux de baobabs Adansonia grandidieri centenaires. Spectacle magique au lever et coucher du soleil sur la route de Morondava à Belon\'i Tsiribihina.',
+                'tsingy-desc': 'Formation karstique unique de pics calcaires acérés. Réserve naturelle intégrale classée au patrimoine mondial de l\'UNESCO depuis 1990.',
+                'lovers-baobab-desc': 'Deux baobabs Adansonia za entrelacés formant un cœur naturel. Légende locale d\'un amour impossible devenu éternel.',
+                'kirindy-desc': 'Forêt sèche caducifoliée abritant une biodiversité exceptionnelle. Réserve privée connue pour ses lémuriens et fossas nocturnes.',
+                'morondava-bay-desc': 'Vaste baie abritant le port de Morondava. Activités de pêche traditionnelle et vue imprenable sur l\'océan Indien.',
+                'mangroves-desc': 'Écosystème de mangrove unique le long du fleuve Tsiribihina. Nurserie naturelle pour la faune marine et zone de reproduction.',
+                'feature-baobab1': 'Baobabs de 30m de hauteur',
+                'feature-baobab2': 'Sunsets spectaculaires',
+                'feature-baobab3': 'Site UNESCO potentiel',
+                'feature-baobab4': 'Photos uniques au monde',
+                'feature-tsingy1': 'Paysage lunaire unique',
+                'feature-tsingy2': 'Riche biodiversité',
+                'feature-tsingy3': 'Ponts suspendus',
+                'feature-tsingy4': 'Lémuriens endémiques',
+                'feature-lovers1': 'Formation naturelle unique',
+                'feature-lovers2': 'Site de pèlerinage',
+                'feature-lovers3': 'Cérémonies traditionnelles',
+                'feature-lovers4': 'Photos souvenirs romantiques',
+                'feature-kirindy1': 'Fossa (prédateur endémique)',
+                'feature-kirindy2': 'Lémuriens nocturnes',
+                'feature-kirindy3': 'Forêt dense épineuse',
+                'feature-kirindy4': 'Observation guidée',
+                'feature-bay1': 'Port de pêche animé',
+                'feature-bay2': 'Bateaux traditionnels',
+                'feature-bay3': 'Ventes aux enchères',
+                'feature-bay4': 'Restaurants de poisson',
+                'feature-mangrove1': 'Écosystème vital',
+                'feature-mangrove2': 'Pirogue traditionnelle',
+                'feature-mangrove3': 'Observation d\'oiseaux',
+                'feature-mangrove4': 'Racines aériennes',
+                'discover-btn': 'Découvrir',
+                
+                // Destinations
+                'destinations-title': 'Destinations Complètes',
+                'destinations-intro': 'Explorez en détail les trésors de la région de Morondava. Chaque destination offre une expérience unique et des paysages exceptionnels pour un voyage inoubliable.',
+                'location-coast': 'Côte de Morondava',
+                'location-center': 'Centre-ville de Morondava',
+                'location-villages': 'Villages côtiers',
+                'location-northeast': 'Nord-est de Morondava',
+                'location-north': 'Nord de Morondava',
+                'location-beach': 'Plage de Morondava',
+                'destination-white-beaches': 'Plages de Sable Blanc',
+                'destination-market': 'Marché de Morondava',
+                'destination-sea-nomads': 'Peuple Nomade de la Mer',
+                'destination-andranomena': 'Réserve de Andranomena',
+                'destination-tsiribihina': 'Delta de la Tsiribihina',
+                'destination-cemetery': 'Cimetière de Pirogues',
+                'white-beaches-desc': 'Plages immaculées de sable blanc fin bordées de cocotiers. Eaux turquoise cristallines idéales pour la baignade et la détente.',
+                'market-desc': 'Marché traditionnel animé avec produits locaux, artisanat et épices. Immersion dans la vie quotidienne malgache et rencontres authentiques.',
+                'sea-nomads-desc': 'Communautés de pêcheurs Vezo vivant en harmonie avec l\'océan. Culture maritime unique, pirogues à balancier et traditions ancestrales.',
+                'andranomena-desc': 'Réserve spéciale de forêt sèche abritant une biodiversité unique. Sanctuaire pour les lémuriens et oiseaux endémiques de Madagascar.',
+                'tsiribihina-desc': 'Vaste delta où le fleuve Tsiribihina rencontre l\'océan Indien. Écosystème riche en faune aquatique et sites de nidification d\'oiseaux.',
+                'cemetery-desc': 'Site émouvant où les pirogues traditionnelles sont abandonnées après leur vie utile. Témoignage de la culture maritime des Vezo.',
+                'feature-beach1': 'Sable blanc immaculé',
+                'feature-beach2': 'Eaux turquoise claires',
+                'feature-beach3': 'Cocotiers naturels',
+                'feature-beach4': 'Sunsets spectaculaires',
+                'feature-market1': 'Produits locaux frais',
+                'feature-market2': 'Artisanat traditionnel',
+                'feature-market3': 'Épices et vanille',
+                'feature-market4': 'Rencontres authentiques',
+                'feature-nomads1': 'Culture Vezo unique',
+                'feature-nomads2': 'Pirogues traditionnelles',
+                'feature-nomads3': 'Pêche ancestrale',
+                'feature-nomads4': 'Villages sur pilotis',
+                'feature-andranomena1': 'Lémuriens rares',
+                'feature-andranomena2': 'Oiseaux endémiques',
+                'feature-andranomena3': 'Forêt sèche préservée',
+                'feature-andranomena4': 'Sentiers de randonnée',
+                'feature-delta1': 'Écosystème unique',
+                'feature-delta2': 'Observation d\'oiseaux',
+                'feature-delta3': 'Excursions en pirogue',
+                'feature-delta4': 'Paysages fluviaux',
+                'feature-cemetery1': 'Pirogues traditionnelles',
+                'feature-cemetery2': 'Histoire maritime',
+                'feature-cemetery3': 'Photos artistiques',
+                'feature-cemetery4': 'Tradition Vezo',
+                'explore-btn': 'Explorer',
+                
+                // Services
+                'services-title': 'Nos Services Exclusifs',
+                'services-intro': 'Morondava Explorer vous accompagne pour créer le voyage de vos rêves. Des services sur mesure pour une expérience authentique et inoubliable.',
+                'service1-title': 'Sunsets aux Baobabs',
+                'service1-desc': 'Transport organisé à l\'Allée des Baobabs pour les meilleurs moments photos au coucher du soleil magique.',
+                'service2-title': 'Randonnées Tsingy',
+                'service2-desc': 'Guides experts pour explorer en sécurité les formations karstiques uniques du parc de Bemaraha.',
+                'service3-title': 'Croisières Tsiribihina',
+                'service3-desc': 'Navigation traditionnelle en pirogue à travers les mangroves et villages de pêcheurs Vezo.',
+                'service4-title': 'Photographie Professionnelle',
+                'service4-desc': 'Photographe local pour immortaliser vos moments aux sites emblématiques dans la meilleure lumière.',
+                'service5-title': 'Dégustations Locales',
+                'service5-desc': 'Découverte de la cuisine Vezo avec poissons frais, fruits de mer et spécialités malgaches.',
+                'service6-title': 'Écolodges Authentiques',
+                'service6-desc': 'Hébergement en harmonie avec la nature chez l\'habitant ou en écolodge écologique.',
+                'services-btn': 'Demander un Devis Personnalisé',
+                
+                // Contact
+                'contact-title': 'Contactez Morondava Explorer',
+                'contact-intro': 'Prêt à découvrir les trésors de Morondava ? Notre équipe locale est à votre disposition pour organiser votre séjour de rêve dans l\'Ouest Malgache.',
+                'contact-phone': 'Téléphone',
+                'contact-email': 'Email',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'WhatsApp Direct',
+                'email-btn': 'Envoyer un Email',
+                
+                // Footer
+                'footer-tagline': 'Votre guide expert pour découvrir les trésors cachés de Morondava et sa région. Des expériences authentiques, des paysages uniques, des souvenirs inoubliables au cœur de l\'Ouest Malgache.',
+                'copyright': 'Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
+            },
+            en: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': 'Avenue of the Baobabs & Treasures of Western Madagascar',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Iconic Sites',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Change Language',
+                'lang-fr': 'French',
+                'lang-en': 'English',
+                'lang-de': 'German',
+                'lang-es': 'Spanish',
+                'lang-it': 'Italian',
+                'lang-ar': 'Arabic',
+                'lang-zh': 'Chinese',
+                
+                // Hero
+                'hero-title': 'Discover Morondava',
+                'hero-subtitle': 'Gateway to Western Madagascar! The mythical Avenue of the Baobabs, majestic Tsingy de Bemaraha, white sand beaches and unique culture of sea nomads await you for an unforgettable sunset adventure.',
+                'feature1-title': 'Avenue of the Baobabs',
+                'feature1-desc': 'Spectacular alignment of centuries-old baobabs. Most photographed site in Madagascar at sunset.',
+                'feature2-title': 'Tsingy de Bemaraha',
+                'feature2-desc': 'Stone forest classified as UNESCO World Heritage. Unique geological formation in the world.',
+                'feature3-title': 'Lovers Baobab',
+                'feature3-desc': 'Two intertwined baobabs forming a natural heart. Symbol of eternal love and unique romantic site.',
+                'hero-btn': 'Explore Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Iconic Sites of Morondava',
+                'emblematic-intro': 'Discover the most famous sites in the region. Each site offers a unique experience and breathtaking landscapes that make Morondava famous.',
+                'badge-iconic': 'ICONIC',
+                'badge-unesco': 'UNESCO',
+                'badge-romantic': 'ROMANTIC',
+                'badge-wildlife': 'WILDLIFE',
+                'badge-bay': 'BAY',
+                'badge-ecosystem': 'ECOSYSTEM',
+                'baobab-subtitle': 'Most photographed site',
+                'tsingy-subtitle': 'Stone forest',
+                'lovers-subtitle': 'Symbol of love',
+                'kirindy-subtitle': 'Dry forest',
+                'bay-subtitle': 'Natural port',
+                'mangrove-subtitle': 'Amphibious forest',
+                'baobab-avenue-desc': 'Majestic alignment of centuries-old Adansonia grandidieri baobabs. Magical spectacle at sunrise and sunset on the road from Morondava to Belon\'i Tsiribihina.',
+                'tsingy-desc': 'Unique karst formation of sharp limestone peaks. Integral natural reserve classified as UNESCO World Heritage since 1990.',
+                'lovers-baobab-desc': 'Two intertwined Adansonia za baobabs forming a natural heart. Local legend of an impossible love become eternal.',
+                'kirindy-desc': 'Dry deciduous forest hosting exceptional biodiversity. Private reserve known for its lemurs and nocturnal fossas.',
+                'morondava-bay-desc': 'Vast bay housing the port of Morondava. Traditional fishing activities and breathtaking view of the Indian Ocean.',
+                'mangroves-desc': 'Unique mangrove ecosystem along the Tsiribihina river. Natural nursery for marine fauna and breeding zone.',
+                'feature-baobab1': 'Baobabs 30m high',
+                'feature-baobab2': 'Spectacular sunsets',
+                'feature-baobab3': 'Potential UNESCO site',
+                'feature-baobab4': 'Unique photos in the world',
+                'feature-tsingy1': 'Unique lunar landscape',
+                'feature-tsingy2': 'Rich biodiversity',
+                'feature-tsingy3': 'Suspended bridges',
+                'feature-tsingy4': 'Endemic lemurs',
+                'feature-lovers1': 'Unique natural formation',
+                'feature-lovers2': 'Pilgrimage site',
+                'feature-lovers3': 'Traditional ceremonies',
+                'feature-lovers4': 'Romantic souvenir photos',
+                'feature-kirindy1': 'Fossa (endemic predator)',
+                'feature-kirindy2': 'Nocturnal lemurs',
+                'feature-kirindy3': 'Dense thorny forest',
+                'feature-kirindy4': 'Guided observation',
+                'feature-bay1': 'Lively fishing port',
+                'feature-bay2': 'Traditional boats',
+                'feature-bay3': 'Fish auctions',
+                'feature-bay4': 'Fish restaurants',
+                'feature-mangrove1': 'Vital ecosystem',
+                'feature-mangrove2': 'Traditional canoe',
+                'feature-mangrove3': 'Bird watching',
+                'feature-mangrove4': 'Aerial roots',
+                'discover-btn': 'Discover',
+                
+                // Destinations
+                'destinations-title': 'Complete Destinations',
+                'destinations-intro': 'Explore in detail the treasures of the Morondava region. Each destination offers a unique experience and exceptional landscapes for an unforgettable trip.',
+                'location-coast': 'Morondava coast',
+                'location-center': 'Morondava city center',
+                'location-villages': 'Coastal villages',
+                'location-northeast': 'Northeast of Morondava',
+                'location-north': 'North of Morondava',
+                'location-beach': 'Morondava beach',
+                'destination-white-beaches': 'White Sand Beaches',
+                'destination-market': 'Morondava Market',
+                'destination-sea-nomads': 'Sea Nomad People',
+                'destination-andranomena': 'Andranomena Reserve',
+                'destination-tsiribihina': 'Tsiribihina Delta',
+                'destination-cemetery': 'Canoe Cemetery',
+                'white-beaches-desc': 'Immaculate fine white sand beaches lined with coconut trees. Crystal clear turquoise waters ideal for swimming and relaxation.',
+                'market-desc': 'Lively traditional market with local products, crafts and spices. Immersion in daily Malagasy life and authentic encounters.',
+                'sea-nomads-desc': 'Vezo fishing communities living in harmony with the ocean. Unique maritime culture, outrigger canoes and ancestral traditions.',
+                'andranomena-desc': 'Special dry forest reserve hosting unique biodiversity. Sanctuary for lemurs and endemic birds of Madagascar.',
+                'tsiribihina-desc': 'Vast delta where the Tsiribihina river meets the Indian Ocean. Ecosystem rich in aquatic fauna and bird nesting sites.',
+                'cemetery-desc': 'Moving site where traditional canoes are abandoned after their useful life. Testimony of Vezo maritime culture.',
+                'feature-beach1': 'Immaculate white sand',
+                'feature-beach2': 'Clear turquoise waters',
+                'feature-beach3': 'Natural coconut trees',
+                'feature-beach4': 'Spectacular sunsets',
+                'feature-market1': 'Fresh local products',
+                'feature-market2': 'Traditional crafts',
+                'feature-market3': 'Spices and vanilla',
+                'feature-market4': 'Authentic encounters',
+                'feature-nomads1': 'Unique Vezo culture',
+                'feature-nomads2': 'Traditional canoes',
+                'feature-nomads3': 'Ancestral fishing',
+                'feature-nomads4': 'Stilt villages',
+                'feature-andranomena1': 'Rare lemurs',
+                'feature-andranomena2': 'Endemic birds',
+                'feature-andranomena3': 'Preserved dry forest',
+                'feature-andranomena4': 'Hiking trails',
+                'feature-delta1': 'Unique ecosystem',
+                'feature-delta2': 'Bird watching',
+                'feature-delta3': 'Canoe excursions',
+                'feature-delta4': 'River landscapes',
+                'feature-cemetery1': 'Traditional canoes',
+                'feature-cemetery2': 'Maritime history',
+                'feature-cemetery3': 'Artistic photos',
+                'feature-cemetery4': 'Vezo tradition',
+                'explore-btn': 'Explore',
+                
+                // Services
+                'services-title': 'Our Exclusive Services',
+                'services-intro': 'Morondava Explorer accompanies you to create your dream trip. Tailor-made services for an authentic and unforgettable experience.',
+                'service1-title': 'Baobab Sunsets',
+                'service1-desc': 'Organized transport to the Avenue of the Baobabs for the best photo moments at magical sunset.',
+                'service2-title': 'Tsingy Hiking',
+                'service2-desc': 'Expert guides to safely explore the unique karst formations of Bemaraha Park.',
+                'service3-title': 'Tsiribihina Cruises',
+                'service3-desc': 'Traditional canoe navigation through mangroves and Vezo fishing villages.',
+                'service4-title': 'Professional Photography',
+                'service4-desc': 'Local photographer to immortalize your moments at iconic sites in the best light.',
+                'service5-title': 'Local Tastings',
+                'service5-desc': 'Discovery of Vezo cuisine with fresh fish, seafood and Malagasy specialties.',
+                'service6-title': 'Authentic Ecolodges',
+                'service6-desc': 'Accommodation in harmony with nature with local hosts or in ecological ecolodges.',
+                'services-btn': 'Request a Custom Quote',
+                
+                // Contact
+                'contact-title': 'Contact Morondava Explorer',
+                'contact-intro': 'Ready to discover the treasures of Morondava? Our local team is at your disposal to organize your dream stay in Western Madagascar.',
+                'contact-phone': 'Phone',
+                'contact-email': 'Email',
+                'contact-address': 'Address',
+                'whatsapp-btn': 'Direct WhatsApp',
+                'email-btn': 'Send Email',
+                
+                // Footer
+                'footer-tagline': 'Your expert guide to discover the hidden treasures of Morondava and its region. Authentic experiences, unique landscapes, unforgettable memories in the heart of Western Madagascar.',
+                'copyright': 'All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
+            },
+            de: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': 'Allee der Baobabs & Schätze Westmadagaskars',
+                'nav-home': 'Startseite',
+                'nav-emblematic': 'Wahrzeichen',
+                'nav-destinations': 'Ziele',
+                'nav-services': 'Dienstleistungen',
+                'nav-contact': 'Kontakt',
+                'select-language': 'Sprache ändern',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-ar': 'Arabisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Hero
+                'hero-title': 'Entdecken Sie Morondava',
+                'hero-subtitle': 'Tor zu Westmadagaskar! Die mythische Allee der Baobabs, majestätische Tsingy de Bemaraha, weiße Sandstrände und einzigartige Kultur der Seenomaden erwarten Sie für ein unvergessliches Sonnenuntergangsabenteuer.',
+                'feature1-title': 'Allee der Baobabs',
+                'feature1-desc': 'Spektakuläre Ausrichtung jahrhundertealter Baobabs. Meistfotografierte Stätte Madagaskars bei Sonnenuntergang.',
+                'feature2-title': 'Tsingy de Bemaraha',
+                'feature2-desc': 'Steinwald, der als UNESCO-Weltkulturerbe eingestuft ist. Einzigartige geologische Formation der Welt.',
+                'feature3-title': 'Liebende Baobabs',
+                'feature3-desc': 'Zwei verschlungene Baobabs, die ein natürliches Herz bilden. Symbol ewiger Liebe und einzigartige romantische Stätte.',
+                'hero-btn': 'Sehenswürdigkeiten erkunden',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Wahrzeichen von Morondava',
+                'emblematic-intro': 'Entdecken Sie die berühmtesten Stätten der Region. Jede Stätte bietet ein einzigartiges Erlebnis und atemberaubende Landschaften, die Morondava berühmt machen.',
+                'badge-iconic': 'IKONISCH',
+                'badge-unesco': 'UNESCO',
+                'badge-romantic': 'ROMANTISCH',
+                'badge-wildlife': 'WILDTIER',
+                'badge-bay': 'BUCHT',
+                'badge-ecosystem': 'ÖKOSYSTEM',
+                'baobab-subtitle': 'Meistfotografierte Stätte',
+                'tsingy-subtitle': 'Steinwald',
+                'lovers-subtitle': 'Liebesymbol',
+                'kirindy-subtitle': 'Trockenwald',
+                'bay-subtitle': 'Natürlicher Hafen',
+                'mangrove-subtitle': 'Amphibienwald',
+                'baobab-avenue-desc': 'Majestätische Ausrichtung jahrhundertealter Adansonia grandidieri Baobabs. Magisches Schauspiel bei Sonnenauf- und untergang auf der Straße von Morondava nach Belon\'i Tsiribihina.',
+                'tsingy-desc': 'Einzigartige Karstformation scharfer Kalksteinspitzen. Integrales Naturreservat, seit 1990 als UNESCO-Weltkulturerbe eingestuft.',
+                'lovers-baobab-desc': 'Zwei verschlungene Adansonia za Baobabs, die ein natürliches Herz bilden. Lokale Legende einer unmöglichen Liebe, die ewig wird.',
+                'kirindy-desc': 'Trockener Laubwald, der außergewöhnliche Biodiversität beherbergt. Privates Reservat bekannt für seine Lemuren und nachtaktiven Fossas.',
+                'morondava-bay-desc': 'Weite Bucht mit dem Hafen von Morondava. Traditionelle Fischereiaktivitäten und atemberaubende Aussicht auf den Indischen Ozean.',
+                'mangroves-desc': 'Einzigartiges Mangrovenökosystem entlang des Tsiribihina-Flusses. Natürliche Kinderstube für Meeresfauna und Brutzone.',
+                'feature-baobab1': 'Baobabs 30m hoch',
+                'feature-baobab2': 'Spektakuläre Sonnenuntergänge',
+                'feature-baobab3': 'Potenzielle UNESCO-Stätte',
+                'feature-baobab4': 'Einzigartige Fotos der Welt',
+                'feature-tsingy1': 'Einzigartige Mondlandschaft',
+                'feature-tsingy2': 'Reiche Biodiversität',
+                'feature-tsingy3': 'Hängebrücken',
+                'feature-tsingy4': 'Endemische Lemuren',
+                'feature-lovers1': 'Einzigartige natürliche Formation',
+                'feature-lovers2': 'Wallfahrtsort',
+                'feature-lovers3': 'Traditionelle Zeremonien',
+                'feature-lovers4': 'Romantische Erinnerungsfotos',
+                'feature-kirindy1': 'Fossa (endemischer Räuber)',
+                'feature-kirindy2': 'Nachtaktive Lemuren',
+                'feature-kirindy3': 'Dichter Dornenwald',
+                'feature-kirindy4': 'Geführte Beobachtung',
+                'feature-bay1': 'Lebhafter Fischerhafen',
+                'feature-bay2': 'Traditionelle Boote',
+                'feature-bay3': 'Fischauktionen',
+                'feature-bay4': 'Fischrestaurants',
+                'feature-mangrove1': 'Lebenswichtiges Ökosystem',
+                'feature-mangrove2': 'Traditionelles Kanu',
+                'feature-mangrove3': 'Vogelbeobachtung',
+                'feature-mangrove4': 'Luftwurzeln',
+                'discover-btn': 'Entdecken',
+                
+                // Destinations
+                'destinations-title': 'Komplette Ziele',
+                'destinations-intro': 'Erkunden Sie im Detail die Schätze der Morondava-Region. Jedes Ziel bietet ein einzigartiges Erlebnis und außergewöhnliche Landschaften für eine unvergessliche Reise.',
+                'location-coast': 'Küste von Morondava',
+                'location-center': 'Stadtzentrum von Morondava',
+                'location-villages': 'Küstendörfer',
+                'location-northeast': 'Nordosten von Morondava',
+                'location-north': 'Norden von Morondava',
+                'location-beach': 'Strand von Morondava',
+                'destination-white-beaches': 'Weiße Sandstrände',
+                'destination-market': 'Markt von Morondava',
+                'destination-sea-nomads': 'Seenomadenvolk',
+                'destination-andranomena': 'Andranomena-Reservat',
+                'destination-tsiribihina': 'Tsiribihina-Delta',
+                'destination-cemetery': 'Kanu-Friedhof',
+                'white-beaches-desc': 'Makellose feine weiße Sandstrände mit Kokospalmen. Kristallklare türkisfarbene Gewässer ideal zum Schwimmen und Entspannen.',
+                'market-desc': 'Lebhafter traditioneller Markt mit lokalen Produkten, Kunsthandwerk und Gewürzen. Eintauchen in das tägliche madagassische Leben und authentische Begegnungen.',
+                'sea-nomads-desc': 'Vezo-Fischereigemeinschaften, die im Einklang mit dem Ozean leben. Einzigartige maritime Kultur, Auslegerkanus und traditionelle Traditionen.',
+                'andranomena-desc': 'Spezielles Trockenwaldreservat mit einzigartiger Biodiversität. Zufluchtsort für Lemuren und endemische Vögel Madagaskars.',
+                'tsiribihina-desc': 'Weites Delta, wo der Tsiribihina-Fluss auf den Indischen Ozean trifft. Ökosystem reich an Wasserfauna und Vogelbrutplätzen.',
+                'cemetery-desc': 'Bewegende Stätte, wo traditionelle Kanus nach ihrer Nutzungsdauer aufgegeben werden. Zeugnis der Vezo-Meereseskultur.',
+                'feature-beach1': 'Makelloser weißer Sand',
+                'feature-beach2': 'Klare türkisfarbene Gewässer',
+                'feature-beach3': 'Natürliche Kokospalmen',
+                'feature-beach4': 'Spektakuläre Sonnenuntergänge',
+                'feature-market1': 'Frische lokale Produkte',
+                'feature-market2': 'Traditionelles Kunsthandwerk',
+                'feature-market3': 'Gewürze und Vanille',
+                'feature-market4': 'Authentische Begegnungen',
+                'feature-nomads1': 'Einzigartige Vezo-Kultur',
+                'feature-nomads2': 'Traditionelle Kanus',
+                'feature-nomads3': 'Traditionelle Fischerei',
+                'feature-nomads4': 'Pfahlbautendörfer',
+                'feature-andranomena1': 'Seltene Lemuren',
+                'feature-andranomena2': 'Endemische Vögel',
+                'feature-andranomena3': 'Erhaltener Trockenwald',
+                'feature-andranomena4': 'Wanderwege',
+                'feature-delta1': 'Einzigartiges Ökosystem',
+                'feature-delta2': 'Vogelbeobachtung',
+                'feature-delta3': 'Kanutouren',
+                'feature-delta4': 'Flusslandschaften',
+                'feature-cemetery1': 'Traditionelle Kanus',
+                'feature-cemetery2': 'Maritime Geschichte',
+                'feature-cemetery3': 'Künstlerische Fotos',
+                'feature-cemetery4': 'Vezo-Tradition',
+                'explore-btn': 'Erkunden',
+                
+                // Services
+                'services-title': 'Unsere exklusiven Dienstleistungen',
+                'services-intro': 'Morondava Explorer begleitet Sie bei der Planung Ihrer Traumreise. Maßgeschneiderte Dienstleistungen für ein authentisches und unvergessliches Erlebnis.',
+                'service1-title': 'Baobab-Sonnenuntergänge',
+                'service1-desc': 'Organisierter Transport zur Allee der Baobabs für die besten Fotomomente bei magischem Sonnenuntergang.',
+                'service2-title': 'Tsingy-Wanderungen',
+                'service2-desc': 'Expertenführer zur sicheren Erkundung der einzigartigen Karstformationen des Bemaraha-Parks.',
+                'service3-title': 'Tsiribihina-Kreuzfahrten',
+                'service3-desc': 'Traditionelle Kanufahrt durch Mangroven und Vezo-Fischerdörfer.',
+                'service4-title': 'Professionelle Fotografie',
+                'service4-desc': 'Lokaler Fotograf, um Ihre Momente an Wahrzeichen im besten Licht festzuhalten.',
+                'service5-title': 'Lokale Verkostungen',
+                'service5-desc': 'Entdeckung der Vezo-Küche mit frischem Fisch, Meeresfrüchten und madagassischen Spezialitäten.',
+                'service6-title': 'Authentische Ökolodges',
+                'service6-desc': 'Unterkunft im Einklang mit der Natur bei Einheimischen oder in ökologischen Ökolodges.',
+                'services-btn': 'Individuelles Angebot anfordern',
+                
+                // Contact
+                'contact-title': 'Kontaktieren Sie Morondava Explorer',
+                'contact-intro': 'Bereit, die Schätze von Morondava zu entdecken? Unser lokales Team steht Ihnen zur Verfügung, um Ihren Traumaufenthalt in Westmadagaskar zu organisieren.',
+                'contact-phone': 'Telefon',
+                'contact-email': 'E-Mail',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'Direkt WhatsApp',
+                'email-btn': 'E-Mail senden',
+                
+                // Footer
+                'footer-tagline': 'Ihr Expertenführer zur Entdeckung der versteckten Schätze von Morondava und seiner Region. Authentische Erfahrungen, einzigartige Landschaften, unvergessliche Erinnerungen im Herzen Westmadagaskars.',
+                'copyright': 'Alle Rechte vorbehalten.',
+                'privacy': 'Datenschutzerklärung',
+                'terms': 'Nutzungsbedingungen'
+            },
+            es: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': 'Avenida de los Baobabs & Tesoros del Oeste Malgache',
+                'nav-home': 'Inicio',
+                'nav-emblematic': 'Sitios Emblemáticos',
+                'nav-destinations': 'Destinos',
+                'nav-services': 'Servicios',
+                'nav-contact': 'Contacto',
+                'select-language': 'Cambiar Idioma',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Árabe',
+                'lang-zh': 'Chino',
+                
+                // Hero
+                'hero-title': 'Descubre Morondava',
+                'hero-subtitle': '¡Puerta de entrada al Oeste Malgache! La mítica Avenida de los Baobabs, los majestuosos Tsingy de Bemaraha, playas de arena blanca y cultura única de pueblos nómadas del mar te esperan para una aventura inolvidable al atardecer.',
+                'feature1-title': 'Avenida de los Baobabs',
+                'feature1-desc': 'Alineación espectacular de baobabs centenarios. Sitio más fotografiado de Madagascar al atardecer.',
+                'feature2-title': 'Tsingy de Bemaraha',
+                'feature2-desc': 'Bosque de piedra clasificado como Patrimonio Mundial de la UNESCO. Formación geológica única en el mundo.',
+                'feature3-title': 'Baobab Enamorado',
+                'feature3-desc': 'Dos baobabs entrelazados formando un corazón natural. Símbolo de amor eterno y sitio romántico único.',
+                'hero-btn': 'Explorar Sitios',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Sitios Emblemáticos de Morondava',
+                'emblematic-intro': 'Descubre los sitios más famosos de la región. Cada sitio ofrece una experiencia única y paisajes impresionantes que hacen famoso a Morondava.',
+                'badge-iconic': 'ICÓNICO',
+                'badge-unesco': 'UNESCO',
+                'badge-romantic': 'ROMÁNTICO',
+                'badge-wildlife': 'FAUNA',
+                'badge-bay': 'BAHÍA',
+                'badge-ecosystem': 'ECOSISTEMA',
+                'baobab-subtitle': 'Sitio más fotografiado',
+                'tsingy-subtitle': 'Bosque de piedra',
+                'lovers-subtitle': 'Símbolo de amor',
+                'kirindy-subtitle': 'Bosque seco',
+                'bay-subtitle': 'Puerto natural',
+                'mangrove-subtitle': 'Bosque anfibio',
+                'baobab-avenue-desc': 'Alineación majestuosa de baobabs Adansonia grandidieri centenarios. Espectáculo mágico al amanecer y atardecer en la carretera de Morondava a Belon\'i Tsiribihina.',
+                'tsingy-desc': 'Formación kárstica única de picos calcáreos afilados. Reserva natural integral clasificada como Patrimonio Mundial de la UNESCO desde 1990.',
+                'lovers-baobab-desc': 'Dos baobabs Adansonia za entrelazados formando un corazón natural. Leyenda local de un amor imposible hecho eterno.',
+                'kirindy-desc': 'Bosque seco caducifolio que alberga biodiversidad excepcional. Reserva privada conocida por sus lémures y fossas nocturnas.',
+                'morondava-bay-desc': 'Bahía vasta que alberga el puerto de Morondava. Actividades de pesca tradicional y vista impresionante del Océano Índico.',
+                'mangroves-desc': 'Ecosistema único de manglar a lo largo del río Tsiribihina. Criadero natural para fauna marina y zona de reproducción.',
+                'feature-baobab1': 'Baobabs de 30m de altura',
+                'feature-baobab2': 'Atardeceres espectaculares',
+                'feature-baobab3': 'Sitio UNESCO potencial',
+                'feature-baobab4': 'Fotos únicas en el mundo',
+                'feature-tsingy1': 'Paisaje lunar único',
+                'feature-tsingy2': 'Rica biodiversidad',
+                'feature-tsingy3': 'Puentes colgantes',
+                'feature-tsingy4': 'Lémures endémicos',
+                'feature-lovers1': 'Formación natural única',
+                'feature-lovers2': 'Sitio de peregrinación',
+                'feature-lovers3': 'Ceremonias tradicionales',
+                'feature-lovers4': 'Fotos recuerdo románticas',
+                'feature-kirindy1': 'Fossa (depredador endémico)',
+                'feature-kirindy2': 'Lémures nocturnos',
+                'feature-kirindy3': 'Bosque espinoso denso',
+                'feature-kirindy4': 'Observación guiada',
+                'feature-bay1': 'Puerto pesquero animado',
+                'feature-bay2': 'Barcos tradicionales',
+                'feature-bay3': 'Subastas de pescado',
+                'feature-bay4': 'Restaurantes de pescado',
+                'feature-mangrove1': 'Ecosistema vital',
+                'feature-mangrove2': 'Canoa tradicional',
+                'feature-mangrove3': 'Observación de aves',
+                'feature-mangrove4': 'Raíces aéreas',
+                'discover-btn': 'Descubrir',
+                
+                // Destinations
+                'destinations-title': 'Destinos Completos',
+                'destinations-intro': 'Explora en detalle los tesoros de la región de Morondava. Cada destino ofrece una experiencia única y paisajes excepcionales para un viaje inolvidable.',
+                'location-coast': 'Costa de Morondava',
+                'location-center': 'Centro de Morondava',
+                'location-villages': 'Pueblos costeros',
+                'location-northeast': 'Noreste de Morondava',
+                'location-north': 'Norte de Morondava',
+                'location-beach': 'Playa de Morondava',
+                'destination-white-beaches': 'Playas de Arena Blanca',
+                'destination-market': 'Mercado de Morondava',
+                'destination-sea-nomads': 'Pueblo Nómada del Mar',
+                'destination-andranomena': 'Reserva de Andranomena',
+                'destination-tsiribihina': 'Delta del Tsiribihina',
+                'destination-cemetery': 'Cementerio de Canoas',
+                'white-beaches-desc': 'Playas inmaculadas de arena blanca fina bordeadas de cocoteros. Aguas turquesas cristalinas ideales para nadar y relajarse.',
+                'market-desc': 'Mercado tradicional animado con productos locales, artesanía y especias. Inmersión en la vida diaria malgache y encuentros auténticos.',
+                'sea-nomads-desc': 'Comunidades de pescadores Vezo que viven en armonía con el océano. Cultura marítima única, canoas con balancín y tradiciones ancestrales.',
+                'andranomena-desc': 'Reserva especial de bosque seco que alberga biodiversidad única. Santuario para lémures y aves endémicas de Madagascar.',
+                'tsiribihina-desc': 'Vasto delta donde el río Tsiribihina se encuentra con el Océano Índico. Ecosistema rico en fauna acuática y sitios de anidación de aves.',
+                'cemetery-desc': 'Sitio conmovedor donde las canoas tradicionales son abandonadas después de su vida útil. Testimonio de la cultura marítima Vezo.',
+                'feature-beach1': 'Arena blanca inmaculada',
+                'feature-beach2': 'Aguas turquesas claras',
+                'feature-beach3': 'Cocoteros naturales',
+                'feature-beach4': 'Atardeceres espectaculares',
+                'feature-market1': 'Productos locales frescos',
+                'feature-market2': 'Artesanía tradicional',
+                'feature-market3': 'Especias y vainilla',
+                'feature-market4': 'Encuentros auténticos',
+                'feature-nomads1': 'Cultura Vezo única',
+                'feature-nomads2': 'Canoas tradicionales',
+                'feature-nomads3': 'Pesca ancestral',
+                'feature-nomads4': 'Pueblos sobre pilotes',
+                'feature-andranomena1': 'Lémures raros',
+                'feature-andranomena2': 'Aves endémicas',
+                'feature-andranomena3': 'Bosque seco preservado',
+                'feature-andranomena4': 'Senderos de senderismo',
+                'feature-delta1': 'Ecosistema único',
+                'feature-delta2': 'Observación de aves',
+                'feature-delta3': 'Excursiones en canoa',
+                'feature-delta4': 'Paisajes fluviales',
+                'feature-cemetery1': 'Canoas tradicionales',
+                'feature-cemetery2': 'Historia marítima',
+                'feature-cemetery3': 'Fotos artísticas',
+                'feature-cemetery4': 'Tradición Vezo',
+                'explore-btn': 'Explorar',
+                
+                // Services
+                'services-title': 'Nuestros Servicios Exclusivos',
+                'services-intro': 'Morondava Explorer te acompaña para crear el viaje de tus sueños. Servicios a medida para una experiencia auténtica e inolvidable.',
+                'service1-title': 'Atardeceres en los Baobabs',
+                'service1-desc': 'Transporte organizado a la Avenida de los Baobabs para los mejores momentos fotográficos al atardecer mágico.',
+                'service2-title': 'Senderismo en los Tsingy',
+                'service2-desc': 'Guías expertos para explorar con seguridad las formaciones kársticas únicas del parque de Bemaraha.',
+                'service3-title': 'Cruceros por el Tsiribihina',
+                'service3-desc': 'Navegación tradicional en canoa a través de manglares y pueblos de pescadores Vezo.',
+                'service4-title': 'Fotografía Profesional',
+                'service4-desc': 'Fotógrafo local para inmortalizar tus momentos en sitios emblemáticos con la mejor luz.',
+                'service5-title': 'Degustaciones Locales',
+                'service5-desc': 'Descubrimiento de la cocina Vezo con pescado fresco, mariscos y especialidades malgaches.',
+                'service6-title': 'Ecolodges Auténticos',
+                'service6-desc': 'Alojamiento en armonía con la naturaleza con habitantes locales o en ecolodges ecológicos.',
+                'services-btn': 'Solicitar Presupuesto Personalizado',
+                
+                // Contact
+                'contact-title': 'Contacta con Morondava Explorer',
+                'contact-intro': '¿Listo para descubrir los tesoros de Morondava? Nuestro equipo local está a tu disposición para organizar tu estancia de ensueño en el Oeste Malgache.',
+                'contact-phone': 'Teléfono',
+                'contact-email': 'Correo Electrónico',
+                'contact-address': 'Dirección',
+                'whatsapp-btn': 'WhatsApp Directo',
+                'email-btn': 'Enviar Correo',
+                
+                // Footer
+                'footer-tagline': 'Tu guía experto para descubrir los tesoros ocultos de Morondava y su región. Experiencias auténticas, paisajes únicos, recuerdos inolvidables en el corazón del Oeste Malgache.',
+                'copyright': 'Todos los derechos reservados.',
+                'privacy': 'Política de Privacidad',
+                'terms': 'Términos de Uso'
+            },
+            it: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': 'Viale dei Baobab & Tesori del Madagascar Occidentale',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Siti Iconici',
+                'nav-destinations': 'Destinazioni',
+                'nav-services': 'Servizi',
+                'nav-contact': 'Contatto',
+                'select-language': 'Cambia Lingua',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Arabo',
+                'lang-zh': 'Cinese',
+                
+                // Hero
+                'hero-title': 'Scopri Morondava',
+                'hero-subtitle': 'Porta d\'accesso al Madagascar Occidentale! Il mitico Viale dei Baobab, i maestosi Tsingy de Bemaraha, spiagge di sabbia bianca e cultura unica dei popoli nomadi del mare ti aspettano per un\'avventura indimenticabile al tramonto.',
+                'feature1-title': 'Viale dei Baobab',
+                'feature1-desc': 'Allineamento spettacolare di baobab secolari. Sito più fotografato del Madagascar al tramonto.',
+                'feature2-title': 'Tsingy de Bemaraha',
+                'feature2-desc': 'Foresta di pietra classificata come Patrimonio Mondiale UNESCO. Formazione geologica unica al mondo.',
+                'feature3-title': 'Baobab Innamorati',
+                'feature3-desc': 'Due baobab intrecciati che formano un cuore naturale. Simbolo di amore eterno e sito romantico unico.',
+                'hero-btn': 'Esplora i Siti',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Siti Iconici di Morondava',
+                'emblematic-intro': 'Scopri i siti più famosi della regione. Ogni sito offre un\'esperienza unica e paesaggi mozzafiato che rendono famosa Morondava.',
+                'badge-iconic': 'ICONICO',
+                'badge-unesco': 'UNESCO',
+                'badge-romantic': 'ROMANTICO',
+                'badge-wildlife': 'FAUNA',
+                'badge-bay': 'BAIA',
+                'badge-ecosystem': 'ECOSISTEMA',
+                'baobab-subtitle': 'Sito più fotografato',
+                'tsingy-subtitle': 'Foresta di pietra',
+                'lovers-subtitle': 'Simbolo d\'amore',
+                'kirindy-subtitle': 'Foresta secca',
+                'bay-subtitle': 'Porto naturale',
+                'mangrove-subtitle': 'Foresta anfibia',
+                'baobab-avenue-desc': 'Allineamento maestoso di baobab Adansonia grandidieri secolari. Spettacolo magico all\'alba e tramonto sulla strada da Morondava a Belon\'i Tsiribihina.',
+                'tsingy-desc': 'Formazione carsica unica di picchi calcarei affilati. Riserva naturale integrale classificata come Patrimonio Mondiale UNESCO dal 1990.',
+                'lovers-baobab-desc': 'Due baobab Adansonia za intrecciati che formano un cuore naturale. Leggenda locale di un amore impossibile diventato eterno.',
+                'kirindy-desc': 'Foresta secca decidua che ospita biodiversità eccezionale. Riserva privata nota per i suoi lemuri e fossa notturni.',
+                'morondava-bay-desc': 'Vasta baia che ospita il porto di Morondava. Attività di pesca tradizionale e vista mozzafiato sull\'Oceano Indiano.',
+                'mangroves-desc': 'Ecosistema unico di mangrovie lungo il fiume Tsiribihina. Vivaio naturale per fauna marina e zona di riproduzione.',
+                'feature-baobab1': 'Baobab alti 30m',
+                'feature-baobab2': 'Tramonti spettacolari',
+                'feature-baobab3': 'Sito UNESCO potenziale',
+                'feature-baobab4': 'Foto uniche al mondo',
+                'feature-tsingy1': 'Paesaggio lunare unico',
+                'feature-tsingy2': 'Ricca biodiversità',
+                'feature-tsingy3': 'Ponti sospesi',
+                'feature-tsingy4': 'Lemuri endemici',
+                'feature-lovers1': 'Formazione naturale unica',
+                'feature-lovers2': 'Sito di pellegrinaggio',
+                'feature-lovers3': 'Cerimonie tradizionali',
+                'feature-lovers4': 'Foto ricordo romantiche',
+                'feature-kirindy1': 'Fossa (predatore endemico)',
+                'feature-kirindy2': 'Lemuri notturni',
+                'feature-kirindy3': 'Foresta spinosa densa',
+                'feature-kirindy4': 'Osservazione guidata',
+                'feature-bay1': 'Porto peschereccio animato',
+                'feature-bay2': 'Barche tradizionali',
+                'feature-bay3': 'Aste di pesce',
+                'feature-bay4': 'Ristoranti di pesce',
+                'feature-mangrove1': 'Ecosistema vitale',
+                'feature-mangrove2': 'Canoa tradizionale',
+                'feature-mangrove3': 'Osservazione uccelli',
+                'feature-mangrove4': 'Radici aeree',
+                'discover-btn': 'Scopri',
+                
+                // Destinations
+                'destinations-title': 'Destinazioni Complete',
+                'destinations-intro': 'Esplora in dettaglio i tesori della regione di Morondava. Ogni destinazione offre un\'esperienza unica e paesaggi eccezionali per un viaggio indimenticabile.',
+                'location-coast': 'Costa di Morondava',
+                'location-center': 'Centro città di Morondava',
+                'location-villages': 'Villaggi costieri',
+                'location-northeast': 'Nord-est di Morondava',
+                'location-north': 'Nord di Morondava',
+                'location-beach': 'Spiaggia di Morondava',
+                'destination-white-beaches': 'Spiagge di Sabbia Bianca',
+                'destination-market': 'Mercato di Morondava',
+                'destination-sea-nomads': 'Popolo Nomade del Mare',
+                'destination-andranomena': 'Riserva di Andranomena',
+                'destination-tsiribihina': 'Delta del Tsiribihina',
+                'destination-cemetery': 'Cimitero delle Canoe',
+                'white-beaches-desc': 'Spiagge immacolate di sabbia bianca fine bordate di palme da cocco. Acque turchesi cristalline ideali per nuotare e rilassarsi.',
+                'market-desc': 'Mercato tradizionale animato con prodotti locali, artigianato e spezie. Immersione nella vita quotidiana malgascia e incontri autentici.',
+                'sea-nomads-desc': 'Comunità di pescatori Vezo che vivono in armonia con l\'oceano. Cultura marittima unica, canoe con bilanciere e tradizioni ancestrali.',
+                'andranomena-desc': 'Riserva speciale di foresta secca che ospita biodiversità unica. Santuario per lemuri e uccelli endemici del Madagascar.',
+                'tsiribihina-desc': 'Vasto delta dove il fiume Tsiribihina incontra l\'Oceano Indiano. Ecosistema ricco di fauna acquatica e siti di nidificazione uccelli.',
+                'cemetery-desc': 'Sito commovente dove le canoe tradizionali vengono abbandonate dopo la loro vita utile. Testimonianza della cultura marittima Vezo.',
+                'feature-beach1': 'Sabbia bianca immacolata',
+                'feature-beach2': 'Acque turchesi chiare',
+                'feature-beach3': 'Palme da cocco naturali',
+                'feature-beach4': 'Tramonti spettacolari',
+                'feature-market1': 'Prodotti locali freschi',
+                'feature-market2': 'Artigianato tradizionale',
+                'feature-market3': 'Spezie e vaniglia',
+                'feature-market4': 'Incontri autentici',
+                'feature-nomads1': 'Cultura Vezo unica',
+                'feature-nomads2': 'Canoe tradizionali',
+                'feature-nomads3': 'Pesca ancestrale',
+                'feature-nomads4': 'Villaggi su palafitte',
+                'feature-andranomena1': 'Lemuri rari',
+                'feature-andranomena2': 'Uccelli endemici',
+                'feature-andranomena3': 'Foresta secca preservata',
+                'feature-andranomena4': 'Sentieri escursionistici',
+                'feature-delta1': 'Ecosistema unico',
+                'feature-delta2': 'Osservazione uccelli',
+                'feature-delta3': 'Escursioni in canoa',
+                'feature-delta4': 'Paesaggi fluviali',
+                'feature-cemetery1': 'Canoe tradizionali',
+                'feature-cemetery2': 'Storia marittima',
+                'feature-cemetery3': 'Foto artistiche',
+                'feature-cemetery4': 'Tradizione Vezo',
+                'explore-btn': 'Esplora',
+                
+                // Services
+                'services-title': 'I nostri Servizi Esclusivi',
+                'services-intro': 'Morondava Explorer ti accompagna per creare il viaggio dei tuoi sogni. Servizi su misura per un\'esperienza autentica e indimenticabile.',
+                'service1-title': 'Tramonti ai Baobab',
+                'service1-desc': 'Trasporto organizzato al Viale dei Baobab per i migliori momenti fotografici al tramonto magico.',
+                'service2-title': 'Escursioni Tsingy',
+                'service2-desc': 'Guide esperte per esplorare in sicurezza le formazioni carsiche uniche del parco di Bemaraha.',
+                'service3-title': 'Crociere Tsiribihina',
+                'service3-desc': 'Navigazione tradizionale in canoa attraverso mangrovie e villaggi di pescatori Vezo.',
+                'service4-title': 'Fotografia Professionale',
+                'service4-desc': 'Fotografo locale per immortalare i tuoi momenti nei siti iconici con la migliore luce.',
+                'service5-title': 'Degustazioni Locali',
+                'service5-desc': 'Scoperta della cucina Vezo con pesce fresco, frutti di mare e specialità malgasce.',
+                'service6-title': 'Ecolodge Autentici',
+                'service6-desc': 'Alloggio in armonia con la natura presso abitanti locali o in ecolodge ecologici.',
+                'services-btn': 'Richiedi Preventivo Personalizzato',
+                
+                // Contact
+                'contact-title': 'Contatta Morondava Explorer',
+                'contact-intro': 'Pronto a scoprire i tesori di Morondava? Il nostro team locale è a tua disposizione per organizzare il tuo soggiorno da sogno nel Madagascar Occidentale.',
+                'contact-phone': 'Telefono',
+                'contact-email': 'Email',
+                'contact-address': 'Indirizzo',
+                'whatsapp-btn': 'WhatsApp Diretto',
+                'email-btn': 'Invia Email',
+                
+                // Footer
+                'footer-tagline': 'La tua guida esperta per scoprire i tesori nascosti di Morondava e della sua regione. Esperienze autentiche, paesaggi unici, ricordi indimenticabili nel cuore del Madagascar Occidentale.',
+                'copyright': 'Tutti i diritti riservati.',
+                'privacy': 'Politica sulla Privacy',
+                'terms': 'Termini di Utilizzo'
+            },
+            ar: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': 'طريق الباوباب وكنوز غرب مدغشقر',
+                'nav-home': 'الرئيسية',
+                'nav-emblematic': 'المواقع الشهيرة',
+                'nav-destinations': 'الوجهات',
+                'nav-services': 'الخدمات',
+                'nav-contact': 'اتصل بنا',
+                'select-language': 'تغيير اللغة',
+                'lang-fr': 'الفرنسية',
+                'lang-en': 'الإنجليزية',
+                'lang-de': 'الألمانية',
+                'lang-es': 'الإسبانية',
+                'lang-it': 'الإيطالية',
+                'lang-ar': 'العربية',
+                'lang-zh': 'الصينية',
+                
+                // Hero
+                'hero-title': 'اكتشف موروندافا',
+                'hero-subtitle': 'بوابة غرب مدغشقر! طريق الباوباب الأسطوري، تسينجي بيماراها المهيب، شواطئ الرمال البيضاء وثقافة فريدة لبدو البحر ينتظرونك لمغامرة لا تُنسى عند غروب الشمس.',
+                'feature1-title': 'طريق الباوباب',
+                'feature1-desc': 'صف مذهل من أشجار الباوباب المعمرة. الموقع الأكثر تصويرًا في مدغشقر عند غروب الشمس.',
+                'feature2-title': 'تسينجي بيماراها',
+                'feature2-desc': 'غابة حجرية مصنفة كتراث عالمي لليونسكو. تشكيل جيولوجي فريد في العالم.',
+                'feature3-title': 'باوباب العشاق',
+                'feature3-desc': 'شجرتا باوباب متشابكتان تشكلان قلبًا طبيعيًا. رمز الحب الأبدي وموقع رومانسي فريد.',
+                'hero-btn': 'استكشف المواقع',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'المواقع الشهيرة في موروندافا',
+                'emblematic-intro': 'اكتشف أشهر المواقع في المنطقة. كل موقع يقدم تجربة فريدة ومناظر طبيعية تأخذ الأنفاس تجعل موروندافا مشهورة.',
+                'badge-iconic': 'أيقوني',
+                'badge-unesco': 'يونسكو',
+                'badge-romantic': 'رومانسي',
+                'badge-wildlife': 'حياة برية',
+                'badge-bay': 'خليج',
+                'badge-ecosystem': 'نظام بيئي',
+                'baobab-subtitle': 'الموقع الأكثر تصويرًا',
+                'tsingy-subtitle': 'غابة حجرية',
+                'lovers-subtitle': 'رمز الحب',
+                'kirindy-subtitle': 'غابة جافة',
+                'bay-subtitle': 'ميناء طبيعي',
+                'mangrove-subtitle': 'غابة برمائية',
+                'baobab-avenue-desc': 'صف مهيب من أشجار الباوباب Adansonia grandidieri المعمرة. مشهد سحري عند شروق وغروب الشمس على طريق موروندافا إلى بيلوني تسيريبيهينا.',
+                'tsingy-desc': 'تشكيل كارستي فريد من قمم حجر جيري حادة. محمية طبيعية كاملة مصنفة كتراث عالمي لليونسكو منذ 1990.',
+                'lovers-baobab-desc': 'شجرتا باوباب Adansonia za متشابكتان تشكلان قلبًا طبيعيًا. أسطورة محلية لحب مستحيل أصبح أبديًا.',
+                'kirindy-desc': 'غابة نفضية جافة تأوي تنوعًا بيولوجيًا استثنائيًا. محمية خاصة معروفة بليموراتها وحيوانات الفوسا الليلية.',
+                'morondava-bay-desc': 'خليج واسع يضم ميناء موروندافا. أنشطة الصيد التقليدية ومنظر مذهل للمحيط الهندي.',
+                'mangroves-desc': 'نظام بيئي فريد لأشجار المانغروف على طول نهر تسيريبيهينا. حضانة طبيعية للحيوانات البحرية ومنطقة تكاثر.',
+                'feature-baobab1': 'أشجار باوباب بارتفاع 30م',
+                'feature-baobab2': 'غروب شمس مذهل',
+                'feature-baobab3': 'موقع يونسكو محتمل',
+                'feature-baobab4': 'صور فريدة في العالم',
+                'feature-tsingy1': 'منظر قمري فريد',
+                'feature-tsingy2': 'تنوع بيولوجي غني',
+                'feature-tsingy3': 'جسور معلقة',
+                'feature-tsingy4': 'ليمورات مستوطنة',
+                'feature-lovers1': 'تشكيل طبيعي فريد',
+                'feature-lovers2': 'موقع حج',
+                'feature-lovers3': 'طقوس تقليدية',
+                'feature-lovers4': 'صور تذكارية رومانسية',
+                'feature-kirindy1': 'فوسا (مفترس مستوطن)',
+                'feature-kirindy2': 'ليمورات ليلية',
+                'feature-kirindy3': 'غابة شائكة كثيفة',
+                'feature-kirindy4': 'مراقبة موجهة',
+                'feature-bay1': 'ميناء صيد حيوي',
+                'feature-bay2': 'قوارب تقليدية',
+                'feature-bay3': 'مزادات أسماك',
+                'feature-bay4': 'مطاعم أسماك',
+                'feature-mangrove1': 'نظام بيئي حيوي',
+                'feature-mangrove2': 'قارب تقليدي',
+                'feature-mangrove3': 'مراقبة الطيور',
+                'feature-mangrove4': 'جذور هوائية',
+                'discover-btn': 'اكتشف',
+                
+                // Destinations
+                'destinations-title': 'وجهات كاملة',
+                'destinations-intro': 'استكشف بالتفصيل كنوز منطقة موروندافا. كل وجهة تقدم تجربة فريدة ومناظر طبيعية استثنائية لرحلة لا تُنسى.',
+                'location-coast': 'ساحل موروندافا',
+                'location-center': 'وسط مدينة موروندافا',
+                'location-villages': 'قرى ساحلية',
+                'location-northeast': 'شمال شرق موروندافا',
+                'location-north': 'شمال موروندافا',
+                'location-beach': 'شاطئ موروندافا',
+                'destination-white-beaches': 'شواطئ الرمال البيضاء',
+                'destination-market': 'سوق موروندافا',
+                'destination-sea-nomads': 'شعب بدو البحر',
+                'destination-andranomena': 'محمية أندرانومينا',
+                'destination-tsiribihina': 'دلتا تسيريبيهينا',
+                'destination-cemetery': 'مقبرة القوارب',
+                'white-beaches-desc': 'شواطئ رمل أبيض نقي ناعم تحيط بها أشجار جوز الهند. مياه فيروزية صافية مثالية للسباحة والاسترخاء.',
+                'market-desc': 'سوق تقليدي نابض بالحياة بمنتجات محلية، حرف يدوية وتوابل. انغماس في الحياة اليومية المالاجاشية ولقاءات أصلية.',
+                'sea-nomads-desc': 'مجتمعات صيادي فيزو الذين يعيشون في وئام مع المحيط. ثقافة بحرية فريدة، قوارب الشراع التقليدية وتقاليد عريقة.',
+                'andranomena-desc': 'محمية غابة جافة خاصة تؤوي تنوعًا بيولوجيًا فريدًا. ملاذ لليمورات والطيور المستوطنة في مدغشقر.',
+                'tsiribihina-desc': 'دلتا واسعة حيث يلتقي نهر تسيريبيهينا بالمحيط الهندي. نظام بيئي غني بالحيوانات المائية ومواقع تعشيش الطيور.',
+                'cemetery-desc': 'موقع مؤثر حيث تُهجر القوارب التقليدية بعد انتهاء عمرها الافتراضي. شهادة على الثقافة البحرية لفيزو.',
+                'feature-beach1': 'رمل أبيض نقي',
+                'feature-beach2': 'مياه فيروزية صافية',
+                'feature-beach3': 'أشجار جوز الهند الطبيعية',
+                'feature-beach4': 'غروب شمس مذهل',
+                'feature-market1': 'منتجات محلية طازجة',
+                'feature-market2': 'حرف يدوية تقليدية',
+                'feature-market3': 'توابل وفانيليا',
+                'feature-market4': 'لقاءات أصلية',
+                'feature-nomads1': 'ثقافة فيزو فريدة',
+                'feature-nomads2': 'قوارب تقليدية',
+                'feature-nomads3': 'صيد تقليدي',
+                'feature-nomads4': 'قرى على ركائز',
+                'feature-andranomena1': 'ليمورات نادرة',
+                'feature-andranomena2': 'طيور مستوطنة',
+                'feature-andranomena3': 'غابة جافة محفوظة',
+                'feature-andranomena4': 'مسارات مشي',
+                'feature-delta1': 'نظام بيئي فريد',
+                'feature-delta2': 'مراقبة الطيور',
+                'feature-delta3': 'رحلات بالقوارب',
+                'feature-delta4': 'مناظر نهرية',
+                'feature-cemetery1': 'قوارب تقليدية',
+                'feature-cemetery2': 'تاريخ بحري',
+                'feature-cemetery3': 'صور فنية',
+                'feature-cemetery4': 'تقاليد فيزو',
+                'explore-btn': 'استكشف',
+                
+                // Services
+                'services-title': 'خدماتنا الحصرية',
+                'services-intro': 'موروندافا إكسبلورر ترافقك لخلق رحلة أحلامك. خدمات مخصصة لتجربة أصلية لا تُنسى.',
+                'service1-title': 'غروب الشمس عند الباوباب',
+                'service1-desc': 'نقل منظم إلى طريق الباوباب لأفضل اللحظات التصويرية عند غروب الشمس الساحر.',
+                'service2-title': 'رحلات تسينجي',
+                'service2-desc': 'مرشدون خبراء لاستكشاف التشكيلات الكارستية الفريدة لمتنزه بيماراها بأمان.',
+                'service3-title': 'رحلات تسيريبيهينا',
+                'service3-desc': 'ملاحة تقليدية بالقارب عبر أشجار المانغروف وقرى صيادي فيزو.',
+                'service4-title': 'تصوير احترافي',
+                'service4-desc': 'مصور محلي لتخليد لحظاتك في المواقع الشهيرة بأفضل إضاءة.',
+                'service5-title': 'تذوق الأطباق المحلية',
+                'service5-desc': 'اكتشاف مطبخ فيزو مع أسماك طازجة، مأكولات بحرية وأطباق مالاجاشية خاصة.',
+                'service6-title': 'نزل بيئي أصيل',
+                'service6-desc': 'إقامة متناغمة مع الطبيعة مع مضيفين محليين أو في نزل بيئي.',
+                'services-btn': 'طلب عرض سعر مخصص',
+                
+                // Contact
+                'contact-title': 'اتصل بموروندافا إكسبلورر',
+                'contact-intro': 'مستعد لاكتشاف كنوز موروندافا؟ فريقنا المحلي تحت تصرفك لتنظيم إقامة أحلامك في غرب مدغشقر.',
+                'contact-phone': 'هاتف',
+                'contact-email': 'بريد إلكتروني',
+                'contact-address': 'عنوان',
+                'whatsapp-btn': 'واتساب مباشر',
+                'email-btn': 'إرسال بريد إلكتروني',
+                
+                // Footer
+                'footer-tagline': 'مرشدك الخبير لاكتشاف الكنوز المخفية لموروندافا ومنطقتها. تجارب أصلية، مناظر طبيعية فريدة، ذكريات لا تُنسى في قلب غرب مدغشقر.',
+                'copyright': 'جميع الحقوق محفوظة.',
+                'privacy': 'سياسة الخصوصية',
+                'terms': 'شروط الاستخدام'
+            },
+            zh: {
+                // Header
+                'logo-title': 'Island Mada Travel',
+                'logo-tagline': '猴面包树大道和马达加斯加西部宝藏',
+                'nav-home': '首页',
+                'nav-emblematic': '标志性景点',
+                'nav-destinations': '目的地',
+                'nav-services': '服务',
+                'nav-contact': '联系我们',
+                'select-language': '更改语言',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-ar': '阿拉伯语',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': '探索穆龙达瓦',
+                'hero-subtitle': '通往马达加斯加西部的门户！神秘的猴面包树大道、雄伟的贝马拉哈石林、白色沙滩和独特的海上游牧民族文化在日落时分等待您，为您带来难忘的冒险体验。',
+                'feature1-title': '猴面包树大道',
+                'feature1-desc': '世纪猴面包树的壮观排列。马达加斯加日落时分拍摄最多的地点。',
+                'feature2-title': '贝马拉哈石林',
+                'feature2-desc': '被列为联合国教科文组织世界遗产的石林。世界上独特的地质构造。',
+                'feature3-title': '情人猴面包树',
+                'feature3-desc': '两棵交织的猴面包树形成自然心形。永恒爱情的象征和独特的浪漫地点。',
+                'hero-btn': '探索景点',
+                
+                // Sites Emblématiques
+                'emblematic-title': '穆龙达瓦标志性景点',
+                'emblematic-intro': '探索该地区最著名的景点。每个景点都提供独特的体验和令人惊叹的景观，使穆龙达瓦闻名遐迩。',
+                'badge-iconic': '标志性',
+                'badge-unesco': '联合国教科文组织',
+                'badge-romantic': '浪漫',
+                'badge-wildlife': '野生动物',
+                'badge-bay': '海湾',
+                'badge-ecosystem': '生态系统',
+                'baobab-subtitle': '拍摄最多的地点',
+                'tsingy-subtitle': '石林',
+                'lovers-subtitle': '爱情象征',
+                'kirindy-subtitle': '干旱森林',
+                'bay-subtitle': '天然港口',
+                'mangrove-subtitle': '两栖森林',
+                'baobab-avenue-desc': '世纪Adansonia grandidieri猴面包树的雄伟排列。穆龙达瓦到贝洛尼齐里比希纳公路上日出和日落时分的魔法景象。',
+                'tsingy-desc': '尖锐石灰岩峰形成的独特喀斯特地貌。自1990年起被列为联合国教科文组织世界遗产的完整自然保护区。',
+                'lovers-baobab-desc': '两棵交织的Adansonia za猴面包树形成自然心形。不可能的爱情成为永恒的当地传说。',
+                'kirindy-desc': '容纳特殊生物多样性的干旱落叶林。以狐猴和夜间马岛獴闻名的私人保护区。',
+                'morondava-bay-desc': '容纳穆龙达瓦港的广阔海湾。传统捕鱼活动和印度洋的壮丽景色。',
+                'mangroves-desc': '沿齐里比希纳河的独特红树林生态系统。海洋动物的天然育苗场和繁殖区。',
+                'feature-baobab1': '30米高的猴面包树',
+                'feature-baobab2': '壮观的日落',
+                'feature-baobab3': '潜在的联合国教科文组织地点',
+                'feature-baobab4': '世界上独特的照片',
+                'feature-tsingy1': '独特的月球景观',
+                'feature-tsingy2': '丰富的生物多样性',
+                'feature-tsingy3': '悬索桥',
+                'feature-tsingy4': '特有狐猴',
+                'feature-lovers1': '独特的自然构造',
+                'feature-lovers2': '朝圣地',
+                'feature-lovers3': '传统仪式',
+                'feature-lovers4': '浪漫纪念照',
+                'feature-kirindy1': '马岛獴（特有捕食者）',
+                'feature-kirindy2': '夜间狐猴',
+                'feature-kirindy3': '密集多刺森林',
+                'feature-kirindy4': '引导观察',
+                'feature-bay1': '热闹的渔港',
+                'feature-bay2': '传统船只',
+                'feature-bay3': '鱼拍卖',
+                'feature-bay4': '鱼类餐厅',
+                'feature-mangrove1': '重要的生态系统',
+                'feature-mangrove2': '传统独木舟',
+                'feature-mangrove3': '观鸟',
+                'feature-mangrove4': '气根',
+                'discover-btn': '发现',
+                
+                // Destinations
+                'destinations-title': '完整目的地',
+                'destinations-intro': '详细探索穆龙达瓦地区的宝藏。每个目的地都提供独特的体验和非凡的景观，打造难忘之旅。',
+                'location-coast': '穆龙达瓦海岸',
+                'location-center': '穆龙达瓦市中心',
+                'location-villages': '沿海村庄',
+                'location-northeast': '穆龙达瓦东北部',
+                'location-north': '穆龙达瓦北部',
+                'location-beach': '穆龙达瓦海滩',
+                'destination-white-beaches': '白色沙滩',
+                'destination-market': '穆龙达瓦市场',
+                'destination-sea-nomads': '海上游牧民族',
+                'destination-andranomena': '安德拉诺梅纳保护区',
+                'destination-tsiribihina': '齐里比希纳三角洲',
+                'destination-cemetery': '独木舟墓地',
+                'white-beaches-desc': '细白沙滩，两旁椰树环绕。清澈碧绿的海水，适合游泳和放松。',
+                'market-desc': '热闹的传统市场，有当地产品、手工艺品和香料。沉浸在马达加斯加的日常生活中，体验真实的相遇。',
+                'sea-nomads-desc': '与海洋和谐共处的维佐渔民社区。独特的海洋文化、舷外支架独木舟和祖先传统。',
+                'andranomena-desc': '容纳独特生物多样性的特殊干旱森林保护区。马达加斯加狐猴和特有鸟类的避难所。',
+                'tsiribihina-desc': '齐里比希纳河与印度洋交汇的广阔三角洲。富含水生动物和鸟类筑巢地的生态系统。',
+                'cemetery-desc': '传统独木舟在使用寿命结束后被遗弃的感人地点。维佐海洋文化的见证。',
+                'feature-beach1': '无瑕的白色沙滩',
+                'feature-beach2': '清澈的碧绿海水',
+                'feature-beach3': '天然椰子树',
+                'feature-beach4': '壮观的日落',
+                'feature-market1': '新鲜当地产品',
+                'feature-market2': '传统手工艺品',
+                'feature-market3': '香料和香草',
+                'feature-market4': '真实的相遇',
+                'feature-nomads1': '独特的维佐文化',
+                'feature-nomads2': '传统独木舟',
+                'feature-nomads3': '传统捕鱼',
+                'feature-nomads4': '高跷村庄',
+                'feature-andranomena1': '稀有狐猴',
+                'feature-andranomena2': '特有鸟类',
+                'feature-andranomena3': '保存完好的干旱森林',
+                'feature-andranomena4': '徒步小径',
+                'feature-delta1': '独特的生态系统',
+                'feature-delta2': '观鸟',
+                'feature-delta3': '独木舟游览',
+                'feature-delta4': '河流景观',
+                'feature-cemetery1': '传统独木舟',
+                'feature-cemetery2': '海洋历史',
+                'feature-cemetery3': '艺术照片',
+                'feature-cemetery4': '维佐传统',
+                'explore-btn': '探索',
+                
+                // Services
+                'services-title': '我们的独家服务',
+                'services-intro': '穆龙达瓦探索者陪伴您打造梦想之旅。量身定制的服务，带来真实难忘的体验。',
+                'service1-title': '猴面包树日落',
+                'service1-desc': '组织前往猴面包树大道的交通，在魔法日落时分捕捉最佳摄影时刻。',
+                'service2-title': '石林徒步',
+                'service2-desc': '专家向导安全探索贝马拉哈公园独特的喀斯特地貌。',
+                'service3-title': '齐里比希纳游船',
+                'service3-desc': '传统独木舟航行穿越红树林和维佐渔村。',
+                'service4-title': '专业摄影',
+                'service4-desc': '当地摄影师在最佳光线下为您在标志性地点捕捉瞬间。',
+                'service5-title': '当地美食体验',
+                'service5-desc': '发现维佐美食，品尝新鲜鱼类、海鲜和马达加斯加特色菜。',
+                'service6-title': '真实生态旅馆',
+                'service6-desc': '与大自然和谐相处的住宿，可选择当地寄宿家庭或生态旅馆。',
+                'services-btn': '请求定制报价',
+                
+                // Contact
+                'contact-title': '联系穆龙达瓦探索者',
+                'contact-intro': '准备好探索穆龙达瓦的宝藏了吗？我们的当地团队随时为您服务，为您组织在马达加斯加西部的梦想之旅。',
+                'contact-phone': '电话',
+                'contact-email': '电子邮件',
+                'contact-address': '地址',
+                'whatsapp-btn': '直接WhatsApp',
+                'email-btn': '发送邮件',
+                
+                // Footer
+                'footer-tagline': '您探索穆龙达瓦及其地区隐藏宝藏的专家向导。真实体验，独特景观，在马达加斯加西部中心创造难忘回忆。',
+                'copyright': '版权所有。',
+                'privacy': '隐私政策',
+                'terms': '使用条款'
+            }
+        };
+
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fermer le menu au clic sur un lien
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Mettre à jour l'état actif
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mettre à jour la navigation desktop
+                const href = link.getAttribute('href');
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // ===== CHANGEMENT DE LANGUE =====
+        const languageOptions = document.querySelectorAll('.language-option, .mobile-language-option');
+        const currentLangElements = document.querySelectorAll('.current-lang, .current-lang-mobile');
+        
+        // Langue par défaut
+        let currentLang = 'fr';
+
+        // Charger la langue depuis localStorage ou détecter
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('morondavaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            } else {
+                currentLang = 'fr';
+            }
+            
+            updateLanguage();
+        }
+
+        // Mettre à jour toutes les traductions
+        function updateLanguage() {
+            // Mettre à jour les textes avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Mettre à jour les indicateurs de langue
+            currentLangElements.forEach(el => {
+                el.textContent = currentLang.toUpperCase();
+            });
+
+            // Mettre à jour les options actives
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Sauvegarder la préférence
+            localStorage.setItem('morondavaLang', currentLang);
+            
+            // Fermer le menu mobile si ouvert
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Gérer le clic sur les options de langue
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        // ===== NAVIGATION ACTIVE STATE =====
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== IMAGE LOADING =====
+        function loadImages() {
+            const images = document.querySelectorAll('.loading');
+            
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                    image.onload = () => {
+                        img.classList.remove('loading');
+                    };
+                }
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '8px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(139, 69, 19, 0.3)';
+            } else {
+                header.style.padding = '12px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(139, 69, 19, 0.2)';
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger la langue
+            loadLanguage();
+            
+            // Mettre à jour l'année du copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Charger les images
+            loadImages();
+            
+            // Événements de scroll
+            window.addEventListener('scroll', () => {
+                handleScrollAnimations();
+                updateActiveNav();
+                handleHeaderScroll();
+            });
+            
+            // Initialiser les animations
+            handleScrollAnimations();
+            updateActiveNav();
+            handleHeaderScroll();
+            
+            // Fermer le menu au clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Gestion des touches Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // ===== ORIENTATION CHANGE =====
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                handleScrollAnimations();
+                updateActiveNav();
+            }, 300);
+        });
+
+        // ===== PREVENT CONTEXT MENU ON MOBILE =====
+        document.addEventListener('contextmenu', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

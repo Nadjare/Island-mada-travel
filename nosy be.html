@@ -1,0 +1,2659 @@
+                
+                <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Nosy Be & Ses Îles Paradisiaques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a2a 0%, #1a2b3c 100%);
+            color: #f0f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== PALETTE DE COULEURS NOSY BE ===== */
+        :root {
+            --color-turquoise: #40e0d0;
+            --color-turquoise-dark: #20b2aa;
+            --color-sand: #f4d03f;
+            --color-sand-light: #f7dc6f;
+            --color-coral: #ff6b6b;
+            --color-ocean: #1e90ff;
+            --color-ocean-dark: #1c86ee;
+            --color-white: #ffffff;
+            --color-night: #0a1a2a;
+            --color-gold: #ffd700;
+        }
+
+        /* ===== HEADER RESPONSIVE ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 26, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 5%;
+            border-bottom: 3px solid var(--color-turquoise);
+            box-shadow: 0 5px 20px rgba(64, 224, 208, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--color-turquoise), var(--color-ocean));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+            border: 2px solid var(--color-sand);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--color-sand);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ===== NAVIGATION DESKTOP ===== */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-turquoise);
+            background: rgba(64, 224, 208, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--color-turquoise);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-turquoise), var(--color-sand));
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(64, 224, 208, 0.4);
+        }
+
+        /* ===== BOUTON LANGUE DESKTOP ===== */
+        .language-desktop-btn {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.2), rgba(30, 144, 255, 0.2));
+            border: 2px solid var(--color-turquoise);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 90px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(64, 224, 208, 0.3);
+        }
+
+        .language-desktop-btn:hover {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.3), rgba(30, 144, 255, 0.3));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(64, 224, 208, 0.4);
+            border-color: var(--color-sand);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 220px;
+            background: rgba(10, 26, 42, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-turquoise);
+            z-index: 1001;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(90deg, rgba(64, 224, 208, 0.2), rgba(244, 208, 63, 0.2));
+            transform: translateX(8px);
+            border-left: 3px solid var(--color-turquoise);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(64, 224, 208, 0.3), rgba(244, 208, 63, 0.3));
+            color: var(--color-turquoise);
+            font-weight: 700;
+            border-left: 3px solid var(--color-sand);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--color-sand);
+        }
+
+        /* ===== CONTROLES MOBILE ===== */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        /* Bouton Langue Mobile */
+        .language-mobile-btn {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.2), rgba(30, 144, 255, 0.2));
+            border: 2px solid var(--color-turquoise);
+            color: var(--color-white);
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .language-mobile-btn:hover {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.3), rgba(30, 144, 255, 0.3));
+            transform: scale(1.05);
+            border-color: var(--color-sand);
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--color-turquoise), var(--color-ocean));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(64, 224, 208, 0.6);
+            background: linear-gradient(135deg, var(--color-ocean), var(--color-turquoise));
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 26, 42, 0.98), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(20px);
+            padding: 100px 35px 35px;
+            box-shadow: -5px 0 30px rgba(64, 224, 208, 0.3);
+            transition: right 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            border-left: 3px solid var(--color-turquoise);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--color-turquoise), var(--color-ocean));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+
+        .close-menu:hover {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--color-ocean), var(--color-turquoise));
+        }
+
+        /* ===== NAVIGATION MOBILE ===== */
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            background: linear-gradient(90deg, rgba(64, 224, 208, 0.1), rgba(244, 208, 63, 0.05));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(64, 224, 208, 0.2);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: linear-gradient(90deg, rgba(64, 224, 208, 0.2), rgba(244, 208, 63, 0.1));
+            border-left-color: var(--color-turquoise);
+            transform: translateX(10px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+        }
+
+        .mobile-nav i {
+            width: 28px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-sand);
+        }
+
+        /* ===== SECTION LANGUE MOBILE ===== */
+        .mobile-language-section {
+            padding: 30px 0;
+            border-top: 2px solid rgba(64, 224, 208, 0.3);
+            border-bottom: 2px solid rgba(244, 208, 63, 0.3);
+            margin-bottom: 35px;
+        }
+
+        .mobile-language-title {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-language-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(64, 224, 208, 0.2);
+        }
+
+        .mobile-language-option:hover {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.2), rgba(244, 208, 63, 0.2));
+            transform: translateX(8px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+        }
+
+        .mobile-language-option.active {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.3), rgba(244, 208, 63, 0.3));
+            color: var(--color-turquoise);
+            font-weight: 700;
+            border-left: 5px solid var(--color-sand);
+            border-color: var(--color-sand);
+        }
+
+        /* ===== HEADER SPACER RESPONSIVE ===== */
+        .header-spacer {
+            height: 85px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header-spacer {
+                height: 75px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+            
+            .menu-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .language-mobile-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                min-width: 65px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .logo-title {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .mobile-controls {
+                gap: 15px;
+            }
+            
+            .language-mobile-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                max-width: 320px;
+                padding: 90px 25px 25px;
+            }
+        }
+
+        /* ===== SECTION HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 26, 42, 0.85), rgba(10, 26, 42, 0.9)),
+                        url('3a.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(64, 224, 208, 0.1), rgba(244, 208, 63, 0.1));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--color-turquoise), var(--color-sand), var(--color-ocean));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--color-white);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+            padding: 0 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FEATURE CARDS */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 50px 0;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(244, 208, 63, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-turquoise), var(--color-sand));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 15px 35px rgba(64, 224, 208, 0.3);
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.15), rgba(30, 144, 255, 0.15));
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #e0f7ff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--color-turquoise), var(--color-ocean-dark));
+            color: var(--color-white);
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-sand);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(64, 224, 208, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(64, 224, 208, 0.6);
+            background: linear-gradient(135deg, var(--color-ocean-dark), var(--color-turquoise));
+            border-color: var(--color-turquoise);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--color-turquoise);
+            color: var(--color-turquoise);
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(64, 224, 208, 0.15);
+            color: var(--color-white);
+            border-color: var(--color-sand);
+        }
+
+        /* SECTIONS GENERIQUES */
+        section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            position: relative;
+            font-weight: 800;
+            color: var(--color-white);
+            padding: 0 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-turquoise), var(--color-sand), var(--color-ocean));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(64, 224, 208, 0.4);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(50px, 7vw, 80px);
+            color: #d4eaff;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.7;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+
+        /* ===== SECTION ÎLES DE NOSY BE ===== */
+        .nosy-be-islands {
+            background: linear-gradient(135deg, #0c1f35 0%, #1a3552 100%);
+        }
+
+        .islands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .islands-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .islands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .island-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .island-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-turquoise), var(--color-sand), var(--color-ocean));
+            z-index: 2;
+        }
+
+        .island-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.4);
+        }
+
+        .island-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--color-coral), var(--color-sand));
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .island-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .island-image {
+                height: 220px;
+            }
+        }
+
+        .island-card:hover .island-image {
+            transform: scale(1.08);
+        }
+
+        .island-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .island-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .island-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .island-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-turquoise);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .island-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        .island-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-turquoise);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.15), rgba(30, 144, 255, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .island-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.25), rgba(244, 208, 63, 0.25));
+            border-color: var(--color-turquoise);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+        }
+
+        /* ===== SECTION DESTINATIONS ===== */
+        .destinations {
+            background: linear-gradient(135deg, #1a3552 0%, #0c1f35 100%);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-turquoise), var(--color-sand));
+            z-index: 2;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.4);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .destination-image {
+                height: 220px;
+            }
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .destination-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .destination-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-turquoise);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.15), rgba(30, 144, 255, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .destination-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.25), rgba(244, 208, 63, 0.25));
+            border-color: var(--color-turquoise);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+        }
+
+        /* SERVICES */
+        .services {
+            background: linear-gradient(135deg, #0c1f35 0%, #1a3552 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.4);
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.15), rgba(30, 144, 255, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3.2rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #1a3552 0%, #0c1f35 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.1), rgba(30, 144, 255, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-turquoise);
+            box-shadow: 0 20px 40px rgba(64, 224, 208, 0.4);
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.15), rgba(30, 144, 255, 0.15));
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--color-turquoise);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-info a {
+            color: #d4eaff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-turquoise);
+            background: rgba(64, 224, 208, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 15px;
+        }
+
+        .contact-buttons .btn {
+            margin: 0 15px 15px;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons .btn {
+                margin: 0 0 15px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0a1a2a 0%, #152238 100%);
+            padding: 50px 0 25px;
+            border-top: 5px solid var(--color-turquoise);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-turquoise), var(--color-sand), var(--color-ocean));
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-tagline {
+            color: #d4eaff;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(64, 224, 208, 0.2), rgba(30, 144, 255, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-turquoise);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(244, 208, 63, 0.3);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--color-turquoise), var(--color-ocean));
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--color-sand);
+            box-shadow: 0 8px 20px rgba(64, 224, 208, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: #d4eaff;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--color-sand);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .copyright {
+            color: #a8c6ff;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(64, 224, 208, 0.3);
+            font-weight: 300;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* IMAGE LOADING */
+        .loading {
+            background: linear-gradient(90deg, #1a2b3c 25%, #2a3b4c 50%, #1a2b3c 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* TOUCH OPTIMIZATIONS */
+        @media (hover: none) {
+            .destination-card:hover,
+            .island-card:hover,
+            .service-card:hover,
+            .contact-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .nav-link:hover,
+            .language-option:hover,
+            .mobile-nav a:hover,
+            .social-link:hover,
+            .contact-info a:hover,
+            .destination-link:hover,
+            .island-link:hover {
+                background: none;
+                transform: none;
+            }
+            
+            .btn:hover,
+            .btn-outline:hover {
+                transform: none;
+            }
+        }
+
+        /* ORIENTATION PAYSAGE */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .mobile-menu {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#home" class="logo">
+                  <div class="logo-icon">
+                        <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title" data-translate="site-title">ISLAND MADA TRAVEL</div>
+                        <div class="logo-tagline" data-translate="site-tagline">Découvrez Nosy Be & Ses Îles Paradisiaques</div>
+                    </div>
+                </a>
+
+                <!-- Navigation et Langue Desktop -->
+                <div class="nav-desktop">
+                    <!-- Navigation -->
+                    <nav>
+                        <a href="#home" class="nav-link active" data-translate="nav-home">Accueil</a>
+                        <a href="#nosy-be" class="nav-link" data-translate="nav-nosybe">Nosy Be & Îles</a>
+                        <a href="#destinations" class="nav-link" data-translate="nav-destinations">Destinations</a>
+                        <a href="#services" class="nav-link" data-translate="nav-services">Services</a>
+                        <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+                    </nav>
+                    
+                    <!-- Bouton Langue Desktop -->
+                    <div class="language-selector">
+                        <button class="language-desktop-btn">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                                <span data-translate="lang-fr">Français</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                                <span data-translate="lang-en">English</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                                <span data-translate="lang-de">Deutsch</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                                <span data-translate="lang-es">Español</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                                <span data-translate="lang-it">Italiano</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                                <span data-translate="lang-zh">中文</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles Mobile -->
+                <div class="mobile-controls">
+                    <!-- Bouton Langue Mobile -->
+                    <button class="language-mobile-btn" id="mobileLangBtn">
+                        <i class="fas fa-globe-americas"></i>
+                        <span class="current-lang-mobile">FR</span>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Navigation Mobile -->
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active" data-translate="nav-home"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#nosy-be" data-translate="nav-nosybe"><i class="fas fa-island-tropical"></i> Nosy Be & Îles</a></li>
+            <li><a href="#destinations" data-translate="nav-destinations"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+            <li><a href="#services" data-translate="nav-services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#contact" data-translate="nav-contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+        
+        <!-- Sélecteur de Langue Mobile -->
+        <div class="mobile-language-section">
+            <div class="mobile-language-title">
+                <i class="fas fa-language"></i>
+                <span data-translate="select-language">Changer la langue</span>
+            </div>
+            <div class="mobile-language-grid">
+                <a href="#" class="mobile-language-option active" data-lang="fr">
+                    <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                    <span data-translate="lang-fr">Français</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="en">
+                    <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                    <span data-translate="lang-en">English</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="de">
+                    <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                    <span data-translate="lang-de">Deutsch</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="es">
+                    <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                    <span data-translate="lang-es">Español</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="it">
+                    <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                    <span data-translate="lang-it">Italiano</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="zh">
+                    <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                    <span data-translate="lang-zh">中文</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-translate="hero-title">Bienvenue à Nosy Be</h1>
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    L'île aux parfums vous ouvre ses bras ! Découvrez le paradis turquoise de Madagascar, 
+                    ses plages de sable blanc, ses eaux cristallines et ses îles magiques. Une expérience unique 
+                    vous attend au cœur de l'océan Indien.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card fade-in delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3 data-translate="feature1-title">Eaux Turquoise</h3>
+                        <p data-translate="feature1-desc">Plongez dans les eaux cristallines des plus belles baies de l'océan Indien.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <h3 data-translate="feature2-title">Plages Paradisiaques</h3>
+                        <p data-translate="feature2-desc">Sable blanc fin et cocotiers : le cadre parfait pour des vacances de rêve.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3 data-translate="feature3-title">Vie Marine</h3>
+                        <p data-translate="feature3-desc">Rencontrez tortues, poissons tropicaux et coraux dans des réserves préservées.</p>
+                    </div>
+                </div>
+                
+                <a href="#nosy-be" class="btn fade-in delay-4">
+                    <i class="fas fa-compass"></i>
+                    <span data-translate="hero-btn">Explorer les Îles</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION NOSY BE & ÎLES ===== -->
+    <section id="nosy-be" class="nosy-be-islands">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="nosybe-title">Nosy Be & Ses Îles Magiques</h2>
+            <p class="section-intro fade-in delay-1" data-translate="nosybe-intro">
+                Découvrez les joyaux qui entourent Nosy Be. Chaque île offre une expérience unique, 
+                des paysages à couper le souffle et des rencontres inoubliables avec la nature malgache.
+            </p>
+            
+            <div class="islands-grid">
+                <!-- Nosy Iranja -->
+                <div class="island-card fade-in">
+                    <div class="island-badge">ROMANTIQUE</div>
+                    <img src="3b.jpg" 
+                         alt="Nosy Iranja" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-heart"></i> Nosy Iranja</h3>
+                        <div class="island-subtitle">ÎLE PARADISIAQUE</div>
+                        <p data-translate="iranja-desc">Une île paradisiaque reliée par un banc de sable à marée basse. Parfait pour les promenades romantiques et l'observation des tortues.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nosy Sakatia -->
+                <div class="island-card fade-in delay-1">
+                    <div class="island-badge">ÉCOLOGIQUE</div>
+                    <img src="3c.png" 
+                         alt="Nosy Sakatia" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-turtle"></i> Nosy Sakatia</h3>
+                        <div class="island-subtitle">ÎLE AUX TORTUES</div>
+                        <p data-translate="sakatia-desc">Observation des tortues terrestres et snorkeling dans des eaux transparentes. Un site écologique et préservé.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nosy Komba -->
+                <div class="island-card fade-in delay-2">
+                    <div class="island-badge">CULTUREL</div>
+                    <img src="3d.jpg" 
+                         alt="Nosy Komba" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-paw"></i> Nosy Komba</h3>
+                        <div class="island-subtitle">ÎLE AUX LÉMURIENS</div>
+                        <p data-translate="komba-desc">Rencontrez les célèbres lémuriens macaques en liberté et découvrez l'artisanat local dans les villages traditionnels.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nosy Tanikely -->
+                <div class="island-card fade-in delay-3">
+                    <div class="island-badge">MARIN</div>
+                    <img src="3e.jpg" 
+                         alt="Nosy Tanikely" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-fish"></i> Nosy Tanikely</h3>
+                        <div class="island-subtitle">RÉSERVE MARINE</div>
+                        <p data-translate="tanikely-desc">Réserve marine protégée aux eaux cristallines idéales pour le snorkeling avec les poissons tropicaux.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Lokobe Park -->
+                <div class="island-card fade-in delay-4">
+                    <div class="island-badge">NATURE</div>
+                    <img src="3f.avif" 
+                         alt="Lokobe Park" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-tree"></i> Lokobe Park</h3>
+                        <div class="island-subtitle">PARC NATIONAL</div>
+                        <p data-translate="lokobe-desc">La dernière forêt humide primaire de Nosy Be avec des espèces endémiques uniques et des lémuriens.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Lemurian Land -->
+                <div class="island-card fade-in delay-5">
+                    <div class="island-badge">FAMILIAL</div>
+                    <img src="3g.jpg" 
+                         alt="Lemurian Land" class="island-image loading">
+                    <div class="island-content">
+                        <h3><i class="fas fa-seedling"></i> Lemurian Land</h3>
+                        <div class="island-subtitle">PARC DES LÉMURIENS</div>
+                        <p data-translate="lemurian-desc">Découverte de la flore et des lémuriens en semi-liberté. Une visite éducative et familiale.</p>
+                        <a href="galerie.html" class="island-link" data-translate="explore-island">
+                            Découvrir
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DESTINATIONS ===== -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="destinations-title">Autres Incontournables</h2>
+            <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                Explorez les autres trésors de Nosy Be et ses environs. Chaque site offre une expérience 
+                unique pour compléter votre aventure malgache.
+            </p>
+            
+            <div class="destinations-grid">
+                <!-- Marodoka Ghost House -->
+                <div class="destination-card fade-in">
+                    <img src="3h.webp" 
+                         alt="Marodoka Ghost House" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-ghost"></i> Marodoka Ghost House</h3>
+                        <p data-translate="marodoka-desc">Patrimoine et mystère de l'époque coloniale. Découvrez l'histoire fascinante de ce lieu légendaire.</p>
+                        <a href="galerie.html" class="destination-link" data-translate="explore-destination">
+                            Explorer
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mont Passot -->
+                <div class="destination-card fade-in delay-1">
+                    <img src="3i.webp" 
+                         alt="Mont Passot" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-mountain"></i> Mont Passot</h3>
+                        <p data-translate="passot-desc">Le point culminant de l'île offrant une vue panoramique à 360° sur Nosy Be et ses îles environnantes.</p>
+                        <a href="galerie.html" class="destination-link" data-translate="explore-destination">
+                            Explorer
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Plage de Madirokely -->
+                <div class="destination-card fade-in delay-2">
+                    <img src="3j.webp" 
+                         alt="Plage de Madirokely" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-umbrella-beach"></i> Plage de Madirokely</h3>
+                        <p data-translate="madirokely-desc">L'une des plus belles plages de Nosy Be avec son sable blanc et ses eaux turquoise transparentes.</p>
+                        <a href="galerie.html" class="destination-link" data-translate="explore-destination">
+                            Explorer
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Marché d'Ambatozavavy -->
+                <div class="destination-card fade-in delay-3">
+                    <img src="3k.jpg" 
+                         alt="Marché d'Ambatozavavy" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-shopping-basket"></i> Marché d'Ambatozavavy</h3>
+                        <p data-translate="ambatozavavy-desc">Plongez dans l'ambiance colorée du marché local et découvrez les produits artisanaux malgaches.</p>
+                        <a href="galerie.html" class="destination-link" data-translate="explore-destination">
+                            Explorer
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="services-title">Nos Services Exclusifs</h2>
+            <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                Nous vous accompagnons pour créer le voyage de vos rêves à Nosy Be. 
+                Des services sur mesure pour une expérience inoubliable.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 data-translate="service1-title">Excursions en Bateau</h3>
+                    <p data-translate="service1-desc">Naviguez vers les îles paradisiaques avec nos bateaux privés et nos guides experts.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-mask"></i>
+                    </div>
+                    <h3 data-translate="service2-title">Snorkeling & Plongée</h3>
+                    <p data-translate="service2-desc">Équipement complet et guides pour explorer les fonds marins exceptionnels.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3 data-translate="service3-title">Hébergement Charme</h3>
+                    <p data-translate="service3-desc">Sélection des meilleurs hôtels et lodges face à la mer pour un séjour paradisiaque.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service4-title">Dégustations Locales</h3>
+                        <p data-translate="service4-desc">Découverte de la cuisine malgache et des fruits de mer frais dans les meilleurs restaurants.</p> 
+                </div>
+                        <!-- Service 5 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 data-translate="service5-title">Transferts Privés</h3>
+                    <p data-translate="service5-desc">Transferts aéroport, location de véhicules avec chauffeur pour explorer l'île en toute liberté.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3 data-translate="service6-title">Voyages Sur Mesure</h3>
+                    <p data-translate="service6-desc">Organisation complète de votre séjour selon vos envies et votre budget.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;" class="fade-in delay-3">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span data-translate="services-btn">Demander un Devis</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="contact-title">Contactez-Nous</h2>
+            <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                Prêt à vivre l'aventure Nosy Be ? Notre équipe locale est à votre disposition 
+                pour organiser votre séjour de rêve dans les îles paradisiaques de Madagascar.
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Téléphone -->
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-phone">Téléphone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+261 32 55 396 35">
+                            <i class="fas fa-phone"></i>
+                            +261 32 55 396 35
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-translate="contact-email">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:anjaraamadym@gmail.com">
+                            <i class="fas fa-at"></i>
+                            anjaraamadym@gmail.com
+                        </a>
+                        
+                    </div>
+                </div>
+                
+                <!-- Adresse -->
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-address">Adresse</h3>
+                    <div class="contact-info">
+                        <p style="text-align: center; color: #d4eaff; line-height: 1.8;">
+                            <i class="fas fa-hotel"></i><br>
+                            Island Mada Travel<br>
+                            Avenue de l'Indépendance<br>
+                            Hell-Ville, Nosy Be 207<br>
+                            Madagascar
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-buttons fade-in delay-3">
+                <a href="https://wa.me/261325539635" class="btn" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="whatsapp-btn">WhatsApp</span>
+                </a>
+                <a href="mailto:anjaraamadym@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="email-btn">Envoyer un Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <i class="fas fa-water"></i>
+                    ISLAND MADA TRAVEL
+                </div>
+                
+                <p class="footer-tagline fade-in delay-1" data-translate="footer-tagline">
+                    Votre guide expert pour découvrir les trésors cachés de Nosy Be et ses îles paradisiaques. 
+                    Des expériences authentiques, des souvenirs inoubliables.
+                </p>
+                
+                <div class="social-links fade-in delay-2">
+                    <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://tripadvisor.com" class="social-link" target="_blank" aria-label="TripAdvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="https://youtube.com" class="social-link" target="_blank" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-info fade-in delay-3">
+                    <p><i class="fas fa-phone"></i> +261 32 55 396 35</p>
+                    <p><i class="fas fa-envelope"></i> anjaraamadym@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Hell-Ville, Nosy Be, Madagascar</p>
+                </div>
+                
+                <div class="copyright fade-in delay-4">
+                    <p>&copy; <span id="currentYear"></span> Island Mada Travel. <span data-translate="copyright">Tous droits réservés.</span></p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">
+                        <a href="#" style="color: var(--color-turquoise);" data-translate="privacy">Politique de confidentialité</a> | 
+                        <a href="#" style="color: var(--color-turquoise);" data-translate="terms">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fermer le menu au clic sur un lien
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Mettre à jour l'état actif
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mettre à jour la navigation desktop
+                const href = link.getAttribute('href');
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // ===== CHANGEMENT DE LANGUE =====
+        const languageOptions = document.querySelectorAll('.language-option, .mobile-language-option');
+        const currentLangElements = document.querySelectorAll('.current-lang, .current-lang-mobile');
+        
+        // Données de traduction
+        const translations = {
+            fr: {
+                // Header
+                'site-title': 'ISLAND MADA TRAVEL',
+                'site-tagline': 'Découvrez Nosy Be & Ses Îles Paradisiaques',
+                'nav-home': 'Accueil',
+                'nav-nosybe': 'Nosy Be & Îles',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Changer la langue',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Bienvenue à Nosy Be',
+                'hero-subtitle': `L'île aux parfums vous ouvre ses bras ! Découvrez le paradis turquoise de Madagascar, ses plages de sable blanc, ses eaux cristallines et ses îles magiques. Une expérience unique vous attend au cœur de l'océan Indien.`,
+                'feature1-title': 'Eaux Turquoise',
+                'feature1-desc': 'Plongez dans les eaux cristallines des plus belles baies de l\'océan Indien.',
+                'feature2-title': 'Plages Paradisiaques',
+                'feature2-desc': 'Sable blanc fin et cocotiers : le cadre parfait pour des vacances de rêve.',
+                'feature3-title': 'Vie Marine',
+                'feature3-desc': 'Rencontrez tortues, poissons tropicaux et coraux dans des réserves préservées.',
+                'hero-btn': 'Explorer les Îles',
+                
+                // Nosy Be
+                'nosybe-title': 'Nosy Be & Ses Îles Magiques',
+                'nosybe-intro': 'Découvrez les joyaux qui entourent Nosy Be. Chaque île offre une expérience unique, des paysages à couper le souffle et des rencontres inoubliables avec la nature malgache.',
+                'iranja-desc': 'Une île paradisiaque reliée par un banc de sable à marée basse. Parfait pour les promenades romantiques et l\'observation des tortues.',
+                'sakatia-desc': 'Observation des tortues terrestres et snorkeling dans des eaux transparentes. Un site écologique et préservé.',
+                'komba-desc': 'Rencontrez les célèbres lémuriens macaques en liberté et découvrez l\'artisanat local dans les villages traditionnels.',
+                'tanikely-desc': 'Réserve marine protégée aux eaux cristallines idéales pour le snorkeling avec les poissons tropicaux.',
+                'lokobe-desc': 'La dernière forêt humide primaire de Nosy Be avec des espèces endémiques uniques et des lémuriens.',
+                'lemurian-desc': 'Découverte de la flore et des lémuriens en semi-liberté. Une visite éducative et familiale.',
+                'explore-island': 'Découvrir',
+                
+                // Destinations
+                'destinations-title': 'Autres Incontournables',
+                'destinations-intro': 'Explorez les autres trésors de Nosy Be et ses environs. Chaque site offre une expérience unique pour compléter votre aventure malgache.',
+                'marodoka-desc': 'Patrimoine et mystère de l\'époque coloniale. Découvrez l\'histoire fascinante de ce lieu légendaire.',
+                'passot-desc': 'Le point culminant de l\'île offrant une vue panoramique à 360° sur Nosy Be et ses îles environnantes.',
+                'madirokely-desc': 'L\'une des plus belles plages de Nosy Be avec son sable blanc et ses eaux turquoise transparentes.',
+                'ambatozavavy-desc': 'Plongez dans l\'ambiance colorée du marché local et découvrez les produits artisanaux malgaches.',
+                'explore-destination': 'Explorer',
+                
+                // Services
+                'services-title': 'Nos Services Exclusifs',
+                'services-intro': 'Nous vous accompagnons pour créer le voyage de vos rêves à Nosy Be. Des services sur mesure pour une expérience inoubliable.',
+                'service1-title': 'Excursions en Bateau',
+                'service1-desc': 'Naviguez vers les îles paradisiaques avec nos bateaux privés et nos guides experts.',
+                'service2-title': 'Snorkeling & Plongée',
+                'service2-desc': 'Équipement complet et guides pour explorer les fonds marins exceptionnels.',
+                'service3-title': 'Hébergement Charme',
+                'service3-desc': 'Sélection des meilleurs hôtels et lodges face à la mer pour un séjour paradisiaque.',
+                'service4-title': 'Dégustations Locales',
+                'service4-desc': 'Découverte de la cuisine malgache et des fruits de mer frais dans les meilleurs restaurants.',
+                'service5-title': 'Transferts Privés',
+                'service5-desc': 'Transferts aéroport, location de véhicules avec chauffeur pour explorer l\'île en toute liberté.',
+                'service6-title': 'Voyages Sur Mesure',
+                'service6-desc': 'Organisation complète de votre séjour selon vos envies et votre budget.',
+                'services-btn': 'Demander un Devis',
+                
+                // Contact
+                'contact-title': 'Contactez-Nous',
+                'contact-intro': 'Prêt à vivre l\'aventure Nosy Be ? Notre équipe locale est à votre disposition pour organiser votre séjour de rêve dans les îles paradisiaques de Madagascar.',
+                'contact-phone': 'Téléphone',
+                'contact-email': 'Email',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': 'Envoyer un Email',
+                
+                // Footer
+                'footer-tagline': 'Votre guide expert pour découvrir les trésors cachés de Nosy Be et ses îles paradisiaques. Des expériences authentiques, des souvenirs inoubliables.',
+                'copyright': 'Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
+            },
+            en: {
+                // Header
+                'site-title': 'ISLAND MADA TRAVEL',
+                'site-tagline': 'Discover Nosy Be & Its Paradise Islands',
+                'nav-home': 'Home',
+                'nav-nosybe': 'Nosy Be & Islands',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Change Language',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Welcome to Nosy Be',
+                'hero-subtitle': 'The perfumed island welcomes you! Discover the turquoise paradise of Madagascar, its white sand beaches, crystal clear waters and magical islands. A unique experience awaits you in the heart of the Indian Ocean.',
+                'feature1-title': 'Turquoise Waters',
+                'feature1-desc': 'Dive into the crystal clear waters of the most beautiful bays of the Indian Ocean.',
+                'feature2-title': 'Paradise Beaches',
+                'feature2-desc': 'Fine white sand and coconut trees: the perfect setting for a dream vacation.',
+                'feature3-title': 'Marine Life',
+                'feature3-desc': 'Meet turtles, tropical fish and corals in preserved reserves.',
+                'hero-btn': 'Explore Islands',
+                
+                // Nosy Be
+                'nosybe-title': 'Nosy Be & Its Magical Islands',
+                'nosybe-intro': 'Discover the gems surrounding Nosy Be. Each island offers a unique experience, breathtaking landscapes and unforgettable encounters with Malagasy nature.',
+                'iranja-desc': 'A paradise island connected by a sandbank at low tide. Perfect for romantic walks and turtle watching.',
+                'sakatia-desc': 'Observation of land turtles and snorkeling in transparent waters. An ecological and preserved site.',
+                'komba-desc': 'Meet the famous free-ranging macaque lemurs and discover local crafts in traditional villages.',
+                'tanikely-desc': 'Protected marine reserve with crystal clear waters ideal for snorkeling with tropical fish.',
+                'lokobe-desc': 'The last primary rainforest of Nosy Be with unique endemic species and lemurs.',
+                'lemurian-desc': 'Discovery of flora and semi-free lemurs. An educational and family visit.',
+                'explore-island': 'Discover',
+                
+                // Destinations
+                'destinations-title': 'Other Must-Sees',
+                'destinations-intro': 'Explore other treasures of Nosy Be and its surroundings. Each site offers a unique experience to complete your Malagasy adventure.',
+                'marodoka-desc': 'Heritage and mystery from the colonial era. Discover the fascinating history of this legendary place.',
+                'passot-desc': 'The highest point of the island offering a 360° panoramic view of Nosy Be and its surrounding islands.',
+                'madirokely-desc': 'One of the most beautiful beaches of Nosy Be with its white sand and transparent turquoise waters.',
+                'ambatozavavy-desc': 'Immerse yourself in the colorful atmosphere of the local market and discover Malagasy handicrafts.',
+                'explore-destination': 'Explore',
+                
+                // Services
+                'services-title': 'Our Exclusive Services',
+                'services-intro': 'We accompany you to create your dream trip to Nosy Be. Tailor-made services for an unforgettable experience.',
+                'service1-title': 'Boat Excursions',
+                'service1-desc': 'Sail to paradise islands with our private boats and expert guides.',
+                'service2-title': 'Snorkeling & Diving',
+                'service2-desc': 'Complete equipment and guides to explore exceptional seabeds.',
+                'service3-title': 'Charming Accommodation',
+                'service3-desc': 'Selection of the best hotels and lodges facing the sea for a paradise stay.',
+                'service4-title': 'Local Tastings',
+                'service4-desc': 'Discovery of Malagasy cuisine and fresh seafood in the best restaurants.',
+                'service5-title': 'Private Transfers',
+                'service5-desc': 'Airport transfers, vehicle rental with driver to explore the island in complete freedom.',
+                'service6-title': 'Custom Trips',
+                'service6-desc': 'Complete organization of your stay according to your wishes and budget.',
+                'services-btn': 'Request a Quote',
+                
+                // Contact
+                'contact-title': 'Contact Us',
+                'contact-intro': 'Ready to live the Nosy Be adventure? Our local team is at your disposal to organize your dream stay in the paradise islands of Madagascar.',
+                'contact-phone': 'Phone',
+                'contact-email': 'Email',
+                'contact-address': 'Address',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': 'Send Email',
+                
+                // Footer
+                'footer-tagline': 'Your expert guide to discover the hidden treasures of Nosy Be and its paradise islands. Authentic experiences, unforgettable memories.',
+                'copyright': 'All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
+            },
+            de: {
+                // Header
+                'site-title': 'ISLAND MADA TRAVEL',
+                'site-tagline': 'Entdecken Sie Nosy Be & seine Paradiesischen Inseln',
+                'nav-home': 'Startseite',
+                'nav-nosybe': 'Nosy Be & Inseln',
+                'nav-destinations': 'Ziele',
+                'nav-services': 'Dienstleistungen',
+                'nav-contact': 'Kontakt',
+                'select-language': 'Sprache ändern',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Hero
+                'hero-title': 'Willkommen auf Nosy Be',
+                'hero-subtitle': 'Die duftende Insel heißt Sie willkommen! Entdecken Sie das türkisfarbene Paradies Madagaskars, seine weißen Sandstrände, kristallklaren Gewässer und magischen Inseln. Ein einzigartiges Erlebnis erwartet Sie im Herzen des Indischen Ozeans.',
+                'feature1-title': 'Türkisfarbenes Wasser',
+                'feature1-desc': 'Tauchen Sie ein in das kristallklare Wasser der schönsten Buchten des Indischen Ozeans.',
+                'feature2-title': 'Paradiesstrände',
+                'feature2-desc': 'Feiner weißer Sand und Kokospalmen: die perfekte Kulisse für einen Traumurlaub.',
+                'feature3-title': 'Meeresleben',
+                'feature3-desc': 'Treffen Sie Schildkröten, tropische Fische und Korallen in geschützten Reservaten.',
+                'hero-btn': 'Inseln erkunden',
+                
+                // Nosy Be
+                'nosybe-title': 'Nosy Be & seine magischen Inseln',
+                'nosybe-intro': 'Entdecken Sie die Juwelen rund um Nosy Be. Jede Insel bietet eine einzigartige Erfahrung, atemberaubende Landschaften und unvergessliche Begegnungen mit der madagassischen Natur.',
+                'iranja-desc': 'Eine paradiesische Insel, die bei Ebbe durch eine Sandbank verbunden ist. Perfekt für romantische Spaziergänge und Schildkrötenbeobachtung.',
+                'sakatia-desc': 'Beobachtung von Landschildkröten und Schnorcheln in transparentem Wasser. Eine ökologische und geschützte Stätte.',
+                'komba-desc': 'Treffen Sie die berühmten freilaufenden Makaken-Lemuren und entdecken Sie lokales Handwerk in traditionellen Dörfern.',
+                'tanikely-desc': 'Geschütztes Meeresschutzgebiet mit kristallklarem Wasser, ideal zum Schnorcheln mit tropischen Fischen.',
+                'lokobe-desc': 'Der letzte primäre Regenwald von Nosy Be mit einzigartigen endemischen Arten und Lemuren.',
+                'lemurian-desc': 'Entdeckung von Flora und halbfreien Lemuren. Ein lehrreicher und familienfreundlicher Besuch.',
+                'explore-island': 'Entdecken',
+                
+                // Destinations
+                'destinations-title': 'Weitere Sehenswürdigkeiten',
+                'destinations-intro': 'Entdecken Sie andere Schätze von Nosy Be und seiner Umgebung. Jede Stätte bietet eine einzigartige Erfahrung, um Ihr madagassisches Abenteuer zu vervollständigen.',
+                'marodoka-desc': 'Erbe und Geheimnis aus der Kolonialzeit. Entdecken Sie die faszinierende Geschichte dieses legendären Ortes.',
+                'passot-desc': 'Der höchste Punkt der Insel mit 360° Panoramablick auf Nosy Be und die umliegenden Inseln.',
+                'madirokely-desc': 'Einer der schönsten Strände von Nosy Be mit weißem Sand und transparentem türkisfarbenem Wasser.',
+                'ambatozavavy-desc': 'Tauchen Sie ein in die farbenfrohe Atmosphäre des lokalen Marktes und entdecken Sie madagassisches Kunsthandwerk.',
+                'explore-destination': 'Erkunden',
+                
+                // Services
+                'services-title': 'Unsere exklusiven Dienstleistungen',
+                'services-intro': 'Wir begleiten Sie bei der Planung Ihrer Traumreise nach Nosy Be. Maßgeschneiderte Dienstleistungen für ein unvergessliches Erlebnis.',
+                'service1-title': 'Bootsausflüge',
+                'service1-desc': 'Segeln Sie mit unseren privaten Booten und erfahrenen Guides zu Paradiesinseln.',
+                'service2-title': 'Schnorcheln & Tauchen',
+                'service2-desc': 'Komplette Ausrüstung und Guides zur Erkundung außergewöhnlicher Meeresböden.',
+                'service3-title': 'Charmante Unterkünfte',
+                'service3-desc': 'Auswahl der besten Hotels und Lodges mit Meerblick für einen paradiesischen Aufenthalt.',
+                'service4-title': 'Lokale Verkostungen',
+                'service4-desc': 'Entdeckung der madagassischen Küche und frischer Meeresfrüchte in den besten Restaurants.',
+                'service5-title': 'Private Transfers',
+                'service5-desc': 'Flughafentransfers, Fahrzeugmiete mit Fahrer zur freien Erkundung der Insel.',
+                'service6-title': 'Maßgeschneiderte Reisen',
+                'service6-desc': 'Vollständige Organisation Ihres Aufenthalts nach Ihren Wünschen und Budget.',
+                'services-btn': 'Angebot anfordern',
+                
+                // Contact
+                'contact-title': 'Kontaktieren Sie uns',
+                'contact-intro': 'Bereit für das Nosy Be Abenteuer? Unser lokales Team steht Ihnen zur Verfügung, um Ihren Traumaufenthalt auf den Paradiesinseln Madagaskars zu organisieren.',
+                'contact-phone': 'Telefon',
+                'contact-email': 'E-Mail',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': 'E-Mail senden',
+                
+                // Footer
+                'footer-tagline': 'Ihr Expertenführer zur Entdeckung der versteckten Schätze von Nosy Be und seinen Paradiesinseln. Authentische Erfahrungen, unvergessliche Erinnerungen.',
+                'copyright': 'Alle Rechte vorbehalten.',
+                'privacy': 'Datenschutzerklärung',
+                'terms': 'Nutzungsbedingungen'
+            },
+            es: {
+                // Header
+                'site-title': 'ISLAND MADA TRAVEL',
+                'site-tagline': 'Descubre Nosy Be & sus Islas Paradisíacas',
+                'nav-home': 'Inicio',
+                'nav-nosybe': 'Nosy Be & Islas',
+                'nav-destinations': 'Destinos',
+                'nav-services': 'Servicios',
+                'nav-contact': 'Contacto',
+                'select-language': 'Cambiar Idioma',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-zh': 'Chino',
+                
+                // Hero
+                'hero-title': 'Bienvenido a Nosy Be',
+                'hero-subtitle': '¡La isla perfumada te da la bienvenida! Descubre el paraíso turquesa de Madagascar, sus playas de arena blanca, aguas cristalinas e islas mágicas. Una experiencia única te espera en el corazón del Océano Índico.',
+                'feature1-title': 'Aguas Turquesas',
+                'feature1-desc': 'Sumérgete en las aguas cristalinas de las bahías más hermosas del Océano Índico.',
+                'feature2-title': 'Playas Paradisíacas',
+                'feature2-desc': 'Arena blanca fina y cocoteros: el escenario perfecto para unas vacaciones de ensueño.',
+                'feature3-title': 'Vida Marina',
+                'feature3-desc': 'Encuentra tortugas, peces tropicales y corales en reservas protegidas.',
+                'hero-btn': 'Explorar Islas',
+                
+                // Nosy Be
+                'nosybe-title': 'Nosy Be & sus Islas Mágicas',
+                'nosybe-intro': 'Descubre las joyas que rodean Nosy Be. Cada isla ofrece una experiencia única, paisajes impresionantes y encuentros inolvidables con la naturaleza malgache.',
+                'iranja-desc': 'Una isla paradisíaca conectada por un banco de arena con marea baja. Perfecta para paseos románticos y observación de tortugas.',
+                'sakatia-desc': 'Observación de tortugas terrestres y snorkel en aguas transparentes. Un sitio ecológico y preservado.',
+                'komba-desc': 'Encuentra a los famosos lémures macacos en libertad y descubre la artesanía local en pueblos tradicionales.',
+                'tanikely-desc': 'Reserva marina protegida con aguas cristalinas ideales para hacer snorkel con peces tropicales.',
+                'lokobe-desc': 'El último bosque primario húmedo de Nosy Be con especies endémicas únicas y lémures.',
+                'lemurian-desc': 'Descubrimiento de flora y lémures en semi-libertad. Una visita educativa y familiar.',
+                'explore-island': 'Descubrir',
+                
+                // Destinations
+                'destinations-title': 'Otros Imperdibles',
+                'destinations-intro': 'Explora otros tesoros de Nosy Be y sus alrededores. Cada sitio ofrece una experiencia única para completar tu aventura malgache.',
+                'marodoka-desc': 'Patrimonio y misterio de la época colonial. Descubre la fascinante historia de este lugar legendario.',
+                'passot-desc': 'El punto más alto de la isla que ofrece una vista panorámica de 360° de Nosy Be y sus islas circundantes.',
+                'madirokely-desc': 'Una de las playas más hermosas de Nosy Be con su arena blanca y aguas turquesas transparentes.',
+                'ambatozavavy-desc': 'Sumérgete en la atmósfera colorida del mercado local y descubre la artesanía malgache.',
+                'explore-destination': 'Explorar',
+                
+                // Services
+                'services-title': 'Nuestros Servicios Exclusivos',
+                'services-intro': 'Te acompañamos para crear el viaje de tus sueños a Nosy Be. Servicios a medida para una experiencia inolvidable.',
+                'service1-title': 'Excursiones en Barco',
+                'service1-desc': 'Navega hacia las islas paradisíacas con nuestros botes privados y guías expertos.',
+                'service2-title': 'Snorkel & Buceo',
+                'service2-desc': 'Equipo completo y guías para explorar fondos marinos excepcionales.',
+                'service3-title': 'Alojamiento con Encanto',
+                'service3-desc': 'Selección de los mejores hoteles y lodges frente al mar para una estancia paradisíaca.',
+                'service4-title': 'Degustaciones Locales',
+                'service4-desc': 'Descubrimiento de la cocina malgache y mariscos frescos en los mejores restaurantes.',
+                'service5-title': 'Traslados Privados',
+                'service5-desc': 'Traslados aeropuerto, alquiler de vehículos con conductor para explorar la isla con total libertad.',
+                'service6-title': 'Viajes a Medida',
+                'service6-desc': 'Organización completa de tu estancia según tus deseos y presupuesto.',
+                'services-btn': 'Solicitar Presupuesto',
+                
+                // Contact
+                'contact-title': 'Contáctenos',
+                'contact-intro': '¿Listo para vivir la aventura Nosy Be? Nuestro equipo local está a su disposición para organizar su estancia de ensueño en las islas paradisíacas de Madagascar.',
+                'contact-phone': 'Teléfono',
+                'contact-email': 'Correo Electrónico',
+                'contact-address': 'Dirección',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': 'Enviar Correo',
+                
+                // Footer
+                'footer-tagline': 'Tu guía experto para descubrir los tesoros ocultos de Nosy Be y sus islas paradisíacas. Experiencias auténticas, recuerdos inolvidables.',
+                'copyright': 'Todos los derechos reservados.',
+                'privacy': 'Política de Privacidad',
+                'terms': 'Términos de Uso'
+            },
+            it: {
+                // Header
+                'site-title': 'ISLAND MADA TRAVEL',
+                'site-tagline': 'Scopri Nosy Be e le sue Isole Paradisiache',
+                'nav-home': 'Home',
+                'nav-nosybe': 'Nosy Be & Isole',
+                'nav-destinations': 'Destinazioni',
+                'nav-services': 'Servizi',
+                'nav-contact': 'Contatto',
+                'select-language': 'Cambia Lingua',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-zh': 'Cinese',
+                
+                // Hero
+                'hero-title': 'Benvenuto a Nosy Be',
+                'hero-subtitle': 'L\'isola dei profumi ti dà il benvenuto! Scopri il paradiso turchese del Madagascar, le sue spiagge di sabbia bianca, acque cristalline e isole magiche. Un\'esperienza unica ti attende nel cuore dell\'Oceano Indiano.',
+                'feature1-title': 'Acque Turchesi',
+                'feature1-desc': 'Immergiti nelle acque cristalline delle baie più belle dell\'Oceano Indiano.',
+                'feature2-title': 'Spiagge Paradisiache',
+                'feature2-desc': 'Sabbia bianca fine e palme da cocco: la cornice perfetta per una vacanza da sogno.',
+                'feature3-title': 'Vita Marina',
+                'feature3-desc': 'Incontra tartarughe, pesci tropicali e coralli in riserve protette.',
+                'hero-btn': 'Esplora Isole',
+                
+                // Nosy Be
+                'nosybe-title': 'Nosy Be e le sue Isole Magiche',
+                'nosybe-intro': 'Scopri i gioielli che circondano Nosy Be. Ogni isola offre un\'esperienza unica, paesaggi mozzafiato e incontri indimenticabili con la natura malgascia.',
+                'iranja-desc': 'Un\'isola paradisiaca collegata da un banco di sabbia con la bassa marea. Perfetta per passeggiate romantiche e osservazione delle tartarughe.',
+                'sakatia-desc': 'Osservazione di tartarughe terrestri e snorkeling in acque trasparenti. Un sito ecologico e preservato.',
+                'komba-desc': 'Incontra i famosi lemuri macachi in libertà e scopri l\'artigianato locale nei villaggi tradizionali.',
+                'tanikely-desc': 'Riserva marina protetta con acque cristalline ideali per lo snorkeling con pesci tropicali.',
+                'lokobe-desc': 'L\'ultima foresta pluviale primaria di Nosy Be con specie endemiche uniche e lemuri.',
+                'lemurian-desc': 'Scoperta della flora e dei lemuri in semi-libertà. Una visita educativa e familiare.',
+                'explore-island': 'Scopri',
+                
+                // Destinations
+                'destinations-title': 'Altri Imperdibili',
+                'destinations-intro': 'Esplora altri tesori di Nosy Be e dintorni. Ogni sito offre un\'esperienza unica per completare la tua avventura malgascia.',
+                'marodoka-desc': 'Patrimonio e mistero dell\'epoca coloniale. Scopri l\'affascinante storia di questo luogo leggendario.',
+                'passot-desc': 'Il punto più alto dell\'isola che offre una vista panoramica a 360° su Nosy Be e le isole circostanti.',
+                'madirokely-desc': 'Una delle spiagge più belle di Nosy Be con sabbia bianca e acque turchesi trasparenti.',
+                'ambatozavavy-desc': 'Immergiti nell\'atmosfera colorata del mercato locale e scopri l\'artigianato malgascio.',
+                'explore-destination': 'Esplora',
+                
+                // Services
+                'services-title': 'I nostri Servizi Esclusivi',
+                'services-intro': 'Ti accompagniamo per creare il viaggio dei tuoi sogni a Nosy Be. Servizi su misura per un\'esperienza indimenticabile.',
+                'service1-title': 'Escursioni in Barca',
+                'service1-desc': 'Naviga verso le isole paradisiache con le nostre barche private e guide esperte.',
+                'service2-title': 'Snorkeling & Subacquea',
+                'service2-desc': 'Attrezzatura completa e guide per esplorare fondali marini eccezionali.',
+                'service3-title': 'Alloggio Charm',
+                'service3-desc': 'Selezione dei migliori hotel e lodge fronte mare per un soggiorno paradisiaco.',
+                'service4-title': 'Degustazioni Locali',
+                'service4-desc': 'Scoperta della cucina malgascia e frutti di mare freschi nei migliori ristoranti.',
+                'service5-title': 'Trasferimenti Privati',
+                'service5-desc': 'Trasferimenti aeroporto, noleggio veicoli con autista per esplorare l\'isola in totale libertà.',
+                'service6-title': 'Viaggi Su Misura',
+                'service6-desc': 'Organizzazione completa del tuo soggiorno secondo i tuoi desideri e budget.',
+                'services-btn': 'Richiedi Preventivo',
+                
+                // Contact
+                'contact-title': 'Contattaci',
+                'contact-intro': 'Pronto per vivere l\'avventura Nosy Be? Il nostro team locale è a tua disposizione per organizzare il tuo soggiorno da sogno nelle isole paradisiache del Madagascar.',
+                'contact-phone': 'Telefono',
+                'contact-email': 'Email',
+                'contact-address': 'Indirizzo',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': 'Invia Email',
+                
+                // Footer
+                'footer-tagline': 'La tua guida esperta per scoprire i tesori nascosti di Nosy Be e le sue isole paradisiache. Esperienze autentiche, ricordi indimenticabili.',
+                'copyright': 'Tutti i diritti riservati.',
+                'privacy': 'Politica sulla Privacy',
+                'terms': 'Termini di Utilizzo'
+            },
+            zh: {
+                // Header
+                'site-title': '马达加斯加岛旅游',
+                'site-tagline': '探索诺西贝及其天堂岛屿',
+                'nav-home': '首页',
+                'nav-nosybe': '诺西贝与岛屿',
+                'nav-destinations': '目的地',
+                'nav-services': '服务',
+                'nav-contact': '联系方式',
+                'select-language': '更改语言',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': '欢迎来到诺西贝',
+                'hero-subtitle': '香水之岛欢迎您！探索马达加斯加的绿松石天堂，其白色沙滩、清澈海水和神奇岛屿。印度洋中心等待着您的独特体验。',
+                'feature1-title': '绿松石海水',
+                'feature1-desc': '潜入印度洋最美丽海湾的清澈水域。',
+                'feature2-title': '天堂海滩',
+                'feature2-desc': '细腻的白沙和椰子树：梦幻假期的完美环境。',
+                'feature3-title': '海洋生物',
+                'feature3-desc': '在保护区遇见海龟、热带鱼类和珊瑚。',
+                'hero-btn': '探索岛屿',
+                
+                // Nosy Be
+                'nosybe-title': '诺西贝及其神奇岛屿',
+                'nosybe-intro': '探索诺西贝周围的明珠。每个岛屿都提供独特的体验、令人惊叹的风景和难忘的马达加斯加自然邂逅。',
+                'iranja-desc': '退潮时由沙洲连接的天堂岛。非常适合浪漫散步和海龟观察。',
+                'sakatia-desc': '陆地海龟观察和透明水域浮潜。生态保护良好的地点。',
+                'komba-desc': '遇见著名的自由活动猕猴狐猴，并在传统村庄中发现当地手工艺品。',
+                'tanikely-desc': '受保护的海洋保护区，水晶般清澈的海水非常适合与热带鱼类一起浮潜。',
+                'lokobe-desc': '诺西贝最后的原始雨林，拥有独特的特有物种和狐猴。',
+                'lemurian-desc': '发现植物和半自由生活的狐猴。教育性和家庭友好的参观。',
+                'explore-island': '发现',
+                
+                // Destinations
+                'destinations-title': '其他必游景点',
+                'destinations-intro': '探索诺西贝及其周边的其他宝藏。每个地点都提供独特的体验，完善您的马达加斯加冒险之旅。',
+                'marodoka-desc': '殖民时代的遗产和神秘。探索这个传奇地点的迷人历史。',
+                'passot-desc': '岛屿最高点，提供诺西贝及其周围岛屿的360°全景视野。',
+                'madirokely-desc': '诺西贝最美丽的海滩之一，拥有白色沙滩和透明的绿松石海水。',
+                'ambatozavavy-desc': '沉浸在当地市场的多彩氛围中，发现马达加斯加手工艺品。',
+                'explore-destination': '探索',
+                
+                // Services
+                'services-title': '我们的独家服务',
+                'services-intro': '我们陪伴您创建梦想的诺西贝之旅。量身定制的服务，带来难忘体验。',
+                'service1-title': '乘船游览',
+                'service1-desc': '乘坐我们的私人船只和经验丰富的向导驶向天堂岛屿。',
+                'service2-title': '浮潜与潜水',
+                'service2-desc': '全套设备和向导，探索非凡的海底世界。',
+                'service3-title': '迷人住宿',
+                'service3-desc': '精选最佳海景酒店和度假屋，享受天堂般的住宿。',
+                'service4-title': '当地美食体验',
+                'service4-desc': '在最佳餐厅探索马达加斯加美食和新鲜海鲜。',
+                'service5-title': '私人接送',
+                'service5-desc': '机场接送，带司机车辆租赁，自由探索岛屿。',
+                'service6-title': '定制旅行',
+                'service6-desc': '根据您的意愿和预算，完整组织您的行程。',
+                'services-btn': '获取报价',
+                
+                // Contact
+                'contact-title': '联系我们',
+                'contact-intro': '准备好开始诺西贝冒险了吗？我们的当地团队随时为您服务，为您组织在马达加斯加天堂岛屿的梦想之旅。',
+                'contact-phone': '电话',
+                'contact-email': '电子邮件',
+                'contact-address': '地址',
+                'whatsapp-btn': 'WhatsApp',
+                'email-btn': '发送邮件',
+                
+                // Footer
+                'footer-tagline': '您探索诺西贝及其天堂岛屿隐藏宝藏的专业向导。真实体验，难忘回忆。',
+                'copyright': '版权所有。',
+                'privacy': '隐私政策',
+                'terms': '使用条款'
+            }
+        };
+
+        // Langue par défaut
+        let currentLang = 'fr';
+
+        // Charger la langue depuis localStorage ou détecter
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('islandMadaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            }
+            
+            updateLanguage();
+        }
+
+        // Mettre à jour toutes les traductions
+        function updateLanguage() {
+            // Mettre à jour les textes
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Mettre à jour les indicateurs de langue
+            currentLangElements.forEach(el => {
+                el.textContent = currentLang.toUpperCase();
+            });
+
+            // Mettre à jour les options actives
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Sauvegarder la préférence
+            localStorage.setItem('islandMadaLang', currentLang);
+            
+            // Fermer le menu mobile si ouvert
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Gérer le clic sur les options de langue
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        // ===== NAVIGATION ACTIVE STATE =====
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== IMAGE LOADING =====
+        function loadImages() {
+            const images = document.querySelectorAll('.loading');
+            
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                    image.onload = () => {
+                        img.classList.remove('loading');
+                    };
+                }
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '8px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(64, 224, 208, 0.3)';
+            } else {
+                header.style.padding = '12px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(64, 224, 208, 0.2)';
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger la langue
+            loadLanguage();
+            
+            // Mettre à jour l'année du copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Charger les images
+            loadImages();
+            
+            // Événements de scroll
+            window.addEventListener('scroll', () => {
+                handleScrollAnimations();
+                updateActiveNav();
+                handleHeaderScroll();
+            });
+            
+            // Initialiser les animations
+            handleScrollAnimations();
+            updateActiveNav();
+            handleHeaderScroll();
+            
+            // Fermer le menu au clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Gestion des touches Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // ===== ORIENTATION CHANGE =====
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                handleScrollAnimations();
+                updateActiveNav();
+            }, 300);
+        });
+
+        // ===== PREVENT CONTEXT MENU ON MOBILE =====
+        document.addEventListener('contextmenu', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Diego Suarez, Pain de Sucre & Trésors du Nord</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== VARIABLES CSS ===== */
+        :root {
+            --primary-color: #9b59b6;
+            --secondary-color: #e67e22;
+            --accent-color: #f1c40f;
+            --dark-color: #1a0a1a;
+            --light-color: #ffffff;
+            --text-color: #f0f8ff;
+            --gray-color: #8e9aaf;
+            --container-padding: 20px;
+            --transition: 0.3s ease;
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--dark-color) 0%, #2d1a2d 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        [lang="ar"] {
+            font-family: 'Noto Sans Arabic', 'Montserrat', sans-serif;
+            direction: rtl;
+        }
+
+        [lang="zh"] {
+            font-family: 'Noto Sans SC', 'Montserrat', sans-serif;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 10, 26, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 3px solid var(--primary-color);
+            box-shadow: 0 5px 20px rgba(155, 89, 182, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            border: 2px solid var(--accent-color);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--light-color);
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-top: 2px;
+        }
+
+        /* Navigation */
+        .nav-desktop {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(155, 89, 182, 0.1);
+            color: var(--primary-color);
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+
+        .language-btn {
+            background: rgba(155, 89, 182, 0.2);
+            border: 2px solid var(--primary-color);
+            color: var(--light-color);
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 200px;
+            background: rgba(26, 10, 26, 0.98);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: var(--transition);
+            margin-bottom: 5px;
+        }
+
+        .language-option:hover,
+        .language-option.active {
+            background: rgba(155, 89, 182, 0.2);
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Mobile Menu */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: 2px solid var(--accent-color);
+            color: var(--light-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 350px;
+            height: 100vh;
+            background: rgba(26, 10, 26, 0.98);
+            padding: 80px 20px 20px;
+            transition: var(--transition);
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: 2px solid var(--accent-color);
+            color: var(--light-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 10px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 10px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .header-spacer {
+            height: 80px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 10, 26, 0.8), rgba(26, 10, 26, 0.9)),
+                        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--light-color);
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ===== SITES GRID ===== */
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .site-card {
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+
+        .site-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(155, 89, 182, 0.2);
+        }
+
+        .site-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .site-content {
+            padding: 25px;
+        }
+
+        .site-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-subtitle {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: block;
+        }
+
+        .site-card p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .site-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .site-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .site-features li:before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            background: rgba(155, 89, 182, 0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .site-link:hover {
+            background: rgba(155, 89, 182, 0.2);
+            border-color: var(--primary-color);
+            gap: 15px;
+        }
+
+        /* ===== DESTINATIONS GRID ===== */
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .destination-card {
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .destination-content {
+            padding: 25px;
+        }
+
+        .destination-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .destination-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: linear-gradient(135deg, #251025 0%, #3a1a3a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 204, 113, 0.2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: linear-gradient(135deg, #3a1a3a 0%, #251025 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #1a0a1a 0%, #251525 100%);
+            padding: 60px 0 30px;
+            border-top: 5px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-tagline {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(155, 89, 182, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(155, 89, 182, 0.3);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .nav-desktop,
+            .language-selector {
+                display: none;
+            }
+            
+            .mobile-controls {
+                display: flex;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .hero {
+                padding: 40px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sites-grid,
+            .destinations-grid,
+            .services-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .mobile-language-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-text {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .site-card h3,
+            .destination-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ===== RTL SUPPORT ===== */
+        [dir="rtl"] {
+            text-align: right;
+        }
+
+        [dir="rtl"] .site-features li {
+            padding-left: 0;
+            padding-right: 25px;
+        }
+
+        [dir="rtl"] .site-features li:before {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .site-link,
+        [dir="rtl"] .btn {
+            flex-direction: row-reverse;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+        .delay-6 { animation-delay: 1.2s; }
+
+        /* ===== LOADER ===== */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(155, 89, 182, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                    <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                         </div>
+                    <div class="logo-text">
+                        <div class="logo-title">ISLAND MADA TRAVEL</div>
+                        <div class="logo-tagline" data-translate="logo-tagline">Diego Suarez - Pain de Sucre & Trésors du Nord</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop">
+                    <a href="#home" class="nav-link active" data-translate="nav-home">Accueil</a>
+                    <a href="#sites" class="nav-link" data-translate="nav-sites">Sites Emblématiques</a>
+                    <a href="#destinations" class="nav-link" data-translate="nav-destinations">Destinations</a>
+                    <a href="#services" class="nav-link" data-translate="nav-services">Services</a>
+                    <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+                </nav>
+
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">FR</span>
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="fr">
+                            <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                            <span data-translate="lang-fr">Français</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="en">
+                            <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                            <span data-translate="lang-en">English</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="de">
+                            <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                            <span data-translate="lang-de">Deutsch</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="es">
+                            <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                            <span data-translate="lang-es">Español</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="it">
+                            <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                            <span data-translate="lang-it">Italiano</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="ar">
+                            <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                            <span data-translate="lang-ar">العربية</span>
+                        </a>
+                        <a href="#" class="language-option" data-lang="zh">
+                            <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                            <span data-translate="lang-zh">中文</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile Controls -->
+                <div class="mobile-controls">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> <span data-translate="nav-home">Accueil</span></a></li>
+            <li><a href="#sites"><i class="fas fa-mountain"></i> <span data-translate="nav-sites">Sites Emblématiques</span></a></li>
+            <li><a href="#destinations"><i class="fas fa-map-marker-alt"></i> <span data-translate="nav-destinations">Destinations</span></a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> <span data-translate="nav-services">Services</span></a></li>
+            <li><a href="#contact"><i class="fas fa-phone-alt"></i> <span data-translate="nav-contact">Contact</span></a></li>
+        </ul>
+        
+        <div class="mobile-language-grid">
+            <a href="#" class="language-option active" data-lang="fr">
+                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                <span data-translate="lang-fr">Français</span>
+            </a>
+            <a href="#" class="language-option" data-lang="en">
+                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                <span data-translate="lang-en">English</span>
+            </a>
+            <a href="#" class="language-option" data-lang="de">
+                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                <span data-translate="lang-de">Deutsch</span>
+            </a>
+            <a href="#" class="language-option" data-lang="es">
+                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                <span data-translate="lang-es">Español</span>
+            </a>
+            <a href="#" class="language-option" data-lang="it">
+                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                <span data-translate="lang-it">Italiano</span>
+            </a>
+            <a href="#" class="language-option" data-lang="ar">
+                <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                <span data-translate="lang-ar">العربية</span>
+            </a>
+            <a href="#" class="language-option" data-lang="zh">
+                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                <span data-translate="lang-zh">中文</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1 class="hero-title" data-translate="hero-title">Découvrez Diego Suarez</h1>
+                    <p class="hero-subtitle" data-translate="hero-subtitle">
+                        Perle du nord de Madagascar ! Le mythique Pain de Sucre, les baies turquoise, 
+                        les montagnes majestueuses et les paysages uniques vous attendent pour une aventure 
+                        inoubliable au cœur de l'océan Indien.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="feature-card fade-in delay-1">
+                            <div class="feature-icon">
+                                <i class="fas fa-mountain"></i>
+                            </div>
+                            <h3 data-translate="feature1-title">Pain de Sucre</h3>
+                            <p data-translate="feature1-desc">Rocher emblématique en forme de pain de sucre au milieu de l'océan. Site incontournable de Diego Suarez.</p>
+                        </div>
+                        
+                        <div class="feature-card fade-in delay-2">
+                            <div class="feature-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h3 data-translate="feature2-title">Les Trois Baies</h3>
+                            <p data-translate="feature2-desc">Baie des Dunes, Baie des Pigeons et Baie de Sakalava - des paysages côtiers spectaculaires.</p>
+                        </div>
+                        
+                        <div class="feature-card fade-in delay-3">
+                            <div class="feature-icon">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h3 data-translate="feature3-title">Tsingy Rouges</h3>
+                            <p data-translate="feature3-desc">Formations géologiques uniques aux couleurs rouge sang. Un paysage lunaire époustouflant.</p>
+                        </div>
+                    </div>
+                    
+                    <a href="#sites" class="btn fade-in delay-4" data-translate="hero-btn">
+                        <i class="fas fa-compass"></i>
+                        <span>Explorer les Sites</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sites Section -->
+        <section id="sites">
+            <div class="container">
+                <h2 class="section-title fade-in" data-translate="sites-title">Sites Emblématiques de Diego Suarez</h2>
+                <p class="section-intro fade-in delay-1" data-translate="sites-intro">
+                    Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique 
+                    et des paysages à couper le souffle qui font la renommée de Diego Suarez.
+                </p>
+                
+                <div class="sites-grid">
+                    <!-- Site 1 - Pain de Sucre -->
+                    <div class="site-card fade-in">
+                        <img src="1a.jpg" 
+                             alt="Pain de Sucre" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-mountain"></i> <span data-translate="site1-title">Pain de Sucre</span></h3>
+                            <span class="site-subtitle" data-translate="site1-subtitle">Rocher emblématique</span>
+                            <p data-translate="site1-desc">Rocher emblématique en forme de pain de sucre au milieu de l'océan. Formation géologique unique visible de toute la baie de Diego Suarez.</p>
+                            <ul class="site-features">
+                                <li data-translate="site1-feature1">Formation géologique unique</li>
+                                <li data-translate="site1-feature2">Point de vue panoramique exceptionnel</li>
+                                <li data-translate="site1-feature3">Navigation autour du rocher</li>
+                                <li data-translate="site1-feature4">Site photo incontournable</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Site 2 - Montagne des Français -->
+                    <div class="site-card fade-in delay-1">
+                        <img src="1b.jpg" 
+                             alt="Montagne des Français" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-binoculars"></i> <span data-translate="site2-title">Montagne des Français</span></h3>
+                            <span class="site-subtitle" data-translate="site2-subtitle">Point de vue panoramique</span>
+                            <p data-translate="site2-desc">Point culminant offrant la meilleure vue panoramique sur la baie de Diego-Suarez. Site historique avec fortifications françaises.</p>
+                            <ul class="site-features">
+                                <li data-translate="site2-feature1">Vue à 360° sur la baie</li>
+                                <li data-translate="site2-feature2">Forêt de baobabs nains endémiques</li>
+                                <li data-translate="site2-feature3">Fortifications historiques</li>
+                                <li data-translate="site2-feature4">Flore endémique unique</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Site 3 - Plage de Ramena -->
+                    <div class="site-card fade-in delay-2">
+                        <img src="1c.jpg" 
+                             alt="Plage de Ramena" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-umbrella-beach"></i> <span data-translate="site3-title">Plage de Ramena</span></h3>
+                            <span class="site-subtitle" data-translate="site3-subtitle">Plage paradisiaque</span>
+                            <p data-translate="site3-desc">Longue plage de sable blanc bordée de cocotiers, parfaite pour la détente. Ambiance authentique avec villages de pêcheurs traditionnels.</p>
+                            <ul class="site-features">
+                                <li data-translate="site3-feature1">Plage de 3km de long</li>
+                                <li data-translate="site3-feature2">Cocoteraies naturelles</li>
+                                <li data-translate="site3-feature3">Villages de pêcheurs traditionnels</li>
+                                <li data-translate="site3-feature4">Restaurants de fruits de mer frais</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Site 4 - Baie des Dunes -->
+                    <div class="site-card fade-in delay-3">
+                        <img src="1d.jpg" 
+                             alt="Baie des Dunes" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-sun"></i> <span data-translate="site4-title">Baie des Dunes</span></h3>
+                            <span class="site-subtitle" data-translate="site4-subtitle">Dunes spectaculaires</span>
+                            <p data-translate="site4-desc">Plage de sable blanc avec des dunes impressionnantes. Vue panoramique sur l'océan Indien et couchers de soleil magiques.</p>
+                            <ul class="site-features">
+                                <li data-translate="site4-feature1">Dunes de sable blanc uniques</li>
+                                <li data-translate="site4-feature2">Eaux turquoise cristallines</li>
+                                <li data-translate="site4-feature3">Couchers de soleil spectaculaires</li>
+                                <li data-translate="site4-feature4">Observation de baleines (en saison)</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Site 5 - Baie des Pigeons -->
+                    <div class="site-card fade-in delay-4">
+                        <img src="1e.jpg" 
+                             alt="Baie des Pigeons" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-dove"></i> <span data-translate="site5-title">Baie des Pigeons</span></h3>
+                            <span class="site-subtitle" data-translate="site5-subtitle">Petite baie intime</span>
+                            <p data-translate="site5-desc">Petite baie intime avec des formations rocheuses uniques et une eau transparente. Paradis pour le snorkeling et la baignade.</p>
+                            <ul class="site-features">
+                                <li data-translate="site5-feature1">Formations rocheuses sculptées</li>
+                                <li data-translate="site5-feature2">Snorkeling exceptionnel</li>
+                                <li data-translate="site5-feature3">Colonie d'oiseaux marins</li>
+                                <li data-translate="site5-feature4">Plage de sable fin préservée</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Site 6 - Réserve d'Ankarana -->
+                    <div class="site-card fade-in delay-5">
+                        <img src="1f.jpg" 
+                             alt="Réserve d'Ankarana" class="site-image">
+                        <div class="site-content">
+                            <h3><i class="fas fa-tree"></i> <span data-translate="site6-title">Réserve d'Ankarana</span></h3>
+                            <span class="site-subtitle" data-translate="site6-subtitle">Réserve naturelle</span>
+                            <p data-translate="site6-desc">Réserve naturelle avec les célèbres Tsingy, formations calcaires uniques au monde. Grottes, canyons et biodiversité exceptionnelle.</p>
+                            <ul class="site-features">
+                                <li data-translate="site6-feature1">Tsingy (forêt de pierre unique)</li>
+                                <li data-translate="site6-feature2">Grottes et canyons spectaculaires</li>
+                                <li data-translate="site6-feature3">Lémuriens et crocodiles</li>
+                                <li data-translate="site6-feature4">Rivières souterraines mystérieuses</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="discover-btn">
+                                <span>Découvrir</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section id="destinations" class="destinations">
+            <div class="container">
+                <h2 class="section-title fade-in" data-translate="destinations-title">Destinations Complètes</h2>
+                <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                    Explorez en détail les trésors de la région de Diego Suarez. Chaque destination offre 
+                    une expérience unique et des paysages exceptionnels pour un voyage inoubliable.
+                </p>
+                
+                <div class="destinations-grid">
+                    <!-- Destination 1 - Les Trois Baies -->
+                    <div class="destination-card fade-in">
+                        <img src="1g.jpg" 
+                             alt="Les Trois Baies" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-water"></i> <span data-translate="destination1-title">Les Trois Baies</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination1-location">Côte nord de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination1-desc">Trois baies aux caractéristiques uniques : Baie des Dunes avec ses dunes spectaculaires, Baie des Pigeons pour le snorkeling, et Baie de Sakalava pour son authenticité.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination1-feature1">Dunes parmi les plus belles au monde</li>
+                                <li data-translate="destination1-feature2">Eaux cristallines pour la baignade</li>
+                                <li data-translate="destination1-feature3">Snorkeling exceptionnel</li>
+                                <li data-translate="destination1-feature4">Points de vue panoramiques</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Destination 2 - Tsingy Rouges -->
+                    <div class="destination-card fade-in delay-1">
+                        <img src="1h.jpeg" 
+                             alt="Tsingy Rouges" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-mountain"></i> <span data-translate="destination2-title">Tsingy Rouges</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination2-location">70km au sud de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination2-desc">Formation géologique unique au monde : des pitons rocheux aux couleurs rouge sang créés par l'oxydation du fer. Paysage lunaire qui change de couleur selon l'heure.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination2-feature1">Formations rocheuses rouges uniques</li>
+                                <li data-translate="destination2-feature2">Paysage désertique lunaire</li>
+                                <li data-translate="destination2-feature3">Couleurs changeantes selon le soleil</li>
+                                <li data-translate="destination2-feature4">Site géologique exceptionnel</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Destination 3 - Montagne d'Ambre -->
+                    <div class="destination-card fade-in delay-2">
+                        <img src="1i.jpeg" 
+                             alt="Montagne d'Ambre" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-tree"></i> <span data-translate="destination3-title">Montagne d'Ambre</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination3-location">35km au sud de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination3-desc">Parc National de la Montagne d'Ambre : forêt tropicale humide avec une biodiversité exceptionnelle. Cascades, lacs de cratère et flore unique.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination3-feature1">7 espèces de lémuriens différents</li>
+                                <li data-translate="destination3-feature2">Cascades et lacs de cratère</li>
+                                <li data-translate="destination3-feature3">Flore tropicale exceptionnelle</li>
+                                <li data-translate="destination3-feature4">Climat frais et agréable toute l'année</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Destination 4 - Mer d'Émeraude -->
+                    <div class="destination-card fade-in delay-3">
+                        <img src="1j.png" 
+                             alt="Mer d'Émeraude" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-gem"></i> <span data-translate="destination4-title">Mer d'Émeraude</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination4-location">Baie de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination4-desc">Lagune aux eaux vert émeraude transparentes, protégée par une barrière de corail. Site exceptionnel pour le snorkeling avec faune marine abondante.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination4-feature1">Eaux vert émeraude cristallines</li>
+                                <li data-translate="destination4-feature2">Snorkeling exceptionnel</li>
+                                <li data-translate="destination4-feature3">Faune marine abondante</li>
+                                <li data-translate="destination4-feature4">Eaux peu profondes et calmes</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Destination 5 - Montagne des Français -->
+                    <div class="destination-card fade-in delay-4">
+                        <img src="1k.jpg" 
+                             alt="Montagne des Français" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-tree"></i> <span data-translate="destination5-title">Montagne des Français & Baobabs</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination5-location">Périphérie de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination5-desc">Site historique avec vue panoramique imprenable. La montagne abrite une forêt de baobabs nains endémiques et des fortifications françaises bien préservées.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination5-feature1">Vue panoramique à 360°</li>
+                                <li data-translate="destination5-feature2">Forêt de baobabs nains endémiques</li>
+                                <li data-translate="destination5-feature3">Fortifications historiques françaises</li>
+                                <li data-translate="destination5-feature4">Randonnée facile et accessible</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Destination 6 - Ville d'Antagnavo -->
+                    <div class="destination-card fade-in delay-5">
+                        <img src="1l.jpeg" 
+                             alt="Ville d'Antagnavo" class="destination-image">
+                        <div class="destination-content">
+                            <h3><i class="fas fa-city"></i> <span data-translate="destination6-title">Ville d'Antagnavo</span></h3>
+                            <div class="destination-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-translate="destination6-location">Région de Diego-Suarez</span>
+                            </div>
+                            <p data-translate="destination6-desc">Ville authentique offrant un aperçu de la vie locale malgache. Marchés colorés, artisanat traditionnel et hospitalité chaleureuse des habitants.</p>
+                            <ul class="site-features">
+                                <li data-translate="destination6-feature1">Lac sacré d'Antagnavo</li>
+                                <li data-translate="destination6-feature2">Marchés traditionnels animés</li>
+                                <li data-translate="destination6-feature3">Artisanat local authentique</li>
+                                <li data-translate="destination6-feature4">Rencontre avec la population locale</li>
+                            </ul>
+                            <a href="galerie.html" class="site-link" data-translate="explore-btn">
+                                <span>Explorer</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title fade-in" data-translate="services-title">Nos Services Exclusifs</h2>
+                <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                    Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Diego Suarez. 
+                    Des services sur mesure pour une expérience authentique et inoubliable.
+                </p>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-hiking"></i>
+                        </div>
+                        <h3 data-translate="service1-title">Randonnées Guidées</h3>
+                        <p data-translate="service1-desc">Découverte des sites naturels avec guides expérimentés parlant français, anglais et malgache.</p>
+                        <ul class="site-features">
+                            <li data-translate="service1-feature1">Guides locaux certifiés</li>
+                            <li data-translate="service1-feature2">Matériel technique fourni</li>
+                            <li data-translate="service1-feature3">Itinéraires personnalisés</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card fade-in delay-1">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 data-translate="service2-title">Transport Privé</h3>
+                        <p data-translate="service2-desc">Véhicules 4x4 confortables avec chauffeurs professionnels.</p>
+                        <ul class="site-features">
+                            <li data-translate="service2-feature1">Véhicules 4x4 récents</li>
+                            <li data-translate="service2-feature2">Chauffeurs-guides expérimentés</li>
+                            <li data-translate="service2-feature3">Transferts aéroport inclus</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card fade-in delay-2">
+                        <div class="service-icon">
+                            <i class="fas fa-hotel"></i>
+                        </div>
+                        <h3 data-translate="service3-title">Hébergement</h3>
+                        <p data-translate="service3-desc">Sélection des meilleurs hôtels, lodges et maisons d'hôtes.</p>
+                        <ul class="site-features">
+                            <li data-translate="service3-feature1">Hôtels 3 à 5 étoiles</li>
+                            <li data-translate="service3-feature2">Lodges écologiques</li>
+                            <li data-translate="service3-feature3">Réservation garantie</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title fade-in" data-translate="contact-title">Contactez-nous</h2>
+                <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                    Prêt à découvrir Diego Suarez ? Contactez-nous pour organiser votre voyage sur mesure. 
+                    Notre équipe francophone est à votre disposition pour répondre à toutes vos questions.
+                </p>
+                
+                <div class="contact-grid">
+                    <!-- Contact 1 -->
+                    <div class="contact-card fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 data-translate="contact1-title">Téléphone</h3>
+                        <p><a href="tel:+261 32 55 396 35">+261 32 55 396 35</a></p>
+                        
+                    </div>
+                    
+                    <!-- Contact 2 -->
+                    <div class="contact-card fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 data-translate="contact2-title">Email</h3>
+                    
+                        <p><a href="mailto:anjaraamadym@gmail.com">anjaraamadym@gmail.com</a></p>
+                    </div>
+                    
+                    <!-- Contact 3 -->
+                    <div class="contact-card fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 data-translate="contact3-title">Adresse</h3>
+                        <p>Avenue de la Mer<br>Diego Suarez 201<br>Madagascar</p>
+                    </div>
+                </div>
+                
+                <div class="contact-buttons fade-in delay-3">
+                    <a href="mailto:anjaraamadym@gmail.com" class="btn" data-translate="contact-btn1">
+                        <i class="fas fa-envelope"></i>
+                        <span>Envoyer un email</span>
+                    </a>
+                    <a href="tel:+261 32 55 396 35" class="btn" data-translate="contact-btn2">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>Nous appeler</span>
+                    </a>
+                    <a href="https://wa.me/261325539635" class="btn" target="_blank" data-translate="contact-btn3">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-mountain"></i>
+                <span>ISLAND MADA TRAVEL</span>
+            </div>
+            
+            <p class="footer-tagline" data-translate="footer-tagline">
+                Votre partenaire de confiance pour découvrir les trésors de Diego Suarez et du nord de Madagascar. 
+                Des expériences authentiques, des paysages époustouflants et des souvenirs inoubliables.
+            </p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-tripadvisor"></i></a>
+            </div>
+            
+            <div class="copyright" data-translate="copyright">
+                © 2023 Island Mada Travel. Tous droits réservés. | Diego Suarez - Madagascar
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== TRADUCTIONS COMPLÈTES =====
+        const translations = {
+            fr: {
+                // Header
+                "logo-tagline": "Diego Suarez - Pain de Sucre & Trésors du Nord",
+                "nav-home": "Accueil",
+                "nav-sites": "Sites Emblématiques",
+                "nav-destinations": "Destinations",
+                "nav-services": "Services",
+                "nav-contact": "Contact",
+                "lang-fr": "Français",
+                "lang-en": "English",
+                "lang-de": "Deutsch",
+                "lang-es": "Español",
+                "lang-it": "Italiano",
+                "lang-ar": "العربية",
+                "lang-zh": "中文",
+
+                // Hero Section
+                "hero-title": "Découvrez Diego Suarez",
+                "hero-subtitle": "Perle du nord de Madagascar ! Le mythique Pain de Sucre, les baies turquoise, les montagnes majestueuses et les paysages uniques vous attendent pour une aventure inoubliable au cœur de l'océan Indien.",
+                "feature1-title": "Pain de Sucre",
+                "feature1-desc": "Rocher emblématique en forme de pain de sucre au milieu de l'océan. Site incontournable de Diego Suarez.",
+                "feature2-title": "Les Trois Baies",
+                "feature2-desc": "Baie des Dunes, Baie des Pigeons et Baie de Sakalava - des paysages côtiers spectaculaires.",
+                "feature3-title": "Tsingy Rouges",
+                "feature3-desc": "Formations géologiques uniques aux couleurs rouge sang. Un paysage lunaire époustouflant.",
+                "hero-btn": "Explorer les Sites",
+
+                // Sites Section
+                "sites-title": "Sites Emblématiques de Diego Suarez",
+                "sites-intro": "Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique et des paysages à couper le souffle qui font la renommée de Diego Suarez.",
+                "site1-title": "Pain de Sucre",
+                "site1-subtitle": "Rocher emblématique",
+                "site1-desc": "Rocher emblématique en forme de pain de sucre au milieu de l'océan. Formation géologique unique visible de toute la baie de Diego Suarez.",
+                "site1-feature1": "Formation géologique unique",
+                "site1-feature2": "Point de vue panoramique exceptionnel",
+                "site1-feature3": "Navigation autour du rocher",
+                "site1-feature4": "Site photo incontournable",
+                "site2-title": "Montagne des Français",
+                "site2-subtitle": "Point de vue panoramique",
+                "site2-desc": "Point culminant offrant la meilleure vue panoramique sur la baie de Diego-Suarez. Site historique avec fortifications françaises.",
+                "site2-feature1": "Vue à 360° sur la baie",
+                "site2-feature2": "Forêt de baobabs nains endémiques",
+                "site2-feature3": "Fortifications historiques",
+                "site2-feature4": "Flore endémique unique",
+                "site3-title": "Plage de Ramena",
+                "site3-subtitle": "Plage paradisiaque",
+                "site3-desc": "Longue plage de sable blanc bordée de cocotiers, parfaite pour la détente. Ambiance authentique avec villages de pêcheurs traditionnels.",
+                "site3-feature1": "Plage de 3km de long",
+                "site3-feature2": "Cocoteraies naturelles",
+                "site3-feature3": "Villages de pêcheurs traditionnels",
+                "site3-feature4": "Restaurants de fruits de mer frais",
+                "site4-title": "Baie des Dunes",
+                "site4-subtitle": "Dunes spectaculaires",
+                "site4-desc": "Plage de sable blanc avec des dunes impressionnantes. Vue panoramique sur l'océan Indien et couchers de soleil magiques.",
+                "site4-feature1": "Dunes de sable blanc uniques",
+                "site4-feature2": "Eaux turquoise cristallines",
+                "site4-feature3": "Couchers de soleil spectaculaires",
+                "site4-feature4": "Observation de baleines (en saison)",
+                "site5-title": "Baie des Pigeons",
+                "site5-subtitle": "Petite baie intime",
+                "site5-desc": "Petite baie intime avec des formations rocheuses uniques et une eau transparente. Paradis pour le snorkeling et la baignade.",
+                "site5-feature1": "Formations rocheuses sculptées",
+                "site5-feature2": "Snorkeling exceptionnel",
+                "site5-feature3": "Colonie d'oiseaux marins",
+                "site5-feature4": "Plage de sable fin préservée",
+                "site6-title": "Réserve d'Ankarana",
+                "site6-subtitle": "Réserve naturelle",
+                "site6-desc": "Réserve naturelle avec les célèbres Tsingy, formations calcaires uniques au monde. Grottes, canyons et biodiversité exceptionnelle.",
+                "site6-feature1": "Tsingy (forêt de pierre unique)",
+                "site6-feature2": "Grottes et canyons spectaculaires",
+                "site6-feature3": "Lémuriens et crocodiles",
+                "site6-feature4": "Rivières souterraines mystérieuses",
+                "discover-btn": "Découvrir",
+
+                // Destinations Section
+                "destinations-title": "Destinations Complètes",
+                "destinations-intro": "Explorez en détail les trésors de la région de Diego Suarez. Chaque destination offre une expérience unique et des paysages exceptionnels pour un voyage inoubliable.",
+                "destination1-title": "Les Trois Baies",
+                "destination1-location": "Côte nord de Diego-Suarez",
+                "destination1-desc": "Trois baies aux caractéristiques uniques : Baie des Dunes avec ses dunes spectaculaires, Baie des Pigeons pour le snorkeling, et Baie de Sakalava pour son authenticité.",
+                "destination1-feature1": "Dunes parmi les plus belles au monde",
+                "destination1-feature2": "Eaux cristallines pour la baignade",
+                "destination1-feature3": "Snorkeling exceptionnel",
+                "destination1-feature4": "Points de vue panoramiques",
+                "destination2-title": "Tsingy Rouges",
+                "destination2-location": "70km au sud de Diego-Suarez",
+                "destination2-desc": "Formation géologique unique au monde : des pitons rocheux aux couleurs rouge sang créés par l'oxydation du fer. Paysage lunaire qui change de couleur selon l'heure.",
+                "destination2-feature1": "Formations rocheuses rouges uniques",
+                "destination2-feature2": "Paysage désertique lunaire",
+                "destination2-feature3": "Couleurs changeantes selon le soleil",
+                "destination2-feature4": "Site géologique exceptionnel",
+                "destination3-title": "Montagne d'Ambre",
+                "destination3-location": "35km au sud de Diego-Suarez",
+                "destination3-desc": "Parc National de la Montagne d'Ambre : forêt tropicale humide avec une biodiversité exceptionnelle. Cascades, lacs de cratère et flore unique.",
+                "destination3-feature1": "7 espèces de lémuriens différents",
+                "destination3-feature2": "Cascades et lacs de cratère",
+                "destination3-feature3": "Flore tropicale exceptionnelle",
+                "destination3-feature4": "Climat frais et agréable toute l'année",
+                "destination4-title": "Mer d'Émeraude",
+                "destination4-location": "Baie de Diego-Suarez",
+                "destination4-desc": "Lagune aux eaux vert émeraude transparentes, protégée par une barrière de corail. Site exceptionnel pour le snorkeling avec faune marine abondante.",
+                "destination4-feature1": "Eaux vert émeraude cristallines",
+                "destination4-feature2": "Snorkeling exceptionnel",
+                "destination4-feature3": "Faune marine abondante",
+                "destination4-feature4": "Eaux peu profondes et calmes",
+                "destination5-title": "Montagne des Français & Baobabs",
+                "destination5-location": "Périphérie de Diego-Suarez",
+                "destination5-desc": "Site historique avec vue panoramique imprenable. La montagne abrite une forêt de baobabs nains endémiques et des fortifications françaises bien préservées.",
+                "destination5-feature1": "Vue panoramique à 360°",
+                "destination5-feature2": "Forêt de baobabs nains endémiques",
+                "destination5-feature3": "Fortifications historiques françaises",
+                "destination5-feature4": "Randonnée facile et accessible",
+                "destination6-title": "Ville d'Antagnavo",
+                "destination6-location": "Région de Diego-Suarez",
+                "destination6-desc": "Ville authentique offrant un aperçu de la vie locale malgache. Marchés colorés, artisanat traditionnel et hospitalité chaleureuse des habitants.",
+                "destination6-feature1": "Lac sacré d'Antagnavo",
+                "destination6-feature2": "Marchés traditionnels animés",
+                "destination6-feature3": "Artisanat local authentique",
+                "destination6-feature4": "Rencontre avec la population locale",
+                "explore-btn": "Explorer",
+
+                // Services Section
+                "services-title": "Nos Services Exclusifs",
+                "services-intro": "Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Diego Suarez. Des services sur mesure pour une expérience authentique et inoubliable.",
+                "service1-title": "Randonnées Guidées",
+                "service1-desc": "Découverte des sites naturels avec guides expérimentés parlant français, anglais et malgache.",
+                "service1-feature1": "Guides locaux certifiés",
+                "service1-feature2": "Matériel technique fourni",
+                "service1-feature3": "Itinéraires personnalisés",
+                "service2-title": "Transport Privé",
+                "service2-desc": "Véhicules 4x4 confortables avec chauffeurs professionnels.",
+                "service2-feature1": "Véhicules 4x4 récents",
+                "service2-feature2": "Chauffeurs-guides expérimentés",
+                "service2-feature3": "Transferts aéroport inclus",
+                "service3-title": "Hébergement",
+                "service3-desc": "Sélection des meilleurs hôtels, lodges et maisons d'hôtes.",
+                "service3-feature1": "Hôtels 3 à 5 étoiles",
+                "service3-feature2": "Lodges écologiques",
+                "service3-feature3": "Réservation garantie",
+
+                // Contact Section
+                "contact-title": "Contactez-nous",
+                "contact-intro": "Prêt à découvrir Diego Suarez ? Contactez-nous pour organiser votre voyage sur mesure. Notre équipe francophone est à votre disposition pour répondre à toutes vos questions.",
+                "contact1-title": "Téléphone",
+                "contact2-title": "Email",
+                "contact3-title": "Adresse",
+                "contact-btn1": "Envoyer un email",
+                "contact-btn2": "Nous appeler",
+                "contact-btn3": "WhatsApp",
+
+                // Footer
+                "footer-tagline": "Votre partenaire de confiance pour découvrir les trésors de Diego Suarez et du nord de Madagascar. Des expériences authentiques, des paysages époustouflants et des souvenirs inoubliables.",
+                "copyright": "© 2023 Island Mada Travel. Tous droits réservés. | Diego Suarez - Madagascar"
+            },
+
+            en: {
+                "logo-tagline": "Diego Suarez - Sugarloaf & Northern Treasures",
+                "nav-home": "Home",
+                "nav-sites": "Iconic Sites",
+                "nav-destinations": "Destinations",
+                "nav-services": "Services",
+                "nav-contact": "Contact",
+                "lang-fr": "French",
+                "lang-en": "English",
+                "lang-de": "German",
+                "lang-es": "Spanish",
+                "lang-it": "Italian",
+                "lang-ar": "Arabic",
+                "lang-zh": "Chinese",
+                "hero-title": "Discover Diego Suarez",
+                "hero-subtitle": "Pearl of northern Madagascar! The mythical Sugarloaf Rock, turquoise bays, majestic mountains and unique landscapes await you for an unforgettable adventure in the heart of the Indian Ocean.",
+                "feature1-title": "Sugarloaf Rock",
+                "feature1-desc": "Iconic rock shaped like a sugarloaf in the middle of the ocean. Must-see site of Diego Suarez.",
+                "feature2-title": "The Three Bays",
+                "feature2-desc": "Dune Bay, Pigeon Bay and Sakalava Bay - spectacular coastal landscapes.",
+                "feature3-title": "Red Tsingy",
+                "feature3-desc": "Unique geological formations with blood-red colors. A stunning lunar landscape.",
+                "hero-btn": "Explore Sites",
+                "sites-title": "Iconic Sites of Diego Suarez",
+                "sites-intro": "Discover the most famous sites in the region. Each site offers a unique experience and breathtaking landscapes that make Diego Suarez famous.",
+                "site1-title": "Sugarloaf Rock",
+                "site1-subtitle": "Iconic rock",
+                "site1-desc": "Iconic rock shaped like a sugarloaf in the middle of the ocean. Unique geological formation visible from the entire bay of Diego Suarez.",
+                "site1-feature1": "Unique geological formation",
+                "site1-feature2": "Exceptional panoramic viewpoint",
+                "site1-feature3": "Navigation around the rock",
+                "site1-feature4": "Must-see photo spot",
+                "site2-title": "French Mountain",
+                "site2-subtitle": "Panoramic viewpoint",
+                "site2-desc": "Highest point offering the best panoramic view of Diego-Suarez bay. Historical site with French fortifications.",
+                "site2-feature1": "360° view of the bay",
+                "site2-feature2": "Forest of endemic dwarf baobabs",
+                "site2-feature3": "Historical fortifications",
+                "site2-feature4": "Unique endemic flora",
+                "site3-title": "Ramena Beach",
+                "site3-subtitle": "Paradise beach",
+                "site3-desc": "Long white sand beach lined with coconut trees, perfect for relaxation. Authentic atmosphere with traditional fishing villages.",
+                "site3-feature1": "3km long beach",
+                "site3-feature2": "Natural coconut groves",
+                "site3-feature3": "Traditional fishing villages",
+                "site3-feature4": "Fresh seafood restaurants",
+                "site4-title": "Dune Bay",
+                "site4-subtitle": "Spectacular dunes",
+                "site4-desc": "White sand beach with impressive dunes. Panoramic view of the Indian Ocean and magical sunsets.",
+                "site4-feature1": "Unique white sand dunes",
+                "site4-feature2": "Crystal clear turquoise waters",
+                "site4-feature3": "Spectacular sunsets",
+                "site4-feature4": "Whale watching (in season)",
+                "site5-title": "Pigeon Bay",
+                "site5-subtitle": "Intimate small bay",
+                "site5-desc": "Intimate small bay with unique rock formations and transparent water. Paradise for snorkeling and swimming.",
+                "site5-feature1": "Sculpted rock formations",
+                "site5-feature2": "Exceptional snorkeling",
+                "site5-feature3": "Seabird colony",
+                "site5-feature4": "Preserved fine sand beach",
+                "site6-title": "Ankarana Reserve",
+                "site6-subtitle": "Nature reserve",
+                "site6-desc": "Nature reserve with the famous Tsingy, unique limestone formations in the world. Caves, canyons and exceptional biodiversity.",
+                "site6-feature1": "Tsingy (unique stone forest)",
+                "site6-feature2": "Spectacular caves and canyons",
+                "site6-feature3": "Lemurs and crocodiles",
+                "site6-feature4": "Mysterious underground rivers",
+                "discover-btn": "Discover",
+                "destinations-title": "Complete Destinations",
+                "destinations-intro": "Explore in detail the treasures of the Diego Suarez region. Each destination offers a unique experience and exceptional landscapes for an unforgettable journey.",
+                "destination1-title": "The Three Bays",
+                "destination1-location": "North coast of Diego-Suarez",
+                "destination1-desc": "Three bays with unique characteristics: Dune Bay with its spectacular dunes, Pigeon Bay for snorkeling, and Sakalava Bay for its authenticity.",
+                "destination1-feature1": "Some of the most beautiful dunes in the world",
+                "destination1-feature2": "Crystal clear waters for swimming",
+                "destination1-feature3": "Exceptional snorkeling",
+                "destination1-feature4": "Panoramic viewpoints",
+                "destination2-title": "Red Tsingy",
+                "destination2-location": "70km south of Diego-Suarez",
+                "destination2-desc": "Unique geological formation in the world: red-blood colored rock pinnacles created by iron oxidation. Lunar landscape that changes color depending on the time of day.",
+                "destination2-feature1": "Unique red rock formations",
+                "destination2-feature2": "Lunar desert landscape",
+                "destination2-feature3": "Colors changing with sunlight",
+                "destination2-feature4": "Exceptional geological site",
+                "destination3-title": "Amber Mountain",
+                "destination3-location": "35km south of Diego-Suarez",
+                "destination3-desc": "Amber Mountain National Park: humid tropical forest with exceptional biodiversity. Waterfalls, crater lakes and unique flora.",
+                "destination3-feature1": "7 different lemur species",
+                "destination3-feature2": "Waterfalls and crater lakes",
+                "destination3-feature3": "Exceptional tropical flora",
+                "destination3-feature4": "Cool and pleasant climate year-round",
+                "destination4-title": "Emerald Sea",
+                "destination4-location": "Diego-Suarez bay",
+                "destination4-desc": "Lagoon with transparent emerald green waters, protected by a coral reef. Exceptional site for snorkeling with abundant marine life.",
+                "destination4-feature1": "Crystal clear emerald green waters",
+                "destination4-feature2": "Exceptional snorkeling",
+                "destination4-feature3": "Abundant marine life",
+                "destination4-feature4": "Shallow and calm waters",
+                "destination5-title": "French Mountain & Baobabs",
+                "destination5-location": "Periphery of Diego-Suarez",
+                "destination5-desc": "Historical site with breathtaking panoramic view. The mountain houses a forest of endemic dwarf baobabs and well-preserved French fortifications.",
+                "destination5-feature1": "360° panoramic view",
+                "destination5-feature2": "Forest of endemic dwarf baobabs",
+                "destination5-feature3": "Historical French fortifications",
+                "destination5-feature4": "Easy and accessible hiking",
+                "destination6-title": "Antagnavo City",
+                "destination6-location": "Diego-Suarez region",
+                "destination6-desc": "Authentic city offering a glimpse of local Malagasy life. Colorful markets, traditional crafts and warm hospitality from the inhabitants.",
+                "destination6-feature1": "Sacred lake of Antagnavo",
+                "destination6-feature2": "Animated traditional markets",
+                "destination6-feature3": "Authentic local crafts",
+                "destination6-feature4": "Meeting with local population",
+                "explore-btn": "Explore",
+                "services-title": "Our Exclusive Services",
+                "services-intro": "Island Mada Travel accompanies you to create your dream trip to Diego Suarez. Custom services for an authentic and unforgettable experience.",
+                "service1-title": "Guided Hikes",
+                "service1-desc": "Discovery of natural sites with experienced guides speaking French, English and Malagasy.",
+                "service1-feature1": "Certified local guides",
+                "service1-feature2": "Technical equipment provided",
+                "service1-feature3": "Customized itineraries",
+                "service2-title": "Private Transport",
+                "service2-desc": "Comfortable 4x4 vehicles with professional drivers.",
+                "service2-feature1": "Recent 4x4 vehicles",
+                "service2-feature2": "Experienced driver-guides",
+                "service2-feature3": "Airport transfers included",
+                "service3-title": "Accommodation",
+                "service3-desc": "Selection of the best hotels, lodges and guesthouses.",
+                "service3-feature1": "3 to 5 star hotels",
+                "service3-feature2": "Eco-lodges",
+                "service3-feature3": "Guaranteed reservation",
+                "contact-title": "Contact Us",
+                "contact-intro": "Ready to discover Diego Suarez? Contact us to organize your custom trip. Our French-speaking team is available to answer all your questions.",
+                "contact1-title": "Phone",
+                "contact2-title": "Email",
+                "contact3-title": "Address",
+                "contact-btn1": "Send an email",
+                "contact-btn2": "Call us",
+                "contact-btn3": "WhatsApp",
+                "footer-tagline": "Your trusted partner to discover the treasures of Diego Suarez and northern Madagascar. Authentic experiences, stunning landscapes and unforgettable memories.",
+                "copyright": "© 2023 Island Mada Travel. All rights reserved. | Diego Suarez - Madagascar"
+            },
+
+            de: {
+                "logo-tagline": "Diego Suarez - Zuckerhut & Schätze des Nordens",
+                "nav-home": "Startseite",
+                "nav-sites": "Wahrzeichen",
+                "nav-destinations": "Ziele",
+                "nav-services": "Dienstleistungen",
+                "nav-contact": "Kontakt",
+                "lang-fr": "Französisch",
+                "lang-en": "Englisch",
+                "lang-de": "Deutsch",
+                "lang-es": "Spanisch",
+                "lang-it": "Italienisch",
+                "lang-ar": "Arabisch",
+                "lang-zh": "Chinesisch",
+                "hero-title": "Entdecken Sie Diego Suarez",
+                "hero-subtitle": "Perle Nordmadagaskars! Der mythische Zuckerhut, türkisfarbene Buchten, majestätische Berge und einzigartige Landschaften erwarten Sie für ein unvergessliches Abenteuer im Herzen des Indischen Ozeans.",
+                "feature1-title": "Zuckerhut",
+                "feature1-desc": "Wahrzeichenfelsen in Form eines Zuckerhuts mitten im Ozean. Muss-Sehen Ort von Diego Suarez.",
+                "feature2-title": "Die drei Buchten",
+                "feature2-desc": "Dünenbucht, Taubenbucht und Sakalava-Bucht - spektakuläre Küstenlandschaften.",
+                "feature3-title": "Rote Tsingy",
+                "feature3-desc": "Einzigartige geologische Formationen in blutroten Farben. Eine atemberaubende Mondlandschaft.",
+                "hero-btn": "Orte erkunden",
+                "sites-title": "Wahrzeichen von Diego Suarez",
+                "sites-intro": "Entdecken Sie die berühmtesten Orte der Region. Jeder Ort bietet ein einzigartiges Erlebnis und atemberaubende Landschaften, die Diego Suarez berühmt machen.",
+                "site1-title": "Zuckerhut",
+                "site1-subtitle": "Wahrzeichenfelsen",
+                "site1-desc": "Wahrzeichenfelsen in Form eines Zuckerhuts mitten im Ozean. Einzigartige geologische Formation, die von der gesamten Bucht von Diego Suarez sichtbar ist.",
+                "site1-feature1": "Einzigartige geologische Formation",
+                "site1-feature2": "Außergewöhnlicher Panoramablick",
+                "site1-feature3": "Umrundung des Felsens",
+                "site1-feature4": "Muss-Sehen Foto-Spot",
+                "site2-title": "Franzosenberg",
+                "site2-subtitle": "Panoramablick",
+                "site2-desc": "Höchster Punkt mit dem besten Panoramablick auf die Bucht von Diego-Suarez. Historische Stätte mit französischen Befestigungen.",
+                "site2-feature1": "360° Blick auf die Bucht",
+                "site2-feature2": "Wald endemischer Zwergbaobabs",
+                "site2-feature3": "Historische Befestigungen",
+                "site2-feature4": "Einzigartige endemische Flora",
+                "site3-title": "Ramena Strand",
+                "site3-subtitle": "Paradiesstrand",
+                "site3-desc": "Langer weißer Sandstrand gesäumt von Kokospalmen, perfekt zur Entspannung. Authentische Atmosphäre mit traditionellen Fischerdörfern.",
+                "site3-feature1": "3 km langer Strand",
+                "site3-feature2": "Natürliche Kokoshaine",
+                "site3-feature3": "Traditionelle Fischerdörfer",
+                "site3-feature4": "Frische Meeresfrüchte-Restaurants",
+                "site4-title": "Dünenbucht",
+                "site4-subtitle": "Spektakuläre Dünen",
+                "site4-desc": "Weißer Sandstrand mit beeindruckenden Dünen. Panoramablick auf den Indischen Ozean und magische Sonnenuntergänge.",
+                "site4-feature1": "Einzigartige weiße Sanddünen",
+                "site4-feature2": "Kristallklares türkisfarbenes Wasser",
+                "site4-feature3": "Spektakuläre Sonnenuntergänge",
+                "site4-feature4": "Walbeobachtung (in der Saison)",
+                "site5-title": "Taubenbucht",
+                "site5-subtitle": "Intime kleine Bucht",
+                "site5-desc": "Intime kleine Bucht mit einzigartigen Felsformationen und transparentem Wasser. Paradies zum Schnorcheln und Schwimmen.",
+                "site5-feature1": "Skulpturierte Felsformationen",
+                "site5-feature2": "Außergewöhnliches Schnorcheln",
+                "site5-feature3": "Seevogelkolonie",
+                "site5-feature4": "Erhaltener Feinsandstrand",
+                "site6-title": "Ankarana Reservat",
+                "site6-subtitle": "Naturschutzgebiet",
+                "site6-desc": "Naturschutzgebiet mit den berühmten Tsingy, einzigartigen Kalksteinformationen weltweit. Höhlen, Canyons und außergewöhnliche Biodiversität.",
+                "site6-feature1": "Tsingy (einzigartiger Steinwald)",
+                "site6-feature2": "Spektakuläre Höhlen und Canyons",
+                "site6-feature3": "Lemuren und Krokodile",
+                "site6-feature4": "Geheimnisvolle unterirdische Flüsse",
+                "discover-btn": "Entdecken",
+                "destinations-title": "Vollständige Ziele",
+                "destinations-intro": "Erkunden Sie im Detail die Schätze der Region Diego Suarez. Jedes Ziel bietet ein einzigartiges Erlebnis und außergewöhnliche Landschaften für eine unvergessliche Reise.",
+                "destination1-title": "Die drei Buchten",
+                "destination1-location": "Nordküste von Diego-Suarez",
+                "destination1-desc": "Drei Buchten mit einzigartigen Merkmalen: Dünenbucht mit ihren spektakulären Dünen, Taubenbucht zum Schnorcheln und Sakalava-Bucht für ihre Authentizität.",
+                "destination1-feature1": "Einige der schönsten Dünen der Welt",
+                "destination1-feature2": "Kristallklares Wasser zum Schwimmen",
+                "destination1-feature3": "Außergewöhnliches Schnorcheln",
+                "destination1-feature4": "Panoramablickpunkte",
+                "destination2-title": "Rote Tsingy",
+                "destination2-location": "70 km südlich von Diego-Suarez",
+                "destination2-desc": "Einzigartige geologische Formation weltweit: rot-blutige Felsnadeln durch Eisenoxidation entstanden. Mondlandschaft, die je nach Tageszeit ihre Farbe ändert.",
+                "destination2-feature1": "Einzigartige rote Felsformationen",
+                "destination2-feature2": "Mondartige Wüstenlandschaft",
+                "destination2-feature3": "Farbwechsel mit dem Sonnenlicht",
+                "destination2-feature4": "Außergewöhnliche geologische Stätte",
+                "destination3-title": "Amberberg",
+                "destination3-location": "35 km südlich von Diego-Suarez",
+                "destination3-desc": "Amberberg Nationalpark: feuchter tropischer Regenwald mit außergewöhnlicher Biodiversität. Wasserfälle, Kraterseen und einzigartige Flora.",
+                "destination3-feature1": "7 verschiedene Lemurenarten",
+                "destination3-feature2": "Wasserfälle und Kraterseen",
+                "destination3-feature3": "Außergewöhnliche tropische Flora",
+                "destination3-feature4": "Kühles und angenehmes Klima ganzjährig",
+                "destination4-title": "Smaragdmeer",
+                "destination4-location": "Bucht von Diego-Suarez",
+                "destination4-desc": "Lagune mit transparenten smaragdgrünen Gewässern, geschützt durch ein Korallenriff. Außergewöhnliche Stelle zum Schnorcheln mit reichhaltigem Meeresleben.",
+                "destination4-feature1": "Kristallklares smaragdgrünes Wasser",
+                "destination4-feature2": "Außergewöhnliches Schnorcheln",
+                "destination4-feature3": "Reichhaltiges Meeresleben",
+                "destination4-feature4": "Flaches und ruhiges Wasser",
+                "destination5-title": "Franzosenberg & Baobabs",
+                "destination5-location": "Peripherie von Diego-Suarez",
+                "destination5-desc": "Historische Stätte mit atemberaubendem Panoramablick. Der Berg beherbergt einen Wald endemischer Zwergbaobabs und gut erhaltene französische Befestigungen.",
+                "destination5-feature1": "360° Panoramablick",
+                "destination5-feature2": "Wald endemischer Zwergbaobabs",
+                "destination5-feature3": "Historische französische Befestigungen",
+                "destination5-feature4": "Einfache und zugängliche Wanderung",
+                "destination6-title": "Antagnavo Stadt",
+                "destination6-location": "Region Diego-Suarez",
+                "destination6-desc": "Authentische Stadt, die einen Einblick in das lokale madagassische Leben bietet. Farbenfrohe Märkte, traditionelles Handwerk und herzliche Gastfreundschaft der Einwohner.",
+                "destination6-feature1": "Heiliger See von Antagnavo",
+                "destination6-feature2": "Belebte traditionelle Märkte",
+                "destination6-feature3": "Authentisches lokales Handwerk",
+                "destination6-feature4": "Begegnung mit der lokalen Bevölkerung",
+                "explore-btn": "Erkunden",
+                "services-title": "Unsere exklusiven Dienstleistungen",
+                "services-intro": "Island Mada Travel begleitet Sie, um Ihre Traumreise nach Diego Suarez zu gestalten. Maßgeschneiderte Dienstleistungen für ein authentisches und unvergessliches Erlebnis.",
+                "service1-title": "Geführte Wanderungen",
+                "service1-desc": "Entdeckung natürlicher Stätten mit erfahrenen Führern, die Französisch, Englisch und Malagasy sprechen.",
+                "service1-feature1": "Zertifizierte lokale Führer",
+                "service1-feature2": "Technische Ausrüstung bereitgestellt",
+                "service1-feature3": "Personalisierte Routen",
+                "service2-title": "Privatverkehr",
+                "service2-desc": "Komfortable 4x4-Fahrzeuge mit professionellen Fahrern.",
+                "service2-feature1": "Aktuelle 4x4-Fahrzeuge",
+                "service2-feature2": "Erfahrene Fahrerführer",
+                "service2-feature3": "Flughafentransfers inklusive",
+                "service3-title": "Unterkunft",
+                "service3-desc": "Auswahl der besten Hotels, Lodges und Gästehäuser.",
+                "service3-feature1": "3- bis 5-Sterne-Hotels",
+                "service3-feature2": "Öko-Lodges",
+                "service3-feature3": "Garantierte Reservierung",
+                "contact-title": "Kontaktieren Sie uns",
+                "contact-intro": "Bereit, Diego Suarez zu entdecken? Kontaktieren Sie uns, um Ihre individuelle Reise zu organisieren. Unser französischsprachiges Team steht Ihnen zur Verfügung, um alle Ihre Fragen zu beantworten.",
+                "contact1-title": "Telefon",
+                "contact2-title": "E-Mail",
+                "contact3-title": "Adresse",
+                "contact-btn1": "E-Mail senden",
+                "contact-btn2": "Uns anrufen",
+                "contact-btn3": "WhatsApp",
+                "footer-tagline": "Ihr vertrauenswürdiger Partner, um die Schätze von Diego Suarez und Nordmadagaskar zu entdecken. Authentische Erfahrungen, atemberaubende Landschaften und unvergessliche Erinnerungen.",
+                "copyright": "© 2023 Island Mada Travel. Alle Rechte vorbehalten. | Diego Suarez - Madagaskar"
+            },
+
+            es: {
+                "logo-tagline": "Diego Suarez - Pan de Azúcar & Tesoros del Norte",
+                "nav-home": "Inicio",
+                "nav-sites": "Sitios Emblemáticos",
+                "nav-destinations": "Destinos",
+                "nav-services": "Servicios",
+                "nav-contact": "Contacto",
+                "lang-fr": "Francés",
+                "lang-en": "Inglés",
+                "lang-de": "Alemán",
+                "lang-es": "Español",
+                "lang-it": "Italiano",
+                "lang-ar": "Árabe",
+                "lang-zh": "Chino",
+                "hero-title": "Descubra Diego Suarez",
+                "hero-subtitle": "¡Perla del norte de Madagascar! El mítico Pan de Azúcar, las bahías turquesas, las montañas majestuosas y los paisajes únicos le esperan para una aventura inolvidable en el corazón del Océano Índico.",
+                "feature1-title": "Pan de Azúcar",
+                "feature1-desc": "Roca emblemática con forma de pan de azúcar en medio del océano. Sitio imprescindible de Diego Suarez.",
+                "feature2-title": "Las Tres Bahías",
+                "feature2-desc": "Bahía de las Dunas, Bahía de los Pichones y Bahía de Sakalava - paisajes costeros espectaculares.",
+                "feature3-title": "Tsingy Rojos",
+                "feature3-desc": "Formaciones geológicas únicas de color rojo sangre. Un paisaje lunar impresionante.",
+                "hero-btn": "Explorar Sitios",
+                "sites-title": "Sitios Emblemáticos de Diego Suarez",
+                "sites-intro": "Descubra los sitios más famosos de la región. Cada sitio ofrece una experiencia única y paisajes impresionantes que hacen famoso a Diego Suarez.",
+                "site1-title": "Pan de Azúcar",
+                "site1-subtitle": "Roca emblemática",
+                "site1-desc": "Roca emblemática con forma de pan de azúcar en medio del océano. Formación geológica única visible desde toda la bahía de Diego Suarez.",
+                "site1-feature1": "Formación geológica única",
+                "site1-feature2": "Punto de vista panorámico excepcional",
+                "site1-feature3": "Navegación alrededor de la roca",
+                "site1-feature4": "Lugar fotográfico imprescindible",
+                "site2-title": "Montaña de los Franceses",
+                "site2-subtitle": "Punto de vista panorámico",
+                "site2-desc": "Punto culminante que ofrece la mejor vista panorámica de la bahía de Diego-Suarez. Sitio histórico con fortificaciones francesas.",
+                "site2-feature1": "Vista de 360° sobre la bahía",
+                "site2-feature2": "Bosque de baobabs enanos endémicos",
+                "site2-feature3": "Fortificaciones históricas",
+                "site2-feature4": "Flora endémica única",
+                "site3-title": "Playa de Ramena",
+                "site3-subtitle": "Playa paradisíaca",
+                "site3-desc": "Larga playa de arena blanca bordeada de cocoteros, perfecta para la relajación. Ambiente auténtico con pueblos de pescadores tradicionales.",
+                "site3-feature1": "Playa de 3 km de largo",
+                "site3-feature2": "Cocoteros naturales",
+                "site3-feature3": "Pueblos de pescadores tradicionales",
+                "site3-feature4": "Restaurantes de mariscos frescos",
+                "site4-title": "Bahía de las Dunas",
+                "site4-subtitle": "Dunas espectaculares",
+                "site4-desc": "Playa de arena blanca con dunas impresionantes. Vista panorámica sobre el Océano Índico y puestas de sol mágicas.",
+                "site4-feature1": "Dunas de arena blanca únicas",
+                "site4-feature2": "Aguas turquesas cristalinas",
+                "site4-feature3": "Puestas de sol espectaculares",
+                "site4-feature4": "Observación de ballenas (en temporada)",
+                "site5-title": "Bahía de los Pichones",
+                "site5-subtitle": "Pequeña bahía íntima",
+                "site5-desc": "Pequeña bahía íntima con formaciones rocosas únicas y agua transparente. Paraíso para el snorkeling y el baño.",
+                "site5-feature1": "Formaciones rocosas esculpidas",
+                "site5-feature2": "Snorkeling excepcional",
+                "site5-feature3": "Colonia de aves marinas",
+                "site5-feature4": "Playa de arena fina preservada",
+                "site6-title": "Reserva de Ankarana",
+                "site6-subtitle": "Reserva natural",
+                "site6-desc": "Reserva natural con los famosos Tsingy, formaciones calcáreas únicas en el mundo. Cuevas, cañones y biodiversidad excepcional.",
+                "site6-feature1": "Tsingy (bosque de piedra único)",
+                "site6-feature2": "Cuevas y cañones espectaculares",
+                "site6-feature3": "Lémures y cocodrilos",
+                "site6-feature4": "Ríos subterráneos misteriosos",
+                "discover-btn": "Descubrir",
+                "destinations-title": "Destinos Completos",
+                "destinations-intro": "Explore en detalle los tesoros de la región de Diego Suarez. Cada destino ofrece una experiencia única y paisajes excepcionales para un viaje inolvidable.",
+                "destination1-title": "Las Tres Bahías",
+                "destination1-location": "Costa norte de Diego-Suarez",
+                "destination1-desc": "Tres bahías con características únicas: Bahía de las Dunas con sus dunas espectaculares, Bahía de los Pichones para el snorkeling, y Bahía de Sakalava por su autenticidad.",
+                "destination1-feature1": "Algunas de las dunas más bellas del mundo",
+                "destination1-feature2": "Aguas cristalinas para el baño",
+                "destination1-feature3": "Snorkeling excepcional",
+                "destination1-feature4": "Puntos de vista panorámicos",
+                "destination2-title": "Tsingy Rojos",
+                "destination2-location": "70 km al sur de Diego-Suarez",
+                "destination2-desc": "Formación geológica única en el mundo: pináculos rocosos de color rojo sangre creados por la oxidación del hierro. Paisaje lunar que cambia de color según la hora.",
+                "destination2-feature1": "Formaciones rocosas rojas únicas",
+                "destination2-feature2": "Paisaje desértico lunar",
+                "destination2-feature3": "Colores cambiantes según el sol",
+                "destination2-feature4": "Sitio geológico excepcional",
+                "destination3-title": "Montaña de Ámbar",
+                "destination3-location": "35 km al sur de Diego-Suarez",
+                "destination3-desc": "Parque Nacional de la Montaña de Ámbar: bosque tropical húmedo con biodiversidad excepcional. Cascadas, lagos de cráter y flora única.",
+                "destination3-feature1": "7 especies diferentes de lémures",
+                "destination3-feature2": "Cascadas y lagos de cráter",
+                "destination3-feature3": "Flora tropical excepcional",
+                "destination3-feature4": "Clima fresco y agradable todo el año",
+                "destination4-title": "Mar Esmeralda",
+                "destination4-location": "Bahía de Diego-Suarez",
+                "destination4-desc": "Laguna con aguas verde esmeralda transparentes, protegida por una barrera de coral. Sitio excepcional para el snorkeling con fauna marina abundante.",
+                "destination4-feature1": "Aguas esmeralda cristalinas",
+                "destination4-feature2": "Snorkeling excepcional",
+                "destination4-feature3": "Fauna marina abundante",
+                "destination4-feature4": "Aguas poco profundas y tranquilas",
+                "destination5-title": "Montaña de los Franceses y Baobabs",
+                "destination5-location": "Periferia de Diego-Suarez",
+                "destination5-desc": "Sitio histórico con vista panorámica impresionante. La montaña alberga un bosque de baobabs enanos endémicos y fortificaciones francesas bien conservadas.",
+                "destination5-feature1": "Vista panorámica de 360°",
+                "destination5-feature2": "Bosque de baobabs enanos endémicos",
+                "destination5-feature3": "Fortificaciones históricas francesas",
+                "destination5-feature4": "Senderismo fácil y accesible",
+                "destination6-title": "Ciudad de Antagnavo",
+                "destination6-location": "Región de Diego-Suarez",
+                "destination6-desc": "Ciudad auténtica que ofrece una visión de la vida local malgache. Mercados coloridos, artesanía tradicional y hospitalidad cálida de los habitantes.",
+                "destination6-feature1": "Lago sagrado de Antagnavo",
+                "destination6-feature2": "Mercados tradicionales animados",
+                "destination6-feature3": "Artesanía local auténtica",
+                "destination6-feature4": "Encuentro con la población local",
+                "explore-btn": "Explorar",
+                "services-title": "Nuestros Servicios Exclusivos",
+                "services-intro": "Island Mada Travel le acompaña para crear su viaje soñado a Diego Suarez. Servicios personalizados para una experiencia auténtica e inolvidable.",
+                "service1-title": "Senderismo Guiado",
+                "service1-desc": "Descubrimiento de sitios naturales con guías experimentados que hablan francés, inglés y malgache.",
+                "service1-feature1": "Guías locales certificados",
+                "service1-feature2": "Equipo técnico proporcionado",
+                "service1-feature3": "Itinerarios personalizados",
+                "service2-title": "Transporte Privado",
+                "service2-desc": "Vehículos 4x4 cómodos con conductores profesionales.",
+                "service2-feature1": "Vehículos 4x4 recientes",
+                "service2-feature2": "Conductores-guías experimentados",
+                "service2-feature3": "Traslados aeropuerto incluidos",
+                "service3-title": "Alojamiento",
+                "service3-desc": "Selección de los mejores hoteles, lodges y casas de huéspedes.",
+                "service3-feature1": "Hoteles de 3 a 5 estrellas",
+                "service3-feature2": "Eco-lodges",
+                "service3-feature3": "Reserva garantizada",
+                "contact-title": "Contáctenos",
+                "contact-intro": "¿Listo para descubrir Diego Suarez? Contáctenos para organizar su viaje personalizado. Nuestro equipo francófono está a su disposición para responder a todas sus preguntas.",
+                "contact1-title": "Teléfono",
+                "contact2-title": "Correo electrónico",
+                "contact3-title": "Dirección",
+                "contact-btn1": "Enviar un correo",
+                "contact-btn2": "Llamarnos",
+                "contact-btn3": "WhatsApp",
+                "footer-tagline": "Su socio de confianza para descubrir los tesoros de Diego Suarez y el norte de Madagascar. Experiencias auténticas, paisajes impresionantes y recuerdos inolvidables.",
+                "copyright": "© 2023 Island Mada Travel. Todos los derechos reservados. | Diego Suarez - Madagascar"
+            },
+
+            it: {
+                "logo-tagline": "Diego Suarez - Pan di Zucchero & Tesori del Nord",
+                "nav-home": "Home",
+                "nav-sites": "Siti Iconici",
+                "nav-destinations": "Destinazioni",
+                "nav-services": "Servizi",
+                "nav-contact": "Contatto",
+                "lang-fr": "Francese",
+                "lang-en": "Inglese",
+                "lang-de": "Tedesco",
+                "lang-es": "Spagnolo",
+                "lang-it": "Italiano",
+                "lang-ar": "Arabo",
+                "lang-zh": "Cinese",
+                "hero-title": "Scopri Diego Suarez",
+                "hero-subtitle": "Perla del Madagascar settentrionale! Il mitico Pan di Zucchero, le baie turchesi, le montagne maestose e i paesaggi unici ti aspettano per un'avventura indimenticabile nel cuore dell'Oceano Indiano.",
+                "feature1-title": "Pan di Zucchero",
+                "feature1-desc": "Roccia iconica a forma di pan di zucchero in mezzo all'oceano. Sito imperdibile di Diego Suarez.",
+                "feature2-title": "Le Tre Baie",
+                "feature2-desc": "Baia delle Dune, Baia dei Piccioni e Baia di Sakalava - paesaggi costieri spettacolari.",
+                "feature3-title": "Tsingy Rossi",
+                "feature3-desc": "Formazioni geologiche uniche di colore rosso sangue. Un paesaggio lunare sbalorditivo.",
+                "hero-btn": "Esplora Siti",
+                "sites-title": "Siti Iconici di Diego Suarez",
+                "sites-intro": "Scopri i siti più famosi della regione. Ogni sito offre un'esperienza unica e paesaggi mozzafiato che rendono famoso Diego Suarez.",
+                "site1-title": "Pan di Zucchero",
+                "site1-subtitle": "Roccia iconica",
+                "site1-desc": "Roccia iconica a forma di pan di zucchero in mezzo all'oceano. Formazione geologica unica visibile da tutta la baia di Diego Suarez.",
+                "site1-feature1": "Formazione geologica unica",
+                "site1-feature2": "Punto di vista panoramico eccezionale",
+                "site1-feature3": "Navigazione attorno alla roccia",
+                "site1-feature4": "Luogo fotografico imperdibile",
+                "site2-title": "Montagna dei Francesi",
+                "site2-subtitle": "Punto di vista panoramico",
+                "site2-desc": "Punto culminante che offre la migliore vista panoramica sulla baia di Diego-Suarez. Sito storico con fortificazioni francesi.",
+                "site2-feature1": "Vista a 360° sulla baia",
+                "site2-feature2": "Foresta di baobab nani endemici",
+                "site2-feature3": "Fortificazioni storiche",
+                "site2-feature4": "Flora endemica unica",
+                "site3-title": "Spiaggia di Ramena",
+                "site3-subtitle": "Spiaggia paradisiaca",
+                "site3-desc": "Lunga spiaggia di sabbia bianca costeggiata da palme da cocco, perfetta per il relax. Atmosfera autentica con villaggi di pescatori tradizionali.",
+                "site3-feature1": "Spiaggia di 3 km di lunghezza",
+                "site3-feature2": "Palmeti naturali",
+                "site3-feature3": "Villaggi di pescatori tradizionali",
+                "site3-feature4": "Ristoranti di frutti di mare freschi",
+                "site4-title": "Baia delle Dune",
+                "site4-subtitle": "Dune spettacolari",
+                "site4-desc": "Spiaggia di sabbia bianca con dune impressionanti. Vista panoramica sull'Oceano Indiano e tramonti magici.",
+                "site4-feature1": "Dune di sabbia bianca uniche",
+                "site4-feature2": "Acque turchesi cristalline",
+                "site4-feature3": "Tramonti spettacolari",
+                "site4-feature4": "Avvistamento balene (in stagione)",
+                "site5-title": "Baia dei Piccioni",
+                "site5-subtitle": "Piccola baia intima",
+                "site5-desc": "Piccola baia intima con formazioni rocciose uniche e acqua trasparente. Paradiso per lo snorkeling e il nuoto.",
+                "site5-feature1": "Formazioni rocciose scolpite",
+                "site5-feature2": "Snorkeling eccezionale",
+                "site5-feature3": "Colonia di uccelli marini",
+                "site5-feature4": "Spiaggia di sabbia fine preservata",
+                "site6-title": "Riserva di Ankarana",
+                "site6-subtitle": "Riserva naturale",
+                "site6-desc": "Riserva naturale con i famosi Tsingy, formazioni calcaree uniche al mondo. Grotte, canyon e biodiversità eccezionale.",
+                "site6-feature1": "Tsingy (foresta di pietra unica)",
+                "site6-feature2": "Grotte e canyon spettacolari",
+                "site6-feature3": "Lemuri e coccodrilli",
+                "site6-feature4": "Fiumi sotterranei misteriosi",
+                "discover-btn": "Scopri",
+                "destinations-title": "Destinazioni Complete",
+                "destinations-intro": "Esplora in dettaglio i tesori della regione di Diego Suarez. Ogni destinazione offre un'esperienza unica e paesaggi eccezionali per un viaggio indimenticabile.",
+                "destination1-title": "Le Tre Baie",
+                "destination1-location": "Costa nord di Diego-Suarez",
+                "destination1-desc": "Tre baie con caratteristiche uniche: Baia delle Dune con le sue dune spettacolari, Baia dei Piccioni per lo snorkeling, e Baia di Sakalava per la sua autenticità.",
+                "destination1-feature1": "Alcune delle dune più belle al mondo",
+                "destination1-feature2": "Acque cristalline per il bagno",
+                "destination1-feature3": "Snorkeling eccezionale",
+                "destination1-feature4": "Punti di vista panoramici",
+                "destination2-title": "Tsingy Rossi",
+                "destination2-location": "70 km a sud di Diego-Suarez",
+                "destination2-desc": "Formazione geologica unica al mondo: pinnacoli rocciosi di colore rosso sangue creati dall'ossidazione del ferro. Paesaggio lunare che cambia colore in base all'ora.",
+                "destination2-feature1": "Formazioni rocciose rosse uniche",
+                "destination2-feature2": "Paesaggio desertico lunare",
+                "destination2-feature3": "Colori che cambiano con il sole",
+                "destination2-feature4": "Sito geologico eccezionale",
+                "destination3-title": "Montagna d'Ambra",
+                "destination3-location": "35 km a sud di Diego-Suarez",
+                "destination3-desc": "Parco Nazionale della Montagna d'Ambra: foresta tropicale umida con biodiversità eccezionale. Cascate, laghi craterici e flora unica.",
+                "destination3-feature1": "7 specie diverse di lemuri",
+                "destination3-feature2": "Cascate e laghi craterici",
+                "destination3-feature3": "Flora tropicale eccezionale",
+                "destination3-feature4": "Clima fresco e piacevole tutto l'anno",
+                "destination4-title": "Mare di Smeraldo",
+                "destination4-location": "Baia di Diego-Suarez",
+                "destination4-desc": "Laguna con acque verde smeraldo trasparenti, protetta da una barriera corallina. Sito eccezionale per lo snorkeling con fauna marina abbondante.",
+                "destination4-feature1": "Acque smeraldo cristalline",
+                "destination4-feature2": "Snorkeling eccezionale",
+                "destination4-feature3": "Fauna marina abbondante",
+                "destination4-feature4": "Acque poco profonde e calme",
+                "destination5-title": "Montagna dei Francesi & Baobab",
+                "destination5-location": "Periferia di Diego-Suarez",
+                "destination5-desc": "Sito storico con vista panoramica mozzafiato. La montagna ospita una foresta di baobab nani endemici e fortificazioni francesi ben conservate.",
+                "destination5-feature1": "Vista panoramica a 360°",
+                "destination5-feature2": "Foresta di baobab nani endemici",
+                "destination5-feature3": "Fortificazioni storiche francesi",
+                "destination5-feature4": "Escursione facile e accessibile",
+                "destination6-title": "Città di Antagnavo",
+                "destination6-location": "Regione di Diego-Suarez",
+                "destination6-desc": "Città autentica che offre uno sguardo sulla vita locale malgascia. Mercati colorati, artigianato tradizionale e ospitalità calorosa degli abitanti.",
+                "destination6-feature1": "Lago sacro di Antagnavo",
+                "destination6-feature2": "Mercati tradizionali animati",
+                "destination6-feature3": "Arte locale autentica",
+                "destination6-feature4": "Incontro con la popolazione locale",
+                "explore-btn": "Esplora",
+                "services-title": "I Nostri Servizi Esclusivi",
+                "services-intro": "Island Mada Travel ti accompagna per creare il tuo viaggio dei sogni a Diego Suarez. Servizi personalizzati per un'esperienza autentica e indimenticabile.",
+                "service1-title": "Escursioni Guidate",
+                "service1-desc": "Scoperta di siti naturali con guide esperte che parlano francese, inglese e malgascio.",
+                "service1-feature1": "Guide locali certificate",
+                "service1-feature2": "Attrezzatura tecnica fornita",
+                "service1-feature3": "Itinerari personalizzati",
+                "service2-title": "Trasporto Privato",
+                "service2-desc": "Veicoli 4x4 confortevoli con autisti professionisti.",
+                "service2-feature1": "Veicoli 4x4 recenti",
+                "service2-feature2": "Autisti-guida esperti",
+                "service2-feature3": "Trasferimenti aeroporto inclusi",
+                "service3-title": "Alloggio",
+                "service3-desc": "Selezione dei migliori hotel, lodge e case per ospiti.",
+                "service3-feature1": "Hotel da 3 a 5 stelle",
+                "service3-feature2": "Eco-lodge",
+                "service3-feature3": "Prenotazione garantita",
+                "contact-title": "Contattaci",
+                "contact-intro": "Pronto a scoprire Diego Suarez? Contattaci per organizzare il tuo viaggio personalizzato. Il nostro team francofono è a tua disposizione per rispondere a tutte le tue domande.",
+                "contact1-title": "Telefono",
+                "contact2-title": "Email",
+                "contact3-title": "Indirizzo",
+                "contact-btn1": "Invia email",
+                "contact-btn2": "Chiamaci",
+                "contact-btn3": "WhatsApp",
+                "footer-tagline": "Il tuo partner affidabile per scoprire i tesori di Diego Suarez e del nord del Madagascar. Esperienze autentiche, paesaggi mozzafiato e ricordi indimenticabili.",
+                "copyright": "© 2023 Island Mada Travel. Tutti i diritti riservati. | Diego Suarez - Madagascar"
+            },
+
+            ar: {
+                "logo-tagline": "دييجو سواريز - جبل السكر وكنوز الشمال",
+                "nav-home": "الرئيسية",
+                "nav-sites": "معالم أيقونية",
+                "nav-destinations": "الوجهات",
+                "nav-services": "الخدمات",
+                "nav-contact": "اتصل بنا",
+                "lang-fr": "الفرنسية",
+                "lang-en": "الإنجليزية",
+                "lang-de": "الألمانية",
+                "lang-es": "الإسبانية",
+                "lang-it": "الإيطالية",
+                "lang-ar": "العربية",
+                "lang-zh": "الصينية",
+                "hero-title": "اكتشف دييجو سواريز",
+                "hero-subtitle": "لؤلؤة شمال مدغشقر! صخرة السكر الأسطورية، الخلجان الفيروزية، الجبال المهيبة والمناظر الطبيعية الفريدة تنتظرك لمغامرة لا تنسى في قلب المحيط الهندي.",
+                "feature1-title": "جبل السكر",
+                "feature1-desc": "صخرة أيقونية على شكل جبل سكر في وسط المحيط. موقع لا بد منه في دييجو سواريز.",
+                "feature2-title": "الخلجان الثلاثة",
+                "feature2-desc": "خليج الكثبان، خليج الحمام وخليج ساكالافا - مناظر ساحلية مذهلة.",
+                "feature3-title": "تسينجي الحمراء",
+                "feature3-desc": "تشكيلات جيولوجية فريدة بلون الدم الأحمر. منظر قمري مذهل.",
+                "hero-btn": "استكشف المواقع",
+                "sites-title": "معالم أيقونية في دييجو سواريز",
+                "sites-intro": "اكتشف أشهر المواقع في المنطقة. كل موقع يوفر تجربة فريدة ومناظر طبيعية تخطف الأنفاس تجعل دييجو سواريز مشهورة.",
+                "site1-title": "جبل السكر",
+                "site1-subtitle": "صخرة أيقونية",
+                "site1-desc": "صخرة أيقونية على شكل جبل سكر في وسط المحيط. تشكيل جيولوجي فريد مرئي من خليج دييجو سواريز بأكمله.",
+                "site1-feature1": "تشكيل جيولوجي فريد",
+                "site1-feature2": "نقطة مشاهدة بانورامية استثنائية",
+                "site1-feature3": "ملاحة حول الصخرة",
+                "site1-feature4": "موقع تصوير لا بد منه",
+                "site2-title": "جبل الفرنسيين",
+                "site2-subtitle": "نقطة مشاهدة بانورامية",
+                "site2-desc": "أعلى نقطة تقدم أفضل منظر بانورامي لخليج دييجو سواريز. موقع تاريخي مع تحصينات فرنسية.",
+                "site2-feature1": "منظر 360 درجة للخليج",
+                "site2-feature2": "غابة باوباب قزم مستوطنة",
+                "site2-feature3": "تحصينات تاريخية",
+                "site2-feature4": "نباتات مستوطنة فريدة",
+                "site3-title": "شاطئ رامينا",
+                "site3-subtitle": "شاطئ paradisiaca",
+                "site3-desc": "شاطئ طويل من الرمال البيضاء تحيط به أشجار جوز الهند، مثالي للاسترخاء. جو أصيل مع قرى الصيادين التقليدية.",
+                "site3-feature1": "شاطئ بطول 3 كم",
+                "site3-feature2": "بساتين جوز الهند الطبيعية",
+                "site3-feature3": "قرى الصيادين التقليدية",
+                "site3-feature4": "مطاعم المأكولات البحرية الطازجة",
+                "site4-title": "خليج الكثبان",
+                "site4-subtitle": "كثبان رملية مذهلة",
+                "site4-desc": "شاطئ رملي أبيض مع كثبان رملية مذهلة. منظر بانورامي على المحيط الهندي وغروب شمس سحري.",
+                "site4-feature1": "كثبان رملية بيضاء فريدة",
+                "site4-feature2": "مياه فيروزية بلورية",
+                "site4-feature3": "غروب شمس مذهل",
+                "site4-feature4": "مراقبة الحيتان (في الموسم)",
+                "site5-title": "خليج الحمام",
+                "site5-subtitle": "خليج صغير حميم",
+                "site5-desc": "خليج صغير حميم بتشكيلات صخرية فريدة ومياه شفافة. جنة للغطس والسباحة.",
+                "site5-feature1": "تشكيلات صخرية منحوتة",
+                "site5-feature2": "غطس استثنائي",
+                "site5-feature3": "مستعمرة طيور بحرية",
+                "site5-feature4": "شاطئ رمال ناعمة محفوظة",
+                "site6-title": "محمية أنكارانا",
+                "site6-subtitle": "محمية طبيعية",
+                "site6-desc": "محمية طبيعية مع تسينجي الشهيرة، تشكيلات حجر جيري فريدة في العالم. كهوف، أودية وتنوع بيولوجي استثنائي.",
+                "site6-feature1": "تسينجي (غابة حجرية فريدة)",
+                "site6-feature2": "كهوف وأودية مذهلة",
+                "site6-feature3": "ليمور وتماسيح",
+                "site6-feature4": "أنهار جوفية غامضة",
+                "discover-btn": "اكتشف",
+                "destinations-title": "وجهات كاملة",
+                "destinations-intro": "استكشف بالتفصيل كنوز منطقة دييجو سواريز. كل وجهة توفر تجربة فريدة ومناظر طبيعية استثنائية لرحلة لا تنسى.",
+                "destination1-title": "الخلجان الثلاثة",
+                "destination1-location": "الساحل الشمالي لدييجو سواريز",
+                "destination1-desc": "ثلاث خلجان بخصائص فريدة: خليج الكثبان بكثبانه المذهلة، خليج الحمام للغطس، وخليج ساكالافا لأصالته.",
+                "destination1-feature1": "من أجمل الكثبان في العالم",
+                "destination1-feature2": "مياه بلورية للسباحة",
+                "destination1-feature3": "غطس استثنائي",
+                "destination1-feature4": "نقاط مشاهدة بانورامية",
+                "destination2-title": "تسينجي الحمراء",
+                "destination2-location": "70 كم جنوب دييجو سواريز",
+                "destination2-desc": "تشكيل جيولوجي فريد في العالم: أبراج صخرية حمراء الدماء مخلوقة بأكسدة الحديد. منظر قمري يتغير لونه حسب الوقت.",
+                "destination2-feature1": "تشكيلات صخرية حمراء فريدة",
+                "destination2-feature2": "منظر صحراوي قمري",
+                "destination2-feature3": "ألوان متغيرة مع الشمس",
+                "destination2-feature4": "موقع جيولوجي استثنائي",
+                "destination3-title": "جبل العنبر",
+                "destination3-location": "35 كم جنوب دييجو سواريز",
+                "destination3-desc": "الحديقة الوطنية لجبل العنبر: غابة مطيرة رطبة مع تنوع بيولوجي استثنائي. شلالات، بحيرات فوهة ونباتات فريدة.",
+                "destination3-feature1": "7 أنواع مختلفة من الليمور",
+                "destination3-feature2": "شلالات وبحيرات فوهة",
+                "destination3-feature3": "نباتات استوائية استثنائية",
+                "destination3-feature4": "مناخ بارد ولطيف طوال العام",
+                "destination4-title": "البحر الزمردي",
+                "destination4-location": "خليج دييجو سواريز",
+                "destination4-desc": "بحيرة بمياه زمردية شفافة، محمية بحاجز مرجاني. موقع استثنائي للغطس مع حياة بحرية وفيرة.",
+                "destination4-feature1": "مياه زمردية بلورية",
+                "destination4-feature2": "غطس استثنائي",
+                "destination4-feature3": "حياة بحرية وفيرة",
+                "destination4-feature4": "مياه ضحلة وهادئة",
+                "destination5-title": "جبل الفرنسيين وباوباب",
+                "destination5-location": "ضواحي دييجو سواريز",
+                "destination5-desc": "موقع تاريخي بمنظر بانورامي مذهل. الجبل يضم غابة باوباب قزم مستوطنة وتحصينات فرنسية محفوظة جيدًا.",
+                "destination5-feature1": "منظر بانورامي 360 درجة",
+                "destination5-feature2": "غابة باوباب قزم مستوطنة",
+                "destination5-feature3": "تحصينات تاريخية فرنسية",
+                "destination5-feature4": "تنزه سهل ويمكن الوصول إليه",
+                "destination6-title": "مدينة أنتاجنافو",
+                "destination6-location": "منطقة دييجو سواريز",
+                "destination6-desc": "مدينة أصيلة تقدم لمحة عن الحياة المحلية الملغاشية. أسواق ملونة، حرف تقليدية وضيافة دافئة من السكان.",
+                "destination6-feature1": "البحيرة المقدسة لأنتاجنافو",
+                "destination6-feature2": "أسواق تقليدية نابضة بالحياة",
+                "destination6-feature3": "حرف محلية أصيلة",
+                "destination6-feature4": "لقاء مع السكان المحليين",
+                "explore-btn": "استكشف",
+                "services-title": "خدماتنا الحصرية",
+                "services-intro": "آيلاند مادا ترافيل ترافقك لخلق رحلتك الأحلام إلى دييجو سواريز. خدمات مخصصة لتجربة أصيلة لا تنسى.",
+                "service1-title": "رحلات مشي إرشادية",
+                "service1-desc": "اكتشاف المواقع الطبيعية مع مرشدين ذوي خبرة يتحدثون الفرنسية، الإنجليزية والملغاشية.",
+                "service1-feature1": "مرشدون محليون معتمدون",
+                "service1-feature2": "معدات تقنية مقدمة",
+                "service1-feature3": "مسارات مخصصة",
+                "service2-title": "نقل خاص",
+                "service2-desc": "مركبات 4x4 مريحة مع سائقين محترفين.",
+                "service2-feature1": "مركبات 4x4 حديثة",
+                "service2-feature2": "سائقون مرشدون ذوو خبرة",
+                "service2-feature3": "نقل المطار مشمول",
+                "service3-title": "الإقامة",
+                "service3-desc": "اختيار أفضل الفنادق، المنتجعات ومنازل الضيافة.",
+                "service3-feature1": "فنادق 3 إلى 5 نجوم",
+                "service3-feature2": "منتجعات صديقة للبيئة",
+                "service3-feature3": "حجز مضمون",
+                "contact-title": "اتصل بنا",
+                "contact-intro": "مستعد لاكتشاف دييجو سواريز؟ اتصل بنا لتنظيم رحلتك المخصصة. فريقنا الناطق بالفرنسية في خدمتك للإجابة على جميع أسئلتك.",
+                "contact1-title": "هاتف",
+                "contact2-title": "بريد إلكتروني",
+                "contact3-title": "عنوان",
+                "contact-btn1": "أرسل بريدًا إلكترونيًا",
+                "contact-btn2": "اتصل بنا",
+                "contact-btn3": "واتساب",
+                "footer-tagline": "شريكك الموثوق لاكتشاف كنوز دييجو سواريز وشمال مدغشقر. تجارب أصيلة، مناظر طبيعية مذهلة وذكريات لا تنسى.",
+                "copyright": "© 2023 آيلاند مادا ترافيل. جميع الحقوق محفوظة. | دييجو سواريز - مدغشقر"
+            },
+
+            zh: {
+                "logo-tagline": "迭戈苏亚雷斯 - 糖面包山与北方宝藏",
+                "nav-home": "首页",
+                "nav-sites": "标志性景点",
+                "nav-destinations": "目的地",
+                "nav-services": "服务",
+                "nav-contact": "联系我们",
+                "lang-fr": "法语",
+                "lang-en": "英语",
+                "lang-de": "德语",
+                "lang-es": "西班牙语",
+                "lang-it": "意大利语",
+                "lang-ar": "阿拉伯语",
+                "lang-zh": "中文",
+                "hero-title": "探索迭戈苏亚雷斯",
+                "hero-subtitle": "马达加斯加北部的明珠！传奇的糖面包山、绿松石海湾、雄伟的山脉和独特的景观等待着您，在印度洋中心开始一段难忘的冒险。",
+                "feature1-title": "糖面包山",
+                "feature1-desc": "大洋中央糖面包形状的标志性岩石。迭戈苏亚雷斯必看景点。",
+                "feature2-title": "三湾",
+                "feature2-desc": "沙丘湾、鸽子湾和萨卡拉瓦湾 - 壮观的沿海景观。",
+                "feature3-title": "红色石林",
+                "feature3-desc": "独特血红色地质构造。令人惊叹的月球景观。",
+                "hero-btn": "探索景点",
+                "sites-title": "迭戈苏亚雷斯标志性景点",
+                "sites-intro": "发现该地区最著名的景点。每个景点都提供独特体验和令人屏息的景观，使迭戈苏亚雷斯闻名遐迩。",
+                "site1-title": "糖面包山",
+                "site1-subtitle": "标志性岩石",
+                "site1-desc": "大洋中央糖面包形状的标志性岩石。从迭戈苏亚雷斯整个海湾可见的独特地质构造。",
+                "site1-feature1": "独特地质构造",
+                "site1-feature2": "卓越全景视角",
+                "site1-feature3": "环岩航行",
+                "site1-feature4": "必看摄影点",
+                "site2-title": "法国山",
+                "site2-subtitle": "全景视角",
+                "site2-desc": "提供迭戈苏亚雷斯湾最佳全景视角的最高点。具有法国防御工事的历史遗址。",
+                "site2-feature1": "海湾360度景观",
+                "site2-feature2": "特有矮猴面包树林",
+                "site2-feature3": "历史防御工事",
+                "site2-feature4": "独特特有植物",
+                "site3-title": "拉梅纳海滩",
+                "site3-subtitle": "天堂海滩",
+                "site3-desc": "椰树环绕的长白沙滩，完美适合放松。传统渔村的真实氛围。",
+                "site3-feature1": "3公里长海滩",
+                "site3-feature2": "天然椰林",
+                "site3-feature3": "传统渔村",
+                "site3-feature4": "新鲜海鲜餐厅",
+                "site4-title": "沙丘湾",
+                "site4-subtitle": "壮观沙丘",
+                "site4-desc": "拥有令人印象深刻的沙丘的白色沙滩。印度洋全景视角和神奇日落。",
+                "site4-feature1": "独特白色沙丘",
+                "site4-feature2": "水晶绿松石海水",
+                "site4-feature3": "壮观日落",
+                "site4-feature4": "观鲸（季节性）",
+                "site5-title": "鸽子湾",
+                "site5-subtitle": "私密小海湾",
+                "site5-desc": "拥有独特岩层和透明海水的私密小海湾。浮潜和游泳的天堂。",
+                "site5-feature1": "雕刻岩层",
+                "site5-feature2": "卓越浮潜",
+                "site5-feature3": "海鸟群落",
+                "site5-feature4": "保存完好的细沙滩",
+                "site6-title": "安卡拉纳保护区",
+                "site6-subtitle": "自然保护区",
+                "site6-desc": "拥有著名石林的自然保护区，世界独特的石灰岩构造。洞穴、峡谷和卓越的生物多样性。",
+                "site6-feature1": "石林（独特石林）",
+                "site6-feature2": "壮观洞穴和峡谷",
+                "site6-feature3": "狐猴和鳄鱼",
+                "site6-feature4": "神秘地下河流",
+                "discover-btn": "发现",
+                "destinations-title": "完整目的地",
+                "destinations-intro": "详细探索迭戈苏亚雷斯地区的宝藏。每个目的地提供独特体验和卓越景观，带来难忘之旅。",
+                "destination1-title": "三湾",
+                "destination1-location": "迭戈苏亚雷斯北海岸",
+                "destination1-desc": "三个具有独特特征的海湾：沙丘湾拥有壮观沙丘，鸽子湾适合浮潜，萨卡拉瓦湾以其真实性著称。",
+                "destination1-feature1": "世界上最美丽的沙丘之一",
+                "destination1-feature2": "游泳的清澈海水",
+                "destination1-feature3": "卓越浮潜",
+                "destination1-feature4": "全景视角点",
+                "destination2-title": "红色石林",
+                "destination2-location": "迭戈苏亚雷斯以南70公里",
+                "destination2-desc": "世界独特地质构造：铁氧化形成的血红色岩峰。随时间改变颜色的月球景观。",
+                "destination2-feature1": "独特红色岩层",
+                "destination2-feature2": "月球沙漠景观",
+                "destination2-feature3": "随阳光变化的颜色",
+                "destination2-feature4": "卓越地质遗址",
+                "destination3-title": "琥珀山",
+                "destination3-location": "迭戈苏亚雷斯以南35公里",
+                "destination3-desc": "琥珀山国家公园：具有卓越生物多样性的潮湿热带雨林。瀑布、火山口湖和独特植物。",
+                "destination3-feature1": "7种不同狐猴",
+                "destination3-feature2": "瀑布和火山口湖",
+                "destination3-feature3": "卓越热带植物",
+                "destination3-feature4": "全年凉爽宜人气候",
+                "destination4-title": "翡翠海",
+                "destination4-location": "迭戈苏亚雷斯湾",
+                "destination4-desc": "拥有透明翡翠绿水域的泻湖，受珊瑚礁保护。具有丰富海洋生物的卓越浮潜点。",
+                "destination4-feature1": "水晶翡翠海水",
+                "destination4-feature2": "卓越浮潜",
+                "destination4-feature3": "丰富海洋生物",
+                "destination4-feature4": "浅而平静的海水",
+                "destination5-title": "法国山和猴面包树",
+                "destination5-location": "迭戈苏亚雷斯周边",
+                "destination5-desc": "具有令人惊叹全景视角的历史遗址。山上拥有特有矮猴面包树林和保存完好的法国防御工事。",
+                "destination5-feature1": "360度全景视角",
+                "destination5-feature2": "特有矮猴面包树林",
+                "destination5-feature3": "历史法国防御工事",
+                "destination5-feature4": "简单易行的徒步",
+                "destination6-title": "安塔格纳沃镇",
+                "destination6-location": "迭戈苏亚雷斯地区",
+                "destination6-desc": "提供当地马达加斯加生活一瞥的真实城镇。多彩市场、传统手工艺品和居民的热情好客。",
+                "destination6-feature1": "安塔格纳沃圣湖",
+                "destination6-feature2": "热闹的传统市场",
+                "destination6-feature3": "真实的当地手工艺品",
+                "destination6-feature4": "与当地居民会面",
+                "explore-btn": "探索",
+                "services-title": "我们的独家服务",
+                "services-intro": "马达加斯加岛旅游陪伴您打造梦想的迭戈苏亚雷斯之旅。定制服务带来真实难忘的体验。",
+                "service1-title": "导游徒步",
+                "service1-desc": "经验丰富导游带领的自然景点探索，导游会说法语、英语和马达加斯加语。",
+                "service1-feature1": "认证当地导游",
+                "service1-feature2": "提供技术设备",
+                "service1-feature3": "个性化行程",
+                "service2-title": "私人交通",
+                "service2-desc": "专业司机驾驶的舒适4x4车辆。",
+                "service2-feature1": "新款4x4车辆",
+                "service2-feature2": "经验丰富的司机导游",
+                "service2-feature3": "包含机场接送",
+                "service3-title": "住宿",
+                "service3-desc": "精选最佳酒店、旅馆和民宿。",
+                "service3-feature1": "3-5星级酒店",
+                "service3-feature2": "生态旅馆",
+                "service3-feature3": "保证预订",
+                "contact-title": "联系我们",
+                "contact-intro": "准备探索迭戈苏亚雷斯了吗？联系我们安排您的定制旅行。我们的法语团队随时为您解答所有问题。",
+                "contact1-title": "电话",
+                "contact2-title": "电子邮件",
+                "contact3-title": "地址",
+                "contact-btn1": "发送邮件",
+                "contact-btn2": "致电我们",
+                "contact-btn3": "WhatsApp",
+                "footer-tagline": "您探索迭戈苏亚雷斯和马达加斯加北部宝藏的可靠合作伙伴。真实体验、令人惊叹的景观和难忘的回忆。",
+                "copyright": "© 2023 马达加斯加岛旅游。保留所有权利。| 迭戈苏亚雷斯 - 马达加斯加"
+            }
+        };
+
+        // ===== INITIALIZATION =====
+        let currentLang = 'fr';
+
+        // ===== SET LANGUAGE FUNCTION =====
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            
+            currentLang = lang;
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update language indicator
+            document.querySelectorAll('.current-lang').forEach(el => {
+                el.textContent = lang.toUpperCase();
+            });
+            
+            // Update active language option
+            document.querySelectorAll('.language-option').forEach(el => {
+                el.classList.remove('active');
+                if (el.getAttribute('data-lang') === lang) {
+                    el.classList.add('active');
+                }
+            });
+            
+            // Update HTML lang attribute and direction for RTL
+            document.documentElement.setAttribute('lang', lang);
+            if (lang === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.removeAttribute('dir');
+            }
+            
+            // Save preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+
+        // ===== MOBILE MENU =====
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.mobile-nav a, .mobile-language-grid a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ===== LANGUAGE SELECTION =====
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Update active nav
+                    document.querySelectorAll('.nav-link, .mobile-nav a').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== LOADER =====
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                
+                // Animate elements
+                document.querySelectorAll('.fade-in').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 800);
+        });
+
+        // ===== INITIAL SETUP =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial language
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language.split('-')[0];
+            
+            if (savedLang && translations[savedLang]) {
+                setLanguage(savedLang);
+            } else if (translations[browserLang]) {
+                setLanguage(browserLang);
+            } else {
+                setLanguage('fr');
+            }
+            
+            // Initialize animations
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+        });
+
+        // ===== RESPONSIVE ADJUSTMENTS =====
+        function handleResize() {
+            if (window.innerWidth > 992) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScroll() {
+            const scrollPosition = window.scrollY + window.innerHeight;
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                if (el.offsetTop < scrollPosition - 100) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>

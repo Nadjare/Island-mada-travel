@@ -1,0 +1,3611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Tananarive, Palais de la Reine & Trésors des Hautes Terres</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a1a 0%, #1d2d2d 100%);
+            color: #f0f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== PALETTE DE COULEURS TANANARIVE ===== */
+        :root {
+            --color-terracotta: #c56c39;
+            --color-terracotta-dark: #a0522d;
+            --color-royal-red: #8b0000;
+            --color-royal-red-light: #b22222;
+            --color-emerald: #2ecc71;
+            --color-emerald-light: #27ae60;
+            --color-lake-blue: #3498db;
+            --color-lake-blue-dark: #2980b9;
+            --color-gold: #f1c40f;
+            --color-white: #ffffff;
+            --color-night: #0a1a1a;
+            --color-brick: #8b4513;
+            --color-rice: #f5f5dc;
+        }
+
+        /* ===== HEADER RESPONSIVE ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 5%;
+            border-bottom: 3px solid var(--color-terracotta);
+            box-shadow: 0 5px 20px rgba(197, 108, 57, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--color-terracotta), var(--color-royal-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--color-white);
+            box-shadow: 0 4px 15px rgba(197, 108, 57, 0.4);
+            border: 2px solid var(--color-gold);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--color-gold);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ===== NAVIGATION DESKTOP ===== */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-terracotta);
+            background: rgba(197, 108, 57, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--color-terracotta);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold));
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(197, 108, 57, 0.4);
+        }
+
+        /* ===== BOUTON LANGUE DESKTOP ===== */
+        .language-desktop-btn {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.2), rgba(52, 152, 219, 0.2));
+            border: 2px solid var(--color-terracotta);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 90px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(197, 108, 57, 0.3);
+        }
+
+        .language-desktop-btn:hover {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.3), rgba(52, 152, 219, 0.3));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(197, 108, 57, 0.4);
+            border-color: var(--color-gold);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px;
+            background: rgba(10, 26, 26, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-terracotta);
+            z-index: 1001;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(90deg, rgba(197, 108, 57, 0.2), rgba(241, 196, 15, 0.2));
+            transform: translateX(8px);
+            border-left: 3px solid var(--color-terracotta);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(197, 108, 57, 0.3), rgba(241, 196, 15, 0.3));
+            color: var(--color-terracotta);
+            font-weight: 700;
+            border-left: 3px solid var(--color-gold);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--color-gold);
+        }
+
+        /* ===== CONTROLES MOBILE ===== */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        /* Bouton Langue Mobile */
+        .language-mobile-btn {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.2), rgba(52, 152, 219, 0.2));
+            border: 2px solid var(--color-terracotta);
+            color: var(--color-white);
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .language-mobile-btn:hover {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.3), rgba(52, 152, 219, 0.3));
+            transform: scale(1.05);
+            border-color: var(--color-gold);
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--color-terracotta), var(--color-royal-red));
+            border: 2px solid var(--color-gold);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(197, 108, 57, 0.4);
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(197, 108, 57, 0.6);
+            background: linear-gradient(135deg, var(--color-royal-red), var(--color-terracotta));
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 26, 26, 0.98), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(20px);
+            padding: 100px 35px 35px;
+            box-shadow: -5px 0 30px rgba(197, 108, 57, 0.3);
+            transition: right 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            border-left: 3px solid var(--color-terracotta);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--color-terracotta), var(--color-royal-red));
+            border: 2px solid var(--color-gold);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(197, 108, 57, 0.4);
+        }
+
+        .close-menu:hover {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--color-royal-red), var(--color-terracotta));
+        }
+
+        /* ===== NAVIGATION MOBILE ===== */
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            background: linear-gradient(90deg, rgba(197, 108, 57, 0.1), rgba(241, 196, 15, 0.05));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(197, 108, 57, 0.2);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: linear-gradient(90deg, rgba(197, 108, 57, 0.2), rgba(241, 196, 15, 0.1));
+            border-left-color: var(--color-terracotta);
+            transform: translateX(10px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 5px 15px rgba(197, 108, 57, 0.3);
+        }
+
+        .mobile-nav i {
+            width: 28px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-gold);
+        }
+
+        /* ===== SECTION LANGUE MOBILE ===== */
+        .mobile-language-section {
+            padding: 30px 0;
+            border-top: 2px solid rgba(197, 108, 57, 0.3);
+            border-bottom: 2px solid rgba(241, 196, 15, 0.3);
+            margin-bottom: 35px;
+        }
+
+        .mobile-language-title {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-language-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(197, 108, 57, 0.2);
+        }
+
+        .mobile-language-option:hover {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.2), rgba(241, 196, 15, 0.2));
+            transform: translateX(8px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 5px 15px rgba(197, 108, 57, 0.3);
+        }
+
+        .mobile-language-option.active {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.3), rgba(241, 196, 15, 0.3));
+            color: var(--color-terracotta);
+            font-weight: 700;
+            border-left: 5px solid var(--color-gold);
+            border-color: var(--color-gold);
+        }
+
+        /* ===== HEADER SPACER RESPONSIVE ===== */
+        .header-spacer {
+            height: 85px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header-spacer {
+                height: 75px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+            
+            .menu-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .language-mobile-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                min-width: 65px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .logo-title {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .mobile-controls {
+                gap: 15px;
+            }
+            
+            .language-mobile-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                max-width: 320px;
+                padding: 90px 25px 25px;
+            }
+        }
+
+        /* ===== SECTION HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 26, 26, 0.85), rgba(10, 26, 26, 0.9)),
+                        url('tananarivo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(197, 108, 57, 0.1), rgba(241, 196, 15, 0.1));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--color-terracotta), var(--color-gold), var(--color-lake-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--color-white);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+            padding: 0 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FEATURE CARDS */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 50px 0;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-terracotta), var(--color-gold));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 15px 35px rgba(197, 108, 57, 0.3);
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.15), rgba(52, 152, 219, 0.15));
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--color-gold);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #e0f7ff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--color-terracotta), var(--color-royal-red));
+            color: var(--color-white);
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-gold);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(197, 108, 57, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(197, 108, 57, 0.6);
+            background: linear-gradient(135deg, var(--color-royal-red), var(--color-terracotta));
+            border-color: var(--color-terracotta);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--color-terracotta);
+            color: var(--color-terracotta);
+            box-shadow: 0 4px 15px rgba(197, 108, 57, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(197, 108, 57, 0.15);
+            color: var(--color-white);
+            border-color: var(--color-gold);
+        }
+
+        /* SECTIONS GENERIQUES */
+        section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            position: relative;
+            font-weight: 800;
+            color: var(--color-white);
+            padding: 0 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold), var(--color-lake-blue));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(197, 108, 57, 0.4);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(50px, 7vw, 80px);
+            color: #e6d4ff;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.7;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+
+        /* ===== SECTION SITES EMBLEMATIQUES ===== */
+        .emblematic-sites {
+            background: linear-gradient(135deg, #102525 0%, #1d3a3a 100%);
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .site-card {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold), var(--color-lake-blue));
+            z-index: 2;
+        }
+
+        .site-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 20px 40px rgba(197, 108, 57, 0.4);
+        }
+
+        .site-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--color-emerald), var(--color-gold));
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .site-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .site-image {
+                height: 220px;
+            }
+        }
+
+        .site-card:hover .site-image {
+            transform: scale(1.08);
+        }
+
+        .site-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .site-card h3 i {
+            color: var(--color-gold);
+            font-size: 1.6rem;
+        }
+
+        .site-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-terracotta);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .site-features {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .site-features li {
+            color: #d4eaff;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-features li:before {
+            content: '✓';
+            color: var(--color-emerald);
+            font-weight: bold;
+        }
+
+        .site-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-terracotta);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.15), rgba(52, 152, 219, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .site-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.25), rgba(241, 196, 15, 0.25));
+            border-color: var(--color-terracotta);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(197, 108, 57, 0.3);
+        }
+
+        /* ===== SECTION DESTINATIONS DETAILLEES ===== */
+        .detailed-destinations {
+            background: linear-gradient(135deg, #1d3a3a 0%, #102525 100%);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold));
+            z-index: 2;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 20px 40px rgba(197, 108, 57, 0.4);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .destination-image {
+                height: 220px;
+            }
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .destination-card h3 i {
+            color: var(--color-gold);
+            font-size: 1.6rem;
+        }
+
+        .destination-distance {
+            color: var(--color-emerald);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .destination-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 120px;
+            font-weight: 300;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-terracotta);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.15), rgba(52, 152, 219, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .destination-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.25), rgba(241, 196, 15, 0.25));
+            border-color: var(--color-terracotta);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(197, 108, 57, 0.3);
+        }
+
+        /* SERVICES */
+        .services {
+            background: linear-gradient(135deg, #102525 0%, #1d3a3a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 20px 40px rgba(197, 108, 57, 0.4);
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.15), rgba(52, 152, 219, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3.2rem;
+            color: var(--color-gold);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #d4eaff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #1d3a3a 0%, #102525 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.1), rgba(52, 152, 219, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(241, 196, 15, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-terracotta);
+            box-shadow: 0 20px 40px rgba(197, 108, 57, 0.4);
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.15), rgba(52, 152, 219, 0.15));
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--color-terracotta);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-info a {
+            color: #d4eaff;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-terracotta);
+            background: rgba(197, 108, 57, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 15px;
+        }
+
+        .contact-buttons .btn {
+            margin: 0 15px 15px;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons .btn {
+                margin: 0 0 15px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0a1a1a 0%, #152525 100%);
+            padding: 50px 0 25px;
+            border-top: 5px solid var(--color-terracotta);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-terracotta), var(--color-gold), var(--color-lake-blue));
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-tagline {
+            color: #e6d4ff;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(197, 108, 57, 0.2), rgba(52, 152, 219, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-terracotta);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--color-terracotta), var(--color-royal-red));
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--color-gold);
+            box-shadow: 0 8px 20px rgba(197, 108, 57, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: #e6d4ff;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--color-gold);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .copyright {
+            color: #c9b3ff;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(197, 108, 57, 0.3);
+            font-weight: 300;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* IMAGE LOADING */
+        .loading {
+            background: linear-gradient(90deg, #1d2d2d 25%, #2d3d3d 50%, #1d2d2d 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* TOUCH OPTIMIZATIONS */
+        @media (hover: none) {
+            .destination-card:hover,
+            .site-card:hover,
+            .service-card:hover,
+            .contact-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .nav-link:hover,
+            .language-option:hover,
+            .mobile-nav a:hover,
+            .social-link:hover,
+            .contact-info a:hover,
+            .destination-link:hover,
+            .site-link:hover {
+                background: none;
+                transform: none;
+            }
+            
+            .btn:hover,
+            .btn-outline:hover {
+                transform: none;
+            }
+        }
+
+        /* ORIENTATION PAYSAGE */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .mobile-menu {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">ISLAND MADA TRAVEL</div>
+                        <div class="logo-tagline">Tananarive - Palais de la Reine & Trésors des Hautes Terres</div>
+                    </div>
+                </a>
+
+                <!-- Navigation et Langue Desktop -->
+                <div class="nav-desktop">
+                    <!-- Navigation -->
+                    <nav>
+                        <a href="#home" class="nav-link active" data-translate="nav-home">Accueil</a>
+                        <a href="#emblematic" class="nav-link" data-translate="nav-emblematic">Sites Emblématiques</a>
+                        <a href="#destinations" class="nav-link" data-translate="nav-destinations">Destinations</a>
+                        <a href="#services" class="nav-link" data-translate="nav-services">Services</a>
+                        <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a>
+                    </nav>
+                    
+                    <!-- Bouton Langue Desktop -->
+                    <div class="language-selector">
+                        <button class="language-desktop-btn">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                                <span data-translate="lang-fr">Français</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                                <span data-translate="lang-en">English</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                                <span data-translate="lang-de">Deutsch</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                                <span data-translate="lang-es">Español</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                                <span data-translate="lang-it">Italiano</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="ar">
+                                <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                                <span data-translate="lang-ar">العربية</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                                <span data-translate="lang-zh">中文</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles Mobile -->
+                <div class="mobile-controls">
+                    <!-- Bouton Langue Mobile -->
+                    <button class="language-mobile-btn" id="mobileLangBtn">
+                        <i class="fas fa-globe-americas"></i>
+                        <span class="current-lang-mobile">FR</span>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Navigation Mobile -->
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> <span data-translate="nav-home">Accueil</span></a></li>
+            <li><a href="#emblematic"><i class="fas fa-landmark"></i> <span data-translate="nav-emblematic">Sites Emblématiques</span></a></li>
+            <li><a href="#destinations"><i class="fas fa-map-marker-alt"></i> <span data-translate="nav-destinations">Destinations</span></a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> <span data-translate="nav-services">Services</span></a></li>
+            <li><a href="#contact"><i class="fas fa-phone-alt"></i> <span data-translate="nav-contact">Contact</span></a></li>
+        </ul>
+        
+        <!-- Sélecteur de Langue Mobile -->
+        <div class="mobile-language-section">
+            <div class="mobile-language-title">
+                <i class="fas fa-language"></i>
+                <span data-translate="select-language">Changer la langue</span>
+            </div>
+            <div class="mobile-language-grid">
+                <a href="#" class="mobile-language-option active" data-lang="fr">
+                    <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                    <span data-translate="lang-fr">Français</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="en">
+                    <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                    <span data-translate="lang-en">English</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="de">
+                    <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                    <span data-translate="lang-de">Deutsch</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="es">
+                    <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                    <span data-translate="lang-es">Español</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="it">
+                    <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                    <span data-translate="lang-it">Italiano</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="ar">
+                    <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                    <span data-translate="lang-ar">العربية</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="zh">
+                    <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                    <span data-translate="lang-zh">中文</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-translate="hero-title">Découvrez Tananarive</h1>
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    Capitale historique des Hautes Terres de Madagascar ! Le Palais de la Reine, 
+                    les marchés colorés, les collines sacrées et l'architecture unique vous attendent 
+                    pour un voyage culturel inoubliable au cœur de l'île Rouge.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card fade-in delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3 data-translate="feature1-title">Palais de la Reine</h3>
+                        <p data-translate="feature1-desc">Ancienne résidence royale des souverains de Madagascar. Symbole de l'histoire et de la culture malgache.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3 data-translate="feature2-title">Marché d'Analakely</h3>
+                        <p data-translate="feature2-desc">Le célèbre "Zoma", plus grand marché en plein air de Madagascar. Couleurs, senteurs et artisanat local.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 data-translate="feature3-title">Colline d'Ambohimanga</h3>
+                        <p data-translate="feature3-desc">Site historique classé UNESCO. Ancienne cité royale et lieu sacré des souverains merina.</p>
+                    </div>
+                </div>
+                
+                <a href="#emblematic" class="btn fade-in delay-4">
+                    <i class="fas fa-compass"></i>
+                    <span data-translate="hero-btn">Explorer les Sites</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SITES EMBLEMATIQUES ===== -->
+    <section id="emblematic" class="emblematic-sites">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="emblematic-title">Sites Emblématiques de Tananarive</h2>
+            <p class="section-intro fade-in delay-1" data-translate="emblematic-intro">
+                Découvrez les sites les plus célèbres de la capitale malgache. Chaque site raconte une histoire 
+                unique et offre des expériences culturelles qui font la renommée de Tananarive.
+            </p>
+            
+            <div class="sites-grid">
+                <!-- Palais de la Reine -->
+                <div class="site-card fade-in">
+                    <div class="site-badge" data-translate="badge-heritage">PATRIMOINE</div>
+                    <img src="4a.jpeg" 
+                         alt="Palais de la Reine" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-landmark"></i> <span data-translate="site1-title">Palais de la Reine (Rova)</span></h3>
+                        <div class="site-subtitle" data-translate="site1-subtitle">Résidence royale historique</div>
+                        <p data-translate="site1-desc">Ancienne résidence des souverains de Madagascar. Symbole de la monarchie merina, brûlé en 1995 et en cours de reconstruction.</p>
+                        <ul class="site-features">
+                            <li data-translate="site1-feature1">Architecture traditionnelle malgache</li>
+                            <li data-translate="site1-feature2">Vue panoramique sur la ville</li>
+                            <li data-translate="site1-feature3">Histoire de la royauté malgache</li>
+                            <li data-translate="site1-feature4">Site historique classé</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Marché d'Analakely -->
+                <div class="site-card fade-in delay-1">
+                    <div class="site-badge" data-translate="badge-market">MARCHÉ</div>
+                    <img src="4b.jpg" 
+                         alt="Marché d'Analakely" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-shopping-cart"></i> <span data-translate="site2-title">Marché d'Analakely (Zoma)</span></h3>
+                        <div class="site-subtitle" data-translate="site2-subtitle">Plus grand marché de Madagascar</div>
+                        <p data-translate="site2-desc">Le célèbre marché en plein air qui s'étend sur plusieurs kilomètres. Artisanat local, épices, tissus et produits du terroir.</p>
+                        <ul class="site-features">
+                            <li data-translate="site2-feature1">Artisanat traditionnel malgache</li>
+                            <li data-translate="site2-feature2">Épices et produits locaux</li>
+                            <li data-translate="site2-feature3">Vêtements et tissus typiques</li>
+                            <li data-translate="site2-feature4">Ambiance authentique et animée</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Lac Anosy et Ange Noir -->
+                <div class="site-card fade-in delay-2">
+                    <div class="site-badge" data-translate="badge-landscape">PAYSAGE</div>
+                    <img src="4c.jpg" 
+                         alt="Lac Anosy et Ange Noir" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-water"></i> <span data-translate="site3-title">Lac Anosy et Ange Noir</span></h3>
+                        <div class="site-subtitle" data-translate="site3-subtitle">Symbole de Tananarive</div>
+                        <p data-translate="site3-desc">Lac artificiel en forme de cœur avec le monument de l'Ange Noir au centre. Lieu de mémoire et symbole de la ville.</p>
+                        <ul class="site-features">
+                            <li data-translate="site3-feature1">Monument aux morts de la Première Guerre Mondiale</li>
+                            <li data-translate="site3-feature2">Jolies fleurs de jacaranda (octobre-novembre)</li>
+                            <li data-translate="site3-feature3">Promenade paisible autour du lac</li>
+                            <li data-translate="site3-feature4">Point de vue photographique</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ambohimanga -->
+                <div class="site-card fade-in delay-3">
+                    <div class="site-badge" data-translate="badge-unesco">UNESCO</div>
+                    <img src="4d.jpeg" 
+                         alt="Ambohimanga" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-mountain"></i> <span data-translate="site4-title">Ambohimanga</span></h3>
+                        <div class="site-subtitle" data-translate="site4-subtitle">Colline Royale sacrée</div>
+                        <p data-translate="site4-desc">Site historique classé au patrimoine mondial de l'UNESCO. Ancienne cité royale et lieu sacré des souverains merina.</p>
+                        <ul class="site-features">
+                            <li data-translate="site4-feature1">Palais royal en bois précieux</li>
+                            <li data-translate="site4-feature2">Portes en pierre monumentales</li>
+                            <li data-translate="site4-feature3">Vue imprenable sur les rizières</li>
+                            <li data-translate="site4-feature4">Site spirituel important</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Musée d'Art et d'Archéologie -->
+                <div class="site-card fade-in delay-4">
+                    <div class="site-badge" data-translate="badge-culture">CULTURE</div>
+                    <img src="4e.webp" 
+                         alt="Musée d'Art et d'Archéologie" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-museum"></i> <span data-translate="site5-title">Musée d'Art et d'Archéologie</span></h3>
+                        <div class="site-subtitle" data-translate="site5-subtitle">Trésors culturels malgaches</div>
+                        <p data-translate="site5-desc">Musée présentant l'histoire, l'art et l'archéologie de Madagascar. Collections ethnographiques et artistiques uniques.</p>
+                        <ul class="site-features">
+                            <li data-translate="site5-feature1">Objets rituels et royaux</li>
+                            <li data-translate="site5-feature2">Costumes traditionnels</li>
+                            <li data-translate="site5-feature3">Instruments de musique typiques</li>
+                            <li data-translate="site5-feature4">Histoire des différentes ethnies</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Avenue de l'Indépendance -->
+                <div class="site-card fade-in delay-5">
+                    <div class="site-badge" data-translate="badge-urban">URBAIN</div>
+                    <img src="4f.jpg" 
+                         alt="Avenue de l'Indépendance" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-road"></i> <span data-translate="site6-title">Avenue de l'Indépendance</span></h3>
+                        <div class="site-subtitle" data-translate="site6-subtitle">Artère principale historique</div>
+                        <p data-translate="site6-desc">Principale avenue de Tananarive bordée de bâtiments coloniaux. Centre commercial et administratif de la ville.</p>
+                        <ul class="site-features">
+                            <li data-translate="site6-feature1">Architecture coloniale préservée</li>
+                            <li data-translate="site6-feature2">Boutiques et restaurants</li>
+                            <li data-translate="site6-feature3">Palais de la Justice et Hôtel de Ville</li>
+                            <li data-translate="site6-feature4">Ambiance cosmopolite</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="discover-btn">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DESTINATIONS DETAILLEES ===== -->
+    <section id="destinations" class="detailed-destinations">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="destinations-title">Destinations Complètes</h2>
+            <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                Explorez en détail les trésors de Tananarive et ses environs. Chaque destination offre 
+                une expérience unique et des découvertes culturelles pour un voyage enrichissant.
+            </p>
+            
+            <div class="destinations-grid">
+                <!-- Parc de Tsarasaotra -->
+                <div class="destination-card fade-in">
+                    <img src="4g.webp" 
+                         alt="Parc de Tsarasaotra" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-dove"></i> <span data-translate="dest1-title">Parc de Tsarasaotra</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-andohalo">Quartier d'Andohalo, Tananarive</span>
+                        </div>
+                        <p data-translate="dest1-desc">Réserve ornithologique unique en milieu urbain. Site RAMSAR abritant des dizaines d'espèces d'oiseaux migrateurs et locaux.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest1-feature1">15 espèces d'oiseaux migrateurs</li>
+                            <li data-translate="dest1-feature2">Observation ornithologique exceptionnelle</li>
+                            <li data-translate="dest1-feature3">Zone humide préservée en ville</li>
+                            <li data-translate="dest1-feature4">Sentiers de promenade aménagés</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Marché artisanal d'Andravoahangy -->
+                <div class="destination-card fade-in delay-1">
+                    <img src="4h.jpg" 
+                         alt="Marché artisanal d'Andravoahangy" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-gem"></i> <span data-translate="dest2-title">Marché d'Andravoahangy</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-andravoahangy">Quartier d'Andravoahangy, Tananarive</span>
+                        </div>
+                        <p data-translate="dest2-desc">Marché artisanal spécialisé dans les pierres précieuses, les fossiles et les objets d'art malgaches. Paradis des collectionneurs.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest2-feature1">Pierres précieuses malgaches</li>
+                            <li data-translate="dest2-feature2">Fossiles et minéraux uniques</li>
+                            <li data-translate="dest2-feature3">Sculptures sur bois et corne de zébu</li>
+                            <li data-translate="dest2-feature4">Papier Antemoro artisanal</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Les 12 Collines sacrées -->
+                <div class="destination-card fade-in delay-2">
+                    <img src="4i.jpeg" 
+                         alt="Les 12 Collines sacrées" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-mountain"></i> <span data-translate="dest3-title">Les 12 Collines sacrées</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-around-tana">Autour de Tananarive</span>
+                        </div>
+                        <p data-translate="dest3-desc">Circuit des 12 collines historiques qui entourent Tananarive. Sites historiques, villages traditionnels et paysages à couper le souffle.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest3-feature1">Ambohimanga (site UNESCO)</li>
+                            <li data-translate="dest3-feature2">Ilafy et son palais royal</li>
+                            <li data-translate="dest3-feature3">Ambohidrabiby et son histoire</li>
+                            <li data-translate="dest3-feature4">Vues panoramiques exceptionnelles</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quartier historique d'Isoraka -->
+                <div class="destination-card fade-in delay-3">
+                    <img src="4j.jpg" 
+                         alt="Quartier d'Isoraka" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-city"></i> <span data-translate="dest4-title">Quartier d'Isoraka</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-center-tana">Centre de Tananarive</span>
+                        </div>
+                        <p data-translate="dest4-desc">Quartier historique avec architecture coloniale préservée. Restaurants, galeries d'art et ambiance bohème.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest4-feature1">Architecture coloniale unique</li>
+                            <li data-translate="dest4-feature2">Galeries d'art et boutiques design</li>
+                            <li data-translate="dest4-feature3">Restaurants gastronomiques</li>
+                            <li data-translate="dest4-feature4">Vue sur le lac Anosy</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Parc botanique et zoologique de Tsimbazaza -->
+                <div class="destination-card fade-in delay-4">
+                    <img src="4k.jpeg" 
+                         alt="Parc de Tsimbazaza" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-tree"></i> <span data-translate="dest5-title">Parc de Tsimbazaza</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-south-tana">Sud de Tananarive</span>
+                        </div>
+                        <p data-translate="dest5-desc">Parc botanique et zoologique abritant la faune et flore endémiques de Madagascar. Musée de paléontologie inclus.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest5-feature1">Lémuriens en semi-liberté</li>
+                            <li data-translate="dest5-feature2">Flore endémique malgache</li>
+                            <li data-translate="dest5-feature3">Musée de paléontologie</li>
+                            <li data-translate="dest5-feature4">Squelette d'éléphant d'oiseau</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Atelier de soie sauvage -->
+                <div class="destination-card fade-in delay-5">
+                    <img src="4l.webp" 
+                         alt="Atelier de soie sauvage" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-spider"></i> <span data-translate="dest6-title">Soie sauvage malgache</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-periphery-tana">Périphérie de Tananarive</span>
+                        </div>
+                        <p data-translate="dest6-desc">Découverte du processus de fabrication de la soie sauvage malgache. De l'élevage des vers à soie au tissage traditionnel.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest6-feature1">Visite d'élevage de vers à soie</li>
+                            <li data-translate="dest6-feature2">Démonstration de filage</li>
+                            <li data-translate="dest6-feature3">Tissage traditionnel sur métier</li>
+                            <li data-translate="dest6-feature4">Boutique de produits en soie</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="explore-btn">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="services-title">Nos Services Exclusifs</h2>
+            <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Tananarive. 
+                Des services sur mesure pour une expérience authentique et culturellement enrichissante.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3 data-translate="service1-title">Visites Guidées Historiques</h3>
+                    <p data-translate="service1-desc">Découverte des sites historiques avec nos guides experts francophones. Parcours culturels adaptés à vos intérêts.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 data-translate="service2-title">Expériences Marchés</h3>
+                    <p data-translate="service2-desc">Accompagnement personnalisé dans les marchés pour découvrir l'artisanat et négocier comme un local.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3 data-translate="service3-title">Hébergement Authentique</h3>
+                    <p data-translate="service3-desc">Sélection de maisons d'hôtes charmantes et hôtels de charme avec vue sur les collines de Tananarive.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 data-translate="service4-title">Transports Privés</h3>
+                    <p data-translate="service4-desc">Véhicules confortables avec chauffeurs expérimentés pour naviguer dans les rues de Tananarive en toute sécurité.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service5-title">Dégustations Culinaires</h3>
+                    <p data-translate="service5-desc">Découverte de la cuisine malgache authentique dans les meilleurs restaurants et chez l'habitant.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 data-translate="service6-title">Rencontres Culturelles</h3>
+                    <p data-translate="service6-desc">Organisation de rencontres avec artisans, artistes et habitants pour une immersion authentique.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;" class="fade-in delay-3">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span data-translate="services-btn">Demander un Devis Personnalisé</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="contact-title">Contactez Island Mada Travel</h2>
+            <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                Prêt à découvrir les trésors de Tananarive ? Notre équipe locale est à votre disposition 
+                pour organiser votre séjour culturel dans la capitale malgache.
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Téléphone -->
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-phone">Téléphone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+261325539635">
+                            <i class="fas fa-phone"></i>
+                            +261 32 55 396 35
+                        </a>
+                        <a href="tel:+261325539635" style="margin-top: 15px;">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span data-translate="call-whatsapp">Appel / WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-translate="contact-email">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:anjaraamadym@gmail.com">
+                            <i class="fas fa-at"></i>
+                            anjaraamadym@gmail.com
+                        </a>
+                        <a href="mailto:anjaraamadym@gmail.com" style="margin-top: 15px;">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span data-translate="reservations">Réservations</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Adresse -->
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-address">Adresse</h3>
+                    <div class="contact-info">
+                        <p style="text-align: center; color: #d4eaff; line-height: 1.8;">
+                            <i class="fas fa-hotel"></i><br>
+                            Island Mada Travel<br>
+                            <span data-translate="agency">Agence de Tourisme</span><br>
+                            Tananarive (Antananarivo), Madagascar<br>
+                            <span data-translate="specialty">Spécialiste des Hautes Terres</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-buttons fade-in delay-3">
+                <a href="https://wa.me/261325539635" class="btn" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="whatsapp-btn">WhatsApp Direct</span>
+                </a>
+                <a href="mailto:anjaraamadym@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="email-btn">Envoyer un Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <i class="fas fa-landmark"></i>
+                    <span data-translate="footer-logo">ISLAND MADA TRAVEL</span>
+                </div>
+                
+                <p class="footer-tagline fade-in delay-1" data-translate="footer-tagline">
+                    Votre guide expert pour découvrir les trésors cachés de Tananarive et sa région. 
+                    Des expériences authentiques, des découvertes culturelles, des souvenirs inoubliables au cœur des Hautes Terres malgaches.
+                </p>
+                
+                <div class="social-links fade-in delay-2">
+                    <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/261325539635" class="social-link" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://tripadvisor.com" class="social-link" target="_blank" aria-label="TripAdvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="mailto:anjaraamadym@gmail.com" class="social-link" target="_blank" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-info fade-in delay-3">
+                    <p><i class="fas fa-phone"></i> +261 32 55 396 35</p>
+                    <p><i class="fas fa-envelope"></i> anjaraamadym@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-translate="footer-address">Tananarive, Madagascar</span></p>
+                </div>
+                
+                <div class="copyright fade-in delay-4">
+                    <p>&copy; <span id="currentYear"></span> Island Mada Travel. <span data-translate="copyright">Tous droits réservés.</span></p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">
+                        <a href="#" style="color: var(--color-terracotta);" data-translate="privacy">Politique de confidentialité</a> | 
+                        <a href="#" style="color: var(--color-terracotta);" data-translate="terms">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fermer le menu au clic sur un lien
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Mettre à jour l'état actif
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mettre à jour la navigation desktop
+                const href = link.getAttribute('href');
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // ===== CHANGEMENT DE LANGUE =====
+        const languageOptions = document.querySelectorAll('.language-option, .mobile-language-option');
+        const currentLangElements = document.querySelectorAll('.current-lang, .current-lang-mobile');
+        
+        // Données de traduction complètes
+        const translations = {
+            fr: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Tananarive - Palais de la Reine & Trésors des Hautes Terres',
+                'nav-home': 'Accueil',
+                'nav-emblematic': 'Sites Emblématiques',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Changer la langue',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Découvrez Tananarive',
+                'hero-subtitle': 'Capitale historique des Hautes Terres de Madagascar ! Le Palais de la Reine, les marchés colorés, les collines sacrées et l\'architecture unique vous attendent pour un voyage culturel inoubliable au cœur de l\'île Rouge.',
+                'feature1-title': 'Palais de la Reine',
+                'feature1-desc': 'Ancienne résidence royale des souverains de Madagascar. Symbole de l\'histoire et de la culture malgache.',
+                'feature2-title': 'Marché d\'Analakely',
+                'feature2-desc': 'Le célèbre "Zoma", plus grand marché en plein air de Madagascar. Couleurs, senteurs et artisanat local.',
+                'feature3-title': 'Colline d\'Ambohimanga',
+                'feature3-desc': 'Site historique classé UNESCO. Ancienne cité royale et lieu sacré des souverains merina.',
+                'hero-btn': 'Explorer les Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Sites Emblématiques de Tananarive',
+                'emblematic-intro': 'Découvrez les sites les plus célèbres de la capitale malgache. Chaque site raconte une histoire unique et offre des expériences culturelles qui font la renommée de Tananarive.',
+                'badge-heritage': 'PATRIMOINE',
+                'badge-market': 'MARCHÉ',
+                'badge-landscape': 'PAYSAGE',
+                'badge-unesco': 'UNESCO',
+                'badge-culture': 'CULTURE',
+                'badge-urban': 'URBAIN',
+                'discover-btn': 'Découvrir',
+                
+                // Sites détails
+                'site1-title': 'Palais de la Reine (Rova)',
+                'site1-subtitle': 'Résidence royale historique',
+                'site1-desc': 'Ancienne résidence des souverains de Madagascar. Symbole de la monarchie merina, brûlé en 1995 et en cours de reconstruction.',
+                'site1-feature1': 'Architecture traditionnelle malgache',
+                'site1-feature2': 'Vue panoramique sur la ville',
+                'site1-feature3': 'Histoire de la royauté malgache',
+                'site1-feature4': 'Site historique classé',
+                
+                'site2-title': 'Marché d\'Analakely (Zoma)',
+                'site2-subtitle': 'Plus grand marché de Madagascar',
+                'site2-desc': 'Le célèbre marché en plein air qui s\'étend sur plusieurs kilomètres. Artisanat local, épices, tissus et produits du terroir.',
+                'site2-feature1': 'Artisanat traditionnel malgache',
+                'site2-feature2': 'Épices et produits locaux',
+                'site2-feature3': 'Vêtements et tissus typiques',
+                'site2-feature4': 'Ambiance authentique et animée',
+                
+                'site3-title': 'Lac Anosy et Ange Noir',
+                'site3-subtitle': 'Symbole de Tananarive',
+                'site3-desc': 'Lac artificiel en forme de cœur avec le monument de l\'Ange Noir au centre. Lieu de mémoire et symbole de la ville.',
+                'site3-feature1': 'Monument aux morts de la Première Guerre Mondiale',
+                'site3-feature2': 'Jolies fleurs de jacaranda (octobre-novembre)',
+                'site3-feature3': 'Promenade paisible autour du lac',
+                'site3-feature4': 'Point de vue photographique',
+                
+                'site4-title': 'Ambohimanga',
+                'site4-subtitle': 'Colline Royale sacrée',
+                'site4-desc': 'Site historique classé au patrimoine mondial de l\'UNESCO. Ancienne cité royale et lieu sacré des souverains merina.',
+                'site4-feature1': 'Palais royal en bois précieux',
+                'site4-feature2': 'Portes en pierre monumentales',
+                'site4-feature3': 'Vue imprenable sur les rizières',
+                'site4-feature4': 'Site spirituel important',
+                
+                'site5-title': 'Musée d\'Art et d\'Archéologie',
+                'site5-subtitle': 'Trésors culturels malgaches',
+                'site5-desc': 'Musée présentant l\'histoire, l\'art et l\'archéologie de Madagascar. Collections ethnographiques et artistiques uniques.',
+                'site5-feature1': 'Objets rituels et royaux',
+                'site5-feature2': 'Costumes traditionnels',
+                'site5-feature3': 'Instruments de musique typiques',
+                'site5-feature4': 'Histoire des différentes ethnies',
+                
+                'site6-title': 'Avenue de l\'Indépendance',
+                'site6-subtitle': 'Artère principale historique',
+                'site6-desc': 'Principale avenue de Tananarive bordée de bâtiments coloniaux. Centre commercial et administratif de la ville.',
+                'site6-feature1': 'Architecture coloniale préservée',
+                'site6-feature2': 'Boutiques et restaurants',
+                'site6-feature3': 'Palais de la Justice et Hôtel de Ville',
+                'site6-feature4': 'Ambiance cosmopolite',
+                
+                // Destinations
+                'destinations-title': 'Destinations Complètes',
+                'destinations-intro': 'Explorez en détail les trésors de Tananarive et ses environs. Chaque destination offre une expérience unique et des découvertes culturelles pour un voyage enrichissant.',
+                'location-andohalo': 'Quartier d\'Andohalo, Tananarive',
+                'location-andravoahangy': 'Quartier d\'Andravoahangy, Tananarive',
+                'location-around-tana': 'Autour de Tananarive',
+                'location-center-tana': 'Centre de Tananarive',
+                'location-south-tana': 'Sud de Tananarive',
+                'location-periphery-tana': 'Périphérie de Tananarive',
+                'explore-btn': 'Explorer',
+                
+                'dest1-title': 'Parc de Tsarasaotra',
+                'dest1-desc': 'Réserve ornithologique unique en milieu urbain. Site RAMSAR abritant des dizaines d\'espèces d\'oiseaux migrateurs et locaux.',
+                'dest1-feature1': '15 espèces d\'oiseaux migrateurs',
+                'dest1-feature2': 'Observation ornithologique exceptionnelle',
+                'dest1-feature3': 'Zone humide préservée en ville',
+                'dest1-feature4': 'Sentiers de promenade aménagés',
+                
+                'dest2-title': 'Marché d\'Andravoahangy',
+                'dest2-desc': 'Marché artisanal spécialisé dans les pierres précieuses, les fossiles et les objets d\'art malgaches. Paradis des collectionneurs.',
+                'dest2-feature1': 'Pierres précieuses malgaches',
+                'dest2-feature2': 'Fossiles et minéraux uniques',
+                'dest2-feature3': 'Sculptures sur bois et corne de zébu',
+                'dest2-feature4': 'Papier Antemoro artisanal',
+                
+                'dest3-title': 'Les 12 Collines sacrées',
+                'dest3-desc': 'Circuit des 12 collines historiques qui entourent Tananarive. Sites historiques, villages traditionnels et paysages à couper le souffle.',
+                'dest3-feature1': 'Ambohimanga (site UNESCO)',
+                'dest3-feature2': 'Ilafy et son palais royal',
+                'dest3-feature3': 'Ambohidrabiby et son histoire',
+                'dest3-feature4': 'Vues panoramiques exceptionnelles',
+                
+                'dest4-title': 'Quartier d\'Isoraka',
+                'dest4-desc': 'Quartier historique avec architecture coloniale préservée. Restaurants, galeries d\'art et ambiance bohème.',
+                'dest4-feature1': 'Architecture coloniale unique',
+                'dest4-feature2': 'Galeries d\'art et boutiques design',
+                'dest4-feature3': 'Restaurants gastronomiques',
+                'dest4-feature4': 'Vue sur le lac Anosy',
+                
+                'dest5-title': 'Parc de Tsimbazaza',
+                'dest5-desc': 'Parc botanique et zoologique abritant la faune et flore endémiques de Madagascar. Musée de paléontologie inclus.',
+                'dest5-feature1': 'Lémuriens en semi-liberté',
+                'dest5-feature2': 'Flore endémique malgache',
+                'dest5-feature3': 'Musée de paléontologie',
+                'dest5-feature4': 'Squelette d\'éléphant d\'oiseau',
+                
+                'dest6-title': 'Soie sauvage malgache',
+                'dest6-desc': 'Découverte du processus de fabrication de la soie sauvage malgache. De l\'élevage des vers à soie au tissage traditionnel.',
+                'dest6-feature1': 'Visite d\'élevage de vers à soie',
+                'dest6-feature2': 'Démonstration de filage',
+                'dest6-feature3': 'Tissage traditionnel sur métier',
+                'dest6-feature4': 'Boutique de produits en soie',
+                
+                // Services
+                'services-title': 'Nos Services Exclusifs',
+                'services-intro': 'Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Tananarive. Des services sur mesure pour une expérience authentique et culturellement enrichissante.',
+                'service1-title': 'Visites Guidées Historiques',
+                'service1-desc': 'Découverte des sites historiques avec nos guides experts francophones. Parcours culturels adaptés à vos intérêts.',
+                'service2-title': 'Expériences Marchés',
+                'service2-desc': 'Accompagnement personnalisé dans les marchés pour découvrir l\'artisanat et négocier comme un local.',
+                'service3-title': 'Hébergement Authentique',
+                'service3-desc': 'Sélection de maisons d\'hôtes charmantes et hôtels de charme avec vue sur les collines de Tananarive.',
+                'service4-title': 'Transports Privés',
+                'service4-desc': 'Véhicules confortables avec chauffeurs expérimentés pour naviguer dans les rues de Tananarive en toute sécurité.',
+                'service5-title': 'Dégustations Culinaires',
+                'service5-desc': 'Découverte de la cuisine malgache authentique dans les meilleurs restaurants et chez l\'habitant.',
+                'service6-title': 'Rencontres Culturelles',
+                'service6-desc': 'Organisation de rencontres avec artisans, artistes et habitants pour une immersion authentique.',
+                'services-btn': 'Demander un Devis Personnalisé',
+                
+                // Contact
+                'contact-title': 'Contactez Island Mada Travel',
+                'contact-intro': 'Prêt à découvrir les trésors de Tananarive ? Notre équipe locale est à votre disposition pour organiser votre séjour culturel dans la capitale malgache.',
+                'contact-phone': 'Téléphone',
+                'contact-email': 'Email',
+                'contact-address': 'Adresse',
+                'call-whatsapp': 'Appel / WhatsApp',
+                'reservations': 'Réservations',
+                'agency': 'Agence de Tourisme',
+                'specialty': 'Spécialiste des Hautes Terres',
+                'whatsapp-btn': 'WhatsApp Direct',
+                'email-btn': 'Envoyer un Email',
+                
+                // Footer
+                'footer-logo': 'ISLAND MADA TRAVEL',
+                'footer-tagline': 'Votre guide expert pour découvrir les trésors cachés de Tananarive et sa région. Des expériences authentiques, des découvertes culturelles, des souvenirs inoubliables au cœur des Hautes Terres malgaches.',
+                'footer-address': 'Tananarive, Madagascar',
+                'copyright': 'Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
+            },
+            en: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Tananarive - Queen\'s Palace & Highlands Treasures',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Iconic Sites',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Change Language',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Discover Tananarive',
+                'hero-subtitle': 'Historic capital of the Madagascar Highlands! The Queen\'s Palace, colorful markets, sacred hills and unique architecture await you for an unforgettable cultural journey in the heart of the Red Island.',
+                'feature1-title': 'Queen\'s Palace',
+                'feature1-desc': 'Former royal residence of Madagascar\'s sovereigns. Symbol of Malagasy history and culture.',
+                'feature2-title': 'Analakely Market',
+                'feature2-desc': 'The famous "Zoma", Madagascar\'s largest open-air market. Colors, scents and local crafts.',
+                'feature3-title': 'Ambohimanga Hill',
+                'feature3-desc': 'UNESCO World Heritage Site. Ancient royal city and sacred place of Merina sovereigns.',
+                'hero-btn': 'Explore Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Iconic Sites of Tananarive',
+                'emblematic-intro': 'Discover the most famous sites of the Malagasy capital. Each site tells a unique story and offers cultural experiences that make Tananarive famous.',
+                'badge-heritage': 'HERITAGE',
+                'badge-market': 'MARKET',
+                'badge-landscape': 'LANDSCAPE',
+                'badge-unesco': 'UNESCO',
+                'badge-culture': 'CULTURE',
+                'badge-urban': 'URBAN',
+                'discover-btn': 'Discover',
+                
+                // Sites détails
+                'site1-title': 'Queen\'s Palace (Rova)',
+                'site1-subtitle': 'Historic royal residence',
+                'site1-desc': 'Former residence of Madagascar\'s sovereigns. Symbol of the Merina monarchy, burned in 1995 and under reconstruction.',
+                'site1-feature1': 'Traditional Malagasy architecture',
+                'site1-feature2': 'Panoramic view of the city',
+                'site1-feature3': 'History of Malagasy royalty',
+                'site1-feature4': 'Classified historical site',
+                
+                'site2-title': 'Analakely Market (Zoma)',
+                'site2-subtitle': 'Largest market in Madagascar',
+                'site2-desc': 'The famous open-air market that stretches for several kilometers. Local crafts, spices, fabrics and local products.',
+                'site2-feature1': 'Traditional Malagasy crafts',
+                'site2-feature2': 'Spices and local products',
+                'site2-feature3': 'Typical clothes and fabrics',
+                'site2-feature4': 'Authentic and lively atmosphere',
+                
+                'site3-title': 'Lake Anosy and Black Angel',
+                'site3-subtitle': 'Symbol of Tananarive',
+                'site3-desc': 'Artificial heart-shaped lake with the Black Angel monument in the center. Place of remembrance and symbol of the city.',
+                'site3-feature1': 'Monument to the dead of the First World War',
+                'site3-feature2': 'Beautiful jacaranda flowers (October-November)',
+                'site3-feature3': 'Peaceful walk around the lake',
+                'site3-feature4': 'Photographic viewpoint',
+                
+                'site4-title': 'Ambohimanga',
+                'site4-subtitle': 'Sacred Royal Hill',
+                'site4-desc': 'Historical site classified as a UNESCO World Heritage Site. Ancient royal city and sacred place of Merina sovereigns.',
+                'site4-feature1': 'Royal palace in precious wood',
+                'site4-feature2': 'Monumental stone gates',
+                'site4-feature3': 'Breathtaking view of the rice fields',
+                'site4-feature4': 'Important spiritual site',
+                
+                'site5-title': 'Museum of Art and Archaeology',
+                'site5-subtitle': 'Malagasy cultural treasures',
+                'site5-desc': 'Museum presenting the history, art and archaeology of Madagascar. Unique ethnographic and artistic collections.',
+                'site5-feature1': 'Ritual and royal objects',
+                'site5-feature2': 'Traditional costumes',
+                'site5-feature3': 'Typical musical instruments',
+                'site5-feature4': 'History of different ethnic groups',
+                
+                'site6-title': 'Independence Avenue',
+                'site6-subtitle': 'Main historical artery',
+                'site6-desc': 'Main avenue of Tananarive lined with colonial buildings. Commercial and administrative center of the city.',
+                'site6-feature1': 'Preserved colonial architecture',
+                'site6-feature2': 'Shops and restaurants',
+                'site6-feature3': 'Palace of Justice and City Hall',
+                'site6-feature4': 'Cosmopolitan atmosphere',
+                
+                // Destinations
+                'destinations-title': 'Complete Destinations',
+                'destinations-intro': 'Explore in detail the treasures of Tananarive and its surroundings. Each destination offers a unique experience and cultural discoveries for an enriching journey.',
+                'location-andohalo': 'Andohalo district, Tananarive',
+                'location-andravoahangy': 'Andravoahangy district, Tananarive',
+                'location-around-tana': 'Around Tananarive',
+                'location-center-tana': 'Center of Tananarive',
+                'location-south-tana': 'South of Tananarive',
+                'location-periphery-tana': 'Periphery of Tananarive',
+                'explore-btn': 'Explore',
+                
+                'dest1-title': 'Tsarasaotra Park',
+                'dest1-desc': 'Unique urban ornithological reserve. RAMSAR site hosting dozens of migratory and local bird species.',
+                'dest1-feature1': '15 species of migratory birds',
+                'dest1-feature2': 'Exceptional bird watching',
+                'dest1-feature3': 'Preserved wetland in the city',
+                'dest1-feature4': 'Equipped walking paths',
+                
+                'dest2-title': 'Andravoahangy Market',
+                'dest2-desc': 'Artisanal market specialized in precious stones, fossils and Malagasy art objects. Collectors\' paradise.',
+                'dest2-feature1': 'Malagasy precious stones',
+                'dest2-feature2': 'Unique fossils and minerals',
+                'dest2-feature3': 'Wood and zebu horn sculptures',
+                'dest2-feature4': 'Artisanal Antemoro paper',
+                
+                'dest3-title': 'The 12 Sacred Hills',
+                'dest3-desc': 'Circuit of the 12 historical hills surrounding Tananarive. Historical sites, traditional villages and breathtaking landscapes.',
+                'dest3-feature1': 'Ambohimanga (UNESCO site)',
+                'dest3-feature2': 'Ilafy and its royal palace',
+                'dest3-feature3': 'Ambohidrabiby and its history',
+                'dest3-feature4': 'Exceptional panoramic views',
+                
+                'dest4-title': 'Isoraka District',
+                'dest4-desc': 'Historic district with preserved colonial architecture. Restaurants, art galleries and bohemian atmosphere.',
+                'dest4-feature1': 'Unique colonial architecture',
+                'dest4-feature2': 'Art galleries and design shops',
+                'dest4-feature3': 'Gourmet restaurants',
+                'dest4-feature4': 'View of Lake Anosy',
+                
+                'dest5-title': 'Tsimbazaza Park',
+                'dest5-desc': 'Botanical and zoological park housing the endemic fauna and flora of Madagascar. Paleontology museum included.',
+                'dest5-feature1': 'Lemurs in semi-freedom',
+                'dest5-feature2': 'Endemic Malagasy flora',
+                'dest5-feature3': 'Paleontology museum',
+                'dest5-feature4': 'Elephant bird skeleton',
+                
+                'dest6-title': 'Malagasy Wild Silk',
+                'dest6-desc': 'Discovery of the Malagasy wild silk manufacturing process. From silkworm breeding to traditional weaving.',
+                'dest6-feature1': 'Silkworm breeding visit',
+                'dest6-feature2': 'Spinning demonstration',
+                'dest6-feature3': 'Traditional weaving on loom',
+                'dest6-feature4': 'Silk products boutique',
+                
+                // Services
+                'services-title': 'Our Exclusive Services',
+                'services-intro': 'Island Mada Travel accompanies you to create your dream trip to Tananarive. Tailor-made services for an authentic and culturally enriching experience.',
+                'service1-title': 'Historical Guided Tours',
+                'service1-desc': 'Discovery of historical sites with our expert French-speaking guides. Cultural itineraries adapted to your interests.',
+                'service2-title': 'Market Experiences',
+                'service2-desc': 'Personalized market accompaniment to discover crafts and negotiate like a local.',
+                'service3-title': 'Authentic Accommodation',
+                'service3-desc': 'Selection of charming guesthouses and boutique hotels with views of Tananarive\'s hills.',
+                'service4-title': 'Private Transports',
+                'service4-desc': 'Comfortable vehicles with experienced drivers to navigate Tananarive\'s streets safely.',
+                'service5-title': 'Culinary Tastings',
+                'service5-desc': 'Discovery of authentic Malagasy cuisine in the best restaurants and with locals.',
+                'service6-title': 'Cultural Encounters',
+                'service6-desc': 'Organization of meetings with artisans, artists and residents for authentic immersion.',
+                'services-btn': 'Request a Custom Quote',
+                
+                // Contact
+                'contact-title': 'Contact Island Mada Travel',
+                'contact-intro': 'Ready to discover the treasures of Tananarive? Our local team is at your disposal to organize your cultural stay in the Malagasy capital.',
+                'contact-phone': 'Phone',
+                'contact-email': 'Email',
+                'contact-address': 'Address',
+                'call-whatsapp': 'Call / WhatsApp',
+                'reservations': 'Reservations',
+                'agency': 'Travel Agency',
+                'specialty': 'Highlands Specialist',
+                'whatsapp-btn': 'Direct WhatsApp',
+                'email-btn': 'Send Email',
+                
+                // Footer
+                'footer-logo': 'ISLAND MADA TRAVEL',
+                'footer-tagline': 'Your expert guide to discover the hidden treasures of Tananarive and its region. Authentic experiences, cultural discoveries, unforgettable memories in the heart of the Malagasy Highlands.',
+                'footer-address': 'Tananarive, Madagascar',
+                'copyright': 'All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
+            },
+            de: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Tananarive - Königinnenpalast & Hochland-Schätze',
+                'nav-home': 'Startseite',
+                'nav-emblematic': 'Wahrzeichen',
+                'nav-destinations': 'Ziele',
+                'nav-services': 'Dienstleistungen',
+                'nav-contact': 'Kontakt',
+                'select-language': 'Sprache ändern',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-ar': 'Arabisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Hero
+                'hero-title': 'Entdecken Sie Tananarive',
+                'hero-subtitle': 'Historische Hauptstadt des madagassischen Hochlands! Der Königinnenpalast, bunte Märkte, heilige Hügel und einzigartige Architektur erwarten Sie für eine unvergessliche kulturelle Reise im Herzen der Roten Insel.',
+                'feature1-title': 'Königinnenpalast',
+                'feature1-desc': 'Ehemalige königliche Residenz der madagassischen Herrscher. Symbol der madagassischen Geschichte und Kultur.',
+                'feature2-title': 'Analakely-Markt',
+                'feature2-desc': 'Der berühmte "Zoma", Madagaskars größter Freiluftmarkt. Farben, Düfte und lokales Kunsthandwerk.',
+                'feature3-title': 'Ambohimanga-Hügel',
+                'feature3-desc': 'UNESCO-Weltkulturerbe. Antike Königsstadt und heiliger Ort der Merina-Herrscher.',
+                'hero-btn': 'Sehenswürdigkeiten erkunden',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Wahrzeichen von Tananarive',
+                'emblematic-intro': 'Entdecken Sie die berühmtesten Stätten der madagassischen Hauptstadt. Jede Stätte erzählt eine einzigartige Geschichte und bietet kulturelle Erlebnisse, die Tananarive berühmt machen.',
+                'badge-heritage': 'ERBE',
+                'badge-market': 'MARKT',
+                'badge-landscape': 'LANDSCHAFT',
+                'badge-unesco': 'UNESCO',
+                'badge-culture': 'KULTUR',
+                'badge-urban': 'STÄDTISCH',
+                'discover-btn': 'Entdecken',
+                
+                // Sites détails
+                'site1-title': 'Königinnenpalast (Rova)',
+                'site1-subtitle': 'Historische königliche Residenz',
+                'site1-desc': 'Ehemalige Residenz der madagassischen Herrscher. Symbol der Merina-Monarchie, 1995 abgebrannt und im Wiederaufbau.',
+                'site1-feature1': 'Traditionelle madagassische Architektur',
+                'site1-feature2': 'Panoramablick auf die Stadt',
+                'site1-feature3': 'Geschichte der madagassischen Monarchie',
+                'site1-feature4': 'Klassifizierte historische Stätte',
+                
+                'site2-title': 'Analakely-Markt (Zoma)',
+                'site2-subtitle': 'Größter Markt Madagaskars',
+                'site2-desc': 'Der berühmte Freiluftmarkt, der sich über mehrere Kilometer erstreckt. Lokales Kunsthandwerk, Gewürze, Stoffe und lokale Produkte.',
+                'site2-feature1': 'Traditionelles madagassisches Kunsthandwerk',
+                'site2-feature2': 'Gewürze und lokale Produkte',
+                'site2-feature3': 'Typische Kleidung und Stoffe',
+                'site2-feature4': 'Authentische und lebhafte Atmosphäre',
+                
+                'site3-title': 'Anosy-See und Schwarzer Engel',
+                'site3-subtitle': 'Symbol von Tananarive',
+                'site3-desc': 'Künstlicher herzförmiger See mit dem Denkmal des Schwarzen Engels in der Mitte. Gedenkstätte und Symbol der Stadt.',
+                'site3-feature1': 'Denkmal für die Toten des Ersten Weltkriegs',
+                'site3-feature2': 'Schöne Jacaranda-Blüten (Oktober-November)',
+                'site3-feature3': 'Friedlicher Spaziergang um den See',
+                'site3-feature4': 'Fotografischer Blickpunkt',
+                
+                'site4-title': 'Ambohimanga',
+                'site4-subtitle': 'Heiliger Königshügel',
+                'site4-desc': 'Historische Stätte, die zum UNESCO-Weltkulturerbe gehört. Antike Königsstadt und heiliger Ort der Merina-Herrscher.',
+                'site4-feature1': 'Königspalast aus Edelholz',
+                'site4-feature2': 'Monumentale Steintore',
+                'site4-feature3': 'Atemberaubende Aussicht auf die Reisfelder',
+                'site4-feature4': 'Wichtige spirituelle Stätte',
+                
+                'site5-title': 'Museum für Kunst und Archäologie',
+                'site5-subtitle': 'Madagassische Kulturschätze',
+                'site5-desc': 'Museum, das die Geschichte, Kunst und Archäologie Madagaskars präsentiert. Einzigartige ethnografische und künstlerische Sammlungen.',
+                'site5-feature1': 'Rituelle und königliche Objekte',
+                'site5-feature2': 'Traditionelle Kostüme',
+                'site5-feature3': 'Typische Musikinstrumente',
+                'site5-feature4': 'Geschichte verschiedener Ethnien',
+                
+                'site6-title': 'Unabhängigkeitsallee',
+                'site6-subtitle': 'Historische Hauptader',
+                'site6-desc': 'Hauptallee von Tananarive mit Kolonialgebäuden. Kommerzielles und administratives Zentrum der Stadt.',
+                'site6-feature1': 'Erhaltene Kolonialarchitektur',
+                'site6-feature2': 'Geschäfte und Restaurants',
+                'site6-feature3': 'Justizpalast und Rathaus',
+                'site6-feature4': 'Kosmopolitische Atmosphäre',
+                
+                // Destinations
+                'destinations-title': 'Komplette Ziele',
+                'destinations-intro': 'Erkunden Sie im Detail die Schätze von Tananarive und seiner Umgebung. Jedes Ziel bietet ein einzigartiges Erlebnis und kulturelle Entdeckungen für eine bereichernde Reise.',
+                'location-andohalo': 'Andohalo Bezirk, Tananarive',
+                'location-andravoahangy': 'Andravoahangy Bezirk, Tananarive',
+                'location-around-tana': 'Um Tananarive',
+                'location-center-tana': 'Zentrum von Tananarive',
+                'location-south-tana': 'Südlich von Tananarive',
+                'location-periphery-tana': 'Peripherie von Tananarive',
+                'explore-btn': 'Erkunden',
+                
+                'dest1-title': 'Tsarasaotra Park',
+                'dest1-desc': 'Einzigartiges städtisches Vogelschutzgebiet. RAMSAR-Stätte mit Dutzenden von Zugvogel- und lokalen Vogelarten.',
+                'dest1-feature1': '15 Zugvogelarten',
+                'dest1-feature2': 'Außergewöhnliche Vogelbeobachtung',
+                'dest1-feature3': 'Erhaltenes Feuchtgebiet in der Stadt',
+                'dest1-feature4': 'Eingerichtete Wanderwege',
+                
+                'dest2-title': 'Andravoahangy Markt',
+                'dest2-desc': 'Kunsthandwerksmarkt spezialisiert auf Edelsteine, Fossilien und madagassische Kunstobjekte. Paradies für Sammler.',
+                'dest2-feature1': 'Madagassische Edelsteine',
+                'dest2-feature2': 'Einzigartige Fossilien und Mineralien',
+                'dest2-feature3': 'Holz- und Zebuhorn-Skulpturen',
+                'dest2-feature4': 'Handgeschöpftes Antemoro-Papier',
+                
+                'dest3-title': 'Die 12 heiligen Hügel',
+                'dest3-desc': 'Rundweg der 12 historischen Hügel um Tananarive. Historische Stätten, traditionelle Dörfer und atemberaubende Landschaften.',
+                'dest3-feature1': 'Ambohimanga (UNESCO-Stätte)',
+                'dest3-feature2': 'Ilafy und sein Königspalast',
+                'dest3-feature3': 'Ambohidrabiby und seine Geschichte',
+                'dest3-feature4': 'Außergewöhnliche Panoramablicke',
+                
+                'dest4-title': 'Isoraka Bezirk',
+                'dest4-desc': 'Historischer Bezirk mit erhaltener Kolonialarchitektur. Restaurants, Kunstgalerien und Bohème-Atmosphäre.',
+                'dest4-feature1': 'Einzigartige Kolonialarchitektur',
+                'dest4-feature2': 'Kunstgalerien und Designläden',
+                'dest4-feature3': 'Feine Restaurants',
+                'dest4-feature4': 'Blick auf den Anosy-See',
+                
+                'dest5-title': 'Tsimbazaza Park',
+                'dest5-desc': 'Botanischer und zoologischer Park mit der endemischen Fauna und Flora Madagaskars. Paläontologiemuseum inbegriffen.',
+                'dest5-feature1': 'Lemuren in halber Freiheit',
+                'dest5-feature2': 'Endemische madagassische Flora',
+                'dest5-feature3': 'Paläontologiemuseum',
+                'dest5-feature4': 'Elefantenvogel-Skelett',
+                
+                'dest6-title': 'Madagassische Wildseide',
+                'dest6-desc': 'Entdeckung des Herstellungsprozesses madagassischer Wildseide. Von der Seidenraupenzucht bis zum traditionellen Weben.',
+                'dest6-feature1': 'Besuch einer Seidenraupenzucht',
+                'dest6-feature2': 'Spinnvorführung',
+                'dest6-feature3': 'Traditionelles Weben am Webstuhl',
+                'dest6-feature4': 'Boutique für Seidenprodukte',
+                
+                // Services
+                'services-title': 'Unsere exklusiven Dienstleistungen',
+                'services-intro': 'Island Mada Travel begleitet Sie bei der Planung Ihrer Traumreise nach Tananarive. Maßgeschneiderte Dienstleistungen für ein authentisches und kulturell bereicherndes Erlebnis.',
+                'service1-title': 'Historische Führungen',
+                'service1-desc': 'Entdeckung historischer Stätten mit unseren erfahrenen französischsprachigen Guides. Kulturelle Routen nach Ihren Interessen.',
+                'service2-title': 'Markterlebnisse',
+                'service2-desc': 'Persönliche Marktbegleitung zur Entdeckung von Kunsthandwerk und Verhandlungen wie ein Einheimischer.',
+                'service3-title': 'Authentische Unterkünfte',
+                'service3-desc': 'Auswahl charmanter Gästehäuser und Boutique-Hotels mit Blick auf die Hügel von Tananarive.',
+                'service4-title': 'Private Transfers',
+                'service4-desc': 'Komfortable Fahrzeuge mit erfahrenen Fahrern zur sicheren Navigation in Tananarives Straßen.',
+                'service5-title': 'Kulinarische Kostproben',
+                'service5-desc': 'Entdeckung authentischer madagassischer Küche in den besten Restaurants und bei Einheimischen.',
+                'service6-title': 'Kulturelle Begegnungen',
+                'service6-desc': 'Organisation von Treffen mit Kunsthandwerkern, Künstlern und Einwohnern für authentische Einblicke.',
+                'services-btn': 'Individuelles Angebot anfordern',
+                
+                // Contact
+                'contact-title': 'Kontaktieren Sie Island Mada Travel',
+                'contact-intro': 'Bereit, die Schätze von Tananarive zu entdecken? Unser lokales Team steht Ihnen zur Verfügung, um Ihren kulturellen Aufenthalt in der madagassischen Hauptstadt zu organisieren.',
+                'contact-phone': 'Telefon',
+                'contact-email': 'E-Mail',
+                'contact-address': 'Adresse',
+                'call-whatsapp': 'Anruf / WhatsApp',
+                'reservations': 'Reservierungen',
+                'agency': 'Reiseagentur',
+                'specialty': 'Hochland-Spezialist',
+                'whatsapp-btn': 'Direkt WhatsApp',
+                'email-btn': 'E-Mail senden',
+                
+                // Footer
+                'footer-logo': 'ISLAND MADA TRAVEL',
+                'footer-tagline': 'Ihr Expertenführer zur Entdeckung der versteckten Schätze von Tananarive und seiner Region. Authentische Erfahrungen, kulturelle Entdeckungen, unvergessliche Erinnerungen im Herzen des madagassischen Hochlands.',
+                'footer-address': 'Tananarive, Madagaskar',
+                'copyright': 'Alle Rechte vorbehalten.',
+                'privacy': 'Datenschutzerklärung',
+                'terms': 'Nutzungsbedingungen'
+            },
+            es: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Tananarive - Palacio de la Reina & Tesoros de las Tierras Altas',
+                'nav-home': 'Inicio',
+                'nav-emblematic': 'Sitios Emblemáticos',
+                'nav-destinations': 'Destinos',
+                'nav-services': 'Servicios',
+                'nav-contact': 'Contacto',
+                'select-language': 'Cambiar Idioma',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Árabe',
+                'lang-zh': 'Chino',
+                
+                // Hero
+                'hero-title': 'Descubre Tananarive',
+                'hero-subtitle': '¡Capital histórica de las Tierras Altas de Madagascar! El Palacio de la Reina, los mercados coloridos, las colinas sagradas y la arquitectura única te esperan para un viaje cultural inolvidable en el corazón de la Isla Roja.',
+                'feature1-title': 'Palacio de la Reina',
+                'feature1-desc': 'Antigua residencia real de los soberanos de Madagascar. Símbolo de la historia y cultura malgache.',
+                'feature2-title': 'Mercado de Analakely',
+                'feature2-desc': 'El famoso "Zoma", el mercado al aire libre más grande de Madagascar. Colores, aromas y artesanía local.',
+                'feature3-title': 'Colina de Ambohimanga',
+                'feature3-desc': 'Sitio histórico clasificado por la UNESCO. Antigua ciudad real y lugar sagrado de los soberanos merina.',
+                'hero-btn': 'Explorar Sitios',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Sitios Emblemáticos de Tananarive',
+                'emblematic-intro': 'Descubre los sitios más famosos de la capital malgache. Cada sitio cuenta una historia única y ofrece experiencias culturales que hacen famosa a Tananarive.',
+                'badge-heritage': 'PATRIMONIO',
+                'badge-market': 'MERCADO',
+                'badge-landscape': 'PAISAJE',
+                'badge-unesco': 'UNESCO',
+                'badge-culture': 'CULTURA',
+                'badge-urban': 'URBANO',
+                'discover-btn': 'Descubrir',
+                
+                // Sites détails
+                'site1-title': 'Palacio de la Reina (Rova)',
+                'site1-subtitle': 'Residencia real histórica',
+                'site1-desc': 'Antigua residencia de los soberanos de Madagascar. Símbolo de la monarquía merina, quemado en 1995 y en reconstrucción.',
+                'site1-feature1': 'Arquitectura tradicional malgache',
+                'site1-feature2': 'Vista panorámica de la ciudad',
+                'site1-feature3': 'Historia de la realeza malgache',
+                'site1-feature4': 'Sitio histórico clasificado',
+                
+                'site2-title': 'Mercado de Analakely (Zoma)',
+                'site2-subtitle': 'Mercado más grande de Madagascar',
+                'site2-desc': 'El famoso mercado al aire libre que se extiende varios kilómetros. Artesanía local, especias, tejidos y productos locales.',
+                'site2-feature1': 'Artesanía tradicional malgache',
+                'site2-feature2': 'Especias y productos locales',
+                'site2-feature3': 'Ropa y tejidos típicos',
+                'site2-feature4': 'Ambiente auténtico y animado',
+                
+                'site3-title': 'Lago Anosy y Ángel Negro',
+                'site3-subtitle': 'Símbolo de Tananarive',
+                'site3-desc': 'Lago artificial en forma de corazón con el monumento del Ángel Negro en el centro. Lugar de memoria y símbolo de la ciudad.',
+                'site3-feature1': 'Monumento a los caídos de la Primera Guerra Mundial',
+                'site3-feature2': 'Hermosas flores de jacarandá (octubre-noviembre)',
+                'site3-feature3': 'Paseo tranquilo alrededor del lago',
+                'site3-feature4': 'Punto de vista fotográfico',
+                
+                'site4-title': 'Ambohimanga',
+                'site4-subtitle': 'Colina Real sagrada',
+                'site4-desc': 'Sitio histórico clasificado como Patrimonio Mundial de la UNESCO. Antigua ciudad real y lugar sagrado de los soberanos merina.',
+                'site4-feature1': 'Palacio real en madera preciosa',
+                'site4-feature2': 'Puertas monumentales de piedra',
+                'site4-feature3': 'Vista impresionante a los arrozales',
+                'site4-feature4': 'Sitio espiritual importante',
+                
+                'site5-title': 'Museo de Arte y Arqueología',
+                'site5-subtitle': 'Tesoros culturales malgaches',
+                'site5-desc': 'Museo que presenta la historia, arte y arqueología de Madagascar. Colecciones etnográficas y artísticas únicas.',
+                'site5-feature1': 'Objetos rituales y reales',
+                'site5-feature2': 'Trajes tradicionales',
+                'site5-feature3': 'Instrumentos musicales típicos',
+                'site5-feature4': 'Historia de las diferentes etnias',
+                
+                'site6-title': 'Avenida de la Independencia',
+                'site6-subtitle': 'Arteria principal histórica',
+                'site6-desc': 'Avenida principal de Tananarive bordeada de edificios coloniales. Centro comercial y administrativo de la ciudad.',
+                'site6-feature1': 'Arquitectura colonial preservada',
+                'site6-feature2': 'Tiendas y restaurantes',
+                'site6-feature3': 'Palacio de Justicia y Ayuntamiento',
+                'site6-feature4': 'Ambiente cosmopolita',
+                
+                // Destinations
+                'destinations-title': 'Destinos Completos',
+                'destinations-intro': 'Explora en detalle los tesoros de Tananarive y sus alrededores. Cada destino ofrece una experiencia única y descubrimientos culturales para un viaje enriquecedor.',
+                'location-andohalo': 'Barrio de Andohalo, Tananarive',
+                'location-andravoahangy': 'Barrio de Andravoahangy, Tananarive',
+                'location-around-tana': 'Alrededor de Tananarive',
+                'location-center-tana': 'Centro de Tananarive',
+                'location-south-tana': 'Sur de Tananarive',
+                'location-periphery-tana': 'Periferia de Tananarive',
+                'explore-btn': 'Explorar',
+                
+                'dest1-title': 'Parque Tsarasaotra',
+                'dest1-desc': 'Reserva ornitológica urbana única. Sitio RAMSAR que alberga decenas de especies de aves migratorias y locales.',
+                'dest1-feature1': '15 especies de aves migratorias',
+                'dest1-feature2': 'Observación de aves excepcional',
+                'dest1-feature3': 'Zona húmeda preservada en la ciudad',
+                'dest1-feature4': 'Senderos de paseo equipados',
+                
+                'dest2-title': 'Mercado Andravoahangy',
+                'dest2-desc': 'Mercado artesanal especializado en piedras preciosas, fósiles y objetos de arte malgaches. Paraíso de los coleccionistas.',
+                'dest2-feature1': 'Piedras preciosas malgaches',
+                'dest2-feature2': 'Fósiles y minerales únicos',
+                'dest2-feature3': 'Esculturas en madera y cuerno de cebú',
+                'dest2-feature4': 'Papel Antemoro artesanal',
+                
+                'dest3-title': 'Las 12 Colinas sagradas',
+                'dest3-desc': 'Circuito de las 12 colinas históricas que rodean Tananarive. Sitios históricos, pueblos tradicionales y paisajes impresionantes.',
+                'dest3-feature1': 'Ambohimanga (sitio UNESCO)',
+                'dest3-feature2': 'Ilafy y su palacio real',
+                'dest3-feature3': 'Ambohidrabiby y su historia',
+                'dest3-feature4': 'Vistas panorámicas excepcionales',
+                
+                'dest4-title': 'Barrio Isoraka',
+                'dest4-desc': 'Barrio histórico con arquitectura colonial preservada. Restaurantes, galerías de arte y ambiente bohemio.',
+                'dest4-feature1': 'Arquitectura colonial única',
+                'dest4-feature2': 'Galerías de arte y tiendas de diseño',
+                'dest4-feature3': 'Restaurantes gastronómicos',
+                'dest4-feature4': 'Vista al lago Anosy',
+                
+                'dest5-title': 'Parque Tsimbazaza',
+                'dest5-desc': 'Parque botánico y zoológico que alberga la fauna y flora endémicas de Madagascar. Museo de paleontología incluido.',
+                'dest5-feature1': 'Lémures en semi-libertad',
+                'dest5-feature2': 'Flora endémica malgache',
+                'dest5-feature3': 'Museo de paleontología',
+                'dest5-feature4': 'Esqueleto de ave elefante',
+                
+                'dest6-title': 'Seda salvaje malgache',
+                'dest6-desc': 'Descubrimiento del proceso de fabricación de la seda salvaje malgache. Desde la cría de gusanos de seda hasta el tejido tradicional.',
+                'dest6-feature1': 'Visita a cría de gusanos de seda',
+                'dest6-feature2': 'Demostración de hilado',
+                'dest6-feature3': 'Tejido tradicional en telar',
+                'dest6-feature4': 'Boutique de productos de seda',
+                
+                // Services
+                'services-title': 'Nuestros Servicios Exclusivos',
+                'services-intro': 'Island Mada Travel te acompaña para crear el viaje de tus sueños a Tananarive. Servicios a medida para una experiencia auténtica y culturalmente enriquecedora.',
+                'service1-title': 'Visitas Guiadas Históricas',
+                'service1-desc': 'Descubrimiento de sitios históricos con nuestros guías expertos francófonos. Itinerarios culturales adaptados a tus intereses.',
+                'service2-title': 'Experiencias en Mercados',
+                'service2-desc': 'Acompañamiento personalizado en mercados para descubrir artesanía y negociar como un local.',
+                'service3-title': 'Alojamiento Auténtico',
+                'service3-desc': 'Selección de encantadoras casas de huéspedes y hoteles boutique con vistas a las colinas de Tananarive.',
+                'service4-title': 'Transportes Privados',
+                'service4-desc': 'Vehículos cómodos con conductores experimentados para navegar por las calles de Tananarive con seguridad.',
+                'service5-title': 'Degustaciones Culinarias',
+                'service5-desc': 'Descubrimiento de la auténtica cocina malgache en los mejores restaurantes y con locales.',
+                'service6-title': 'Encuentros Culturales',
+                'service6-desc': 'Organización de encuentros con artesanos, artistas y residentes para una inmersión auténtica.',
+                'services-btn': 'Solicitar Presupuesto Personalizado',
+                
+                // Contact
+                'contact-title': 'Contacta con Island Mada Travel',
+                'contact-intro': '¿Listo para descubrir los tesoros de Tananarive? Nuestro equipo local está a tu disposición para organizar tu estancia cultural en la capital malgache.',
+                'contact-phone': 'Teléfono',
+                'contact-email': 'Correo Electrónico',
+                'contact-address': 'Dirección',
+                'call-whatsapp': 'Llamada / WhatsApp',
+                'reservations': 'Reservas',
+                'agency': 'Agencia de Viajes',
+                'specialty': 'Especialista en Tierras Altas',
+                'whatsapp-btn': 'WhatsApp Directo',
+                'email-btn': 'Enviar Correo',
+                
+                // Footer
+                'footer-logo': 'ISLAND MADA TRAVEL',
+                'footer-tagline': 'Tu guía experto para descubrir los tesoros ocultos de Tananarive y su región. Experiencias auténticas, descubrimientos culturales, recuerdos inolvidables en el corazón de las Tierras Altas malgaches.',
+                'footer-address': 'Tananarive, Madagascar',
+                'copyright': 'Todos los derechos reservados.',
+                'privacy': 'Política de Privacidad',
+                'terms': 'Términos de Uso'
+            },
+            it: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Tananarive - Palazzo della Regina & Tesori degli Altopiani',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Siti Iconici',
+                'nav-destinations': 'Destinazioni',
+                'nav-services': 'Servizi',
+                'nav-contact': 'Contatto',
+                'select-language': 'Cambia Lingua',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Arabo',
+                'lang-zh': 'Cinese',
+                
+                // Hero
+                'hero-title': 'Scopri Tananarive',
+                'hero-subtitle': 'Capitale storica degli Altopiani del Madagascar! Il Palazzo della Regina, i mercati colorati, le colline sacre e l\'architettura unica ti aspettano per un viaggio culturale indimenticabile nel cuore dell\'Isola Rossa.',
+                'feature1-title': 'Palazzo della Regina',
+                'feature1-desc': 'Antica residenza reale dei sovrani del Madagascar. Simbolo della storia e cultura malgascia.',
+                'feature2-title': 'Mercato di Analakely',
+                'feature2-desc': 'Il famoso "Zoma", il più grande mercato all\'aperto del Madagascar. Colori, profumi e artigianato locale.',
+                'feature3-title': 'Collina di Ambohimanga',
+                'feature3-desc': 'Sito storico classificato UNESCO. Antica città reale e luogo sacro dei sovrani merina.',
+                'hero-btn': 'Esplora i Siti',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Siti Iconici di Tananarive',
+                'emblematic-intro': 'Scopri i siti più famosi della capitale malgascia. Ogni sito racconta una storia unica e offre esperienze culturali che rendono famosa Tananarive.',
+                'badge-heritage': 'PATRIMONIO',
+                'badge-market': 'MERCATO',
+                'badge-landscape': 'PAESAGGIO',
+                'badge-unesco': 'UNESCO',
+                'badge-culture': 'CULTURA',
+                'badge-urban': 'URBANO',
+                'discover-btn': 'Scopri',
+                
+                // Sites détails
+                'site1-title': 'Palazzo della Regina (Rova)',
+                'site1-subtitle': 'Residenza reale storica',
+                'site1-desc': 'Antica residenza dei sovrani del Madagascar. Simbolo della monarchia merina, bruciato nel 1995 e in ricostruzione.',
+                'site1-feature1': 'Architettura tradizionale malgascia',
+                'site1-feature2': 'Vista panoramica sulla città',
+                'site1-feature3': 'Storia della regalità malgascia',
+                'site1-feature4': 'Sito storico classificato',
+                
+                'site2-title': 'Mercato di Analakely (Zoma)',
+                'site2-subtitle': 'Mercato più grande del Madagascar',
+                'site2-desc': 'Il famoso mercato all\'aperto che si estende per diversi chilometri. Artigianato locale, spezie, tessuti e prodotti locali.',
+                'site2-feature1': 'Artigianato tradizionale malgascio',
+                'site2-feature2': 'Spezie e prodotti locali',
+                'site2-feature3': 'Abbigliamento e tessuti tipici',
+                'site2-feature4': 'Atmosfera autentica e vivace',
+                
+                'site3-title': 'Lago Anosy e Angelo Nero',
+                'site3-subtitle': 'Simbolo di Tananarive',
+                'site3-desc': 'Lago artificiale a forma di cuore con il monumento dell\'Angelo Nero al centro. Luogo della memoria e simbolo della città.',
+                'site3-feature1': 'Monumento ai caduti della Prima Guerra Mondiale',
+                'site3-feature2': 'Bellissimi fiori di jacaranda (ottobre-novembre)',
+                'site3-feature3': 'Passeggiata tranquilla intorno al lago',
+                'site3-feature4': 'Punto di vista fotografico',
+                
+                'site4-title': 'Ambohimanga',
+                'site4-subtitle': 'Collina Reale sacra',
+                'site4-desc': 'Sito storico classificato come Patrimonio Mondiale dell\'UNESCO. Antica città reale e luogo sacro dei sovrani merina.',
+                'site4-feature1': 'Palazzo reale in legno prezioso',
+                'site4-feature2': 'Porte monumentali in pietra',
+                'site4-feature3': 'Vista mozzafiato sulle risaie',
+                'site4-feature4': 'Sito spirituale importante',
+                
+                'site5-title': 'Museo d\'Arte e Archeologia',
+                'site5-subtitle': 'Tesori culturali malgasci',
+                'site5-desc': 'Museo che presenta la storia, l\'arte e l\'archeologia del Madagascar. Collezioni etnografiche e artistiche uniche.',
+                'site5-feature1': 'Oggetti rituali e reali',
+                'site5-feature2': 'Costumi tradizionali',
+                'site5-feature3': 'Strumenti musicali tipici',
+                'site5-feature4': 'Storia delle diverse etnie',
+                
+                'site6-title': 'Viale dell\'Indipendenza',
+                'site6-subtitle': 'Arteria principale storica',
+                'site6-desc': 'Viale principale di Tananarive fiancheggiato da edifici coloniali. Centro commerciale e amministrativo della città.',
+                'site6-feature1': 'Architettura coloniale preservata',
+                'site6-feature2': 'Negozi e ristoranti',
+                'site6-feature3': 'Palazzo di Giustizia e Municipio',
+                'site6-feature4': 'Atmosfera cosmopolita',
+                
+                // Destinations
+                'destinations-title': 'Destinazioni Complete',
+                'destinations-intro': 'Esplora in dettaglio i tesori di Tananarive e dintorni. Ogni destinazione offre un\'esperienza unica e scoperte culturali per un viaggio arricchente.',
+                'location-andohalo': 'Quartiere di Andohalo, Tananarive',
+                'location-andravoahangy': 'Quartiere di Andravoahangy, Tananarive',
+                'location-around-tana': 'Intorno a Tananarive',
+                'location-center-tana': 'Centro di Tananarive',
+                'location-south-tana': 'Sud di Tananarive',
+                'location-periphery-tana': 'Periferia di Tananarive',
+                'explore-btn': 'Esplora',
+                
+                'dest1-title': 'Parco Tsarasaotra',
+                'dest1-desc': 'Riserva ornitologica urbana unica. Sito RAMSAR che ospita decine di specie di uccelli migratori e locali.',
+                'dest1-feature1': '15 specie di uccelli migratori',
+                'dest1-feature2': 'Osservazione eccezionale degli uccelli',
+                'dest1-feature3': 'Zona umida preservata in città',
+                'dest1-feature4': 'Sentieri passeggiate attrezzati',
+                
+                'dest2-title': 'Mercato Andravoahangy',
+                'dest2-desc': 'Mercato artigianale specializzato in pietre preziose, fossili e oggetti d\'arte malgasci. Paradiso dei collezionisti.',
+                'dest2-feature1': 'Pietre preziose malgasce',
+                'dest2-feature2': 'Fossili e minerali unici',
+                'dest2-feature3': 'Sculture in legno e corno di zebù',
+                'dest2-feature4': 'Carta Antemoro artigianale',
+                
+                'dest3-title': 'Le 12 Colline sacre',
+                'dest3-desc': 'Circuito delle 12 colline storiche che circondano Tananarive. Siti storici, villaggi tradizionali e paesaggi mozzafiato.',
+                'dest3-feature1': 'Ambohimanga (sito UNESCO)',
+                'dest3-feature2': 'Ilafy e il suo palazzo reale',
+                'dest3-feature3': 'Ambohidrabiby e la sua storia',
+                'dest3-feature4': 'Viste panoramiche eccezionali',
+                
+                'dest4-title': 'Quartiere Isoraka',
+                'dest4-desc': 'Quartiere storico con architettura coloniale preservata. Ristoranti, gallerie d\'arte e atmosfera bohémien.',
+                'dest4-feature1': 'Architettura coloniale unica',
+                'dest4-feature2': 'Gallerie d\'arte e negozi design',
+                'dest4-feature3': 'Ristoranti gastronomici',
+                'dest4-feature4': 'Vista sul lago Anosy',
+                
+                'dest5-title': 'Parco Tsimbazaza',
+                'dest5-desc': 'Parco botanico e zoologico che ospita la fauna e flora endemiche del Madagascar. Museo di paleontologia incluso.',
+                'dest5-feature1': 'Lemuri in semi-libertà',
+                'dest5-feature2': 'Flora endemica malgascia',
+                'dest5-feature3': 'Museo di paleontologia',
+                'dest5-feature4': 'Scheletro di uccello elefante',
+                
+                'dest6-title': 'Seta selvaggia malgascia',
+                'dest6-desc': 'Scoperta del processo di fabbricazione della seta selvaggia malgascia. Dall\'allevamento dei bachi da seta alla tessitura tradizionale.',
+                'dest6-feature1': 'Visita all\'allevamento di bachi da seta',
+                'dest6-feature2': 'Dimostrazione di filatura',
+                'dest6-feature3': 'Tessitura tradizionale su telaio',
+                'dest6-feature4': 'Boutique di prodotti in seta',
+                
+                // Services
+                'services-title': 'I nostri Servizi Esclusivi',
+                'services-intro': 'Island Mada Travel ti accompagna per creare il viaggio dei tuoi sogni a Tananarive. Servizi su misura per un\'esperienza autentica e culturalmente arricchente.',
+                'service1-title': 'Visite Guidate Storiche',
+                'service1-desc': 'Scoperta di siti storici con le nostre guide esperte francofone. Itinerari culturali adattati ai tuoi interessi.',
+                'service2-title': 'Esperienze nei Mercati',
+                'service2-desc': 'Accompagnamento personalizzato nei mercati per scoprire l\'artigianato e negoziare come un locale.',
+                'service3-title': 'Alloggio Autentico',
+                'service3-desc': 'Selezione di incantevoli case per ospiti e hotel boutique con vista sulle colline di Tananarive.',
+                'service4-title': 'Trasporti Privati',
+                'service4-desc': 'Veicoli confortevoli con autisti esperti per navigare le strade di Tananarive in sicurezza.',
+                'service5-title': 'Degustazioni Culinarie',
+                'service5-desc': 'Scoperta della cucina malgascia autentica nei migliori ristoranti e con i locali.',
+                'service6-title': 'Incontri Culturali',
+                'service6-desc': 'Organizzazione di incontri con artigiani, artisti e residenti per un\'immersione autentica.',
+                'services-btn': 'Richiedi Preventivo Personalizzato',
+                
+                // Contact
+                'contact-title': 'Contatta Island Mada Travel',
+                'contact-intro': 'Pronto a scoprire i tesori di Tananarive? Il nostro team locale è a tua disposizione per organizzare il tuo soggiorno culturale nella capitale malgascia.',
+                'contact-phone': 'Telefono',
+                'contact-email': 'Email',
+                'contact-address': 'Indirizzo',
+                'call-whatsapp': 'Chiamata / WhatsApp',
+                'reservations': 'Prenotazioni',
+                'agency': 'Agenzia di Viaggi',
+                'specialty': 'Specialista degli Altopiani',
+                'whatsapp-btn': 'WhatsApp Diretto',
+                'email-btn': 'Invia Email',
+                
+                // Footer
+                'footer-logo': 'ISLAND MADA TRAVEL',
+                'footer-tagline': 'La tua guida esperta per scoprire i tesori nascosti di Tananarive e della sua regione. Esperienze autentiche, scoperte culturali, ricordi indimenticabili nel cuore degli Altopiani malgasci.',
+                'footer-address': 'Tananarive, Madagascar',
+                'copyright': 'Tutti i diritti riservati.',
+                'privacy': 'Politica sulla Privacy',
+                'terms': 'Termini di Utilizzo'
+            },
+            ar: {
+                // Header
+                'logo-title': 'آيلاند مادا ترافل',
+                'logo-tagline': 'تاناناريف - قصر الملكة وكنوز المرتفعات',
+                'nav-home': 'الرئيسية',
+                'nav-emblematic': 'المواقع الشهيرة',
+                'nav-destinations': 'الوجهات',
+                'nav-services': 'الخدمات',
+                'nav-contact': 'اتصل بنا',
+                'select-language': 'تغيير اللغة',
+                'lang-fr': 'الفرنسية',
+                'lang-en': 'الإنجليزية',
+                'lang-de': 'الألمانية',
+                'lang-es': 'الإسبانية',
+                'lang-it': 'الإيطالية',
+                'lang-ar': 'العربية',
+                'lang-zh': 'الصينية',
+                
+                // Hero
+                'hero-title': 'اكتشف تاناناريف',
+                'hero-subtitle': 'العاصمة التاريخية لمرتفعات مدغشقر! قصر الملكة، الأسواق الملونة، التلال المقدسة والهندسة المعمارية الفريدة تنتظرك لرحلة ثقافية لا تُنسى في قلب الجزيرة الحمراء.',
+                'feature1-title': 'قصر الملكة',
+                'feature1-desc': 'المقر الملكي السابق لحكام مدغشقر. رمز التاريخ والثقافة الملغاشية.',
+                'feature2-title': 'سوق أنالاكيلي',
+                'feature2-desc': 'السوق الشهير "زوما"، أكبر سوق في الهواء الطلق في مدغشقر. ألوان، روائح وحرف يدوية محلية.',
+                'feature3-title': 'تل أمبوهيمانغا',
+                'feature3-desc': 'موقع تاريخي مصنف من قبل اليونسكو. مدينة ملكية قديمة ومكان مقدس لحكام ميرينا.',
+                'hero-btn': 'استكشف المواقع',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'المواقع الشهيرة في تاناناريف',
+                'emblematic-intro': 'اكتشف أشهر المواقع في العاصمة الملغاشية. كل موقع يروي قصة فريدة ويقدم تجارب ثقافية تجعل تاناناريف مشهورة.',
+                'badge-heritage': 'تراث',
+                'badge-market': 'سوق',
+                'badge-landscape': 'منظر طبيعي',
+                'badge-unesco': 'يونسكو',
+                'badge-culture': 'ثقافة',
+                'badge-urban': 'مدني',
+                'discover-btn': 'اكتشف',
+                
+                // Sites détails
+                'site1-title': 'قصر الملكة (روفا)',
+                'site1-subtitle': 'المقر الملكي التاريخي',
+                'site1-desc': 'المقر السابق لحكام مدغشقر. رمز مملكة ميرينا، احترق عام 1995 وقيد إعادة الإعمار.',
+                'site1-feature1': 'الهندسة المعمارية الملغاشية التقليدية',
+                'site1-feature2': 'منظر بانورامي للمدينة',
+                'site1-feature3': 'تاريخ الملوك الملغاشيين',
+                'site1-feature4': 'موقع تاريخي مصنف',
+                
+                'site2-title': 'سوق أنالاكيلي (زوما)',
+                'site2-subtitle': 'أكبر سوق في مدغشقر',
+                'site2-desc': 'السوق الشهير في الهواء الطلق الذي يمتد لعدة كيلومترات. حرف يدوية محلية، توابل، أقمشة ومنتجات محلية.',
+                'site2-feature1': 'حرف يدوية ملغاشية تقليدية',
+                'site2-feature2': 'توابل ومنتجات محلية',
+                'site2-feature3': 'ملابس وأقمشة تقليدية',
+                'site2-feature4': 'جو أصلي ونابض بالحياة',
+                
+                'site3-title': 'بحيرة أنوسي والملاك الأسود',
+                'site3-subtitle': 'رمز تاناناريف',
+                'site3-desc': 'بحيرة اصطناعية على شكل قلب مع نصب الملاك الأسود في الوسط. مكان للذاكرة ورمز المدينة.',
+                'site3-feature1': 'نصب تذكاري لقتلى الحرب العالمية الأولى',
+                'site3-feature2': 'زهور الجاكرندا الجميلة (أكتوبر-نوفمبر)',
+                'site3-feature3': 'نزهة هادئة حول البحيرة',
+                'site3-feature4': 'نقطة تصوير',
+                
+                'site4-title': 'أمبوهيمانغا',
+                'site4-subtitle': 'التل الملكي المقدس',
+                'site4-desc': 'موقع تاريخي مصنف ضمن التراث العالمي لليونسكو. مدينة ملكية قديمة ومكان مقدس لحكام ميرينا.',
+                'site4-feature1': 'قصر ملكي من الخشب الثمين',
+                'site4-feature2': 'بوابات حجرية ضخمة',
+                'site4-feature3': 'منظر خلاب لحقول الأرز',
+                'site4-feature4': 'موقع روحي مهم',
+                
+                'site5-title': 'متحف الفن والآثار',
+                'site5-subtitle': 'كنوز ثقافية ملغاشية',
+                'site5-desc': 'متحف يعرض تاريخ، فن وآثار مدغشقر. مجموعات إثنوغرافية وفنية فريدة.',
+                'site5-feature1': 'أغراض طقسية وملكية',
+                'site5-feature2': 'أزياء تقليدية',
+                'site5-feature3': 'آلات موسيقية تقليدية',
+                'site5-feature4': 'تاريخ المجموعات العرقية المختلفة',
+                
+                'site6-title': 'شارع الاستقلال',
+                'site6-subtitle': 'الشريان الرئيسي التاريخي',
+                'site6-desc': 'الشارع الرئيسي في تاناناريف المحاط بمباني استعمارية. المركز التجاري والإداري للمدينة.',
+                'site6-feature1': 'عمارة استعمارية محفوظة',
+                'site6-feature2': 'محلات ومطاعم',
+                'site6-feature3': 'قصر العدلية والمجلس البلدي',
+                'site6-feature4': 'جو عالمي',
+                
+                // Destinations
+                'destinations-title': 'وجهات كاملة',
+                'destinations-intro': 'استكشف بالتفصيل كنوز تاناناريف وما حولها. كل وجهة تقدم تجربة فريدة واكتشافات ثقافية لرحلة ثرية.',
+                'location-andohalo': 'حي أندوهالو، تاناناريف',
+                'location-andravoahangy': 'حي أندرافواهانجي، تاناناريف',
+                'location-around-tana': 'حول تاناناريف',
+                'location-center-tana': 'وسط تاناناريف',
+                'location-south-tana': 'جنوب تاناناريف',
+                'location-periphery-tana': 'ضواحي تاناناريف',
+                'explore-btn': 'استكشف',
+                
+                'dest1-title': 'حديقة تساراساوترا',
+                'dest1-desc': 'محمية طيور فريدة في الوسط الحضري. موقع رامسار يستضيف عشرات أنواع الطيور المهاجرة والمحلية.',
+                'dest1-feature1': '15 نوعًا من الطيور المهاجرة',
+                'dest1-feature2': 'مراقبة طيور استثنائية',
+                'dest1-feature3': 'منطقة رطبة محفوظة في المدينة',
+                'dest1-feature4': 'مسارات مشي مجهزة',
+                
+                'dest2-title': 'سوق أندرافواهانجي',
+                'dest2-desc': 'سوق حرفي متخصص في الأحجار الكريمة، الأحافير والأشياء الفنية الملغاشية. جنة لهواة الجمع.',
+                'dest2-feature1': 'أحجار كريمة ملغاشية',
+                'dest2-feature2': 'أحافير ومعادن فريدة',
+                'dest2-feature3': 'منحوتات خشبية وقرون زيبو',
+                'dest2-feature4': 'ورق أنتمورو حرفي',
+                
+                'dest3-title': 'التلال الـ 12 المقدسة',
+                'dest3-desc': 'دائرة التلال الـ 12 التاريخية المحيطة بتاناناريف. مواقع تاريخية، قرى تقليدية ومناظر طبيعية خلابة.',
+                'dest3-feature1': 'أمبوهيمانغا (موقع اليونسكو)',
+                'dest3-feature2': 'إيلافي وقصره الملكي',
+                'dest3-feature3': 'أمبوهيدرابيبي وتاريخه',
+                'dest3-feature4': 'مناظر بانورامية استثنائية',
+                
+                'dest4-title': 'حي إيسوراكا',
+                'dest4-desc': 'حي تاريخي بعمارة استعمارية محفوظة. مطاعم، معارض فنية وجو بوهيمي.',
+                'dest4-feature1': 'عمارة استعمارية فريدة',
+                'dest4-feature2': 'معارض فنية ومحلات تصميم',
+                'dest4-feature3': 'مطاعم فاخرة',
+                'dest4-feature4': 'منظر على بحيرة أنوسي',
+                
+                'dest5-title': 'حديقة تسيمبازازا',
+                'dest5-desc': 'حديقة نباتية وحيوانية تستضيف الحيوانات والنباتات المستوطنة في مدغشقر. متحف أحافير مدرج.',
+                'dest5-feature1': 'ليمور في شبه حرية',
+                'dest5-feature2': 'نباتات ملغاشية مستوطنة',
+                'dest5-feature3': 'متحف الأحافير',
+                'dest5-feature4': 'هيكل طائر الفيل',
+                
+                'dest6-title': 'حرير بري ملغاشي',
+                'dest6-desc': 'اكتشاف عملية تصنيع الحرير البري الملغاشي. من تربية دودة القز إلى النسيج التقليدي.',
+                'dest6-feature1': 'زيارة لتربية دودة القز',
+                'dest6-feature2': 'عرض غزل',
+                'dest6-feature3': 'نسيج تقليدي على نول',
+                'dest6-feature4': 'متجر لمنتجات الحرير',
+                
+                // Services
+                'services-title': 'خدماتنا الحصرية',
+                'services-intro': 'آيلاند مادا ترافل ترافقك لخلق رحلة أحلامك إلى تاناناريف. خدمات مخصصة لتجربة أصيلة وثقافية ثرية.',
+                'service1-title': 'جولات إرشادية تاريخية',
+                'service1-desc': 'اكتشاف المواقع التاريخية مع مرشدينا الخبراء الناطقين بالفرنسية. مسارات ثقافية مكيفة مع اهتماماتك.',
+                'service2-title': 'تجارب في الأسواق',
+                'service2-desc': 'مرافقة شخصية في الأسواق لاكتشاف الحرف اليدوية والمفاوضة مثل السكان المحليين.',
+                'service3-title': 'إقامة أصلية',
+                'service3-desc': 'اختيار بيوت ضيافة ساحرة وفنادق بوتيك مع إطلالة على تلال تاناناريف.',
+                'service4-title': 'مواصلات خاصة',
+                'service4-desc': 'مركبات مريحة مع سائقين ذوي خبرة للتنقل في شوارع تاناناريف بأمان.',
+                'service5-title': 'تذوق الأطباق',
+                'service5-desc': 'اكتشاف المطبخ الملغاشي الأصيل في أفضل المطاعم ومع السكان المحليين.',
+                'service6-title': 'لقاءات ثقافية',
+                'service6-desc': 'تنظيم لقاءات مع حرفيين، فنانين وسكان للانغماس الأصيل.',
+                'services-btn': 'طلب عرض سعر مخصص',
+                
+                // Contact
+                'contact-title': 'اتصل بآيلاند مادا ترافل',
+                'contact-intro': 'مستعد لاكتشاف كنوز تاناناريف؟ فريقنا المحلي تحت تصرفك لتنظيم إقامتك الثقافية في العاصمة الملغاشية.',
+                'contact-phone': 'هاتف',
+                'contact-email': 'بريد إلكتروني',
+                'contact-address': 'عنوان',
+                'call-whatsapp': 'مكالمة / واتساب',
+                'reservations': 'حجوزات',
+                'agency': 'وكالة سفر',
+                'specialty': 'متخصص في المرتفعات',
+                'whatsapp-btn': 'واتساب مباشر',
+                'email-btn': 'إرسال بريد إلكتروني',
+                
+                // Footer
+                'footer-logo': 'آيلاند مادا ترافل',
+                'footer-tagline': 'مرشدك الخبير لاكتشاف الكنوز المخفية لتاناناريف ومنطقتها. تجارب أصيلة، اكتشافات ثقافية، ذكريات لا تُنسى في قلب مرتفعات مدغشقر.',
+                'footer-address': 'تاناناريف، مدغشقر',
+                'copyright': 'جميع الحقوق محفوظة.',
+                'privacy': 'سياسة الخصوصية',
+                'terms': 'شروط الاستخدام'
+            },
+            zh: {
+                // Header
+                'logo-title': '马达加斯加岛旅游',
+                'logo-tagline': '塔那那利佛 - 女王宫与高地宝藏',
+                'nav-home': '首页',
+                'nav-emblematic': '标志性景点',
+                'nav-destinations': '目的地',
+                'nav-services': '服务',
+                'nav-contact': '联系我们',
+                'select-language': '更改语言',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-ar': '阿拉伯语',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': '探索塔那那利佛',
+                'hero-subtitle': '马达加斯加高地的历史首都！女王宫、多彩市场、神圣山丘和独特建筑在红岛中心等待着您，为您带来难忘的文化之旅。',
+                'feature1-title': '女王宫',
+                'feature1-desc': '马达加斯加统治者的前皇家住所。马达加斯加历史和文化的象征。',
+                'feature2-title': '阿纳拉凯利市场',
+                'feature2-desc': '著名的"佐马"，马达加斯加最大的露天市场。色彩、香气和当地手工艺品。',
+                'feature3-title': '安布希曼加山',
+                'feature3-desc': '联合国教科文组织世界遗产。古老的皇家城市和梅里纳统治者的圣地。',
+                'hero-btn': '探索景点',
+                
+                // Sites Emblématiques
+                'emblematic-title': '塔那那利佛标志性景点',
+                'emblematic-intro': '探索马达加斯加首都最著名的景点。每个景点都讲述着独特的故事，并提供使塔那那利佛闻名的文化体验。',
+                'badge-heritage': '遗产',
+                'badge-market': '市场',
+                'badge-landscape': '景观',
+                'badge-unesco': '联合国教科文组织',
+                'badge-culture': '文化',
+                'badge-urban': '城市',
+                'discover-btn': '发现',
+                
+                // Sites détails
+                'site1-title': '女王宫（罗瓦）',
+                'site1-subtitle': '历史皇家住所',
+                'site1-desc': '马达加斯加统治者的前住所。梅里纳王朝的象征，1995年被烧毁，正在重建中。',
+                'site1-feature1': '传统马达加斯加建筑',
+                'site1-feature2': '城市全景',
+                'site1-feature3': '马达加斯加王室历史',
+                'site1-feature4': '历史遗址分类',
+                
+                'site2-title': '阿纳拉凯利市场（佐马）',
+                'site2-subtitle': '马达加斯加最大的市场',
+                'site2-desc': '延伸数公里的著名露天市场。当地手工艺品、香料、布料和当地产品。',
+                'site2-feature1': '传统马达加斯加手工艺品',
+                'site2-feature2': '香料和当地产品',
+                'site2-feature3': '典型服装和布料',
+                'site2-feature4': '真实热闹的氛围',
+                
+                'site3-title': '阿诺西湖和黑天使',
+                'site3-subtitle': '塔那那利佛的象征',
+                'site3-desc': '心形人工湖，中央有黑天使纪念碑。纪念地和城市象征。',
+                'site3-feature1': '第一次世界大战阵亡者纪念碑',
+                'site3-feature2': '美丽的蓝花楹（10月-11月）',
+                'site3-feature3': '湖边宁静散步',
+                'site3-feature4': '摄影视角',
+                
+                'site4-title': '安布希曼加',
+                'site4-subtitle': '神圣皇家山',
+                'site4-desc': '联合国教科文组织世界遗产历史遗址。古老的皇家城市和梅里纳统治者的圣地。',
+                'site4-feature1': '珍贵木材皇家宫殿',
+                'site4-feature2': '巨石门',
+                'site4-feature3': '稻田壮丽景色',
+                'site4-feature4': '重要精神场所',
+                
+                'site5-title': '艺术与考古博物馆',
+                'site5-subtitle': '马达加斯加文化宝藏',
+                'site5-desc': '展示马达加斯加历史、艺术和考古的博物馆。独特的民族志和艺术收藏。',
+                'site5-feature1': '仪式和皇家物品',
+                'site5-feature2': '传统服饰',
+                'site5-feature3': '典型乐器',
+                'site5-feature4': '不同民族历史',
+                
+                'site6-title': '独立大道',
+                'site6-subtitle': '历史主干道',
+                'site6-desc': '塔那那利佛的主要大道，两旁是殖民地建筑。城市商业和行政中心。',
+                'site6-feature1': '保存完好的殖民地建筑',
+                'site6-feature2': '商店和餐厅',
+                'site6-feature3': '司法宫和市政厅',
+                'site6-feature4': '国际都市氛围',
+                
+                // Destinations
+                'destinations-title': '完整目的地',
+                'destinations-intro': '详细探索塔那那利佛及其周边的宝藏。每个目的地都提供独特的体验和文化发现，打造丰富的旅程。',
+                'location-andohalo': '安多哈洛区，塔那那利佛',
+                'location-andravoahangy': '安德拉沃阿汉吉区，塔那那利佛',
+                'location-around-tana': '塔那那利佛周边',
+                'location-center-tana': '塔那那利佛市中心',
+                'location-south-tana': '塔那那利佛南部',
+                'location-periphery-tana': '塔那那利佛郊区',
+                'explore-btn': '探索',
+                
+                'dest1-title': '察拉索特拉公园',
+                'dest1-desc': '独特的城市鸟类保护区。拉姆萨尔湿地，栖息着数十种候鸟和本地鸟类。',
+                'dest1-feature1': '15种候鸟',
+                'dest1-feature2': '卓越的观鸟体验',
+                'dest1-feature3': '城市中保存的湿地',
+                'dest1-feature4': '配备的步行道',
+                
+                'dest2-title': '安德拉沃阿汉吉市场',
+                'dest2-desc': '专业手工艺品市场，专营宝石、化石和马达加斯加艺术品。收藏家的天堂。',
+                'dest2-feature1': '马达加斯加宝石',
+                'dest2-feature2': '独特化石和矿物',
+                'dest2-feature3': '木材和瘤牛角雕塑',
+                'dest2-feature4': '手工安特莫罗纸',
+                
+                'dest3-title': '12座圣山',
+                'dest3-desc': '环绕塔那那利佛的12座历史山丘环线。历史遗址、传统村庄和壮丽景观。',
+                'dest3-feature1': '安布希曼加（联合国教科文组织遗址）',
+                'dest3-feature2': '伊拉菲及其皇家宫殿',
+                'dest3-feature3': '安布希德拉比比及其历史',
+                'dest3-feature4': '卓越的全景视野',
+                
+                'dest4-title': '伊索拉卡区',
+                'dest4-desc': '历史区，保存完好的殖民地建筑。餐厅、艺术画廊和波西米亚氛围。',
+                'dest4-feature1': '独特的殖民地建筑',
+                'dest4-feature2': '艺术画廊和设计商店',
+                'dest4-feature3': '美食餐厅',
+                'dest4-feature4': '阿诺西湖景',
+                
+                'dest5-title': '津巴扎扎公园',
+                'dest5-desc': '植物园和动物园，栖息着马达加斯加特有动植物。包含古生物学博物馆。',
+                'dest5-feature1': '半自由的狐猴',
+                'dest5-feature2': '马达加斯加特有植物',
+                'dest5-feature3': '古生物学博物馆',
+                'dest5-feature4': '象鸟骨骼',
+                
+                'dest6-title': '马达加斯加野生丝绸',
+                'dest6-desc': '发现马达加斯加野生丝绸的制造过程。从蚕养殖到传统纺织。',
+                'dest6-feature1': '蚕养殖参观',
+                'dest6-feature2': '纺纱演示',
+                'dest6-feature3': '传统织机纺织',
+                'dest6-feature4': '丝绸产品精品店',
+                
+                // Services
+                'services-title': '我们的独家服务',
+                'services-intro': '马达加斯加岛旅游陪伴您打造梦想中的塔那那利佛之旅。量身定制的服务，带来真实丰富的文化体验。',
+                'service1-title': '历史导览游',
+                'service1-desc': '与我们的法语专家导游一起探索历史景点。根据您的兴趣定制的文化路线。',
+                'service2-title': '市场体验',
+                'service2-desc': '个性化市场陪同，发现手工艺品并像当地人一样讨价还价。',
+                'service3-title': '真实住宿',
+                'service3-desc': '精选迷人的民宿和精品酒店，享有塔那那利佛山丘景色。',
+                'service4-title': '私人交通',
+                'service4-desc': '配备经验丰富司机的舒适车辆，安全行驶在塔那那利佛的街道上。',
+                'service5-title': '美食体验',
+                'service5-desc': '在最好的餐厅和当地人家中发现正宗的马达加斯加美食。',
+                'service6-title': '文化相遇',
+                'service6-desc': '组织与手工艺人、艺术家和居民的会面，获得真实的文化沉浸。',
+                'services-btn': '请求定制报价',
+                
+                // Contact
+                'contact-title': '联系马达加斯加岛旅游',
+                'contact-intro': '准备好探索塔那那利佛的宝藏了吗？我们的当地团队随时为您服务，为您组织在马达加斯加首都的文化之旅。',
+                'contact-phone': '电话',
+                'contact-email': '电子邮件',
+                'contact-address': '地址',
+                'call-whatsapp': '电话/WhatsApp',
+                'reservations': '预订',
+                'agency': '旅行社',
+                'specialty': '高地专家',
+                'whatsapp-btn': '直接WhatsApp',
+                'email-btn': '发送邮件',
+                
+                // Footer
+                'footer-logo': '马达加斯加岛旅游',
+                'footer-tagline': '您探索塔那那利佛及其地区隐藏宝藏的专家向导。真实体验，文化发现，在马达加斯加高地中心创造难忘回忆。',
+                'footer-address': '塔那那利佛，马达加斯加',
+                'copyright': '版权所有。',
+                'privacy': '隐私政策',
+                'terms': '使用条款'
+            }
+        };
+
+        // Langue par défaut
+        let currentLang = 'fr';
+
+        // Charger la langue depuis localStorage ou détecter
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('islandMadaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            }
+            
+            updateLanguage();
+        }
+
+        // Mettre à jour toutes les traductions
+        function updateLanguage() {
+            // Mettre à jour les textes avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Mettre à jour les indicateurs de langue
+            currentLangElements.forEach(el => {
+                el.textContent = currentLang.toUpperCase();
+            });
+
+            // Mettre à jour les options actives
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Sauvegarder la préférence
+            localStorage.setItem('islandMadaLang', currentLang);
+            
+            // Fermer le menu mobile si ouvert
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Gérer le clic sur les options de langue
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        // ===== NAVIGATION ACTIVE STATE =====
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== IMAGE LOADING =====
+        function loadImages() {
+            const images = document.querySelectorAll('.loading');
+            
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                    image.onload = () => {
+                        img.classList.remove('loading');
+                    };
+                }
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '8px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(197, 108, 57, 0.3)';
+            } else {
+                header.style.padding = '12px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(197, 108, 57, 0.2)';
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger la langue
+            loadLanguage();
+            
+            // Mettre à jour l'année du copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Charger les images
+            loadImages();
+            
+            // Événements de scroll
+            window.addEventListener('scroll', () => {
+                handleScrollAnimations();
+                updateActiveNav();
+                handleHeaderScroll();
+            });
+            
+            // Initialiser les animations
+            handleScrollAnimations();
+            updateActiveNav();
+            handleHeaderScroll();
+            
+            // Fermer le menu au clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Gestion des touches Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // ===== ORIENTATION CHANGE =====
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                handleScrollAnimations();
+                updateActiveNav();
+            }, 300);
+        });
+
+        // ===== PREVENT CONTEXT MENU ON MOBILE =====
+        document.addEventListener('contextmenu', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

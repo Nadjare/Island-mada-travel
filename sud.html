@@ -1,0 +1,3256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Sud de Madagascar: Isalo, Anakao & Trésors du Sud</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a0a 0%, #1a2d1a 100%);
+            color: #f0f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== PALETTE DE COULEURS SUD MADAGASCAR ===== */
+        :root {
+            --color-desert: #D2691E;
+            --color-desert-light: #E67E22;
+            --color-ocean: #20B2AA;
+            --color-ocean-dark: #008080;
+            --color-sand: #F4D03F;
+            --color-sand-light: #F7DC6F;
+            --color-baobab: #8B4513;
+            --color-green: #27AE60;
+            --color-green-light: #2ECC71;
+            --color-market: #E74C3C;
+            --color-white: #ffffff;
+            --color-night: #0a1a0a;
+            --color-canyon: #A04000;
+            --color-shell: #F39C12;
+        }
+
+        /* ===== HEADER RESPONSIVE ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 26, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 5%;
+            border-bottom: 3px solid var(--color-desert);
+            box-shadow: 0 5px 20px rgba(210, 105, 30, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--color-desert), var(--color-ocean));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--color-sand);
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+            border: 2px solid var(--color-sand);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--color-sand);
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        /* ===== NAVIGATION DESKTOP ===== */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-desert);
+            background: rgba(210, 105, 30, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--color-desert);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-desert), var(--color-sand));
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(210, 105, 30, 0.4);
+        }
+
+        /* ===== BOUTON LANGUE DESKTOP ===== */
+        .language-desktop-btn {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.2), rgba(32, 178, 170, 0.2));
+            border: 2px solid var(--color-desert);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 90px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(210, 105, 30, 0.3);
+        }
+
+        .language-desktop-btn:hover {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.3), rgba(32, 178, 170, 0.3));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(210, 105, 30, 0.4);
+            border-color: var(--color-sand);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px;
+            background: rgba(10, 26, 10, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-desert);
+            z-index: 1001;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(90deg, rgba(210, 105, 30, 0.2), rgba(244, 208, 63, 0.2));
+            transform: translateX(8px);
+            border-left: 3px solid var(--color-desert);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(210, 105, 30, 0.3), rgba(244, 208, 63, 0.3));
+            color: var(--color-desert);
+            font-weight: 700;
+            border-left: 3px solid var(--color-sand);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--color-sand);
+        }
+
+        /* ===== CONTROLES MOBILE ===== */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        /* Bouton Langue Mobile */
+        .language-mobile-btn {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.2), rgba(32, 178, 170, 0.2));
+            border: 2px solid var(--color-desert);
+            color: var(--color-white);
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .language-mobile-btn:hover {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.3), rgba(32, 178, 170, 0.3));
+            transform: scale(1.05);
+            border-color: var(--color-sand);
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--color-desert), var(--color-ocean));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(210, 105, 30, 0.6);
+            background: linear-gradient(135deg, var(--color-ocean), var(--color-desert));
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 26, 10, 0.98), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(20px);
+            padding: 100px 35px 35px;
+            box-shadow: -5px 0 30px rgba(210, 105, 30, 0.3);
+            transition: right 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            border-left: 3px solid var(--color-desert);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--color-desert), var(--color-ocean));
+            border: 2px solid var(--color-sand);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+        }
+
+        .close-menu:hover {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--color-ocean), var(--color-desert));
+        }
+
+        /* ===== NAVIGATION MOBILE ===== */
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            background: linear-gradient(90deg, rgba(210, 105, 30, 0.1), rgba(244, 208, 63, 0.05));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(210, 105, 30, 0.2);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: linear-gradient(90deg, rgba(210, 105, 30, 0.2), rgba(244, 208, 63, 0.1));
+            border-left-color: var(--color-desert);
+            transform: translateX(10px);
+            border-color: var(--color-desert);
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+        }
+
+        .mobile-nav i {
+            width: 28px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-sand);
+        }
+
+        /* ===== SECTION LANGUE MOBILE ===== */
+        .mobile-language-section {
+            padding: 30px 0;
+            border-top: 2px solid rgba(210, 105, 30, 0.3);
+            border-bottom: 2px solid rgba(244, 208, 63, 0.3);
+            margin-bottom: 35px;
+        }
+
+        .mobile-language-title {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-language-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(210, 105, 30, 0.2);
+        }
+
+        .mobile-language-option:hover {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.2), rgba(244, 208, 63, 0.2));
+            transform: translateX(8px);
+            border-color: var(--color-desert);
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+        }
+
+        .mobile-language-option.active {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.3), rgba(244, 208, 63, 0.3));
+            color: var(--color-desert);
+            font-weight: 700;
+            border-left: 5px solid var(--color-sand);
+            border-color: var(--color-sand);
+        }
+
+        /* ===== HEADER SPACER RESPONSIVE ===== */
+        .header-spacer {
+            height: 85px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .header-spacer {
+                height: 75px;
+            }
+            
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+            
+            .menu-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .language-mobile-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                min-width: 65px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .logo-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .logo-title {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+            
+            .mobile-controls {
+                gap: 15px;
+            }
+            
+            .language-mobile-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                max-width: 320px;
+                padding: 90px 25px 25px;
+            }
+        }
+
+        /* ===== SECTION HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 26, 10, 0.85), rgba(10, 26, 10, 0.9)),
+                        url('https://images.unsplash.com/photo-1583176995664-2a8a4e9d4d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(210, 105, 30, 0.1), rgba(244, 208, 63, 0.1));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--color-desert), var(--color-sand), var(--color-ocean));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--color-white);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+            padding: 0 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* FEATURE CARDS */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin: 50px 0;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(244, 208, 63, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-desert), var(--color-sand));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-desert);
+            box-shadow: 0 15px 35px rgba(210, 105, 30, 0.3);
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: #e0f7ff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--color-desert), var(--color-ocean));
+            color: var(--color-white);
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-sand);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(210, 105, 30, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(210, 105, 30, 0.6);
+            background: linear-gradient(135deg, var(--color-ocean), var(--color-desert));
+            border-color: var(--color-desert);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--color-desert);
+            color: var(--color-desert);
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(210, 105, 30, 0.15);
+            color: var(--color-white);
+            border-color: var(--color-sand);
+        }
+
+        /* SECTIONS GENERIQUES */
+        section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            position: relative;
+            font-weight: 800;
+            color: var(--color-white);
+            padding: 0 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-desert), var(--color-sand), var(--color-ocean));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(210, 105, 30, 0.4);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(50px, 7vw, 80px);
+            color: #e6ffea;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.7;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+
+        /* ===== SECTION SITES EMBLEMATIQUES ===== */
+        .emblematic-sites {
+            background: linear-gradient(135deg, #102510 0%, #1a3a1a 100%);
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sites-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .site-card {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-desert), var(--color-sand), var(--color-ocean));
+            z-index: 2;
+        }
+
+        .site-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-desert);
+            box-shadow: 0 20px 40px rgba(210, 105, 30, 0.4);
+        }
+
+        .site-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-sand));
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .site-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .site-image {
+                height: 220px;
+            }
+        }
+
+        .site-card:hover .site-image {
+            transform: scale(1.08);
+        }
+
+        .site-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .site-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .site-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-desert);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .site-features {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .site-features li {
+            color: #daffea;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-features li:before {
+            content: '✓';
+            color: var(--color-green);
+            font-weight: bold;
+        }
+
+        .site-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-desert);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.15), rgba(32, 178, 170, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .site-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.25), rgba(244, 208, 63, 0.25));
+            border-color: var(--color-desert);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+        }
+
+        /* ===== SECTION DESTINATIONS DETAILLEES ===== */
+        .detailed-destinations {
+            background: linear-gradient(135deg, #1a3a1a 0%, #102510 100%);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-desert), var(--color-sand));
+            z-index: 2;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-desert);
+            box-shadow: 0 20px 40px rgba(210, 105, 30, 0.4);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 480px) {
+            .destination-image {
+                height: 220px;
+            }
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .destination-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        .destination-card h3 i {
+            color: var(--color-sand);
+            font-size: 1.6rem;
+        }
+
+        .destination-distance {
+            color: var(--color-green);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .destination-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 120px;
+            font-weight: 300;
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-desert);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.15), rgba(32, 178, 170, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .destination-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.25), rgba(244, 208, 63, 0.25));
+            border-color: var(--color-desert);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);
+        }
+
+        /* SERVICES */
+        .services {
+            background: linear-gradient(135deg, #102510 0%, #1a3a1a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-desert);
+            box-shadow: 0 20px 40px rgba(210, 105, 30, 0.4);
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3.2rem;
+            color: var(--color-sand);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #1a3a1a 0%, #102510 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(244, 208, 63, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-desert);
+            box-shadow: 0 20px 40px rgba(210, 105, 30, 0.4);
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--color-desert);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .contact-info a {
+            color: #daffea;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-desert);
+            background: rgba(210, 105, 30, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 15px;
+        }
+
+        .contact-buttons .btn {
+            margin: 0 15px 15px;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons .btn {
+                margin: 0 0 15px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0a1a0a 0%, #102510 100%);
+            padding: 50px 0 25px;
+            border-top: 5px solid var(--color-desert);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-desert), var(--color-sand), var(--color-ocean));
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-tagline {
+            color: #e6ffea;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.2), rgba(32, 178, 170, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-desert);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(244, 208, 63, 0.3);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--color-desert), var(--color-ocean));
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--color-sand);
+            box-shadow: 0 8px 20px rgba(210, 105, 30, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: #e6ffea;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        .contact-info i {
+            color: var(--color-sand);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .copyright {
+            color: #b3ffc9;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(210, 105, 30, 0.3);
+            font-weight: 300;
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* IMAGE LOADING */
+        .loading {
+            background: linear-gradient(90deg, #1a2d1a 25%, #2a3d2a 50%, #1a2d1a 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* TOUCH OPTIMIZATIONS */
+        @media (hover: none) {
+            .destination-card:hover,
+            .site-card:hover,
+            .service-card:hover,
+            .contact-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .nav-link:hover,
+            .language-option:hover,
+            .mobile-nav a:hover,
+            .social-link:hover,
+            .contact-info a:hover,
+            .destination-link:hover,
+            .site-link:hover {
+                background: none;
+                transform: none;
+            }
+            
+            .btn:hover,
+            .btn-outline:hover {
+                transform: none;
+            }
+        }
+
+        /* ORIENTATION PAYSAGE */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .mobile-menu {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#home" class="logo">
+                    <div class="logo-icon">
+                        <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title">ISLAND MADA TRAVEL</div>
+                        <div class="logo-tagline">Sud de Madagascar - Isalo, Anakao & Trésors du Sud</div>
+                    </div>
+                </a>
+
+                <!-- Navigation et Langue Desktop -->
+                <div class="nav-desktop">
+                    <!-- Navigation -->
+                    <nav>
+                        <a href="#home" class="nav-link active">Accueil</a>
+                        <a href="#emblematic" class="nav-link">Sites Emblématiques</a>
+                        <a href="#destinations" class="nav-link">Destinations</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </nav>
+                    
+                    <!-- Bouton Langue Desktop -->
+                    <div class="language-selector">
+                        <button class="language-desktop-btn">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                                <span>Français</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                                <span>English</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                                <span>Deutsch</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                                <span>Español</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                                <span>Italiano</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="ar">
+                                <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                                <span>العربية</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                                <span>中文</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles Mobile -->
+                <div class="mobile-controls">
+                    <!-- Bouton Langue Mobile -->
+                    <button class="language-mobile-btn" id="mobileLangBtn">
+                        <i class="fas fa-globe-americas"></i>
+                        <span class="current-lang-mobile">FR</span>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Navigation Mobile -->
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#emblematic"><i class="fas fa-mountain"></i> Sites Emblématiques</a></li>
+            <li><a href="#destinations"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+        
+        <!-- Sélecteur de Langue Mobile -->
+        <div class="mobile-language-section">
+            <div class="mobile-language-title">
+                <i class="fas fa-language"></i>
+                <span>Changer la langue</span>
+            </div>
+            <div class="mobile-language-grid">
+                <a href="#" class="mobile-language-option active" data-lang="fr">
+                    <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                    <span>Français</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="en">
+                    <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                    <span>English</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="de">
+                    <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                    <span>Deutsch</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="es">
+                    <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                    <span>Español</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="it">
+                    <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                    <span>Italiano</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="ar">
+                    <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                    <span>العربية</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="zh">
+                    <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                    <span>中文</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-translate="hero-title">Découvrez le Sud Sauvage</h1>
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    Des canyons majestueux d'Isalo aux plages immaculées d'Anakao, 
+                    explorez les trésors du sud de Madagascar. Déserts, baobabs, 
+                    récifs coralliens et culture vezo vous attendent pour une aventure inoubliable.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card fade-in delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3 data-translate="feature1-title">Parc National d'Isalo</h3>
+                        <p data-translate="feature1-desc">Le "Colorado malgache" avec ses canyons spectaculaires, piscines naturelles et formations rocheuses uniques au monde.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <h3 data-translate="feature2-title">Anakao & Ifaty</h3>
+                        <p data-translate="feature2-desc">Plages paradisiaques, récifs coralliens, villages de pêcheurs vezo et plongée exceptionnelle dans le canal du Mozambique.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 data-translate="feature3-title">Forêt de Mikea & Réserve Reniala</h3>
+                        <p data-translate="feature3-desc">Sanctuaires de biodiversité abritant des espèces endémiques uniques, baobabs nains et forêts épineuses.</p>
+                    </div>
+                </div>
+                
+                <a href="#emblematic" class="btn fade-in delay-4">
+                    <i class="fas fa-compass"></i>
+                    <span data-translate="hero-btn">Explorer les Sites</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SITES EMBLEMATIQUES ===== -->
+    <section id="emblematic" class="emblematic-sites">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="emblematic-title">Trésors du Sud de Madagascar</h2>
+            <p class="section-intro fade-in delay-1" data-translate="emblematic-intro">
+                Découvrez les sites les plus célèbres du sud malgache. De la majesté des canyons d'Isalo 
+                à la sérénité des plages d'Anakao, chaque site offre une expérience unique dans des paysages à couper le souffle.
+            </p>
+            
+            <div class="sites-grid">
+                <!-- Parc National d'Isalo -->
+                <div class="site-card fade-in">
+                    <div class="site-badge" data-translate="badge-park">PARC NATIONAL</div>
+                    <img src="5a.jpg" 
+                         alt="Parc National d'Isalo" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-mountain"></i> <span data-translate="site1-title">Parc National d'Isalo</span></h3>
+                        <div class="site-subtitle" data-translate="site1-subtitle">Le Colorado Malgache</div>
+                        <p data-translate="site1-description">Véritable musée géologique à ciel ouvert, Isalo fascine par ses canyons sculptés par le temps, ses piscines naturelles aux eaux cristallines et ses formations de grès spectaculaires. Randonnées inoubliables au cœur d'un désert luxuriant.</p>
+                        <ul class="site-features">
+                            <li data-translate="site1-feature1">Canyons spectaculaires</li>
+                            <li data-translate="site1-feature2">Piscines naturelles oasis</li>
+                            <li data-translate="site1-feature3">Formations géologiques uniques</li>
+                            <li data-translate="site1-feature4">Randonnées guidées exceptionnelles</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Anakao -->
+                <div class="site-card fade-in delay-1">
+                    <div class="site-badge" data-translate="badge-beach">PLAGE</div>
+                    <img src="5b.jpg" 
+                         alt="Anakao" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-umbrella-beach"></i> <span data-translate="site2-title">Anakao</span></h3>
+                        <div class="site-subtitle" data-translate="site2-subtitle">Paradis des Pêcheurs Vezo</div>
+                        <p data-translate="site2-description">Accessible uniquement par bateau depuis Toliara, Anakao offre plages de sable blanc immaculées, eaux turquoise et récifs coralliens préservés. Découvrez la culture authentique des pêcheurs vezo et leurs pirogues traditionnelles.</p>
+                        <ul class="site-features">
+                            <li data-translate="site2-feature1">Plages immaculées</li>
+                            <li data-translate="site2-feature2">Récifs coralliens préservés</li>
+                            <li data-translate="site2-feature3">Culture vezo authentique</li>
+                            <li data-translate="site2-feature4">Plongée et snorkeling exceptionnels</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Ifaty -->
+                <div class="site-card fade-in delay-2">
+                    <div class="site-badge" data-translate="badge-diving">PLONGÉE</div>
+                    <img src="5c.jpg" 
+                         alt="Ifaty" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-water"></i> <span data-translate="site3-title">Ifaty</span></h3>
+                        <div class="site-subtitle" data-translate="site3-subtitle">Capitale de la Plongée</div>
+                        <p data-translate="site3-description">Station balnéaire réputée pour ses spots de plongée exceptionnels dans la Grande Barrière. Récifs coralliens parmi les plus beaux au monde, biodiversité marine spectaculaire et baobabs nains dans l'arrière-pays.</p>
+                        <ul class="site-features">
+                            <li data-translate="site3-feature1">Meilleurs spots de plongée de Madagascar</li>
+                            <li data-translate="site3-feature2">Grande Barrière de corail</li>
+                            <li data-translate="site3-feature3">Baobabs nains endémiques</li>
+                            <li data-translate="site3-feature4">Centre de plongée professionnel</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Marché aux Coquillages -->
+                <div class="site-card fade-in delay-3">
+                    <div class="site-badge" data-translate="badge-market">MARCHÉ</div>
+                    <img src="5d.jpg" 
+                         alt="Marché aux Coquillages" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-fish"></i> <span data-translate="site4-title">Marché aux Coquillages</span></h3>
+                        <div class="site-subtitle" data-translate="site4-subtitle">Trésors de l'Océan</div>
+                        <p data-translate="site4-description">Marché coloré où les pêcheurs vezo vendent leur pêche du jour. Coquillages multicolores, crustacés frais, poissons exotiques et artisanat marin. Une expérience sensorielle unique au rythme de la vie côtière malgache.</p>
+                        <ul class="site-features">
+                            <li data-translate="site4-feature1">Coquillages rares et colorés</li>
+                            <li data-translate="site4-feature2">Poissons et crustacés frais</li>
+                            <li data-translate="site4-feature3">Artisanat marin traditionnel</li>
+                            <li data-translate="site4-feature4">Rencontres avec les pêcheurs vezo</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DESTINATIONS DETAILLEES ===== -->
+    <section id="destinations" class="detailed-destinations">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="destinations-title">Destinations Complètes du Sud</h2>
+            <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                Explorez en détail les trésors du sud de Madagascar. Chaque destination offre 
+                une expérience unique dans des écosystèmes exceptionnels, des déserts aux récifs coralliens.
+            </p>
+            
+            <div class="destinations-grid">
+                <!-- Réserve de Reniala -->
+                <div class="destination-card fade-in">
+                    <img src="5e.jpeg" 
+                         alt="Réserve de Reniala" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-tree"></i> <span data-translate="dest1-title">Réserve de Reniala</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-ifaty">Près d'Ifaty</span>
+                        </div>
+                        <p data-translate="dest1-description">Sanctuaire écologique protégeant la forêt épineuse et les baobabs nains endémiques. Découvrez la flore unique du sud malgache avec ses plantes succulentes, euphorbes et pachypodiums rares.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest1-feature1">Baobabs nains endémiques</li>
+                            <li data-translate="dest1-feature2">Forêt épineuse unique</li>
+                            <li data-translate="dest1-feature3">Plantes succulentes rares</li>
+                            <li data-translate="dest1-feature4">Visites guidées botaniques</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Forêt de Mikea -->
+                <div class="destination-card fade-in delay-1">
+                    <img src="5f.jpg" 
+                         alt="Forêt de Mikea" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-forest"></i> <span data-translate="dest2-title">Forêt de Mikea</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-saint-augustin">Saint-Augustin</span>
+                        </div>
+                        <p data-translate="dest2-description">Vaste forêt sèche abritant une biodiversité exceptionnelle et le peuple Mikea, derniers chasseurs-cueilleurs de Madagascar. Découvrez leur mode de vie traditionnel et la flore unique de cette forêt menacée.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest2-feature1">Peuple Mikea traditionnel</li>
+                            <li data-translate="dest2-feature2">Biodiversité exceptionnelle</li>
+                            <li data-translate="dest2-feature3">Forêt sèche unique</li>
+                            <li data-translate="dest2-feature4">Randonnées ethnobotaniques</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Village Vezo -->
+                <div class="destination-card fade-in delay-2">
+                    <img src="5g.jpg" 
+                         alt="Village Vezo" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-ship"></i> <span data-translate="dest3-title">Villages Vezo Traditionnels</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-coast">Côte Sud-Ouest</span>
+                        </div>
+                        <p data-translate="dest3-description">Découvrez la fascinante culture des Vezo, peuple de la mer dont la vie est rythmée par les marées et les saisons de pêche. Pirogues à balancier, techniques de pêche traditionnelles et hospitalité légendaire.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest3-feature1">Culture maritime unique</li>
+                            <li data-translate="dest3-feature2">Pirogues traditionnelles</li>
+                            <li data-translate="dest3-feature3">Techniques de pêche ancestrales</li>
+                            <li data-translate="dest3-feature4">Séjour chez l'habitant authentique</li>
+                        </ul>
+                        <a href="galeries.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Canyon des Makis -->
+                <div class="destination-card fade-in delay-3">
+                    <img src="5h.jpg" 
+                         alt="Canyon des Makis" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-hiking"></i> <span data-translate="dest4-title">Canyon des Makis</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-isalo">Parc d'Isalo</span>
+                        </div>
+                        <p data-translate="dest4-description">Randonnée magique dans le canyon abritant une colonie de lémuriens. Oasis de fraîcheur avec piscine naturelle, végétation luxuriante et rencontres avec les makis catta, emblèmes de Madagascar.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest4-feature1">Observation des lémuriens</li>
+                            <li data-translate="dest4-feature2">Piscine naturelle oasis</li>
+                            <li data-translate="dest4-feature3">Randonnée accessible</li>
+                            <li data-translate="dest4-feature4">Photos uniques avec les makis</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="services-title">Nos Services dans le Sud</h2>
+            <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                Island Mada Travel vous accompagne pour créer le voyage de vos rêves dans le sud de Madagascar. 
+                Des services sur mesure pour une expérience authentique et inoubliable entre désert et océan.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3 data-translate="service1-title">Randonnées dans Isalo</h3>
+                    <p data-translate="service1-desc">Guidés par des experts locaux, explorez les canyons, piscines naturelles et formations géologiques uniques du parc national d'Isalo.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 data-translate="service2-title">Plongée & Snorkeling</h3>
+                    <p data-translate="service2-desc">Découverte des récifs coralliens exceptionnels d'Ifaty et Anakao avec moniteurs certifiés. Équipement haut de gamme fourni.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 data-translate="service3-title">Excursions en Bateau</h3>
+                    <p data-translate="service3-desc">Navigation vers les îles préservées, observation des baleines (saison), et découverte des villages de pêcheurs accessibles uniquement par mer.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 data-translate="service4-title">Séjour chez les Vezo</h3>
+                    <p data-translate="service4-desc">Immersion totale dans la vie des pêcheurs vezo. Logement traditionnel, participation aux activités de pêche et découverte culinaire.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 data-translate="service5-title">Safari Photo</h3>
+                    <p data-translate="service5-desc">Accompagnement par photographe professionnel pour capturer les paysages époustouflants, la faune unique et les moments authentiques.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service6-title">Dégustations Marines</h3>
+                    <p data-translate="service6-desc">Découverte de la cuisine côtière malgache: poissons grillés, fruits de mer frais, plats traditionnels préparés par les habitants.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;" class="fade-in delay-3">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span data-translate="services-btn">Demander un Devis Personnalisé</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="contact-title">Contactez Island Mada Travel</h2>
+            <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                Prêt à découvrir les trésors du sud de Madagascar ? Notre équipe locale est à votre disposition 
+                pour organiser votre aventure de rêve entre les canyons d'Isalo et les plages d'Anakao.
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Téléphone -->
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-phone">Téléphone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+261325539635">
+                            <i class="fas fa-phone"></i>
+                            +261 32 55 396 35
+                        </a>
+                        <a href="tel:+261325539635" style="margin-top: 15px;">
+                            <i class="fas fa-mobile-alt"></i>
+                            Appel / WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-translate="contact-email">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:anjaraamadym@gmail.com">
+                            <i class="fas fa-at"></i>
+                            anjaraamadym@gmail.com
+                        </a>
+                        <a href="mailto:anjaraamadym@gmail.com" style="margin-top: 15px;">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réservations
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Adresse -->
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-address">Adresse</h3>
+                    <div class="contact-info">
+                        <p style="text-align: center; color: #daffea; line-height: 1.8;">
+                            <i class="fas fa-hotel"></i><br>
+                            Island Mada Travel<br>
+                            Agence de Tourisme<br>
+                            Spécialiste du Sud de Madagascar<br>
+                            Bureau régional Toliara
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-buttons fade-in delay-3">
+                <a href="https://wa.me/261325539635" class="btn" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="whatsapp-btn">WhatsApp Direct</span>
+                </a>
+                <a href="mailto:anjaraamadym@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="email-btn">Envoyer un Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <i class="fas fa-sun"></i>
+                    ISLAND MADA TRAVEL
+                </div>
+                
+                <p class="footer-tagline fade-in delay-1" data-translate="footer-tagline">
+                    Votre guide expert pour découvrir les trésors du sud de Madagascar. 
+                    Des expériences authentiques entre désert et océan, paysages uniques et rencontres inoubliables au pays des baobabs et des lémuriens.
+                </p>
+                
+                <div class="social-links fade-in delay-2">
+                    <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/261325539635" class="social-link" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://tripadvisor.com" class="social-link" target="_blank" aria-label="TripAdvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="mailto:anjaraamadym@gmail.com" class="social-link" target="_blank" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-info fade-in delay-3">
+                    <p><i class="fas fa-phone"></i> +261 32 55 396 35</p>
+                    <p><i class="fas fa-envelope"></i> anjaraamadym@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Toliara, Madagascar - Bureau Sud</p>
+                </div>
+                
+                <div class="copyright fade-in delay-4">
+                    <p>&copy; <span id="currentYear"></span> Island Mada Travel. <span data-translate="copyright">Tous droits réservés.</span></p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">
+                        <a href="#" style="color: var(--color-desert);" data-translate="privacy">Politique de confidentialité</a> | 
+                        <a href="#" style="color: var(--color-desert);" data-translate="terms">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fermer le menu au clic sur un lien
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Mettre à jour l'état actif
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mettre à jour la navigation desktop
+                const href = link.getAttribute('href');
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // ===== CHANGEMENT DE LANGUE =====
+        const languageOptions = document.querySelectorAll('.language-option, .mobile-language-option');
+        const currentLangElements = document.querySelectorAll('.current-lang, .current-lang-mobile');
+        
+        // Données de traduction complètes pour les 7 langues
+        const translations = {
+            fr: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Sud de Madagascar - Isalo, Anakao & Trésors du Sud',
+                'nav-home': 'Accueil',
+                'nav-emblematic': 'Sites Emblématiques',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Changer la langue',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Découvrez le Sud Sauvage',
+                'hero-subtitle': 'Des canyons majestueux d\'Isalo aux plages immaculées d\'Anakao, explorez les trésors du sud de Madagascar. Déserts, baobabs, récifs coralliens et culture vezo vous attendent pour une aventure inoubliable.',
+                'feature1-title': 'Parc National d\'Isalo',
+                'feature1-desc': 'Le "Colorado malgache" avec ses canyons spectaculaires, piscines naturelles et formations rocheuses uniques au monde.',
+                'feature2-title': 'Anakao & Ifaty',
+                'feature2-desc': 'Plages paradisiaques, récifs coralliens, villages de pêcheurs vezo et plongée exceptionnelle dans le canal du Mozambique.',
+                'feature3-title': 'Forêt de Mikea & Réserve Reniala',
+                'feature3-desc': 'Sanctuaires de biodiversité abritant des espèces endémiques uniques, baobabs nains et forêts épineuses.',
+                'hero-btn': 'Explorer les Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Trésors du Sud de Madagascar',
+                'emblematic-intro': 'Découvrez les sites les plus célèbres du sud malgache. De la majesté des canyons d\'Isalo à la sérénité des plages d\'Anakao, chaque site offre une expérience unique dans des paysages à couper le souffle.',
+                'badge-park': 'PARC NATIONAL',
+                'badge-beach': 'PLAGE',
+                'badge-diving': 'PLONGÉE',
+                'badge-market': 'MARCHÉ',
+                
+                // Sites spécifiques
+                'site1-title': 'Parc National d\'Isalo',
+                'site1-subtitle': 'Le Colorado Malgache',
+                'site1-description': 'Véritable musée géologique à ciel ouvert, Isalo fascine par ses canyons sculptés par le temps, ses piscines naturelles aux eaux cristallines et ses formations de grès spectaculaires. Randonnées inoubliables au cœur d\'un désert luxuriant.',
+                'site1-feature1': 'Canyons spectaculaires',
+                'site1-feature2': 'Piscines naturelles oasis',
+                'site1-feature3': 'Formations géologiques uniques',
+                'site1-feature4': 'Randonnées guidées exceptionnelles',
+                
+                'site2-title': 'Anakao',
+                'site2-subtitle': 'Paradis des Pêcheurs Vezo',
+                'site2-description': 'Accessible uniquement par bateau depuis Toliara, Anakao offre plages de sable blanc immaculées, eaux turquoise et récifs coralliens préservés. Découvrez la culture authentique des pêcheurs vezo et leurs pirogues traditionnelles.',
+                'site2-feature1': 'Plages immaculées',
+                'site2-feature2': 'Récifs coralliens préservés',
+                'site2-feature3': 'Culture vezo authentique',
+                'site2-feature4': 'Plongée et snorkeling exceptionnels',
+                
+                'site3-title': 'Ifaty',
+                'site3-subtitle': 'Capitale de la Plongée',
+                'site3-description': 'Station balnéaire réputée pour ses spots de plongée exceptionnels dans la Grande Barrière. Récifs coralliens parmi les plus beaux au monde, biodiversité marine spectaculaire et baobabs nains dans l\'arrière-pays.',
+                'site3-feature1': 'Meilleurs spots de plongée de Madagascar',
+                'site3-feature2': 'Grande Barrière de corail',
+                'site3-feature3': 'Baobabs nains endémiques',
+                'site3-feature4': 'Centre de plongée professionnel',
+                
+                'site4-title': 'Marché aux Coquillages',
+                'site4-subtitle': 'Trésors de l\'Océan',
+                'site4-description': 'Marché coloré où les pêcheurs vezo vendent leur pêche du jour. Coquillages multicolores, crustacés frais, poissons exotiques et artisanat marin. Une expérience sensorielle unique au rythme de la vie côtière malgache.',
+                'site4-feature1': 'Coquillages rares et colorés',
+                'site4-feature2': 'Poissons et crustacés frais',
+                'site4-feature3': 'Artisanat marin traditionnel',
+                'site4-feature4': 'Rencontres avec les pêcheurs vezo',
+                
+                'site-link': 'Découvrir',
+                
+                // Destinations
+                'destinations-title': 'Destinations Complètes du Sud',
+                'destinations-intro': 'Explorez en détail les trésors du sud de Madagascar. Chaque destination offre une expérience unique dans des écosystèmes exceptionnels, des déserts aux récifs coralliens.',
+                'location-ifaty': 'Près d\'Ifaty',
+                'location-saint-augustin': 'Saint-Augustin',
+                'location-coast': 'Côte Sud-Ouest',
+                'location-isalo': 'Parc d\'Isalo',
+                
+                'dest1-title': 'Réserve de Reniala',
+                'dest1-description': 'Sanctuaire écologique protégeant la forêt épineuse et les baobabs nains endémiques. Découvrez la flore unique du sud malgache avec ses plantes succulentes, euphorbes et pachypodiums rares.',
+                'dest1-feature1': 'Baobabs nains endémiques',
+                'dest1-feature2': 'Forêt épineuse unique',
+                'dest1-feature3': 'Plantes succulentes rares',
+                'dest1-feature4': 'Visites guidées botaniques',
+                
+                'dest2-title': 'Forêt de Mikea',
+                'dest2-description': 'Vaste forêt sèche abritant une biodiversité exceptionnelle et le peuple Mikea, derniers chasseurs-cueilleurs de Madagascar. Découvrez leur mode de vie traditionnel et la flore unique de cette forêt menacée.',
+                'dest2-feature1': 'Peuple Mikea traditionnel',
+                'dest2-feature2': 'Biodiversité exceptionnelle',
+                'dest2-feature3': 'Forêt sèche unique',
+                'dest2-feature4': 'Randonnées ethnobotaniques',
+                
+                'dest3-title': 'Villages Vezo Traditionnels',
+                'dest3-description': 'Découvrez la fascinante culture des Vezo, peuple de la mer dont la vie est rythmée par les marées et les saisons de pêche. Pirogues à balancier, techniques de pêche traditionnelles et hospitalité légendaire.',
+                'dest3-feature1': 'Culture maritime unique',
+                'dest3-feature2': 'Pirogues traditionnelles',
+                'dest3-feature3': 'Techniques de pêche ancestrales',
+                'dest3-feature4': 'Séjour chez l\'habitant authentique',
+                
+                'dest4-title': 'Canyon des Makis',
+                'dest4-description': 'Randonnée magique dans le canyon abritant une colonie de lémuriens. Oasis de fraîcheur avec piscine naturelle, végétation luxuriante et rencontres avec les makis catta, emblèmes de Madagascar.',
+                'dest4-feature1': 'Observation des lémuriens',
+                'dest4-feature2': 'Piscine naturelle oasis',
+                'dest4-feature3': 'Randonnée accessible',
+                'dest4-feature4': 'Photos uniques avec les makis',
+                
+                'destination-link': 'Explorer',
+                
+                // Services
+                'services-title': 'Nos Services dans le Sud',
+                'services-intro': 'Island Mada Travel vous accompagne pour créer le voyage de vos rêves dans le sud de Madagascar. Des services sur mesure pour une expérience authentique et inoubliable entre désert et océan.',
+                'service1-title': 'Randonnées dans Isalo',
+                'service1-desc': 'Guidés par des experts locaux, explorez les canyons, piscines naturelles et formations géologiques uniques du parc national d\'Isalo.',
+                'service2-title': 'Plongée & Snorkeling',
+                'service2-desc': 'Découverte des récifs coralliens exceptionnels d\'Ifaty et Anakao avec moniteurs certifiés. Équipement haut de gamme fourni.',
+                'service3-title': 'Excursions en Bateau',
+                'service3-desc': 'Navigation vers les îles préservées, observation des baleines (saison), et découverte des villages de pêcheurs accessibles uniquement par mer.',
+                'service4-title': 'Séjour chez les Vezo',
+                'service4-desc': 'Immersion totale dans la vie des pêcheurs vezo. Logement traditionnel, participation aux activités de pêche et découverte culinaire.',
+                'service5-title': 'Safari Photo',
+                'service5-desc': 'Accompagnement par photographe professionnel pour capturer les paysages époustouflants, la faune unique et les moments authentiques.',
+                'service6-title': 'Dégustations Marines',
+                'service6-desc': 'Découverte de la cuisine côtière malgache: poissons grillés, fruits de mer frais, plats traditionnels préparés par les habitants.',
+                'services-btn': 'Demander un Devis Personnalisé',
+                
+                // Contact
+                'contact-title': 'Contactez Island Mada Travel',
+                'contact-intro': 'Prêt à découvrir les trésors du sud de Madagascar ? Notre équipe locale est à votre disposition pour organiser votre aventure de rêve entre les canyons d\'Isalo et les plages d\'Anakao.',
+                'contact-phone': 'Téléphone',
+                'contact-email': 'Email',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'WhatsApp Direct',
+                'email-btn': 'Envoyer un Email',
+                
+                // Footer
+                'footer-tagline': 'Votre guide expert pour découvrir les trésors du sud de Madagascar. Des expériences authentiques entre désert et océan, paysages uniques et rencontres inoubliables au pays des baobabs et des lémuriens.',
+                'copyright': 'Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
+            },
+            en: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Southern Madagascar - Isalo, Anakao & Southern Treasures',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Iconic Sites',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Change Language',
+                'lang-fr': 'French',
+                'lang-en': 'English',
+                'lang-de': 'German',
+                'lang-es': 'Spanish',
+                'lang-it': 'Italian',
+                'lang-ar': 'Arabic',
+                'lang-zh': 'Chinese',
+                
+                // Hero
+                'hero-title': 'Discover the Wild South',
+                'hero-subtitle': 'From the majestic canyons of Isalo to the pristine beaches of Anakao, explore the treasures of southern Madagascar. Deserts, baobabs, coral reefs and Vezo culture await you for an unforgettable adventure.',
+                'feature1-title': 'Isalo National Park',
+                'feature1-desc': 'The "Malagasy Colorado" with its spectacular canyons, natural pools and unique rock formations in the world.',
+                'feature2-title': 'Anakao & Ifaty',
+                'feature2-desc': 'Paradise beaches, coral reefs, Vezo fishing villages and exceptional diving in the Mozambique Channel.',
+                'feature3-title': 'Mikea Forest & Reniala Reserve',
+                'feature3-desc': 'Biodiversity sanctuaries housing unique endemic species, dwarf baobabs and spiny forests.',
+                'hero-btn': 'Explore Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Treasures of Southern Madagascar',
+                'emblematic-intro': 'Discover the most famous sites of southern Madagascar. From the majesty of the Isalo canyons to the serenity of the Anakao beaches, each site offers a unique experience in breathtaking landscapes.',
+                'badge-park': 'NATIONAL PARK',
+                'badge-beach': 'BEACH',
+                'badge-diving': 'DIVING',
+                'badge-market': 'MARKET',
+                
+                // Sites spécifiques
+                'site1-title': 'Isalo National Park',
+                'site1-subtitle': 'The Malagasy Colorado',
+                'site1-description': 'A true open-air geological museum, Isalo fascinates with its canyons carved by time, its natural pools with crystal clear waters and its spectacular sandstone formations. Unforgettable hikes in the heart of a lush desert.',
+                'site1-feature1': 'Spectacular canyons',
+                'site1-feature2': 'Oasis natural pools',
+                'site1-feature3': 'Unique geological formations',
+                'site1-feature4': 'Exceptional guided hikes',
+                
+                'site2-title': 'Anakao',
+                'site2-subtitle': 'Paradise of Vezo Fishermen',
+                'site2-description': 'Accessible only by boat from Toliara, Anakao offers pristine white sand beaches, turquoise waters and preserved coral reefs. Discover the authentic culture of Vezo fishermen and their traditional pirogues.',
+                'site2-feature1': 'Pristine beaches',
+                'site2-feature2': 'Preserved coral reefs',
+                'site2-feature3': 'Authentic Vezo culture',
+                'site2-feature4': 'Exceptional diving and snorkeling',
+                
+                'site3-title': 'Ifaty',
+                'site3-subtitle': 'Diving Capital',
+                'site3-description': 'Seaside resort renowned for its exceptional dive sites in the Great Barrier. Some of the most beautiful coral reefs in the world, spectacular marine biodiversity and dwarf baobabs in the hinterland.',
+                'site3-feature1': 'Best dive sites in Madagascar',
+                'site3-feature2': 'Great Barrier Reef',
+                'site3-feature3': 'Endemic dwarf baobabs',
+                'site3-feature4': 'Professional dive center',
+                
+                'site4-title': 'Shell Market',
+                'site4-subtitle': 'Ocean Treasures',
+                'site4-description': 'Colorful market where Vezo fishermen sell their daily catch. Multicolored shells, fresh shellfish, exotic fish and marine crafts. A unique sensory experience at the rhythm of Malagasy coastal life.',
+                'site4-feature1': 'Rare and colorful shells',
+                'site4-feature2': 'Fresh fish and shellfish',
+                'site4-feature3': 'Traditional marine crafts',
+                'site4-feature4': 'Meetings with Vezo fishermen',
+                
+                'site-link': 'Discover',
+                
+                // Destinations
+                'destinations-title': 'Complete Southern Destinations',
+                'destinations-intro': 'Explore in detail the treasures of southern Madagascar. Each destination offers a unique experience in exceptional ecosystems, from deserts to coral reefs.',
+                'location-ifaty': 'Near Ifaty',
+                'location-saint-augustin': 'Saint-Augustin',
+                'location-coast': 'Southwest Coast',
+                'location-isalo': 'Isalo Park',
+                
+                'dest1-title': 'Reniala Reserve',
+                'dest1-description': 'Ecological sanctuary protecting the spiny forest and endemic dwarf baobabs. Discover the unique flora of southern Madagascar with its succulent plants, euphorbias and rare pachypodiums.',
+                'dest1-feature1': 'Endemic dwarf baobabs',
+                'dest1-feature2': 'Unique spiny forest',
+                'dest1-feature3': 'Rare succulent plants',
+                'dest1-feature4': 'Guided botanical tours',
+                
+                'dest2-title': 'Mikea Forest',
+                'dest2-description': 'Vast dry forest home to exceptional biodiversity and the Mikea people, Madagascar\'s last hunter-gatherers. Discover their traditional way of life and the unique flora of this threatened forest.',
+                'dest2-feature1': 'Traditional Mikea people',
+                'dest2-feature2': 'Exceptional biodiversity',
+                'dest2-feature3': 'Unique dry forest',
+                'dest2-feature4': 'Ethnobotanical hikes',
+                
+                'dest3-title': 'Traditional Vezo Villages',
+                'dest3-description': 'Discover the fascinating culture of the Vezo, a sea people whose life is governed by tides and fishing seasons. Outrigger canoes, traditional fishing techniques and legendary hospitality.',
+                'dest3-feature1': 'Unique maritime culture',
+                'dest3-feature2': 'Traditional pirogues',
+                'dest3-feature3': 'Ancestral fishing techniques',
+                'dest3-feature4': 'Authentic homestay',
+                
+                'dest4-title': 'Lemur Canyon',
+                'dest4-description': 'Magical hike in the canyon home to a lemur colony. Oasis of freshness with natural pool, lush vegetation and encounters with ring-tailed lemurs, emblems of Madagascar.',
+                'dest4-feature1': 'Lemur observation',
+                'dest4-feature2': 'Oasis natural pool',
+                'dest4-feature3': 'Accessible hike',
+                'dest4-feature4': 'Unique photos with lemurs',
+                
+                'destination-link': 'Explore',
+                
+                // Services
+                'services-title': 'Our Services in the South',
+                'services-intro': 'Island Mada Travel accompanies you to create your dream trip to southern Madagascar. Tailor-made services for an authentic and unforgettable experience between desert and ocean.',
+                'service1-title': 'Hikes in Isalo',
+                'service1-desc': 'Guided by local experts, explore the canyons, natural pools and unique geological formations of Isalo National Park.',
+                'service2-title': 'Diving & Snorkeling',
+                'service2-desc': 'Discovery of the exceptional coral reefs of Ifaty and Anakao with certified instructors. High-end equipment provided.',
+                'service3-title': 'Boat Excursions',
+                'service3-desc': 'Sailing to preserved islands, whale watching (season), and discovery of fishing villages accessible only by sea.',
+                'service4-title': 'Stay with the Vezo',
+                'service4-desc': 'Total immersion in the life of Vezo fishermen. Traditional accommodation, participation in fishing activities and culinary discovery.',
+                'service5-title': 'Photo Safari',
+                'service5-desc': 'Accompanied by professional photographer to capture stunning landscapes, unique wildlife and authentic moments.',
+                'service6-title': 'Marine Tastings',
+                'service6-desc': 'Discovery of Malagasy coastal cuisine: grilled fish, fresh seafood, traditional dishes prepared by locals.',
+                'services-btn': 'Request a Custom Quote',
+                
+                // Contact
+                'contact-title': 'Contact Island Mada Travel',
+                'contact-intro': 'Ready to discover the treasures of southern Madagascar? Our local team is at your disposal to organize your dream adventure between the canyons of Isalo and the beaches of Anakao.',
+                'contact-phone': 'Phone',
+                'contact-email': 'Email',
+                'contact-address': 'Address',
+                'whatsapp-btn': 'Direct WhatsApp',
+                'email-btn': 'Send Email',
+                
+                // Footer
+                'footer-tagline': 'Your expert guide to discover the treasures of southern Madagascar. Authentic experiences between desert and ocean, unique landscapes and unforgettable encounters in the land of baobabs and lemurs.',
+                'copyright': 'All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
+            },
+            de: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Südliches Madagaskar - Isalo, Anakao & Schätze des Südens',
+                'nav-home': 'Startseite',
+                'nav-emblematic': 'Wahrzeichen',
+                'nav-destinations': 'Ziele',
+                'nav-services': 'Dienstleistungen',
+                'nav-contact': 'Kontakt',
+                'select-language': 'Sprache ändern',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-ar': 'Arabisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Hero
+                'hero-title': 'Entdecken Sie den wilden Süden',
+                'hero-subtitle': 'Von den majestätischen Canyons von Isalo zu den unberührten Stränden von Anakao, erkunden Sie die Schätze des südlichen Madagaskar. Wüsten, Baobabs, Korallenriffe und Vezo-Kultur erwarten Sie für ein unvergessliches Abenteuer.',
+                'feature1-title': 'Nationalpark Isalo',
+                'feature1-desc': 'Das "madagassische Colorado" mit seinen spektakulären Canyons, natürlichen Pools und einzigartigen Felsformationen weltweit.',
+                'feature2-title': 'Anakao & Ifaty',
+                'feature2-desc': 'Paradiesische Strände, Korallenriffe, Vezo-Fischerdörfer und außergewöhnliches Tauchen im Mosambik-Kanal.',
+                'feature3-title': 'Mikea-Wald & Reniala-Reservat',
+                'feature3-desc': 'Biodiversitätsschutzgebiete mit einzigartigen endemischen Arten, Zwergbaobabs und Dornenwäldern.',
+                'hero-btn': 'Sehenswürdigkeiten erkunden',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Schätze des südlichen Madagaskar',
+                'emblematic-intro': 'Entdecken Sie die berühmtesten Stätten des südlichen Madagaskar. Von der Majestät der Isalo-Canyons bis zur Ruhe der Anakao-Strände bietet jede Stätte eine einzigartige Erfahrung in atemberaubenden Landschaften.',
+                'badge-park': 'NATIONALPARK',
+                'badge-beach': 'STRAND',
+                'badge-diving': 'TAUCHEN',
+                'badge-market': 'MARKT',
+                
+                // Sites spécifiques
+                'site1-title': 'Nationalpark Isalo',
+                'site1-subtitle': 'Das madagassische Colorado',
+                'site1-description': 'Ein wahres Freilichtmuseum der Geologie, Isalo fasziniert mit seinen von der Zeit geformten Canyons, natürlichen Pools mit kristallklarem Wasser und spektakulären Sandsteinformationen. Unvergessliche Wanderungen im Herzen einer üppigen Wüste.',
+                'site1-feature1': 'Spektakuläre Canyons',
+                'site1-feature2': 'Oasen natürliche Pools',
+                'site1-feature3': 'Einzigartige geologische Formationen',
+                'site1-feature4': 'Außergewöhnliche geführte Wanderungen',
+                
+                'site2-title': 'Anakao',
+                'site2-subtitle': 'Paradies der Vezo-Fischer',
+                'site2-description': 'Nur mit dem Boot von Toliara aus erreichbar, bietet Anakao unberührte weiße Sandstrände, türkisfarbenes Wasser und geschützte Korallenriffe. Entdecken Sie die authentische Kultur der Vezo-Fischer und ihrer traditionellen Einbäume.',
+                'site2-feature1': 'Unberührte Strände',
+                'site2-feature2': 'Geschützte Korallenriffe',
+                'site2-feature3': 'Authentische Vezo-Kultur',
+                'site2-feature4': 'Außergewöhnliches Tauchen und Schnorcheln',
+                
+                'site3-title': 'Ifaty',
+                'site3-subtitle': 'Tauchhauptstadt',
+                'site3-description': 'Badeort bekannt für seine außergewöhnlichen Tauchplätze im Great Barrier. Zu den schönsten Korallenriffen der Welt, spektakuläre marine Biodiversität und Zwergbaobabs im Hinterland.',
+                'site3-feature1': 'Beste Tauchplätze Madagaskars',
+                'site3-feature2': 'Great Barrier Reef',
+                'site3-feature3': 'Endemische Zwergbaobabs',
+                'site3-feature4': 'Professionelles Tauchzentrum',
+                
+                'site4-title': 'Muschelmarkt',
+                'site4-subtitle': 'Schätze des Ozeans',
+                'site4-description': 'Bunter Markt, wo Vezo-Fischer ihren täglichen Fang verkaufen. Bunte Muscheln, frische Meeresfrüchte, exotische Fische und maritime Handwerkskunst. Eine einzigartige sensorische Erfahrung im Rhythmus des madagassischen Küstenlebens.',
+                'site4-feature1': 'Seltene und bunte Muscheln',
+                'site4-feature2': 'Frische Fische und Meeresfrüchte',
+                'site4-feature3': 'Traditionelle maritime Handwerkskunst',
+                'site4-feature4': 'Begegnungen mit Vezo-Fischern',
+                
+                'site-link': 'Entdecken',
+                
+                // Destinations
+                'destinations-title': 'Komplette Ziele des Südens',
+                'destinations-intro': 'Erkunden Sie im Detail die Schätze des südlichen Madagaskar. Jedes Ziel bietet eine einzigartige Erfahrung in außergewöhnlichen Ökosystemen, von Wüsten bis zu Korallenriffen.',
+                'location-ifaty': 'In der Nähe von Ifaty',
+                'location-saint-augustin': 'Saint-Augustin',
+                'location-coast': 'Südwestküste',
+                'location-isalo': 'Isalo-Park',
+                
+                'dest1-title': 'Reniala-Reservat',
+                'dest1-description': 'Ökologisches Schutzgebiet, das den Dornenwald und endemische Zwergbaobabs schützt. Entdecken Sie die einzigartige Flora des südlichen Madagaskar mit ihren Sukkulenten, Euphorbien und seltenen Pachypodien.',
+                'dest1-feature1': 'Endemische Zwergbaobabs',
+                'dest1-feature2': 'Einzigartiger Dornenwald',
+                'dest1-feature3': 'Seltene Sukkulenten',
+                'dest1-feature4': 'Geführte botanische Touren',
+                
+                'dest2-title': 'Mikea-Wald',
+                'dest2-description': 'Weiter Trockenwald, der außergewöhnliche Biodiversität und das Mikea-Volk, Madagaskars letzte Jäger und Sammler, beherbergt. Entdecken Sie ihren traditionellen Lebensstil und die einzigartige Flora dieses bedrohten Waldes.',
+                'dest2-feature1': 'Traditionelles Mikea-Volk',
+                'dest2-feature2': 'Außergewöhnliche Biodiversität',
+                'dest2-feature3': 'Einzigartiger Trockenwald',
+                'dest2-feature4': 'Ethnobotanische Wanderungen',
+                
+                'dest3-title': 'Traditionelle Vezo-Dörfer',
+                'dest3-description': 'Entdecken Sie die faszinierende Kultur der Vezo, eines Seevolkes, dessen Leben von Gezeiten und Fangsaison bestimmt wird. Auslegerkanus, traditionelle Fischereitechniken und legendäre Gastfreundschaft.',
+                'dest3-feature1': 'Einzigartige maritime Kultur',
+                'dest3-feature2': 'Traditionelle Einbäume',
+                'dest3-feature3': 'Traditionelle Fischereitechniken',
+                'dest3-feature4': 'Authentischer Aufenthalt bei Einheimischen',
+                
+                'dest4-title': 'Lemuren-Canyon',
+                'dest4-description': 'Magische Wanderung im Canyon, der eine Lemurenkolonie beherbergt. Oase der Frische mit natürlichem Pool, üppiger Vegetation und Begegnungen mit Katta-Lemuren, Symbolen Madagaskars.',
+                'dest4-feature1': 'Lemurenbeobachtung',
+                'dest4-feature2': 'Oasen natürlicher Pool',
+                'dest4-feature3': 'Zugängliche Wanderung',
+                'dest4-feature4': 'Einzigartige Fotos mit Lemuren',
+                
+                'destination-link': 'Erkunden',
+                
+                // Services
+                'services-title': 'Unsere Dienstleistungen im Süden',
+                'services-intro': 'Island Mada Travel begleitet Sie bei der Planung Ihrer Traumreise in den Süden Madagaskars. Maßgeschneiderte Dienstleistungen für ein authentisches und unvergessliches Erlebnis zwischen Wüste und Ozean.',
+                'service1-title': 'Wanderungen in Isalo',
+                'service1-desc': 'Unter der Führung lokaler Experten erkunden Sie die Canyons, natürlichen Pools und einzigartigen geologischen Formationen des Isalo-Nationalparks.',
+                'service2-title': 'Tauchen & Schnorcheln',
+                'service2-desc': 'Entdeckung der außergewöhnlichen Korallenriffe von Ifaty und Anakao mit zertifizierten Tauchlehrern. Hochwertige Ausrüstung wird gestellt.',
+                'service3-title': 'Bootsausflüge',
+                'service3-desc': 'Segeln zu geschützten Inseln, Walbeobachtung (Saison) und Entdeckung von Fischerdörfern, die nur auf dem Seeweg erreichbar sind.',
+                'service4-title': 'Aufenthalt bei den Vezo',
+                'service4-desc': 'Vollständiges Eintauchen in das Leben der Vezo-Fischer. Traditionelle Unterkunft, Teilnahme an Fischereitätigkeiten und kulinarische Entdeckung.',
+                'service5-title': 'Foto-Safari',
+                'service5-desc': 'Begleitung durch professionellen Fotografen, um atemberaubende Landschaften, einzigartige Tierwelt und authentische Momente festzuhalten.',
+                'service6-title': 'Meereskostproben',
+                'service6-desc': 'Entdeckung der madagassischen Küche: gegrillter Fisch, frische Meeresfrüchte, traditionelle Gerichte, von Einheimischen zubereitet.',
+                'services-btn': 'Individuelles Angebot anfordern',
+                
+                // Contact
+                'contact-title': 'Kontaktieren Sie Island Mada Travel',
+                'contact-intro': 'Bereit, die Schätze des südlichen Madagaskar zu entdecken? Unser lokales Team steht Ihnen zur Verfügung, um Ihr Traumabenteuer zwischen den Canyons von Isalo und den Stränden von Anakao zu organisieren.',
+                'contact-phone': 'Telefon',
+                'contact-email': 'E-Mail',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'Direkt WhatsApp',
+                'email-btn': 'E-Mail senden',
+                
+                // Footer
+                'footer-tagline': 'Ihr Expertenführer zur Entdeckung der Schätze des südlichen Madagaskar. Authentische Erfahrungen zwischen Wüste und Ozean, einzigartige Landschaften und unvergessliche Begegnungen im Land der Baobabs und Lemuren.',
+                'copyright': 'Alle Rechte vorbehalten.',
+                'privacy': 'Datenschutzerklärung',
+                'terms': 'Nutzungsbedingungen'
+            },
+            es: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Sur de Madagascar - Isalo, Anakao & Tesoros del Sur',
+                'nav-home': 'Inicio',
+                'nav-emblematic': 'Sitios Emblemáticos',
+                'nav-destinations': 'Destinos',
+                'nav-services': 'Servicios',
+                'nav-contact': 'Contacto',
+                'select-language': 'Cambiar Idioma',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Árabe',
+                'lang-zh': 'Chino',
+                
+                // Hero
+                'hero-title': 'Descubre el Sur Salvaje',
+                'hero-subtitle': 'Desde los majestuosos cañones de Isalo hasta las playas inmaculadas de Anakao, explora los tesoros del sur de Madagascar. Desiertos, baobabs, arrecifes de coral y cultura vezo te esperan para una aventura inolvidable.',
+                'feature1-title': 'Parque Nacional de Isalo',
+                'feature1-desc': 'El "Colorado malgache" con sus espectaculares cañones, piscinas naturales y formaciones rocosas únicas en el mundo.',
+                'feature2-title': 'Anakao e Ifaty',
+                'feature2-desc': 'Playas paradisíacas, arrecifes de coral, aldeas de pescadores vezo y buceo excepcional en el canal de Mozambique.',
+                'feature3-title': 'Bosque de Mikea & Reserva Reniala',
+                'feature3-desc': 'Santurarios de biodiversidad que albergan especies endémicas únicas, baobabs enanos y bosques espinosos.',
+                'hero-btn': 'Explorar Sitios',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Tesoros del Sur de Madagascar',
+                'emblematic-intro': 'Descubre los sitios más famosos del sur de Madagascar. Desde la majestad de los cañones de Isalo hasta la serenidad de las playas de Anakao, cada sitio ofrece una experiencia única en paisajes impresionantes.',
+                'badge-park': 'PARQUE NACIONAL',
+                'badge-beach': 'PLAYA',
+                'badge-diving': 'BUCEO',
+                'badge-market': 'MERCADO',
+                
+                // Sites spécifiques
+                'site1-title': 'Parque Nacional de Isalo',
+                'site1-subtitle': 'El Colorado Malgache',
+                'site1-description': 'Verdadero museo geológico al aire libre, Isalo fascina con sus cañones esculpidos por el tiempo, sus piscinas naturales de aguas cristalinas y sus formaciones de arenisca espectaculares. Caminatas inolvidables en el corazón de un desierto exuberante.',
+                'site1-feature1': 'Cañones espectaculares',
+                'site1-feature2': 'Piscinas naturales oasis',
+                'site1-feature3': 'Formaciones geológicas únicas',
+                'site1-feature4': 'Caminatas guiadas excepcionales',
+                
+                'site2-title': 'Anakao',
+                'site2-subtitle': 'Paraíso de los Pescadores Vezo',
+                'site2-description': 'Accesible solo en barco desde Toliara, Anakao ofrece playas de arena blanca inmaculadas, aguas turquesas y arrecifes de coral preservados. Descubre la cultura auténtica de los pescadores vezo y sus piraguas tradicionales.',
+                'site2-feature1': 'Playas inmaculadas',
+                'site2-feature2': 'Arrecifes de coral preservados',
+                'site2-feature3': 'Cultura vezo auténtica',
+                'site2-feature4': 'Buceo y snorkel excepcionales',
+                
+                'site3-title': 'Ifaty',
+                'site3-subtitle': 'Capital del Buceo',
+                'site3-description': 'Estación balnearia reputada por sus sitios de buceo excepcionales en la Gran Barrera. Arrecifes de coral entre los más bellos del mundo, biodiversidad marina espectacular y baobabs enanos en el interior.',
+                'site3-feature1': 'Mejores sitios de buceo de Madagascar',
+                'site3-feature2': 'Gran Barrera de Coral',
+                'site3-feature3': 'Baobabs enanos endémicos',
+                'site3-feature4': 'Centro de buceo profesional',
+                
+                'site4-title': 'Mercado de Conchas',
+                'site4-subtitle': 'Tesoros del Océano',
+                'site4-description': 'Mercado colorido donde los pescadores vezo venden su pesca del día. Conchas multicolores, mariscos frescos, peces exóticos y artesanía marina. Una experiencia sensorial única al ritmo de la vida costera malgache.',
+                'site4-feature1': 'Conchas raras y coloridas',
+                'site4-feature2': 'Pescados y mariscos frescos',
+                'site4-feature3': 'Artesanía marina tradicional',
+                'site4-feature4': 'Encuentros con pescadores vezo',
+                
+                'site-link': 'Descubrir',
+                
+                // Destinations
+                'destinations-title': 'Destinos Completos del Sur',
+                'destinations-intro': 'Explora en detalle los tesoros del sur de Madagascar. Cada destino ofrece una experiencia única en ecosistemas excepcionales, desde desiertos hasta arrecifes de coral.',
+                'location-ifaty': 'Cerca de Ifaty',
+                'location-saint-augustin': 'Saint-Augustin',
+                'location-coast': 'Costa Suroeste',
+                'location-isalo': 'Parque de Isalo',
+                
+                'dest1-title': 'Reserva de Reniala',
+                'dest1-description': 'Santuario ecológico que protege el bosque espinoso y los baobabs enanos endémicos. Descubre la flora única del sur de Madagascar con sus plantas suculentas, euforbias y pachypodiums raros.',
+                'dest1-feature1': 'Baobabs enanos endémicos',
+                'dest1-feature2': 'Bosque espinoso único',
+                'dest1-feature3': 'Plantas suculentas raras',
+                'dest1-feature4': 'Visitas guiadas botánicas',
+                
+                'dest2-title': 'Bosque de Mikea',
+                'dest2-description': 'Vasto bosque seco que alberga una biodiversidad excepcional y el pueblo Mikea, últimos cazadores-recolectores de Madagascar. Descubre su modo de vida tradicional y la flora única de este bosque amenazado.',
+                'dest2-feature1': 'Pueblo Mikea tradicional',
+                'dest2-feature2': 'Biodiversidad excepcional',
+                'dest2-feature3': 'Bosque seco único',
+                'dest2-feature4': 'Caminatas etnobotánicas',
+                
+                'dest3-title': 'Aldeas Vezo Tradicionales',
+                'dest3-description': 'Descubre la fascinante cultura de los Vezo, pueblo del mar cuya vida está marcada por las mareas y las temporadas de pesca. Canoas de balancín, técnicas de pesca tradicionales y hospitalidad legendaria.',
+                'dest3-feature1': 'Cultura marítima única',
+                'dest3-feature2': 'Piraguas tradicionales',
+                'dest3-feature3': 'Técnicas de pesca ancestrales',
+                'dest3-feature4': 'Estancia con habitantes auténtica',
+                
+                'dest4-title': 'Cañón de los Lémures',
+                'dest4-description': 'Caminata mágica en el cañón que alberga una colonia de lémures. Oasis de frescura con piscina natural, vegetación exuberante y encuentros con los lémures de cola anillada, emblemas de Madagascar.',
+                'dest4-feature1': 'Observación de lémures',
+                'dest4-feature2': 'Piscina natural oasis',
+                'dest4-feature3': 'Caminata accesible',
+                'dest4-feature4': 'Fotos únicas con lémures',
+                
+                'destination-link': 'Explorar',
+                
+                // Services
+                'services-title': 'Nuestros Servicios en el Sur',
+                'services-intro': 'Island Mada Travel te acompaña para crear el viaje de tus sueños al sur de Madagascar. Servicios a medida para una experiencia auténtica e inolvidable entre desierto y océano.',
+                'service1-title': 'Caminatas en Isalo',
+                'service1-desc': 'Guiados por expertos locales, explora los cañones, piscinas naturales y formaciones geológicas únicas del Parque Nacional de Isalo.',
+                'service2-title': 'Buceo & Snorkel',
+                'service2-desc': 'Descubrimiento de los arrecifes de coral excepcionales de Ifaty y Anakao con instructores certificados. Equipamiento de alta gama proporcionado.',
+                'service3-title': 'Excursiones en Barco',
+                'service3-desc': 'Navegación hacia islas preservadas, observación de ballenas (temporada) y descubrimiento de aldeas de pescadores accesibles solo por mar.',
+                'service4-title': 'Estancia con los Vezo',
+                'service4-desc': 'Inmersión total en la vida de los pescadores vezo. Alojamiento tradicional, participación en actividades de pesca y descubrimiento culinario.',
+                'service5-title': 'Safari Fotográfico',
+                'service5-desc': 'Acompañamiento por fotógrafo profesional para capturar paisajes impresionantes, fauna única y momentos auténticos.',
+                'service6-title': 'Degustaciones Marinas',
+                'service6-desc': 'Descubrimiento de la cocina costera malgache: pescados a la parrilla, mariscos frescos, platos tradicionales preparados por habitantes locales.',
+                'services-btn': 'Solicitar Presupuesto Personalizado',
+                
+                // Contact
+                'contact-title': 'Contacta con Island Mada Travel',
+                'contact-intro': '¿Listo para descubrir los tesoros del sur de Madagascar? Nuestro equipo local está a tu disposición para organizar tu aventura de ensueño entre los cañones de Isalo y las playas de Anakao.',
+                'contact-phone': 'Teléfono',
+                'contact-email': 'Correo Electrónico',
+                'contact-address': 'Dirección',
+                'whatsapp-btn': 'WhatsApp Directo',
+                'email-btn': 'Enviar Correo',
+                
+                // Footer
+                'footer-tagline': 'Tu guía experto para descubrir los tesoros del sur de Madagascar. Experiencias auténticas entre desierto y océano, paisajes únicos y encuentros inolvidables en la tierra de los baobabs y lémures.',
+                'copyright': 'Todos los derechos reservados.',
+                'privacy': 'Política de Privacidad',
+                'terms': 'Términos de Uso'
+            },
+            it: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Sud del Madagascar - Isalo, Anakao & Tesori del Sud',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Siti Iconici',
+                'nav-destinations': 'Destinazioni',
+                'nav-services': 'Servizi',
+                'nav-contact': 'Contatto',
+                'select-language': 'Cambia Lingua',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Arabo',
+                'lang-zh': 'Cinese',
+                
+                // Hero
+                'hero-title': 'Scopri il Sud Selvaggio',
+                'hero-subtitle': 'Dai canyon maestosi di Isalo alle spiagge immacolate di Anakao, esplora i tesori del sud del Madagascar. Deserti, baobab, barriere coralline e cultura vezo ti attendono per un\'avventura indimenticabile.',
+                'feature1-title': 'Parco Nazionale di Isalo',
+                'feature1-desc': 'Il "Colorado malgascio" con i suoi spettacolari canyon, piscine naturali e formazioni rocciose uniche al mondo.',
+                'feature2-title': 'Anakao e Ifaty',
+                'feature2-desc': 'Spiagge paradisiache, barriere coralline, villaggi di pescatori vezo e immersioni eccezionali nel canale del Mozambico.',
+                'feature3-title': 'Foresta di Mikea & Riserva Reniala',
+                'feature3-desc': 'Santurari di biodiversità che ospitano specie endemiche uniche, baobab nani e foreste spinose.',
+                'hero-btn': 'Esplora i Siti',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Tesori del Sud del Madagascar',
+                'emblematic-intro': 'Scopri i siti più famosi del sud del Madagascar. Dalla maestà dei canyon di Isalo alla serenità delle spiagge di Anakao, ogni sito offre un\'esperienza unica in paesaggi mozzafiato.',
+                'badge-park': 'PARCO NAZIONALE',
+                'badge-beach': 'SPIAGGIA',
+                'badge-diving': 'IMMERSIONE',
+                'badge-market': 'MERCATO',
+                
+                // Sites spécifiques
+                'site1-title': 'Parco Nazionale di Isalo',
+                'site1-subtitle': 'Il Colorado Malgascio',
+                'site1-description': 'Vero museo geologico a cielo aperto, Isalo affascina con i suoi canyon scolpiti dal tempo, piscine naturali dalle acque cristalline e formazioni di arenaria spettacolari. Escursioni indimenticabili nel cuore di un deserto lussureggiante.',
+                'site1-feature1': 'Canyon spettacolari',
+                'site1-feature2': 'Piscine naturali oasi',
+                'site1-feature3': 'Formazioni geologiche uniche',
+                'site1-feature4': 'Escursioni guidate eccezionali',
+                
+                'site2-title': 'Anakao',
+                'site2-subtitle': 'Paradiso dei Pescatori Vezo',
+                'site2-description': 'Accessibile solo in barca da Toliara, Anakao offre spiagge di sabbia bianca immacolate, acque turchesi e barriere coralline preservate. Scopri la cultura autentica dei pescatori vezo e le loro piroghe tradizionali.',
+                'site2-feature1': 'Spiagge immacolate',
+                'site2-feature2': 'Barriere coralline preservate',
+                'site2-feature3': 'Cultura vezo autentica',
+                'site2-feature4': 'Immersione e snorkeling eccezionali',
+                
+                'site3-title': 'Ifaty',
+                'site3-subtitle': 'Capitale delle Immersioni',
+                'site3-description': 'Stazione balneare rinomata per i suoi siti di immersione eccezionali nella Grande Barriera. Barriere coralline tra le più belle al mondo, biodiversità marina spettacolare e baobab nani nell\'entroterra.',
+                'site3-feature1': 'Migliori siti di immersione del Madagascar',
+                'site3-feature2': 'Grande Barriera Corallina',
+                'site3-feature3': 'Baobab nani endemici',
+                'site3-feature4': 'Centro immersioni professionale',
+                
+                'site4-title': 'Mercato delle Conchiglie',
+                'site4-subtitle': 'Tesori dell\'Oceano',
+                'site4-description': 'Mercato colorato dove i pescatori vezo vendono il loro pescato del giorno. Conchiglie multicolori, crostacei freschi, pesci esotici e artigianato marino. Un\'esperienza sensoriale unica al ritmo della vita costiera malgascia.',
+                'site4-feature1': 'Conchiglie rare e colorate',
+                'site4-feature2': 'Pesci e crostacei freschi',
+                'site4-feature3': 'Artigianato marino tradizionale',
+                'site4-feature4': 'Incontri con pescatori vezo',
+                
+                'site-link': 'Scoprire',
+                
+                // Destinations
+                'destinations-title': 'Destinazioni Complete del Sud',
+                'destinations-intro': 'Esplora in dettaglio i tesori del sud del Madagascar. Ogni destinazione offre un\'esperienza unica in ecosistemi eccezionali, dai deserti alle barriere coralline.',
+                'location-ifaty': 'Vicino a Ifaty',
+                'location-saint-augustin': 'Saint-Augustin',
+                'location-coast': 'Costa Sudovest',
+                'location-isalo': 'Parco di Isalo',
+                
+                'dest1-title': 'Riserva di Reniala',
+                'dest1-description': 'Santuario ecologico che protegge la foresta spinosa e i baobab nani endemici. Scopri la flora unica del sud del Madagascar con le sue piante succulente, euforbie e pachypodium rari.',
+                'dest1-feature1': 'Baobab nani endemici',
+                'dest1-feature2': 'Foresta spinosa unica',
+                'dest1-feature3': 'Piante succulente rare',
+                'dest1-feature4': 'Visite guidate botaniche',
+                
+                'dest2-title': 'Foresta di Mikea',
+                'dest2-description': 'Vasta foresta secca che ospita una biodiversità eccezionale e il popolo Mikea, ultimi cacciatori-raccoglitori del Madagascar. Scopri il loro stile di vita tradizionale e la flora unica di questa foresta minacciata.',
+                'dest2-feature1': 'Popolo Mikea tradizionale',
+                'dest2-feature2': 'Biodiversità eccezionale',
+                'dest2-feature3': 'Foresta secca unica',
+                'dest2-feature4': 'Escursioni etnobotaniche',
+                
+                'dest3-title': 'Villaggi Vezo Tradizionali',
+                'dest3-description': 'Scopri l\'affascinante cultura dei Vezo, popolo del mare la cui vita è scandita dalle maree e dalle stagioni di pesca. Piroghe a bilanciere, tecniche di pesca tradizionali e ospitalità leggendaria.',
+                'dest3-feature1': 'Cultura marittima unica',
+                'dest3-feature2': 'Piroghe tradizionali',
+                'dest3-feature3': 'Tecniche di pesca ancestrali',
+                'dest3-feature4': 'Soggiorno presso gli abitanti autentico',
+                
+                'dest4-title': 'Canyon dei Lemuri',
+                'dest4-description': 'Escursione magica nel canyon che ospita una colonia di lemuri. Oasi di freschezza con piscina naturale, vegetazione lussureggiante e incontri con i lemuri catta, emblemi del Madagascar.',
+                'dest4-feature1': 'Osservazione dei lemuri',
+                'dest4-feature2': 'Piscina naturale oasi',
+                'dest4-feature3': 'Escursione accessibile',
+                'dest4-feature4': 'Foto uniche con i lemuri',
+                
+                'destination-link': 'Esplorare',
+                
+                // Services
+                'services-title': 'I nostri Servizi nel Sud',
+                'services-intro': 'Island Mada Travel ti accompagna per creare il viaggio dei tuoi sogni nel sud del Madagascar. Servizi su misura per un\'esperienza autentica e indimenticabile tra deserto e oceano.',
+                'service1-title': 'Escursioni a Isalo',
+                'service1-desc': 'Guidati da esperti locali, esplora i canyon, piscine naturali e formazioni geologiche uniche del Parco Nazionale di Isalo.',
+                'service2-title': 'Immersione & Snorkeling',
+                'service2-desc': 'Scoperta delle barriere coralline eccezionali di Ifaty e Anakao con istruttori certificati. Attrezzatura di alta gamma fornita.',
+                'service3-title': 'Escursioni in Barca',
+                'service3-desc': 'Navigazione verso isole preservate, osservazione delle balene (stagione) e scoperta di villaggi di pescatori accessibili solo via mare.',
+                'service4-title': 'Soggiorno con i Vezo',
+                'service4-desc': 'Immersione totale nella vita dei pescatori vezo. Alloggio tradizionale, partecipazione alle attività di pesca e scoperta culinaria.',
+                'service5-title': 'Safari Fotografico',
+                'service5-desc': 'Accompagnamento da fotografo professionista per catturare paesaggi mozzafiato, fauna unica e momenti autentici.',
+                'service6-title': 'Degustazioni Marine',
+                'service6-desc': 'Scoperta della cucina costiera malgascia: pesci alla griglia, frutti di mare freschi, piatti tradizionali preparati dagli abitanti locali.',
+                'services-btn': 'Richiedi Preventivo Personalizzato',
+                
+                // Contact
+                'contact-title': 'Contatta Island Mada Travel',
+                'contact-intro': 'Pronto a scoprire i tesori del sud del Madagascar? Il nostro team locale è a tua disposizione per organizzare la tua avventura da sogno tra i canyon di Isalo e le spiagge di Anakao.',
+                'contact-phone': 'Telefono',
+                'contact-email': 'Email',
+                'contact-address': 'Indirizzo',
+                'whatsapp-btn': 'WhatsApp Diretto',
+                'email-btn': 'Invia Email',
+                
+                // Footer
+                'footer-tagline': 'La tua guida esperta per scoprire i tesori del sud del Madagascar. Esperienze autentiche tra deserto e oceano, paesaggi unici e incontri indimenticabili nella terra dei baobab e dei lemuri.',
+                'copyright': 'Tutti i diritti riservati.',
+                'privacy': 'Politica sulla Privacy',
+                'terms': 'Termini di Utilizzo'
+            },
+            ar: {
+                // Header
+                'logo-title': 'آيلاند مادا ترافل',
+                'logo-tagline': 'جنوب مدغشقر - إيسالو، أناكاو وكنوز الجنوب',
+                'nav-home': 'الرئيسية',
+                'nav-emblematic': 'المواقع الشهيرة',
+                'nav-destinations': 'الوجهات',
+                'nav-services': 'الخدمات',
+                'nav-contact': 'اتصل بنا',
+                'select-language': 'تغيير اللغة',
+                'lang-fr': 'الفرنسية',
+                'lang-en': 'الإنجليزية',
+                'lang-de': 'الألمانية',
+                'lang-es': 'الإسبانية',
+                'lang-it': 'الإيطالية',
+                'lang-ar': 'العربية',
+                'lang-zh': 'الصينية',
+                
+                // Hero
+                'hero-title': 'اكتشف الجنوب البري',
+                'hero-subtitle': 'من الأخاديد المهيبة في إيسالو إلى الشواطئ البكر في أناكاو، استكشف كنوز جنوب مدغشقر. الصحاري، الباوباب، الشعاب المرجانية وثقافة الفيزو تنتظرك لمغامرة لا تنسى.',
+                'feature1-title': 'الحديقة الوطنية إيسالو',
+                'feature1-desc': '"كولورادو مدغشقر" بأخاديدها المذهلة، البرك الطبيعية والتشكيلات الصخرية الفريدة في العالم.',
+                'feature2-title': 'أناكاو وإيفاتي',
+                'feature2-desc': 'شواطئ جنة، شعاب مرجانية، قرى صيادي الفيزو وغوص استثنائي في قناة موزمبيق.',
+                'feature3-title': 'غابة ميكيا ومحمية رينيالا',
+                'feature3-desc': 'ملاذات للتنوع البيولوجي تأوي أنواعًا مستوطنة فريدة، باوباب قزمة وغابات شائكة.',
+                'hero-btn': 'استكشف المواقع',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'كنوز جنوب مدغشقر',
+                'emblematic-intro': 'اكتشف أشهر المواقع في جنوب مدغشقر. من عظمة أخاديد إيسالو إلى هدوء شواطئ أناكاو، كل موقع يقدم تجربة فريدة في مناظر طبيعية تأخذ الأنفاس.',
+                'badge-park': 'حديقة وطنية',
+                'badge-beach': 'شاطئ',
+                'badge-diving': 'غوص',
+                'badge-market': 'سوق',
+                
+                // Sites spécifiques
+                'site1-title': 'الحديقة الوطنية إيسالو',
+                'site1-subtitle': 'كولورادو مدغشقر',
+                'site1-description': 'متحف جيولوجي حقيقي في الهواء الطلق، إيسالو تفتن بأخاديدها المنحوتة بالزمن، بركها الطبيعية بمياه بلورية وتشكيلاتها الرملية المذهلة. رحلات مشي لا تنسى في قلب صحراء مورقة.',
+                'site1-feature1': 'أخاديد مذهلة',
+                'site1-feature2': 'برك طبيعية واحة',
+                'site1-feature3': 'تشكيلات جيولوجية فريدة',
+                'site1-feature4': 'رحلات مشي إرشادية استثنائية',
+                
+                'site2-title': 'أناكاو',
+                'site2-subtitle': 'جنة صيادي الفيزو',
+                'site2-description': 'يمكن الوصول إليها فقط بالقوارب من توليارا، أناكاو تقدم شواطئ رمل أبيض بكر، مياه فيروزية وشعاب مرجانية محفوظة. اكتشف الثقافة الأصيلة لصيادي الفيزو وقواربهم التقليدية.',
+                'site2-feature1': 'شواطئ بكر',
+                'site2-feature2': 'شعاب مرجانية محفوظة',
+                'site2-feature3': 'ثقافة فيزو أصيلة',
+                'site2-feature4': 'غوص وسنوركل استثنائي',
+                
+                'site3-title': 'إيفاتي',
+                'site3-subtitle': 'عاصمة الغوص',
+                'site3-description': 'منتجع بحري مشهور بمواقع الغوص الاستثنائية في الحاجز المرجاني الكبير. من أجمل الشعاب المرجانية في العالم، تنوع بيولوجي بحري مذهل وباوباب قزمة في المناطق النائية.',
+                'site3-feature1': 'أفضل مواقع الغوص في مدغشقر',
+                'site3-feature2': 'الحاجز المرجاني الكبير',
+                'site3-feature3': 'باوباب قزمة مستوطنة',
+                'site3-feature4': 'مركز غوص محترف',
+                
+                'site4-title': 'سوق الأصداف',
+                'site4-subtitle': 'كنوز المحيط',
+                'site4-description': 'سوق ملون حيث يبيع صيادو الفيزو صيدهم اليومي. أصداف متعددة الألوان، محار طازج، أسماك غريبة وحرف بحرية. تجربة حسية فريدة بإيقاع الحياة الساحلية الملغاشية.',
+                'site4-feature1': 'أصداف نادرة وملونة',
+                'site4-feature2': 'أسماك ومحار طازج',
+                'site4-feature3': 'حرف بحرية تقليدية',
+                'site4-feature4': 'لقاءات مع صيادي الفيزو',
+                
+                'site-link': 'اكتشف',
+                
+                // Destinations
+                'destinations-title': 'وجهات الجنوب الكاملة',
+                'destinations-intro': 'استكشف بالتفصيل كنوز جنوب مدغشقر. كل وجهة تقدم تجربة فريدة في أنظمة بيئية استثنائية، من الصحاري إلى الشعاب المرجانية.',
+                'location-ifaty': 'قرب إيفاتي',
+                'location-saint-augustin': 'سانت أوغستان',
+                'location-coast': 'الساحل الجنوبي الغربي',
+                'location-isalo': 'حديقة إيسالو',
+                
+                'dest1-title': 'محمية رينيالا',
+                'dest1-description': 'ملاذ بيئي يحمي الغابة الشائكة والبابوباب القزمية المستوطنة. اكتشف النباتات الفريدة لجنوب مدغشقر مع نباتاتها العصارية، فربيون ونباتات باشيبوديوم النادرة.',
+                'dest1-feature1': 'بابوباب قزمية مستوطنة',
+                'dest1-feature2': 'غابة شائكة فريدة',
+                'dest1-feature3': 'نباتات عصارية نادرة',
+                'dest1-feature4': 'زيارات إرشادية نباتية',
+                
+                'dest2-title': 'غابة ميكيا',
+                'dest2-description': 'غابة جافة شاسعة تأوي تنوعًا بيولوجيًا استثنائيًا وشعب ميكيا، آخر الصيادين-الجامعين في مدغشقر. اكتشف أسلوب حياتهم التقليدي والنباتات الفريدة لهذه الغابة المهددة.',
+                'dest2-feature1': 'شعب ميكيا التقليدي',
+                'dest2-feature2': 'تنوع بيولوجي استثنائي',
+                'dest2-feature3': 'غابة جافة فريدة',
+                'dest2-feature4': 'رحلات مشي إثنونباتية',
+                
+                'dest3-title': 'قرى الفيزو التقليدية',
+                'dest3-description': 'اكتشف الثقافة الرائعة للفيزو، شعب البحر الذي تحكم حياته المد والجزر وموسم الصيد. قوارب متوازنة، تقنيات صيد تقليدية وضيافة أسطورية.',
+                'dest3-feature1': 'ثقافة بحرية فريدة',
+                'dest3-feature2': 'قوارب تقليدية',
+                'dest3-feature3': 'تقنيات صيد قديمة',
+                'dest3-feature4': 'إقامة مع السكان الأصيلة',
+                
+                'dest4-title': 'وادي الليمور',
+                'dest4-description': 'رحلة مشي ساحرة في الوادي الذي يؤوي مستعمرة ليمور. واحة نضارة ببركة طبيعية، نباتات خضراء وافرة ولقاءات مع ليمور كاتا، رموز مدغشقر.',
+                'dest4-feature1': 'مراقبة الليمور',
+                'dest4-feature2': 'بركة طبيعية واحة',
+                'dest4-feature3': 'رحلة مشي يمكن الوصول إليها',
+                'dest4-feature4': 'صور فريدة مع الليمور',
+                
+                'destination-link': 'استكشف',
+                
+                // Services
+                'services-title': 'خدماتنا في الجنوب',
+                'services-intro': 'آيلاند مادا ترافل ترافقك لخلق رحلة أحلامك إلى جنوب مدغشقر. خدمات مخصصة لتجربة أصيلة لا تنسى بين الصحراء والمحيط.',
+                'service1-title': 'رحلات مشي في إيسالو',
+                'service1-desc': 'بإرشاد خبراء محليين، استكشف الأخاديد، البرك الطبيعية والتشكيلات الجيولوجية الفريدة للحديقة الوطنية إيسالو.',
+                'service2-title': 'غوص وسنوركل',
+                'service2-desc': 'اكتشاف الشعاب المرجانية الاستثنائية لإيفاتي وأناكاو مع مدربين معتمدين. يتم توفير معدات عالية الجودة.',
+                'service3-title': 'رحلات بالقوارب',
+                'service3-desc': 'إبحار إلى جزر محفوظة، مراقبة الحيتان (موسم)، واكتشاف قرى الصيادين التي يمكن الوصول إليها فقط عن طريق البحر.',
+                'service4-title': 'إقامة مع الفيزو',
+                'service4-desc': 'انغماس كامل في حياة صيادي الفيزو. إقامة تقليدية، مشاركة في أنشطة الصيد واكتشاف طهوي.',
+                'service5-title': 'سفاري تصوير',
+                'service5-desc': 'مرافقة مصور محترف لالتقاط مناظر طبيعية مذهلة، حياة برية فريدة ولحظات أصيلة.',
+                'service6-title': 'تذوقات بحرية',
+                'service6-desc': 'اكتشاف المطبخ الساحلي الملغاشي: أسماك مشوية، مأكولات بحرية طازجة، أطباق تقليدية يعدها السكان المحليون.',
+                'services-btn': 'طلب عرض سعر مخصص',
+                
+                // Contact
+                'contact-title': 'اتصل بآيلاند مادا ترافل',
+                'contact-intro': 'مستعد لاكتشاف كنوز جنوب مدغشقر؟ فريقنا المحلي تحت تصرفك لتنظيم مغامرة أحلامك بين أخاديد إيسالو وشواطئ أناكاو.',
+                'contact-phone': 'هاتف',
+                'contact-email': 'بريد إلكتروني',
+                'contact-address': 'عنوان',
+                'whatsapp-btn': 'واتساب مباشر',
+                'email-btn': 'إرسال بريد إلكتروني',
+                
+                // Footer
+                'footer-tagline': 'مرشدك الخبير لاكتشاف كنوز جنوب مدغشقر. تجارب أصيلة بين الصحراء والمحيط، مناظر طبيعية فريدة ولقاءات لا تنسى في أرض البابوباب والليمور.',
+                'copyright': 'جميع الحقوق محفوظة.',
+                'privacy': 'سياسة الخصوصية',
+                'terms': 'شروط الاستخدام'
+            },
+            zh: {
+                // Header
+                'logo-title': '马达加斯加岛旅游',
+                'logo-tagline': '马达加斯加南部 - 伊萨卢，阿纳考和南方宝藏',
+                'nav-home': '首页',
+                'nav-emblematic': '标志性景点',
+                'nav-destinations': '目的地',
+                'nav-services': '服务',
+                'nav-contact': '联系我们',
+                'select-language': '更改语言',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-ar': '阿拉伯语',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': '探索狂野的南部',
+                'hero-subtitle': '从伊萨卢的雄伟峡谷到阿纳考的原始海滩，探索马达加斯加南部的宝藏。沙漠，猴面包树，珊瑚礁和维佐文化等待您的难忘冒险。',
+                'feature1-title': '伊萨卢国家公园',
+                'feature1-desc': '拥有壮观峡谷、天然水池和世界独特岩石构造的"马达加斯加科罗拉多"。',
+                'feature2-title': '阿纳考和伊法蒂',
+                'feature2-desc': '天堂海滩，珊瑚礁，维佐渔村和在莫桑比克海峡的卓越潜水。',
+                'feature3-title': '米凯亚森林和雷尼亚拉保护区',
+                'feature3-desc': '生物多样性圣地，拥有独特特有物种、矮猴面包树和多刺森林。',
+                'hero-btn': '探索景点',
+                
+                // Sites Emblématiques
+                'emblematic-title': '马达加斯加南部的宝藏',
+                'emblematic-intro': '探索马达加斯加南部最著名的景点。从伊萨卢峡谷的壮丽到阿纳考海滩的宁静，每个景点在令人惊叹的景观中提供独特体验。',
+                'badge-park': '国家公园',
+                'badge-beach': '海滩',
+                'badge-diving': '潜水',
+                'badge-market': '市场',
+                
+                // Sites spécifiques
+                'site1-title': '伊萨卢国家公园',
+                'site1-subtitle': '马达加斯加科罗拉多',
+                'site1-description': '真正的露天地质博物馆，伊萨卢以其时间雕刻的峡谷、水晶般清澈的天然水池和壮观的砂岩构造令人着迷。在郁郁葱葱的沙漠中心进行难忘的徒步旅行。',
+                'site1-feature1': '壮观的峡谷',
+                'site1-feature2': '绿洲天然水池',
+                'site1-feature3': '独特的地质构造',
+                'site1-feature4': '卓越的导览徒步',
+                
+                'site2-title': '阿纳考',
+                'site2-subtitle': '维佐渔民的天堂',
+                'site2-description': '只能从图利亚拉乘船抵达，阿纳考提供原始的白沙滩、绿松石色水域和受保护的珊瑚礁。探索维佐渔民的真实文化及其传统独木舟。',
+                'site2-feature1': '原始海滩',
+                'site2-feature2': '受保护的珊瑚礁',
+                'site2-feature3': '真实的维佐文化',
+                'site2-feature4': '卓越的潜水和浮潜',
+                
+                'site3-title': '伊法蒂',
+                'site3-subtitle': '潜水之都',
+                'site3-description': '以其在大堡礁的卓越潜水点而闻名的海滨度假胜地。世界上最美丽的珊瑚礁之一，壮观的海洋生物多样性和内陆的矮猴面包树。',
+                'site3-feature1': '马达加斯加最佳潜水点',
+                'site3-feature2': '大堡礁',
+                'site3-feature3': '特有矮猴面包树',
+                'site3-feature4': '专业潜水中心',
+                
+                'site4-title': '贝壳市场',
+                'site4-subtitle': '海洋宝藏',
+                'site4-description': '维佐渔民出售当日捕捞的彩色市场。多彩贝壳，新鲜海鲜，异国鱼类和海洋工艺品。在马达加斯加沿海生活节奏中的独特感官体验。',
+                'site4-feature1': '稀有彩色贝壳',
+                'site4-feature2': '新鲜鱼和海鲜',
+                'site4-feature3': '传统海洋工艺品',
+                'site4-feature4': '与维佐渔民会面',
+                
+                'site-link': '发现',
+                
+                // Destinations
+                'destinations-title': '完整的南方目的地',
+                'destinations-intro': '详细探索马达加斯加南部的宝藏。每个目的地在从沙漠到珊瑚礁的特殊生态系统中提供独特体验。',
+                'location-ifaty': '伊法蒂附近',
+                'location-saint-augustin': '圣奥古斯丁',
+                'location-coast': '西南海岸',
+                'location-isalo': '伊萨卢公园',
+                
+                'dest1-title': '雷尼亚拉保护区',
+                'dest1-description': '保护多刺森林和特有矮猴面包树的生态圣地。探索马达加斯加南部的独特植物，包括其多肉植物、大戟属和稀有厚敦菊属植物。',
+                'dest1-feature1': '特有矮猴面包树',
+                'dest1-feature2': '独特的多刺森林',
+                'dest1-feature3': '稀有多肉植物',
+                'dest1-feature4': '导览植物之旅',
+                
+                'dest2-title': '米凯亚森林',
+                'dest2-description': '广阔的干燥森林，栖息着特殊的生物多样性和米凯亚人，马达加斯加最后的狩猎采集者。发现他们的传统生活方式和这片受威胁森林的独特植物。',
+                'dest2-feature1': '传统米凯亚人',
+                'dest2-feature2': '特殊的生物多样性',
+                'dest2-feature3': '独特的干燥森林',
+                'dest2-feature4': '民族植物学徒步',
+                
+                'dest3-title': '传统维佐村庄',
+                'dest3-description': '探索维佐人的迷人文化，这个海洋民族的生活由潮汐和捕鱼季节决定。平衡独木舟，传统捕鱼技术和传奇的款待。',
+                'dest3-feature1': '独特的海洋文化',
+                'dest3-feature2': '传统独木舟',
+                'dest3-feature3': '古老捕鱼技术',
+                'dest3-feature4': '真实的民宿体验',
+                
+                'dest4-title': '狐猴峡谷',
+                'dest4-description': '在栖息着狐猴群落的峡谷中进行神奇徒步。拥有天然泳池的清新绿洲，茂密的植被以及与马达加斯加象征环尾狐猴的相遇。',
+                'dest4-feature1': '狐猴观察',
+                'dest4-feature2': '绿洲天然泳池',
+                'dest4-feature3': '可访问的徒步',
+                'dest4-feature4': '与狐猴的独特照片',
+                
+                'destination-link': '探索',
+                
+                // Services
+                'services-title': '我们在南部的服务',
+                'services-intro': '马达加斯加岛旅游陪伴您打造马达加斯加南部的梦想之旅。量身定制的服务，在沙漠和海洋之间带来真实难忘的体验。',
+                'service1-title': '伊萨卢徒步',
+                'service1-desc': '在当地专家指导下，探索伊萨卢国家公园独特的峡谷、天然水池和地质构造。',
+                'service2-title': '潜水和浮潜',
+                'service2-desc': '在认证教练指导下发现伊法蒂和阿纳考的特殊珊瑚礁。提供高端设备。',
+                'service3-title': '乘船游览',
+                'service3-desc': '航行至受保护的岛屿，观鲸（季节），以及发现只能通过海路到达的渔村。',
+                'service4-title': '与维佐人同住',
+                'service4-desc': '完全沉浸在维佐渔民的生活中。传统住宿，参与捕鱼活动和美食发现。',
+                'service5-title': '摄影游猎',
+                'service5-desc': '由专业摄影师陪同，捕捉令人惊叹的景观、独特的野生动物和真实瞬间。',
+                'service6-title': '海洋品尝',
+                'service6-desc': '发现马达加斯加沿海美食：烤鱼，新鲜海鲜，由当地人准备的传统菜肴。',
+                'services-btn': '请求定制报价',
+                
+                // Contact
+                'contact-title': '联系马达加斯加岛旅游',
+                'contact-intro': '准备好探索马达加斯加南部的宝藏了吗？我们的当地团队随时为您服务，在伊萨卢峡谷和阿纳考海滩之间组织您的梦想冒险。',
+                'contact-phone': '电话',
+                'contact-email': '电子邮件',
+                'contact-address': '地址',
+                'whatsapp-btn': '直接WhatsApp',
+                'email-btn': '发送邮件',
+                
+                // Footer
+                'footer-tagline': '您探索马达加斯加南部宝藏的专家向导。在沙漠和海洋之间的真实体验，独特的景观以及在猴面包树和狐猴之乡的难忘相遇。',
+                'copyright': '版权所有。',
+                'privacy': '隐私政策',
+                'terms': '使用条款'
+            }
+        };
+
+        // Langue par défaut
+        let currentLang = 'fr';
+
+        // Charger la langue depuis localStorage ou détecter
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('islandMadaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            } else {
+                currentLang = 'fr';
+            }
+            
+            updateLanguage();
+        }
+
+        // Mettre à jour toutes les traductions
+        function updateLanguage() {
+            // Mettre à jour les textes avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Mettre à jour les indicateurs de langue
+            currentLangElements.forEach(el => {
+                el.textContent = currentLang.toUpperCase();
+            });
+
+            // Mettre à jour les options actives
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Sauvegarder la préférence
+            localStorage.setItem('islandMadaLang', currentLang);
+            
+            // Fermer le menu mobile si ouvert
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Gérer le clic sur les options de langue
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        // ===== NAVIGATION ACTIVE STATE =====
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== IMAGE LOADING =====
+        function loadImages() {
+            const images = document.querySelectorAll('.loading');
+            
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                    image.onload = () => {
+                        img.classList.remove('loading');
+                    };
+                }
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '8px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(210, 105, 30, 0.3)';
+            } else {
+                header.style.padding = '12px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(210, 105, 30, 0.2)';
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger la langue
+            loadLanguage();
+            
+            // Mettre à jour l'année du copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Charger les images
+            loadImages();
+            
+            // Événements de scroll
+            window.addEventListener('scroll', () => {
+                handleScrollAnimations();
+                updateActiveNav();
+                handleHeaderScroll();
+            });
+            
+            // Initialiser les animations
+            handleScrollAnimations();
+            updateActiveNav();
+            handleHeaderScroll();
+            
+            // Fermer le menu au clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Gestion des touches Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // ===== ORIENTATION CHANGE =====
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                handleScrollAnimations();
+                updateActiveNav();
+            }, 300);
+        });
+
+        // ===== PREVENT CONTEXT MENU ON MOBILE =====
+        document.addEventListener('contextmenu', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

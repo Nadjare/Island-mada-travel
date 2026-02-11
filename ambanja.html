@@ -1,0 +1,3747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Ambanja, Cœur du Sambirano & Trésors du Cacao</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a1a0a 0%, #1a2d1a 100%);
+            color: #f0f8ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== PALETTE DE COULEURS AMBANJA ===== */
+        :root {
+            --color-cacao: #8B4513;
+            --color-cacao-light: #A0522D;
+            --color-chocolate: #D2691E;
+            --color-vanilla: #F3E5AB;
+            --color-sambirano: #20B2AA;
+            --color-sambirano-dark: #008080;
+            --color-baobab: #654321;
+            --color-green: #2E8B57;
+            --color-green-light: #3CB371;
+            --color-market: #FF8C00;
+            --color-white: #ffffff;
+            --color-night: #0a1a0a;
+        }
+
+        /* ===== HEADER RESPONSIVE ===== */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 26, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 12px 5%;
+            border-bottom: 3px solid var(--color-cacao);
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 70px;
+        }
+
+        /* LOGO - Aligné à droite */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.3s ease;
+            margin-left: auto;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-vanilla);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+            flex-shrink: 0;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            text-align: right;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-white);
+            line-height: 1.1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .logo-tagline {
+            font-size: 0.8rem;
+            color: var(--color-vanilla);
+            margin-top: 4px;
+            font-weight: 500;
+            max-width: 200px;
+        }
+
+        /* ===== NAVIGATION DESKTOP ===== */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .nav-desktop {
+                display: none;
+            }
+            
+            .logo {
+                margin-left: 0;
+                margin-right: auto;
+            }
+            
+            .logo-text {
+                text-align: left;
+            }
+        }
+
+        .nav-link {
+            color: var(--color-white);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover {
+            color: var(--color-cacao);
+            background: rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--color-cacao);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-cacao), var(--color-vanilla));
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(139, 69, 19, 0.4);
+        }
+
+        /* ===== BOUTON LANGUE DESKTOP ===== */
+        .language-desktop-btn {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(32, 178, 170, 0.2));
+            border: 2px solid var(--color-cacao);
+            color: var(--color-white);
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            min-width: 90px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.3);
+        }
+
+        .language-desktop-btn:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(32, 178, 170, 0.3));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(139, 69, 19, 0.4);
+            border-color: var(--color-vanilla);
+        }
+
+        .language-selector {
+            position: relative;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 250px;
+            background: rgba(10, 26, 10, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-15px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--color-cacao);
+            z-index: 1001;
+        }
+
+        .language-selector:hover .language-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            color: var(--color-white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(243, 229, 171, 0.2));
+            transform: translateX(8px);
+            border-left: 3px solid var(--color-cacao);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.3), rgba(243, 229, 171, 0.3));
+            color: var(--color-cacao);
+            font-weight: 700;
+            border-left: 3px solid var(--color-vanilla);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid var(--color-vanilla);
+        }
+
+        /* ===== CONTROLES MOBILE ===== */
+        .mobile-controls {
+            display: none;
+            align-items: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        /* Bouton Langue Mobile */
+        .language-mobile-btn {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(32, 178, 170, 0.2));
+            border: 2px solid var(--color-cacao);
+            color: var(--color-white);
+            padding: 12px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            min-width: 70px;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .language-mobile-btn:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(32, 178, 170, 0.3));
+            transform: scale(1.05);
+            border-color: var(--color-vanilla);
+        }
+
+        /* Bouton Menu Mobile */
+        .menu-toggle {
+            background: linear-gradient(135deg, var(--color-cacao), var(--color-green));
+            border: 2px solid var(--color-vanilla);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .menu-toggle:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, var(--color-green), var(--color-cacao));
+        }
+
+        /* ===== MENU MOBILE ===== */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 26, 10, 0.98), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(20px);
+            padding: 100px 35px 35px;
+            box-shadow: -5px 0 30px rgba(139, 69, 19, 0.3);
+            transition: right 0.4s ease;
+            z-index: 999;
+            overflow-y: auto;
+            border-left: 3px solid var(--color-cacao);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--color-cacao), var(--color-green));
+            border: 2px solid var(--color-vanilla);
+            color: var(--color-white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .close-menu:hover {
+            transform: rotate(180deg);
+            background: linear-gradient(135deg, var(--color-green), var(--color-cacao));
+        }
+
+        /* ===== NAVIGATION MOBILE ===== */
+        .mobile-nav {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 15px;
+        }
+
+        .mobile-nav a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 18px 22px;
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.1), rgba(243, 229, 171, 0.05));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: 2px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(243, 229, 171, 0.1));
+            border-left-color: var(--color-cacao);
+            transform: translateX(10px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .mobile-nav i {
+            width: 28px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--color-vanilla);
+        }
+
+        /* ===== SECTION LANGUE MOBILE ===== */
+        .mobile-language-section {
+            padding: 30px 0;
+            border-top: 2px solid rgba(139, 69, 19, 0.3);
+            border-bottom: 2px solid rgba(243, 229, 171, 0.3);
+            margin-bottom: 35px;
+        }
+
+        .mobile-language-title {
+            color: var(--color-white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mobile-language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-language-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            color: var(--color-white);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid rgba(139, 69, 19, 0.2);
+        }
+
+        .mobile-language-option:hover {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(243, 229, 171, 0.2));
+            transform: translateX(8px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .mobile-language-option.active {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.3), rgba(243, 229, 171, 0.3));
+            color: var(--color-cacao);
+            font-weight: 700;
+            border-left: 5px solid var(--color-vanilla);
+            border-color: var(--color-vanilla);
+        }
+
+        /* ===== HEADER SPACER RESPONSIVE ===== */
+        .header-spacer {
+            height: 85px;
+            width: 100%;
+        }
+
+        /* ===== RESPONSIVE ADJUSTMENTS ===== */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-spacer {
+                height: 80px;
+            }
+            
+            .logo-image {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .logo-title {
+                font-size: 1.3rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-spacer {
+                height: 75px;
+            }
+            
+            .logo {
+                gap: 12px;
+            }
+            
+            .logo-image {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-title {
+                font-size: 1.2rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.7rem;
+                max-width: 180px;
+            }
+            
+            .menu-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+            
+            .language-mobile-btn {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+                min-width: 65px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .logo-image {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .logo-title {
+                font-size: 1.1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.65rem;
+                max-width: 150px;
+            }
+            
+            .mobile-controls {
+                gap: 15px;
+            }
+            
+            .language-mobile-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                min-width: 60px;
+            }
+            
+            .menu-toggle {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .mobile-menu {
+                max-width: 320px;
+                padding: 90px 25px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-spacer {
+                height: 65px;
+            }
+            
+            .logo {
+                gap: 10px;
+            }
+            
+            .logo-image {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .logo-title {
+                font-size: 1rem;
+            }
+            
+            .logo-tagline {
+                font-size: 0.6rem;
+                max-width: 130px;
+            }
+            
+            .mobile-controls {
+                gap: 10px;
+            }
+            
+            .language-mobile-btn {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+                min-width: 55px;
+            }
+            
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== SECTION HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 26, 10, 0.85), rgba(10, 26, 10, 0.9)),
+                        url('ambanja.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.1), rgba(243, 229, 171, 0.1));
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                padding: 80px 0;
+                min-height: 90vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 60px 0;
+                min-height: 85vh;
+            }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, var(--color-cacao), var(--color-vanilla), var(--color-sambirano));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--color-white);
+            margin-bottom: 50px;
+            line-height: 1.7;
+            opacity: 0.95;
+            padding: 0 20px;
+            font-weight: 300;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-subtitle {
+                font-size: clamp(1rem, 2.5vw, 1.3rem);
+                padding: 0 10px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* FEATURE CARDS */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        @media (max-width: 992px) {
+            .hero-features {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-features {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 50px 0;
+            }
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 2px solid rgba(243, 229, 171, 0.3);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .feature-card {
+                padding: 25px 20px;
+            }
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--color-cacao), var(--color-vanilla));
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 15px 35px rgba(139, 69, 19, 0.3);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .feature-icon {
+            font-size: 2.8rem;
+            color: var(--color-vanilla);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .feature-icon {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .feature-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        .feature-card p {
+            color: #e0f7ff;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .feature-card p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* BOUTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--color-cacao), var(--color-green));
+            color: var(--color-white);
+            padding: 18px 35px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-vanilla);
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 69, 19, 0.6);
+            background: linear-gradient(135deg, var(--color-green), var(--color-cacao));
+            border-color: var(--color-cacao);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--color-cacao);
+            color: var(--color-cacao);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-outline:hover {
+            background: rgba(139, 69, 19, 0.15);
+            color: var(--color-white);
+            border-color: var(--color-vanilla);
+        }
+
+        /* SECTIONS GENERIQUES */
+        section {
+            padding: clamp(80px, 10vw, 120px) 0;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 70px);
+            position: relative;
+            font-weight: 800;
+            color: var(--color-white);
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: clamp(1.8rem, 4vw, 2.5rem);
+                margin-bottom: 50px;
+            }
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-cacao), var(--color-vanilla), var(--color-sambirano));
+            border-radius: 3px;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto clamp(50px, 7vw, 80px);
+            color: #e6ffea;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            line-height: 1.7;
+            padding: 0 20px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .section-intro {
+                font-size: clamp(1rem, 2vw, 1.2rem);
+                margin-bottom: 60px;
+            }
+        }
+
+        /* ===== SECTION SITES EMBLEMATIQUES ===== */
+        .emblematic-sites {
+            background: linear-gradient(135deg, #102510 0%, #1a3a1a 100%);
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 992px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sites-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .sites-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+        }
+
+        .site-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(243, 229, 171, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .site-card {
+                border-radius: 15px;
+                border-width: 2px;
+            }
+        }
+
+        .site-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-cacao), var(--color-vanilla), var(--color-sambirano));
+            z-index: 2;
+        }
+
+        .site-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+        }
+
+        .site-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--color-green), var(--color-vanilla));
+            color: var(--color-white);
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        @media (max-width: 480px) {
+            .site-badge {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+        }
+
+        .site-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 992px) {
+            .site-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-image {
+                height: 180px;
+            }
+        }
+
+        .site-card:hover .site-image {
+            transform: scale(1.08);
+        }
+
+        .site-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .site-content {
+                padding: 20px;
+            }
+        }
+
+        .site-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 768px) {
+            .site-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .site-card h3 i {
+            color: var(--color-vanilla);
+            font-size: 1.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .site-card h3 i {
+                font-size: 1.4rem;
+            }
+        }
+
+        .site-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-cacao);
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .site-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .site-features {
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .site-features li {
+            color: #daffea;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .site-features li {
+                font-size: 0.9rem;
+            }
+        }
+
+        .site-features li:before {
+            content: '✓';
+            color: var(--color-green);
+            font-weight: bold;
+        }
+
+        .site-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 100px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .site-card p {
+                font-size: 0.95rem;
+                min-height: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-cacao);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(32, 178, 170, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .site-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        .site-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.25), rgba(243, 229, 171, 0.25));
+            border-color: var(--color-cacao);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        /* ===== SECTION DESTINATIONS DETAILLEES ===== */
+        .detailed-destinations {
+            background: linear-gradient(135deg, #1a3a1a 0%, #102510 100%);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 992px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destinations-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .destinations-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+        }
+
+        .destination-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(243, 229, 171, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 100%;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card {
+                border-radius: 15px;
+                border-width: 2px;
+            }
+        }
+
+        .destination-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-cacao), var(--color-vanilla));
+            z-index: 2;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        @media (max-width: 992px) {
+            .destination-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .destination-image {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destination-image {
+                height: 180px;
+            }
+        }
+
+        .destination-card:hover .destination-image {
+            transform: scale(1.08);
+        }
+
+        .destination-content {
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .destination-content {
+                padding: 20px;
+            }
+        }
+
+        .destination-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-white);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .destination-card h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        .destination-card h3 i {
+            color: var(--color-vanilla);
+            font-size: 1.6rem;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card h3 i {
+                font-size: 1.4rem;
+            }
+        }
+
+        .destination-distance {
+            color: var(--color-green);
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .destination-distance {
+                font-size: 0.9rem;
+            }
+        }
+
+        .destination-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            min-height: 120px;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .destination-card p {
+                font-size: 0.95rem;
+                min-height: auto;
+                margin-bottom: 20px;
+            }
+        }
+
+        .destination-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--color-cacao);
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(32, 178, 170, 0.15));
+            border-radius: 10px;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .destination-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        .destination-link:hover {
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.25), rgba(243, 229, 171, 0.25));
+            border-color: var(--color-cacao);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.3);
+        }
+
+        /* SERVICES */
+        .services {
+            background: linear-gradient(135deg, #102510 0%, #1a3a1a 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(243, 229, 171, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 25px 20px;
+                border-radius: 15px;
+                border-width: 2px;
+            }
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .service-icon {
+            font-size: 3.2rem;
+            color: var(--color-vanilla);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .service-icon {
+                font-size: 2.8rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .service-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+            }
+        }
+
+        .service-card p {
+            color: #daffea;
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .service-card p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* CONTACT */
+        .contact {
+            background: linear-gradient(135deg, #1a3a1a 0%, #102510 100%);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 10px;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(32, 178, 170, 0.1));
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 3px solid rgba(243, 229, 171, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 25px 20px;
+                border-radius: 15px;
+                border-width: 2px;
+            }
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--color-cacao);
+            box-shadow: 0 20px 40px rgba(139, 69, 19, 0.4);
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.15), rgba(32, 178, 170, 0.15));
+        }
+
+        .contact-icon {
+            font-size: 2.8rem;
+            color: var(--color-cacao);
+            margin-bottom: 25px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-icon {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .contact-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card h3 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .contact-info a {
+            color: #daffea;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info a {
+                font-size: 1rem;
+                padding: 8px;
+            }
+        }
+
+        .contact-info a:hover {
+            color: var(--color-cacao);
+            background: rgba(139, 69, 19, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-buttons {
+            text-align: center;
+            margin-top: 50px;
+            padding: 0 15px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons {
+                margin-top: 40px;
+            }
+        }
+
+        .contact-buttons .btn {
+            margin: 0 15px 15px;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-buttons .btn {
+                margin: 0 0 15px;
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #0a1a0a 0%, #102510 100%);
+            padding: 50px 0 25px;
+            border-top: 5px solid var(--color-cacao);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 0 20px;
+            }
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-cacao), var(--color-vanilla), var(--color-sambirano));
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--color-white);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .footer-logo {
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+        }
+
+        .footer-tagline {
+            color: #e6ffea;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .footer-tagline {
+                font-size: 1rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .social-links {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-links {
+                gap: 12px;
+            }
+        }
+
+        .social-link {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.2), rgba(32, 178, 170, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-cacao);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(243, 229, 171, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--color-cacao), var(--color-green));
+            color: white;
+            transform: translateY(-8px) scale(1.1);
+            border-color: var(--color-vanilla);
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            color: #e6ffea;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info p {
+                font-size: 1rem;
+            }
+        }
+
+        .contact-info i {
+            color: var(--color-vanilla);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .copyright {
+            color: #b3ffc9;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid rgba(139, 69, 19, 0.3);
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .copyright {
+                font-size: 0.85rem;
+                margin-top: 30px;
+                padding-top: 20px;
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+        .delay-5 { animation-delay: 1s; }
+
+        /* IMAGE LOADING */
+        .loading {
+            background: linear-gradient(90deg, #1a2d1a 25%, #2a3d2a 50%, #1a2d1a 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* TOUCH OPTIMIZATIONS */
+        @media (hover: none) {
+            .destination-card:hover,
+            .site-card:hover,
+            .service-card:hover,
+            .contact-card:hover,
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .nav-link:hover,
+            .language-option:hover,
+            .mobile-nav a:hover,
+            .social-link:hover,
+            .contact-info a:hover,
+            .destination-link:hover,
+            .site-link:hover {
+                background: none;
+                transform: none;
+            }
+            
+            .btn:hover,
+            .btn-outline:hover {
+                transform: none;
+            }
+        }
+
+        /* ORIENTATION PAYSAGE */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero {
+                min-height: 120vh;
+            }
+            
+            .header-spacer {
+                height: 70px;
+            }
+            
+            .mobile-menu {
+                max-height: 100vh;
+                overflow-y: auto;
+            }
+        }
+
+        /* TABLET SPECIFIC ADJUSTMENTS */
+        @media (min-width: 577px) and (max-width: 768px) {
+            .sites-grid,
+            .destinations-grid,
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* DESKTOP LARGE SCREENS */
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1300px;
+            }
+            
+            .hero-content {
+                max-width: 1100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+
+                <!-- Logo () -->
+                <a href="#home" class="logo">
+                    <!-- Remplacez le src par votre image de logo -->
+                    <img src="logo.png" 
+                         alt="Island Mada Travel Logo" class="logo-image">
+                    <div class="logo-text">
+                        <div class="logo-title">ISLAND MADA TRAVEL</div>
+                        <div class="logo-tagline">Ambanja - Cœur du Sambirano & Trésors du Cacao</div>
+                    </div>
+                </a>
+                <!-- Navigation et Langue Desktop (maintenant à gauche) -->
+                <div class="nav-desktop">
+                    <!-- Navigation -->
+                    <nav>
+                        <a href="#home" class="nav-link active">Accueil</a>
+                        <a href="#emblematic" class="nav-link">Sites Emblématiques</a>
+                        <a href="#destinations" class="nav-link">Destinations</a>
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </nav>
+                    
+                    <!-- Bouton Langue Desktop -->
+                    <div class="language-selector">
+                        <button class="language-desktop-btn">
+                            <i class="fas fa-globe-americas"></i>
+                            <span class="current-lang">FR</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown">
+                            <a href="#" class="language-option active" data-lang="fr">
+                                <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                                <span>Français</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="en">
+                                <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                                <span>English</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="de">
+                                <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                                <span>Deutsch</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="es">
+                                <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                                <span>Español</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="it">
+                                <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                                <span>Italiano</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="ar">
+                                <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                                <span>العربية</span>
+                            </a>
+                            <a href="#" class="language-option" data-lang="zh">
+                                <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                                <span>中文</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles Mobile -->
+                <div class="mobile-controls">
+                    <!-- Bouton Langue Mobile -->
+                    <button class="language-mobile-btn" id="mobileLangBtn">
+                        <i class="fas fa-globe-americas"></i>
+                        <span class="current-lang-mobile">FR</span>
+                    </button>
+                    
+                    <!-- Bouton Menu Mobile -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <!-- Navigation Mobile -->
+        <ul class="mobile-nav">
+            <li><a href="#home" class="active"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#emblematic"><i class="fas fa-tree"></i> Sites Emblématiques</a></li>
+            <li><a href="#destinations"><i class="fas fa-map-marker-alt"></i> Destinations</a></li>
+            <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+            <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+        
+        <!-- Sélecteur de Langue Mobile -->
+        <div class="mobile-language-section">
+            <div class="mobile-language-title">
+                <i class="fas fa-language"></i>
+                <span>Changer la langue</span>
+            </div>
+            <div class="mobile-language-grid">
+                <a href="#" class="mobile-language-option active" data-lang="fr">
+                    <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                    <span>Français</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="en">
+                    <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                    <span>English</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="de">
+                    <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                    <span>Deutsch</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="es">
+                    <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                    <span>Español</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="it">
+                    <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                    <span>Italiano</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="ar">
+                    <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                    <span>العربية</span>
+                </a>
+                <a href="#" class="mobile-language-option" data-lang="zh">
+                    <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                    <span>中文</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-spacer"></div>
+
+    <!-- ===== SECTION HERO ===== -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-translate="hero-title">Découvrez Ambanja</h1>
+                <p class="hero-subtitle" data-translate="hero-subtitle">
+                    Capitale du cacao de Madagascar ! Au cœur de la vallée fertile du Sambirano, 
+                    découvrez les secrets du cacao Criollo, le Baobab Sacré millénaire, 
+                    le marché aux mille parfums et la douceur de vivre malgache.
+                </p>
+                
+                <div class="hero-features">
+                    <div class="feature-card fade-in delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3 data-translate="feature1-title">Baobab Sacré</h3>
+                        <p data-translate="feature1-desc">Arbre millénaire, gardien des secrets d'Ambanja. Symbole vivant de la région et témoin des générations.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 data-translate="feature2-title">Marché aux Mille Parfums</h3>
+                        <p data-translate="feature2-desc">Cœur économique et culturel. Festival de couleurs, d'odeurs et de saveurs authentiques.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in delay-3">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3 data-translate="feature3-title">Cacao Criollo</h3>
+                        <p data-translate="feature3-desc">L'or brun du Sambirano. Découvrez le meilleur cacao au monde dans les plantations historiques.</p>
+                    </div>
+                </div>
+                
+                <a href="#emblematic" class="btn fade-in delay-4">
+                    <i class="fas fa-compass"></i>
+                    <span data-translate="hero-btn">Explorer les Sites</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SITES EMBLEMATIQUES ===== -->
+    <section id="emblematic" class="emblematic-sites">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="emblematic-title">Trésors Emblématiques d'Ambanja</h2>
+            <p class="section-intro fade-in delay-1" data-translate="emblematic-intro">
+                Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique 
+                et des paysages à couper le souffle qui font la renommée de la vallée du Sambirano.
+            </p>
+            
+            <div class="sites-grid">
+                <!-- Le Grand Baobab Sacré -->
+                <div class="site-card fade-in">
+                    <div class="site-badge" data-translate="badge-sacred">SACRÉ</div>
+                    <img src="2a.jpg" 
+                         alt="Le Grand Baobab Sacré" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-tree"></i> <span data-translate="site1-title">Le Grand Baobab Sacré</span></h3>
+                        <div class="site-subtitle" data-translate="site1-subtitle">Symbole Vivant d'Ambanja</div>
+                        <p data-translate="site1-description">Plus qu'un arbre, un gardien des secrets. Ce baobab millénaire est le cœur battant de la ville, témoin silencieux des générations. Venez toucher son écorce rugueuse, écouter les légendes qu'il murmure au vent du soir.</p>
+                        <ul class="site-features">
+                            <li data-translate="site1-feature1">Site sacré et historique</li>
+                            <li data-translate="site1-feature2">Photographie unique et mémorable</li>
+                            <li data-translate="site1-feature3">Légendes locales fascinantes</li>
+                            <li data-translate="site1-feature4">Point de rassemblement traditionnel</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Le Marché aux Mille Parfums -->
+                <div class="site-card fade-in delay-1">
+                    <div class="site-badge" data-translate="badge-market">MARCHÉ</div>
+                    <img src="2b.webp" 
+                         alt="Marché d'Ambanja" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-store"></i> <span data-translate="site2-title">Le Marché aux Mille Parfums</span></h3>
+                        <div class="site-subtitle" data-translate="site2-subtitle">Cœur Économique & Culturel</div>
+                        <p data-translate="site2-description">Un festival de couleurs, d'odeurs et de sons. Marchandez le cacao aromatique, sentez la vanille fraîche, goûtez aux fruits juteux. Chaque étal raconte une histoire, chaque sourire vous accueille comme un ami.</p>
+                        <ul class="site-features">
+                            <li data-translate="site2-feature1">Cacao premium de la région</li>
+                            <li data-translate="site2-feature2">Vanille Bourbon d'exception</li>
+                            <li data-translate="site2-feature3">Artisanat local authentique</li>
+                            <li data-translate="site2-feature4">Rencontres chaleureuses</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Le Pont sur le Sambirano -->
+                <div class="site-card fade-in delay-2">
+                    <div class="site-badge" data-translate="badge-view">VUE</div>
+                    <img src="2c.webp" 
+                         alt="Pont Sambirano" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-bridge"></i> <span data-translate="site3-title">Le Pont sur le Sambirano</span></h3>
+                        <div class="site-subtitle" data-translate="site3-subtitle">Balcon sur la Vie Fluviale</div>
+                        <p data-translate="site3-description">À l'heure dorée, le pont s'embrase. Regardez les pirogues glisser sur l'eau miroir, écoutez les rires des enfants qui se baignent, sentez la brise fraîche venue des montagnes. Le meilleur spot photo pour capturer l'âme de la région.</p>
+                        <ul class="site-features">
+                            <li data-translate="site3-feature1">Coucher de soleil spectaculaire</li>
+                            <li data-translate="site3-feature2">Vie fluviale authentique</li>
+                            <li data-translate="site3-feature3">Point de vue panoramique</li>
+                            <li data-translate="site3-feature4">Ambiance locale unique</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Plantations de Cacao Criollo -->
+                <div class="site-card fade-in delay-3">
+                    <div class="site-badge" data-translate="badge-tasting">DÉGUSTATION</div>
+                    <img src="2d.webp" 
+                         alt="Plantations de Cacao" class="site-image loading">
+                    <div class="site-content">
+                        <h3><i class="fas fa-seedling"></i> <span data-translate="site4-title">Plantations de Cacao Criollo</span></h3>
+                        <div class="site-subtitle" data-translate="site4-subtitle">L'Or Brun du Sambirano</div>
+                        <p data-translate="site4-description">Rencontrez les gardiens du meilleur cacao au monde. De la fève à la tablette, découvrez les secrets d'un chocolat d'exception. Dégustation privée avec les producteurs, une expérience gustative inoubliable.</p>
+                        <ul class="site-features">
+                            <li data-translate="site4-feature1">Cacao Criollo d'exception</li>
+                            <li data-translate="site4-feature2">Visite guidée des plantations</li>
+                            <li data-translate="site4-feature3">Dégustation exclusive</li>
+                            <li data-translate="site4-feature4">Rencontre avec les producteurs</li>
+                        </ul>
+                        <a href="galerie.html" class="site-link">
+                            <span data-translate="site-link">Découvrir</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION DESTINATIONS DETAILLEES ===== -->
+    <section id="destinations" class="detailed-destinations">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="destinations-title">Destinations Complètes d'Ambanja</h2>
+            <p class="section-intro fade-in delay-1" data-translate="destinations-intro">
+                Explorez en détail les trésors de la région d'Ambanja. Chaque destination offre 
+                une expérience unique et des paysages exceptionnels pour un voyage inoubliable au cœur du Sambirano.
+            </p>
+            
+            <div class="destinations-grid">
+                <!-- Vallée du Sambirano -->
+                <div class="destination-card fade-in">
+                    <img src="2e.jpg" 
+                         alt="Vallée du Sambirano" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-water"></i> <span data-translate="dest1-title">Vallée du Sambirano</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-heart">Cœur d'Ambanja</span>
+                        </div>
+                        <p data-translate="dest1-description">La vallée fertile qui donne vie à la région. Terres riches en alluvions, climat idéal pour le cacao, paysages verdoyants à perte de vue. Découvrez l'écosystème unique qui fait la richesse d'Ambanja.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest1-feature1">Fertilité exceptionnelle des sols</li>
+                            <li data-translate="dest1-feature2">Microclimat tropical idéal</li>
+                            <li data-translate="dest1-feature3">Rivière Sambirano nourricière</li>
+                            <li data-translate="dest1-feature4">Biodiversité remarquable</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Plantations Historiques -->
+                <div class="destination-card fade-in delay-1">
+                    <img src="2f.webp" 
+                         alt="Plantations Historiques" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-history"></i> <span data-translate="dest2-title">Plantations Historiques</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-periphery">Périphérie d'Ambanja</span>
+                        </div>
+                        <p data-translate="dest2-description">Domaines agricoles datant de l'époque coloniale, préservant les méthodes traditionnelles de culture du cacao. Architecture coloniale, savoir-faire ancestral et qualité exceptionnelle des produits.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest2-feature1">Architecture coloniale préservée</li>
+                            <li data-translate="dest2-feature2">Méthodes traditionnelles de culture</li>
+                            <li data-translate="dest2-feature3">Histoire fascinante de la région</li>
+                            <li data-translate="dest2-feature4">Qualité de cacao reconnue mondialement</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Forêts Sacrées -->
+                <div class="destination-card fade-in delay-2">
+                    <img src="2g.webp" 
+                         alt="Forêts Sacrées" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-mountain"></i> <span data-translate="dest3-title">Forêts Sacrées</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-hills">Collines environnantes</span>
+                        </div>
+                        <p data-translate="dest3-description">Sanctuaires naturels préservés par les traditions locales. Lieux de culte et de méditation où la nature est vénérée. Découvrez la spiritualité malgache dans son environnement le plus authentique.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest3-feature1">Sites spirituels ancestraux</li>
+                            <li data-translate="dest3-feature2">Biodiversité préservée</li>
+                            <li data-translate="dest3-feature3">Randonnées paisibles</li>
+                            <li data-translate="dest3-feature4">Rencontres avec les gardiens traditionnels</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Villages Traditionnels -->
+                <div class="destination-card fade-in delay-3">
+                    <img src="2h.webp" 
+                         alt="Villages Traditionnels" class="destination-image loading">
+                    <div class="destination-content">
+                        <h3><i class="fas fa-home"></i> <span data-translate="dest4-title">Villages Traditionnels</span></h3>
+                        <div class="destination-distance">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-translate="location-region">Région d'Ambanja</span>
+                        </div>
+                        <p data-translate="dest4-description">Communautés accueillantes perpétuant les traditions malgaches. Maisons en terre et végétaux, artisanat local, cuisine authentique. Une immersion totale dans la vie quotidienne de la vallée du Sambirano.</p>
+                        <ul class="site-features">
+                            <li data-translate="dest4-feature1">Architecture traditionnelle</li>
+                            <li data-translate="dest4-feature2">Artisanat local authentique</li>
+                            <li data-translate="dest4-feature3">Cuisine malgache traditionnelle</li>
+                            <li data-translate="dest4-feature4">Accueil chaleureux des habitants</li>
+                        </ul>
+                        <a href="galerie.html" class="destination-link">
+                            <span data-translate="destination-link">Explorer</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION SERVICES ===== -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="services-title">Nos Services Exclusifs à Ambanja</h2>
+            <p class="section-intro fade-in delay-1" data-translate="services-intro">
+                Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Ambanja. 
+                Des services sur mesure pour une expérience authentique et inoubliable au cœur du pays du cacao.
+            </p>
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 data-translate="service1-title">Visites des Plantations</h3>
+                    <p data-translate="service1-desc">Découverte des plantations de cacao Criollo avec nos guides experts. De la fève à la tablette, tout le processus de fabrication.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card fade-in delay-1">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 data-translate="service2-title">Dégustations Privées</h3>
+                    <p data-translate="service2-desc">Dégustation exclusive de cacao et chocolats d'exception avec les producteurs locaux. Expérience gustative unique.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card fade-in delay-2">
+                    <div class="service-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3 data-translate="service3-title">Randonnées Nature</h3>
+                    <p data-translate="service3-desc">Exploration des forêts sacrées et collines environnantes avec guides naturalistes. Découverte de la biodiversité unique.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card fade-in delay-3">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 data-translate="service4-title">Séjour chez l'Habitant</h3>
+                    <p data-translate="service4-desc">Immersion totale dans la vie locale. Logement authentique, partage des traditions et cuisine familiale.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card fade-in delay-4">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 data-translate="service5-title">Ateliers Photo</h3>
+                    <p data-translate="service5-desc">Capturez l'essence d'Ambanja avec notre photographe professionnel. Cours et séances photo aux meilleurs spots.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card fade-in delay-5">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 data-translate="service6-title">Visites du Marché</h3>
+                    <p data-translate="service6-desc">Accompagnement au marché aux mille parfums. Découverte des produits locaux et techniques de marchandage.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;" class="fade-in delay-3">
+                <a href="#contact" class="btn btn-outline">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span data-translate="services-btn">Demander un Devis Personnalisé</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION CONTACT ===== -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="contact-title">Contactez Island Mada Travel</h2>
+            <p class="section-intro fade-in delay-1" data-translate="contact-intro">
+                Prêt à découvrir les trésors d'Ambanja et la vallée du Sambirano ? Notre équipe locale est à votre disposition 
+                pour organiser votre séjour de rêve dans la capitale malgache du cacao.
+            </p>
+            
+            <div class="contact-grid">
+                <!-- Téléphone -->
+                <div class="contact-card fade-in">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-phone">Téléphone</h3>
+                    <div class="contact-info">
+                        <a href="tel:+261325539635">
+                            <i class="fas fa-phone"></i>
+                            +261 32 55 396 35
+                        </a>
+                        <a href="tel:+261325539635" style="margin-top: 15px;">
+                            <i class="fas fa-mobile-alt"></i>
+                            Appel / WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 data-translate="contact-email">Email</h3>
+                    <div class="contact-info">
+                        <a href="mailto:anjaraamadym@gmail.com">
+                            <i class="fas fa-at"></i>
+                            anjaraamadym@gmail.com
+                        </a>
+                        <a href="mailto:amadym@gmail.com" style="margin-top: 15px;">
+                            <i class="fas fa-calendar-alt"></i>
+                            Réservations
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Adresse -->
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 data-translate="contact-address">Adresse</h3>
+                    <div class="contact-info">
+                        <p style="text-align: center; color: #daffea; line-height: 1.8;">
+                            <i class="fas fa-hotel"></i><br>
+                            Island Mada Travel<br>
+                            Agence de Tourisme<br>
+                            Ambanja, Madagascar<br>
+                            Spécialiste du Sambirano
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-buttons fade-in delay-3">
+                <a href="https://wa.me/261325539635" class="btn" target="_blank" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-translate="whatsapp-btn">WhatsApp Direct</span>
+                </a>
+                <a href="mailto:anjaraamadym@gmail.com" class="btn btn-outline">
+                    <i class="fas fa-paper-plane"></i>
+                    <span data-translate="email-btn">Envoyer un Email</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo fade-in">
+                    <i class="fas fa-tree"></i>
+                    ISLAND MADA TRAVEL
+                </div>
+                
+                <p class="footer-tagline fade-in delay-1" data-translate="footer-tagline">
+                    Votre guide expert pour découvrir les trésors cachés d'Ambanja et de la vallée du Sambirano. 
+                    Des expériences authentiques, des paysages uniques, des saveurs inoubliables au cœur du pays du cacao.
+                </p>
+                
+                <div class="social-links fade-in delay-2">
+                    <a href="https://facebook.com" class="social-link" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/261325539635" class="social-link" target="_blank" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://tripadvisor.com" class="social-link" target="_blank" aria-label="TripAdvisor">
+                        <i class="fab fa-tripadvisor"></i>
+                    </a>
+                    <a href="mailto:anjaraamadym@gmail.com" class="social-link" target="_blank" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                
+                <div class="contact-info fade-in delay-3">
+                    <p><i class="fas fa-phone"></i> +261 32 55 396 35</p>
+                    <p><i class="fas fa-envelope"></i> anjaraamadym@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Ambanja, Madagascar</p>
+                </div>
+                
+                <div class="copyright fade-in delay-4">
+                    <p>&copy; <span id="currentYear"></span> Island Mada Travel. <span data-translate="copyright">Tous droits réservés.</span></p>
+                    <p style="margin-top: 10px; font-size: 0.8rem;">
+                        <a href="#" style="color: var(--color-cacao);" data-translate="privacy">Politique de confidentialité</a> | 
+                        <a href="#" style="color: var(--color-cacao);" data-translate="terms">Conditions d'utilisation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Le script JavaScript reste le même que dans votre code original
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Ouvrir le menu mobile
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fermer le menu au clic sur un lien
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Mettre à jour l'état actif
+                mobileNavLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Mettre à jour la navigation desktop
+                const href = link.getAttribute('href');
+                navLinks.forEach(navLink => {
+                    if (navLink.getAttribute('href') === href) {
+                        navLink.classList.add('active');
+                    } else {
+                        navLink.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // ===== CHANGEMENT DE LANGUE =====
+        const languageOptions = document.querySelectorAll('.language-option, .mobile-language-option');
+        const currentLangElements = document.querySelectorAll('.current-lang, .current-lang-mobile');
+        
+        // Données de traduction complètes pour les 7 langues
+        const translations = {
+            fr: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Ambanja - Cœur du Sambirano & Trésors du Cacao',
+                'nav-home': 'Accueil',
+                'nav-emblematic': 'Sites Emblématiques',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Changer la langue',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': 'Découvrez Ambanja',
+                'hero-subtitle': 'Capitale du cacao de Madagascar ! Au cœur de la vallée fertile du Sambirano, découvrez les secrets du cacao Criollo, le Baobab Sacré millénaire, le marché aux mille parfums et la douceur de vivre malgache.',
+                'feature1-title': 'Baobab Sacré',
+                'feature1-desc': 'Arbre millénaire, gardien des secrets d\'Ambanja. Symbole vivant de la région et témoin des générations.',
+                'feature2-title': 'Marché aux Mille Parfums',
+                'feature2-desc': 'Cœur économique et culturel. Festival de couleurs, d\'odeurs et de saveurs authentiques.',
+                'feature3-title': 'Cacao Criollo',
+                'feature3-desc': 'L\'or brun du Sambirano. Découvrez le meilleur cacao au monde dans les plantations historiques.',
+                'hero-btn': 'Explorer les Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Trésors Emblématiques d\'Ambanja',
+                'emblematic-intro': 'Découvrez les sites les plus célèbres de la région. Chaque site offre une expérience unique et des paysages à couper le souffle qui font la renommée de la vallée du Sambirano.',
+                'badge-sacred': 'SACRÉ',
+                'badge-market': 'MARCHÉ',
+                'badge-view': 'VUE',
+                'badge-tasting': 'DÉGUSTATION',
+                
+                // Sites spécifiques
+                'site1-title': 'Le Grand Baobab Sacré',
+                'site1-subtitle': 'Symbole Vivant d\'Ambanja',
+                'site1-description': 'Plus qu\'un arbre, un gardien des secrets. Ce baobab millénaire est le cœur battant de la ville, témoin silencieux des générations. Venez toucher son écorce rugueuse, écouter les légendes qu\'il murmure au vent du soir.',
+                'site1-feature1': 'Site sacré et historique',
+                'site1-feature2': 'Photographie unique et mémorable',
+                'site1-feature3': 'Légendes locales fascinantes',
+                'site1-feature4': 'Point de rassemblement traditionnel',
+                
+                'site2-title': 'Le Marché aux Mille Parfums',
+                'site2-subtitle': 'Cœur Économique & Culturel',
+                'site2-description': 'Un festival de couleurs, d\'odeurs et de sons. Marchandez le cacao aromatique, sentez la vanille fraîche, goûtez aux fruits juteux. Chaque étal raconte une histoire, chaque sourire vous accueille comme un ami.',
+                'site2-feature1': 'Cacao premium de la région',
+                'site2-feature2': 'Vanille Bourbon d\'exception',
+                'site2-feature3': 'Artisanat local authentique',
+                'site2-feature4': 'Rencontres chaleureuses',
+                
+                'site3-title': 'Le Pont sur le Sambirano',
+                'site3-subtitle': 'Balcon sur la Vie Fluviale',
+                'site3-description': 'À l\'heure dorée, le pont s\'embrase. Regardez les pirogues glisser sur l\'eau miroir, écoutez les rires des enfants qui se baignent, sentez la brise fraîche venue des montagnes. Le meilleur spot photo pour capturer l\'âme de la région.',
+                'site3-feature1': 'Coucher de soleil spectaculaire',
+                'site3-feature2': 'Vie fluviale authentique',
+                'site3-feature3': 'Point de vue panoramique',
+                'site3-feature4': 'Ambiance locale unique',
+                
+                'site4-title': 'Plantations de Cacao Criollo',
+                'site4-subtitle': 'L\'Or Brun du Sambirano',
+                'site4-description': 'Rencontrez les gardiens du meilleur cacao au monde. De la fève à la tablette, découvrez les secrets d\'un chocolat d\'exception. Dégustation privée avec les producteurs, une expérience gustative inoubliable.',
+                'site4-feature1': 'Cacao Criollo d\'exception',
+                'site4-feature2': 'Visite guidée des plantations',
+                'site4-feature3': 'Dégustation exclusive',
+                'site4-feature4': 'Rencontre avec les producteurs',
+                
+                'site-link': 'Découvrir',
+                
+                // Destinations
+                'destinations-title': 'Destinations Complètes d\'Ambanja',
+                'destinations-intro': 'Explorez en détail les trésors de la région d\'Ambanja. Chaque destination offre une expérience unique et des paysages exceptionnels pour un voyage inoubliable au cœur du Sambirano.',
+                'location-heart': 'Cœur d\'Ambanja',
+                'location-periphery': 'Périphérie d\'Ambanja',
+                'location-hills': 'Collines environnantes',
+                'location-region': 'Région d\'Ambanja',
+                
+                'dest1-title': 'Vallée du Sambirano',
+                'dest1-description': 'La vallée fertile qui donne vie à la région. Terres riches en alluvions, climat idéal pour le cacao, paysages verdoyants à perte de vue. Découvrez l\'écosystème unique qui fait la richesse d\'Ambanja.',
+                'dest1-feature1': 'Fertilité exceptionnelle des sols',
+                'dest1-feature2': 'Microclimat tropical idéal',
+                'dest1-feature3': 'Rivière Sambirano nourricière',
+                'dest1-feature4': 'Biodiversité remarquable',
+                
+                'dest2-title': 'Plantations Historiques',
+                'dest2-description': 'Domaines agricoles datant de l\'époque coloniale, préservant les méthodes traditionnelles de culture du cacao. Architecture coloniale, savoir-faire ancestral et qualité exceptionnelle des produits.',
+                'dest2-feature1': 'Architecture coloniale préservée',
+                'dest2-feature2': 'Méthodes traditionnelles de culture',
+                'dest2-feature3': 'Histoire fascinante de la région',
+                'dest2-feature4': 'Qualité de cacao reconnue mondialement',
+                
+                'dest3-title': 'Forêts Sacrées',
+                'dest3-description': 'Sanctuaires naturels préservés par les traditions locales. Lieux de culte et de méditation où la nature est vénérée. Découvrez la spiritualité malgache dans son environnement le plus authentique.',
+                'dest3-feature1': 'Sites spirituels ancestraux',
+                'dest3-feature2': 'Biodiversité préservée',
+                'dest3-feature3': 'Randonnées paisibles',
+                'dest3-feature4': 'Rencontres avec les gardiens traditionnels',
+                
+                'dest4-title': 'Villages Traditionnels',
+                'dest4-description': 'Communautés accueillantes perpétuant les traditions malgaches. Maisons en terre et végétaux, artisanat local, cuisine authentique. Une immersion totale dans la vie quotidienne de la vallée du Sambirano.',
+                'dest4-feature1': 'Architecture traditionnelle',
+                'dest4-feature2': 'Artisanat local authentique',
+                'dest4-feature3': 'Cuisine malgache traditionnelle',
+                'dest4-feature4': 'Accueil chaleureux des habitants',
+                
+                'destination-link': 'Explorer',
+                
+                // Services
+                'services-title': 'Nos Services Exclusifs à Ambanja',
+                'services-intro': 'Island Mada Travel vous accompagne pour créer le voyage de vos rêves à Ambanja. Des services sur mesure pour une expérience authentique et inoubliable au cœur du pays du cacao.',
+                'service1-title': 'Visites des Plantations',
+                'service1-desc': 'Découverte des plantations de cacao Criollo avec nos guides experts. De la fève à la tablette, tout le processus de fabrication.',
+                'service2-title': 'Dégustations Privées',
+                'service2-desc': 'Dégustation exclusive de cacao et chocolats d\'exception avec les producteurs locaux. Expérience gustative unique.',
+                'service3-title': 'Randonnées Nature',
+                'service3-desc': 'Exploration des forêts sacrées et collines environnantes avec guides naturalistes. Découverte de la biodiversité unique.',
+                'service4-title': 'Séjour chez l\'Habitant',
+                'service4-desc': 'Immersion totale dans la vie locale. Logement authentique, partage des traditions et cuisine familiale.',
+                'service5-title': 'Ateliers Photo',
+                'service5-desc': 'Capturez l\'essence d\'Ambanja avec notre photographe professionnel. Cours et séances photo aux meilleurs spots.',
+                'service6-title': 'Visites du Marché',
+                'service6-desc': 'Accompagnement au marché aux mille parfums. Découverte des produits locaux et techniques de marchandage.',
+                'services-btn': 'Demander un Devis Personnalisé',
+                
+                // Contact
+                'contact-title': 'Contactez Island Mada Travel',
+                'contact-intro': 'Prêt à découvrir les trésors d\'Ambanja et la vallée du Sambirano ? Notre équipe locale est à votre disposition pour organiser votre séjour de rêve dans la capitale malgache du cacao.',
+                'contact-phone': 'Téléphone',
+                'contact-email': 'Email',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'WhatsApp Direct',
+                'email-btn': 'Envoyer un Email',
+                
+                // Footer
+                'footer-tagline': 'Votre guide expert pour découvrir les trésors cachés d\'Ambanja et de la vallée du Sambirano. Des expériences authentiques, des paysages uniques, des saveurs inoubliables au cœur du pays du cacao.',
+                'copyright': 'Tous droits réservés.',
+                'privacy': 'Politique de confidentialité',
+                'terms': 'Conditions d\'utilisation'
+            },
+            en: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Ambanja - Heart of Sambirano & Cocoa Treasures',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Iconic Sites',
+                'nav-destinations': 'Destinations',
+                'nav-services': 'Services',
+                'nav-contact': 'Contact',
+                'select-language': 'Change Language',
+                'lang-fr': 'French',
+                'lang-en': 'English',
+                'lang-de': 'German',
+                'lang-es': 'Spanish',
+                'lang-it': 'Italian',
+                'lang-ar': 'Arabic',
+                'lang-zh': 'Chinese',
+                
+                // Hero
+                'hero-title': 'Discover Ambanja',
+                'hero-subtitle': 'Madagascar\'s cocoa capital! In the heart of the fertile Sambirano valley, discover the secrets of Criollo cocoa, the thousand-year-old Sacred Baobab, the market of a thousand scents and the Malagasy sweetness of life.',
+                'feature1-title': 'Sacred Baobab',
+                'feature1-desc': 'Millennial tree, guardian of Ambanja\'s secrets. Living symbol of the region and witness to generations.',
+                'feature2-title': 'Market of a Thousand Scents',
+                'feature2-desc': 'Economic and cultural heart. Festival of colors, smells and authentic flavors.',
+                'feature3-title': 'Criollo Cocoa',
+                'feature3-desc': 'The brown gold of Sambirano. Discover the world\'s best cocoa in historic plantations.',
+                'hero-btn': 'Explore Sites',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Iconic Treasures of Ambanja',
+                'emblematic-intro': 'Discover the most famous sites in the region. Each site offers a unique experience and breathtaking landscapes that make the Sambirano valley famous.',
+                'badge-sacred': 'SACRED',
+                'badge-market': 'MARKET',
+                'badge-view': 'VIEW',
+                'badge-tasting': 'TASTING',
+                
+                // Sites spécifiques
+                'site1-title': 'The Great Sacred Baobab',
+                'site1-subtitle': 'Living Symbol of Ambanja',
+                'site1-description': 'More than a tree, a guardian of secrets. This millennial baobab is the beating heart of the city, a silent witness to generations. Come touch its rough bark, listen to the legends it whispers to the evening wind.',
+                'site1-feature1': 'Sacred and historical site',
+                'site1-feature2': 'Unique and memorable photography',
+                'site1-feature3': 'Fascinating local legends',
+                'site1-feature4': 'Traditional gathering point',
+                
+                'site2-title': 'Market of a Thousand Scents',
+                'site2-subtitle': 'Economic & Cultural Heart',
+                'site2-description': 'A festival of colors, smells and sounds. Bargain for aromatic cocoa, smell fresh vanilla, taste juicy fruits. Each stall tells a story, each smile welcomes you as a friend.',
+                'site2-feature1': 'Premium regional cocoa',
+                'site2-feature2': 'Exceptional Bourbon vanilla',
+                'site2-feature3': 'Authentic local crafts',
+                'site2-feature4': 'Warm encounters',
+                
+                'site3-title': 'Bridge over the Sambirano',
+                'site3-subtitle': 'Balcony on River Life',
+                'site3-description': 'At the golden hour, the bridge catches fire. Watch the canoes glide on the mirror water, listen to the laughter of bathing children, feel the fresh breeze from the mountains. The best photo spot to capture the soul of the region.',
+                'site3-feature1': 'Spectacular sunset',
+                'site3-feature2': 'Authentic river life',
+                'site3-feature3': 'Panoramic viewpoint',
+                'site3-feature4': 'Unique local atmosphere',
+                
+                'site4-title': 'Criollo Cocoa Plantations',
+                'site4-subtitle': 'The Brown Gold of Sambirano',
+                'site4-description': 'Meet the guardians of the world\'s best cocoa. From bean to bar, discover the secrets of exceptional chocolate. Private tasting with producers, an unforgettable gustatory experience.',
+                'site4-feature1': 'Exceptional Criollo cocoa',
+                'site4-feature2': 'Guided plantation tour',
+                'site4-feature3': 'Exclusive tasting',
+                'site4-feature4': 'Meeting with producers',
+                
+                'site-link': 'Discover',
+                
+                // Destinations
+                'destinations-title': 'Complete Destinations of Ambanja',
+                'destinations-intro': 'Explore in detail the treasures of the Ambanja region. Each destination offers a unique experience and exceptional landscapes for an unforgettable journey in the heart of Sambirano.',
+                'location-heart': 'Heart of Ambanja',
+                'location-periphery': 'Periphery of Ambanja',
+                'location-hills': 'Surrounding hills',
+                'location-region': 'Ambanja region',
+                
+                'dest1-title': 'Sambirano Valley',
+                'dest1-description': 'The fertile valley that gives life to the region. Land rich in alluvium, ideal climate for cocoa, green landscapes as far as the eye can see. Discover the unique ecosystem that makes Ambanja rich.',
+                'dest1-feature1': 'Exceptional soil fertility',
+                'dest1-feature2': 'Ideal tropical microclimate',
+                'dest1-feature3': 'Nourishing Sambirano River',
+                'dest1-feature4': 'Remarkable biodiversity',
+                
+                'dest2-title': 'Historical Plantations',
+                'dest2-description': 'Agricultural estates dating from the colonial era, preserving traditional cocoa cultivation methods. Colonial architecture, ancestral know-how and exceptional product quality.',
+                'dest2-feature1': 'Preserved colonial architecture',
+                'dest2-feature2': 'Traditional cultivation methods',
+                'dest2-feature3': 'Fascinating regional history',
+                'dest2-feature4': 'World-renowned cocoa quality',
+                
+                'dest3-title': 'Sacred Forests',
+                'dest3-description': 'Natural sanctuaries preserved by local traditions. Places of worship and meditation where nature is venerated. Discover Malagasy spirituality in its most authentic environment.',
+                'dest3-feature1': 'Ancient spiritual sites',
+                'dest3-feature2': 'Preserved biodiversity',
+                'dest3-feature3': 'Peaceful hikes',
+                'dest3-feature4': 'Meetings with traditional guardians',
+                
+                'dest4-title': 'Traditional Villages',
+                'dest4-description': 'Welcoming communities perpetuating Malagasy traditions. Houses of earth and vegetation, local crafts, authentic cuisine. Total immersion in the daily life of the Sambirano valley.',
+                'dest4-feature1': 'Traditional architecture',
+                'dest4-feature2': 'Authentic local crafts',
+                'dest4-feature3': 'Traditional Malagasy cuisine',
+                'dest4-feature4': 'Warm welcome from inhabitants',
+                
+                'destination-link': 'Explore',
+                
+                // Services
+                'services-title': 'Our Exclusive Services in Ambanja',
+                'services-intro': 'Island Mada Travel accompanies you to create your dream trip to Ambanja. Tailor-made services for an authentic and unforgettable experience in the heart of cocoa country.',
+                'service1-title': 'Plantation Tours',
+                'service1-desc': 'Discovery of Criollo cocoa plantations with our expert guides. From bean to bar, the entire manufacturing process.',
+                'service2-title': 'Private Tastings',
+                'service2-desc': 'Exclusive tasting of exceptional cocoa and chocolates with local producers. Unique gustatory experience.',
+                'service3-title': 'Nature Hikes',
+                'service3-desc': 'Exploration of sacred forests and surrounding hills with naturalist guides. Discovery of unique biodiversity.',
+                'service4-title': 'Homestay',
+                'service4-desc': 'Total immersion in local life. Authentic accommodation, sharing of traditions and family cuisine.',
+                'service5-title': 'Photo Workshops',
+                'service5-desc': 'Capture the essence of Ambanja with our professional photographer. Courses and photo sessions at the best spots.',
+                'service6-title': 'Market Visits',
+                'service6-desc': 'Accompaniment to the market of a thousand scents. Discovery of local products and bargaining techniques.',
+                'services-btn': 'Request a Custom Quote',
+                
+                // Contact
+                'contact-title': 'Contact Island Mada Travel',
+                'contact-intro': 'Ready to discover the treasures of Ambanja and the Sambirano valley? Our local team is at your disposal to organize your dream stay in the Malagasy cocoa capital.',
+                'contact-phone': 'Phone',
+                'contact-email': 'Email',
+                'contact-address': 'Address',
+                'whatsapp-btn': 'Direct WhatsApp',
+                'email-btn': 'Send Email',
+                
+                // Footer
+                'footer-tagline': 'Your expert guide to discover the hidden treasures of Ambanja and the Sambirano valley. Authentic experiences, unique landscapes, unforgettable flavors in the heart of cocoa country.',
+                'copyright': 'All rights reserved.',
+                'privacy': 'Privacy Policy',
+                'terms': 'Terms of Use'
+            },
+            de: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Ambanja - Herz des Sambirano & Kakaoschätze',
+                'nav-home': 'Startseite',
+                'nav-emblematic': 'Wahrzeichen',
+                'nav-destinations': 'Ziele',
+                'nav-services': 'Dienstleistungen',
+                'nav-contact': 'Kontakt',
+                'select-language': 'Sprache ändern',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-ar': 'Arabisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Hero
+                'hero-title': 'Entdecken Sie Ambanja',
+                'hero-subtitle': 'Die Kakaohauptstadt Madagaskars! Im Herzen des fruchtbaren Sambirano-Tals entdecken Sie die Geheimnisse des Criollo-Kakaos, des tausendjährigen Heiligen Baobabs, des Marktes der tausend Düfte und der malagassischen Lebensfreude.',
+                'feature1-title': 'Heiliger Baobab',
+                'feature1-desc': 'Tausendjähriger Baum, Hüter von Ambanjas Geheimnissen. Lebendiges Symbol der Region und Zeuge der Generationen.',
+                'feature2-title': 'Markt der tausend Düfte',
+                'feature2-desc': 'Wirtschaftliches und kulturelles Herz. Fest der Farben, Düfte und authentischen Aromen.',
+                'feature3-title': 'Criollo-Kakao',
+                'feature3-desc': 'Das braune Gold des Sambirano. Entdecken Sie den besten Kakao der Welt in historischen Plantagen.',
+                'hero-btn': 'Sehenswürdigkeiten erkunden',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Wahrzeichen von Ambanja',
+                'emblematic-intro': 'Entdecken Sie die berühmtesten Stätten der Region. Jede Stätte bietet ein einzigartiges Erlebnis und atemberaubende Landschaften, die das Sambirano-Tal berühmt machen.',
+                'badge-sacred': 'HEILIG',
+                'badge-market': 'MARKT',
+                'badge-view': 'AUSSICHT',
+                'badge-tasting': 'DEGUSTATION',
+                
+                // Sites spécifiques
+                'site1-title': 'Der Große Heilige Baobab',
+                'site1-subtitle': 'Lebendiges Symbol von Ambanja',
+                'site1-description': 'Mehr als ein Baum, ein Hüter von Geheimnissen. Dieser tausendjährige Baobab ist das schlagende Herz der Stadt, ein stiller Zeuge der Generationen. Berühren Sie seine raue Rinde, hören Sie den Legenden zu, die er dem Abendwind zuflüstert.',
+                'site1-feature1': 'Heilige und historische Stätte',
+                'site1-feature2': 'Einzigartige und denkwürdige Fotografie',
+                'site1-feature3': 'Faszinierende lokale Legenden',
+                'site1-feature4': 'Traditioneller Treffpunkt',
+                
+                'site2-title': 'Markt der tausend Düfte',
+                'site2-subtitle': 'Wirtschaftliches & Kulturelles Herz',
+                'site2-description': 'Ein Fest der Farben, Düfte und Klänge. Handeln Sie aromatischen Kakao, riechen Sie frische Vanille, kosten Sie saftige Früchte. Jeder Stand erzählt eine Geschichte, jedes Lächeln begrüßt Sie wie einen Freund.',
+                'site2-feature1': 'Premium-Kakao aus der Region',
+                'site2-feature2': 'Ausgezeichnete Bourbon-Vanille',
+                'site2-feature3': 'Authentisches lokales Handwerk',
+                'site2-feature4': 'Herzliche Begegnungen',
+                
+                'site3-title': 'Brücke über den Sambirano',
+                'site3-subtitle': 'Balkon zum Flussleben',
+                'site3-description': 'Zur goldenen Stunde entflammt die Brücke. Beobachten Sie die Kanus auf dem Spiegelschloss gleiten, hören Sie das Lachen badender Kinder, spüren Sie die frische Brise von den Bergen. Der beste Fotospot, um die Seele der Region einzufangen.',
+                'site3-feature1': 'Spektakulärer Sonnenuntergang',
+                'site3-feature2': 'Authentisches Flussleben',
+                'site3-feature3': 'Panoramablick',
+                'site3-feature4': 'Einzigartige lokale Atmosphäre',
+                
+                'site4-title': 'Criollo-Kakao-Plantagen',
+                'site4-subtitle': 'Das braune Gold des Sambirano',
+                'site4-description': 'Treffen Sie die Hüter des besten Kakaos der Welt. Von der Bohne zur Tafel, entdecken Sie die Geheimnisse außergewöhnlicher Schokolade. Private Verkostung mit Produzenten, ein unvergessliches Geschmackserlebnis.',
+                'site4-feature1': 'Außergewöhnlicher Criollo-Kakao',
+                'site4-feature2': 'Geführte Plantagentour',
+                'site4-feature3': 'Exklusive Verkostung',
+                'site4-feature4': 'Treffen mit Produzenten',
+                
+                'site-link': 'Entdecken',
+                
+                // Destinations
+                'destinations-title': 'Komplette Ziele von Ambanja',
+                'destinations-intro': 'Erkunden Sie im Detail die Schätze der Ambanja-Region. Jedes Ziel bietet ein einzigartiges Erlebnis und außergewöhnliche Landschaften für eine unvergessliche Reise im Herzen von Sambirano.',
+                'location-heart': 'Herz von Ambanja',
+                'location-periphery': 'Peripherie von Ambanja',
+                'location-hills': 'Umgebende Hügel',
+                'location-region': 'Ambanja-Region',
+                
+                'dest1-title': 'Sambirano-Tal',
+                'dest1-description': 'Das fruchtbare Tal, das der Region Leben gibt. Land reich an Schwemmland, ideales Klima für Kakao, grüne Landschaften, soweit das Auge reicht. Entdecken Sie das einzigartige Ökosystem, das Ambanja reich macht.',
+                'dest1-feature1': 'Außergewöhnliche Bodenfruchtbarkeit',
+                'dest1-feature2': 'Ideales tropisches Mikroklima',
+                'dest1-feature3': 'Nährende Sambirano-Fluss',
+                'dest1-feature4': 'Bemerkenswerte Biodiversität',
+                
+                'dest2-title': 'Historische Plantagen',
+                'dest2-description': 'Landwirtschaftliche Güter aus der Kolonialzeit, die traditionelle Kakaokultivierungsmethoden bewahren. Kolonialarchitektur, ancestrales Know-how und außergewöhnliche Produktqualität.',
+                'dest2-feature1': 'Erhaltene Kolonialarchitektur',
+                'dest2-feature2': 'Traditionelle Anbaumethoden',
+                'dest2-feature3': 'Faszinierende Regionalgeschichte',
+                'dest2-feature4': 'Weltweit anerkannte Kakaqualität',
+                
+                'dest3-title': 'Heilige Wälder',
+                'dest3-description': 'Natürliche Heiligtümer, die von lokalen Traditionen bewahrt werden. Orte der Anbetung und Meditation, wo die Natur verehrt wird. Entdecken Sie die malagassische Spiritualität in ihrer authentischsten Umgebung.',
+                'dest3-feature1': 'Uralte spirituelle Stätten',
+                'dest3-feature2': 'Erhaltene Biodiversität',
+                'dest3-feature3': 'Friedliche Wanderungen',
+                'dest3-feature4': 'Begegnungen mit traditionellen Hütern',
+                
+                'dest4-title': 'Traditionelle Dörfer',
+                'dest4-description': 'Gastfreundliche Gemeinschaften, die malagassische Traditionen fortsetzen. Häuser aus Erde und Vegetation, lokales Handwerk, authentische Küche. Totale Immersion in das tägliche Leben des Sambirano-Tals.',
+                'dest4-feature1': 'Traditionelle Architektur',
+                'dest4-feature2': 'Authentisches lokales Handwerk',
+                'dest4-feature3': 'Traditionelle malagassische Küche',
+                'dest4-feature4': 'Herzlicher Empfang durch die Bewohner',
+                
+                'destination-link': 'Erkunden',
+                
+                // Services
+                'services-title': 'Unsere Exklusiven Dienstleistungen in Ambanja',
+                'services-intro': 'Island Mada Travel begleitet Sie bei der Planung Ihrer Traumreise nach Ambanja. Maßgeschneiderte Dienstleistungen für ein authentisches und unvergessliches Erlebnis im Herzen des Kakaolandes.',
+                'service1-title': 'Plantagenbesichtigungen',
+                'service1-desc': 'Entdeckung von Criollo-Kakaoplantagen mit unseren erfahrenen Guides. Von der Bohne zur Tafel, der gesamte Herstellungsprozess.',
+                'service2-title': 'Private Verkostungen',
+                'service2-desc': 'Exklusive Verkostung von außergewöhnlichem Kakao und Schokolade mit lokalen Produzenten. Einzigartiges Geschmackserlebnis.',
+                'service3-title': 'Naturwanderungen',
+                'service3-desc': 'Erkundung heiliger Wälder und umliegender Hügel mit Naturforscher-Guides. Entdeckung einzigartiger Biodiversität.',
+                'service4-title': 'Aufenthalt bei Einheimischen',
+                'service4-desc': 'Totale Immersion in das lokale Leben. Authentische Unterkunft, Teilen von Traditionen und Familienküche.',
+                'service5-title': 'Fotoworkshops',
+                'service5-desc': 'Erfassen Sie das Wesen von Ambanja mit unserem professionellen Fotografen. Kurse und Fotosessions an den besten Orten.',
+                'service6-title': 'Marktbesuche',
+                'service6-desc': 'Begleitung zum Markt der tausend Düfte. Entdeckung lokaler Produkte und Verhandlungstechniken.',
+                'services-btn': 'Individuelles Angebot anfordern',
+                
+                // Contact
+                'contact-title': 'Kontaktieren Sie Island Mada Travel',
+                'contact-intro': 'Bereit, die Schätze von Ambanja und das Sambirano-Tal zu entdecken? Unser lokales Team steht Ihnen zur Verfügung, um Ihren Traumaufenthalt in der malagassischen Kakaohauptstadt zu organisieren.',
+                'contact-phone': 'Telefon',
+                'contact-email': 'E-Mail',
+                'contact-address': 'Adresse',
+                'whatsapp-btn': 'Direkt WhatsApp',
+                'email-btn': 'E-Mail senden',
+                
+                // Footer
+                'footer-tagline': 'Ihr Expertenführer zur Entdeckung der versteckten Schätze von Ambanja und des Sambirano-Tals. Authentische Erfahrungen, einzigartige Landschaften, unvergessliche Aromen im Herzen des Kakaolandes.',
+                'copyright': 'Alle Rechte vorbehalten.',
+                'privacy': 'Datenschutzerklärung',
+                'terms': 'Nutzungsbedingungen'
+            },
+            es: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Ambanja - Corazón del Sambirano & Tesoros del Cacao',
+                'nav-home': 'Inicio',
+                'nav-emblematic': 'Sitios Emblemáticos',
+                'nav-destinations': 'Destinos',
+                'nav-services': 'Servicios',
+                'nav-contact': 'Contacto',
+                'select-language': 'Cambiar Idioma',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Árabe',
+                'lang-zh': 'Chino',
+                
+                // Hero
+                'hero-title': 'Descubre Ambanja',
+                'hero-subtitle': '¡La capital del cacao de Madagascar! En el corazón del fértil valle de Sambirano, descubre los secretos del cacao Criollo, el Baobab Sagrado milenario, el mercado de los mil aromas y la dulzura de vivir malgache.',
+                'feature1-title': 'Baobab Sagrado',
+                'feature1-desc': 'Árbol milenario, guardián de los secretos de Ambanja. Símbolo viviente de la región y testigo de las generaciones.',
+                'feature2-title': 'Mercado de los Mil Aromas',
+                'feature2-desc': 'Corazón económico y cultural. Festival de colores, olores y sabores auténticos.',
+                'feature3-title': 'Cacao Criollo',
+                'feature3-desc': 'El oro marrón del Sambirano. Descubre el mejor cacao del mundo en las plantaciones históricas.',
+                'hero-btn': 'Explorar Sitios',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Tesoros Emblemáticos de Ambanja',
+                'emblematic-intro': 'Descubre los sitios más famosos de la región. Cada sitio ofrece una experiencia única y paisajes impresionantes que hacen famoso al valle de Sambirano.',
+                'badge-sacred': 'SAGRADO',
+                'badge-market': 'MERCADO',
+                'badge-view': 'VISTA',
+                'badge-tasting': 'DEGUSTACIÓN',
+                
+                // Sites spécifiques
+                'site1-title': 'El Gran Baobab Sagrado',
+                'site1-subtitle': 'Símbolo Viviente de Ambanja',
+                'site1-description': 'Más que un árbol, un guardián de secretos. Este baobab milenario es el corazón palpitante de la ciudad, testigo silencioso de las generaciones. Ven a tocar su corteza rugosa, escucha las leyendas que susurra al viento de la tarde.',
+                'site1-feature1': 'Sitio sagrado e histórico',
+                'site1-feature2': 'Fotografía única y memorable',
+                'site1-feature3': 'Leyendas locales fascinantes',
+                'site1-feature4': 'Punto de reunión tradicional',
+                
+                'site2-title': 'Mercado de los Mil Aromas',
+                'site2-subtitle': 'Corazón Económico & Cultural',
+                'site2-description': 'Un festival de colores, olores y sonidos. Regatea el cacao aromático, huele la vainilla fresca, prueba las frutas jugosas. Cada puesto cuenta una historia, cada sonrisa te recibe como a un amigo.',
+                'site2-feature1': 'Cacao premium de la región',
+                'site2-feature2': 'Vainilla Bourbon excepcional',
+                'site2-feature3': 'Artesanía local auténtica',
+                'site2-feature4': 'Encuentros cálidos',
+                
+                'site3-title': 'Puente sobre el Sambirano',
+                'site3-subtitle': 'Balcón a la Vida Fluvial',
+                'site3-description': 'A la hora dorada, el puente se enciende. Observa las canoas deslizarse sobre el agua espejo, escucha las risas de los niños bañándose, siente la brisa fresca venida de las montañas. El mejor lugar para fotos para capturar el alma de la región.',
+                'site3-feature1': 'Atardecer espectacular',
+                'site3-feature2': 'Vida fluvial auténtica',
+                'site3-feature3': 'Punto de vista panorámico',
+                'site3-feature4': 'Ambiente local único',
+                
+                'site4-title': 'Plantaciones de Cacao Criollo',
+                'site4-subtitle': 'El Oro Marrón del Sambirano',
+                'site4-description': 'Conoce a los guardianes del mejor cacao del mundo. Del grano a la tableta, descubre los secretos de un chocolate excepcional. Degustación privada con productores, una experiencia gustativa inolvidable.',
+                'site4-feature1': 'Cacao Criollo excepcional',
+                'site4-feature2': 'Visita guiada a las plantaciones',
+                'site4-feature3': 'Degustación exclusiva',
+                'site4-feature4': 'Encuentro con productores',
+                
+                'site-link': 'Descubrir',
+                
+                // Destinations
+                'destinations-title': 'Destinos Completos de Ambanja',
+                'destinations-intro': 'Explora en detalle los tesoros de la región de Ambanja. Cada destino ofrece una experiencia única y paisajes excepcionales para un viaje inolvidable en el corazón de Sambirano.',
+                'location-heart': 'Corazón de Ambanja',
+                'location-periphery': 'Periferia de Ambanja',
+                'location-hills': 'Colinas circundantes',
+                'location-region': 'Región de Ambanja',
+                
+                'dest1-title': 'Valle del Sambirano',
+                'dest1-description': 'El valle fértil que da vida a la región. Tierras ricas en aluvión, clima ideal para el cacao, paisajes verdes hasta donde alcanza la vista. Descubre el ecosistema único que hace rica a Ambanja.',
+                'dest1-feature1': 'Fertilidad excepcional del suelo',
+                'dest1-feature2': 'Microclima tropical ideal',
+                'dest1-feature3': 'Río Sambirano nutritivo',
+                'dest1-feature4': 'Biodiversidad notable',
+                
+                'dest2-title': 'Plantaciones Históricas',
+                'dest2-description': 'Haciendas agrícolas de la época colonial, que preservan los métodos tradicionales de cultivo del cacao. Arquitectura colonial, saber hacer ancestral y calidad excepcional de los productos.',
+                'dest2-feature1': 'Arquitectura colonial preservada',
+                'dest2-feature2': 'Métodos tradicionales de cultivo',
+                'dest2-feature3': 'Historia fascinante de la región',
+                'dest2-feature4': 'Calidad de cacao reconocida mundialmente',
+                
+                'dest3-title': 'Bosques Sagrados',
+                'dest3-description': 'Santurarios naturales preservados por las tradiciones locales. Lugares de culto y meditación donde se venera la naturaleza. Descubre la espiritualidad malgache en su entorno más auténtico.',
+                'dest3-feature1': 'Sitios espirituales ancestrales',
+                'dest3-feature2': 'Biodiversidad preservada',
+                'dest3-feature3': 'Caminatas pacíficas',
+                'dest3-feature4': 'Encuentros con guardianes tradicionales',
+                
+                'dest4-title': 'Pueblos Tradicionales',
+                'dest4-description': 'Comunidades acogedoras que perpetúan las tradiciones malgaches. Casas de tierra y vegetación, artesanía local, cocina auténtica. Inmersión total en la vida diaria del valle de Sambirano.',
+                'dest4-feature1': 'Arquitectura tradicional',
+                'dest4-feature2': 'Artesanía local auténtica',
+                'dest4-feature3': 'Cocina malgache tradicional',
+                'dest4-feature4': 'Acogida cálida de los habitantes',
+                
+                'destination-link': 'Explorar',
+                
+                // Services
+                'services-title': 'Nuestros Servicios Exclusivos en Ambanja',
+                'services-intro': 'Island Mada Travel te acompaña para crear el viaje de tus sueños a Ambanja. Servicios a medida para una experiencia auténtica e inolvidable en el corazón del país del cacao.',
+                'service1-title': 'Visitas a Plantaciones',
+                'service1-desc': 'Descubrimiento de plantaciones de cacao Criollo con nuestros guías expertos. Del grano a la tableta, todo el proceso de fabricación.',
+                'service2-title': 'Degustaciones Privadas',
+                'service2-desc': 'Degustación exclusiva de cacao y chocolates excepcionales con productores locales. Experiencia gustativa única.',
+                'service3-title': 'Caminatas por la Naturaleza',
+                'service3-desc': 'Exploración de bosques sagrados y colinas circundantes con guías naturalistas. Descubrimiento de biodiversidad única.',
+                'service4-title': 'Estancia con Locales',
+                'service4-desc': 'Inmersión total en la vida local. Alojamiento auténtico, compartir tradiciones y cocina familiar.',
+                'service5-title': 'Talleres de Fotografía',
+                'service5-desc': 'Captura la esencia de Ambanja con nuestro fotógrafo profesional. Cursos y sesiones fotográficas en los mejores lugares.',
+                'service6-title': 'Visitas al Mercado',
+                'service6-desc': 'Acompañamiento al mercado de los mil aromas. Descubrimiento de productos locales y técnicas de regateo.',
+                'services-btn': 'Solicitar Presupuesto Personalizado',
+                
+                // Contact
+                'contact-title': 'Contacta con Island Mada Travel',
+                'contact-intro': '¿Listo para descubrir los tesoros de Ambanja y el valle de Sambirano? Nuestro equipo local está a tu disposición para organizar tu estancia de ensueño en la capital malgache del cacao.',
+                'contact-phone': 'Teléfono',
+                'contact-email': 'Correo Electrónico',
+                'contact-address': 'Dirección',
+                'whatsapp-btn': 'WhatsApp Directo',
+                'email-btn': 'Enviar Correo',
+                
+                // Footer
+                'footer-tagline': 'Tu guía experto para descubrir los tesoros ocultos de Ambanja y el valle de Sambirano. Experiencias auténticas, paisajes únicos, sabores inolvidables en el corazón del país del cacao.',
+                'copyright': 'Todos los derechos reservados.',
+                'privacy': 'Política de Privacidad',
+                'terms': 'Términos de Uso'
+            },
+            it: {
+                // Header
+                'logo-title': 'ISLAND MADA TRAVEL',
+                'logo-tagline': 'Ambanja - Cuore del Sambirano & Tesori del Cacao',
+                'nav-home': 'Home',
+                'nav-emblematic': 'Siti Iconici',
+                'nav-destinations': 'Destinazioni',
+                'nav-services': 'Servizi',
+                'nav-contact': 'Contatto',
+                'select-language': 'Cambia Lingua',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Arabo',
+                'lang-zh': 'Cinese',
+                
+                // Hero
+                'hero-title': 'Scopri Ambanja',
+                'hero-subtitle': 'La capitale del cacao del Madagascar! Nel cuore della fertile valle del Sambirano, scopri i segreti del cacao Criollo, il Baobab Sacro millenario, il mercato dai mille profumi e la dolcezza di vivere malgascia.',
+                'feature1-title': 'Baobab Sacro',
+                'feature1-desc': 'Albero millenario, guardiano dei segreti di Ambanja. Simbolo vivente della regione e testimone delle generazioni.',
+                'feature2-title': 'Mercato dai Mille Profumi',
+                'feature2-desc': 'Cuore economico e culturale. Festival di colori, odori e sapori autentici.',
+                'feature3-title': 'Cacao Criollo',
+                'feature3-desc': 'L\'oro marrone del Sambirano. Scopri il miglior cacao al mondo nelle piantagioni storiche.',
+                'hero-btn': 'Esplora i Siti',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'Tesori Iconici di Ambanja',
+                'emblematic-intro': 'Scopri i siti più famosi della regione. Ogni sito offre un\'esperienza unica e paesaggi mozzafiato che rendono famosa la valle del Sambirano.',
+                'badge-sacred': 'SACRO',
+                'badge-market': 'MERCATO',
+                'badge-view': 'VISTA',
+                'badge-tasting': 'DEGUSTAZIONE',
+                
+                // Sites spécifiques
+                'site1-title': 'Il Grande Baobab Sacro',
+                'site1-subtitle': 'Simbolo Vivente di Ambanja',
+                'site1-description': 'Più di un albero, un guardiano di segreti. Questo baobab millenario è il cuore pulsante della città, testimone silenzioso delle generazioni. Vieni a toccare la sua corteccia ruvida, ascolta le leggende che sussurra al vento della sera.',
+                'site1-feature1': 'Sito sacro e storico',
+                'site1-feature2': 'Fotografia unica e memorabile',
+                'site1-feature3': 'Leggende locali affascinanti',
+                'site1-feature4': 'Punto di incontro tradizionale',
+                
+                'site2-title': 'Mercato dai Mille Profumi',
+                'site2-subtitle': 'Cuore Economico & Culturale',
+                'site2-description': 'Un festival di colori, odori e suoni. Mercanteggia il cacao aromatico, senti la vaniglia fresca, assaggia i frutti succosi. Ogni bancarella racconta una storia, ogni sorriso ti accoglie come un amico.',
+                'site2-feature1': 'Cacao premium della regione',
+                'site2-feature2': 'Vaniglia Bourbon eccezionale',
+                'site2-feature3': 'Artigianato locale autentico',
+                'site2-feature4': 'Incontri calorosi',
+                
+                'site3-title': 'Ponte sul Sambirano',
+                'site3-subtitle': 'Balcone sulla Vita Fluviale',
+                'site3-description': 'All\'ora dorada, il ponte si infiamma. Guarda le canoe scivolare sull\'acqua specchio, ascolta le risate dei bambini che fanno il bagno, senti la brezza fresca proveniente dalle montagne. Il miglior punto fotografico per catturare l\'anima della regione.',
+                'site3-feature1': 'Tramonto spettacolare',
+                'site3-feature2': 'Vita fluviale autentica',
+                'site3-feature3': 'Punto di vista panoramico',
+                'site3-feature4': 'Atmosfera locale unica',
+                
+                'site4-title': 'Piantagioni di Cacao Criollo',
+                'site4-subtitle': 'L\'Oro Marrone del Sambirano',
+                'site4-description': 'Incontra i guardiani del miglior cacao al mondo. Dal chicco alla tavoletta, scopri i segreti di un cioccolato eccezionale. Degustazione privata con i produttori, un\'esperienza gustativa indimenticabile.',
+                'site4-feature1': 'Cacao Criollo eccezionale',
+                'site4-feature2': 'Visita guidata alle piantagioni',
+                'site4-feature3': 'Degustazione esclusiva',
+                'site4-feature4': 'Incontro con i produttori',
+                
+                'site-link': 'Scoprire',
+                
+                // Destinations
+                'destinations-title': 'Destinazioni Complete di Ambanja',
+                'destinations-intro': 'Esplora in dettaglio i tesori della regione di Ambanja. Ogni destinazione offre un\'esperienza unica e paesaggi eccezionali per un viaggio indimenticabile nel cuore del Sambirano.',
+                'location-heart': 'Cuore di Ambanja',
+                'location-periphery': 'Periferia di Ambanja',
+                'location-hills': 'Colline circostanti',
+                'location-region': 'Regione di Ambanja',
+                
+                'dest1-title': 'Valle del Sambirano',
+                'dest1-description': 'La valle fertile che dà vita alla regione. Terre ricche di alluvioni, clima ideale per il cacao, paesaggi verdi a perdita d\'occhio. Scopri l\'ecosistema unico che rende ricca Ambanja.',
+                'dest1-feature1': 'Fertilità eccezionale del suolo',
+                'dest1-feature2': 'Microclima tropicale ideale',
+                'dest1-feature3': 'Fiume Sambirano nutriente',
+                'dest1-feature4': 'Biodiversità notevole',
+                
+                'dest2-title': 'Piantagioni Storiche',
+                'dest2-description': 'Tenute agricole risalenti all\'epoca coloniale, che preservano i metodi tradizionali di coltivazione del cacao. Architettura coloniale, savoir-faire ancestrale e qualità eccezionale dei prodotti.',
+                'dest2-feature1': 'Architettura coloniale preservata',
+                'dest2-feature2': 'Metodi tradizionali di coltivazione',
+                'dest2-feature3': 'Storia affascinante della regione',
+                'dest2-feature4': 'Qualità del cacao riconosciuta a livello mondiale',
+                
+                'dest3-title': 'Foreste Sacre',
+                'dest3-description': 'Santurari naturali preservati dalle tradizioni locali. Luoghi di culto e meditazione dove la natura è venerata. Scopri la spiritualità malgascia nel suo ambiente più autentico.',
+                'dest3-feature1': 'Siti spirituali ancestrali',
+                'dest3-feature2': 'Biodiversità preservata',
+                'dest3-feature3': 'Escursioni pacifiche',
+                'dest3-feature4': 'Incontri con i guardiani tradizionali',
+                
+                'dest4-title': 'Villaggi Tradizionali',
+                'dest4-description': 'Comunità accoglienti che perpetuano le tradizioni malgasce. Case di terra e vegetazione, artigianato locale, cucina autentica. Immersione totale nella vita quotidiana della valle del Sambirano.',
+                'dest4-feature1': 'Architettura tradizionale',
+                'dest4-feature2': 'Artigianato locale autentico',
+                'dest4-feature3': 'Cucina malgascia tradizionale',
+                'dest4-feature4': 'Accoglienza calorosa degli abitanti',
+                
+                'destination-link': 'Esplorare',
+                
+                // Services
+                'services-title': 'I nostri Servizi Esclusivi ad Ambanja',
+                'services-intro': 'Island Mada Travel ti accompagna per creare il viaggio dei tuoi sogni ad Ambanja. Servizi su misura per un\'esperienza autentica e indimenticabile nel cuore del paese del cacao.',
+                'service1-title': 'Visite alle Piantagioni',
+                'service1-desc': 'Scoperta delle piantagioni di cacao Criollo con le nostre guide esperte. Dal chicco alla tavoletta, tutto il processo di fabbricazione.',
+                'service2-title': 'Degustazioni Private',
+                'service2-desc': 'Degustazione esclusiva di cacao e cioccolati eccezionali con produttori locali. Esperienza gustativa unica.',
+                'service3-title': 'Escursioni nella Natura',
+                'service3-desc': 'Esplorazione di foreste sacre e colline circostanti con guide naturaliste. Scoperta di biodiversità unica.',
+                'service4-title': 'Soggiorno in Famiglia',
+                'service4-desc': 'Immersione totale nella vita locale. Alloggio autentico, condivisione di tradizioni e cucina familiare.',
+                'service5-title': 'Workshop Fotografici',
+                'service5-desc': 'Cattura l\'essenza di Ambanja con il nostro fotografo professionista. Corsi e sessioni fotografiche nei migliori spot.',
+                'service6-title': 'Visite al Mercato',
+                'service6-desc': 'Accompagnamento al mercato dai mille profumi. Scoperta di prodotti locali e tecniche di contrattazione.',
+                'services-btn': 'Richiedi Preventivo Personalizzato',
+                
+                // Contact
+                'contact-title': 'Contatta Island Mada Travel',
+                'contact-intro': 'Pronto a scoprire i tesori di Ambanja e la valle del Sambirano? Il nostro team locale è a tua disposizione per organizzare il tuo soggiorno da sogno nella capitale malgascia del cacao.',
+                'contact-phone': 'Telefono',
+                'contact-email': 'Email',
+                'contact-address': 'Indirizzo',
+                'whatsapp-btn': 'WhatsApp Diretto',
+                'email-btn': 'Invia Email',
+                
+                // Footer
+                'footer-tagline': 'La tua guida esperta per scoprire i tesori nascosti di Ambanja e della valle del Sambirano. Esperienze autentiche, paesaggi unici, sapori indimenticabili nel cuore del paese del cacao.',
+                'copyright': 'Tutti i diritti riservati.',
+                'privacy': 'Politica sulla Privacy',
+                'terms': 'Termini di Utilizzo'
+            },
+            ar: {
+                // Header
+                'logo-title': 'آيلاند مادا ترافل',
+                'logo-tagline': 'أمبانجا - قلب سامبيرانو وكنوز الكاكاو',
+                'nav-home': 'الرئيسية',
+                'nav-emblematic': 'المواقع الشهيرة',
+                'nav-destinations': 'الوجهات',
+                'nav-services': 'الخدمات',
+                'nav-contact': 'اتصل بنا',
+                'select-language': 'تغيير اللغة',
+                'lang-fr': 'الفرنسية',
+                'lang-en': 'الإنجليزية',
+                'lang-de': 'الألمانية',
+                'lang-es': 'الإسبانية',
+                'lang-it': 'الإيطالية',
+                'lang-ar': 'العربية',
+                'lang-zh': 'الصينية',
+                
+                // Hero
+                'hero-title': 'اكتشف أمبانجا',
+                'hero-subtitle': 'عاصمة الكاكاو في مدغشقر! في قلب وادي سامبيرانو الخصب، اكتشف أسرار كاكاو كريولو، وشجرة الباوباب المقدسة الألفية، وسوق الألف رائحة، وحلاوة العيش الملغاشية.',
+                'feature1-title': 'شجرة الباوباب المقدسة',
+                'feature1-desc': 'شجرة ألفية، حارسة أسرار أمبانجا. رمز حي للمنطقة وشاهدة على الأجيال.',
+                'feature2-title': 'سوق الألف رائحة',
+                'feature2-desc': 'القلب الاقتصادي والثقافي. مهرجان من الألوان، الروائح والنكهات الأصيلة.',
+                'feature3-title': 'كاكاو كريولو',
+                'feature3-desc': 'الذهب البني لسامبيرانو. اكتشف أفضل كاكاو في العالم في المزارع التاريخية.',
+                'hero-btn': 'استكشف المواقع',
+                
+                // Sites Emblématiques
+                'emblematic-title': 'كنوز أمبانجا الشهيرة',
+                'emblematic-intro': 'اكتشف أشهر المواقع في المنطقة. كل موقع يقدم تجربة فريدة ومناظر طبيعية تأخذ الأنفاس تجعل وادي سامبيرانو مشهوراً.',
+                'badge-sacred': 'مقدس',
+                'badge-market': 'سوق',
+                'badge-view': 'منظر',
+                'badge-tasting': 'تذوق',
+                
+                // Sites spécifiques
+                'site1-title': 'شجرة الباوباب المقدسة العظيمة',
+                'site1-subtitle': 'رمز حي لأمبانجا',
+                'site1-description': 'أكثر من مجرد شجرة، حارسة للأسرار. شجرة الباوباب الألفية هذه هي القلب النابض للمدينة، شاهدة صامتة على الأجيال. تعال لتمس لحاءها الخشن، استمع إلى الأساطير التي تهمس بها لنسيم المساء.',
+                'site1-feature1': 'موقع مقدس وتاريخي',
+                'site1-feature2': 'تصوير فريد ومُخلّد',
+                'site1-feature3': 'أساطير محلية ساحرة',
+                'site1-feature4': 'نقطة تجمع تقليدية',
+                
+                'site2-title': 'سوق الألف رائحة',
+                'site2-subtitle': 'القلب الاقتصادي والثقافي',
+                'site2-description': 'مهرجان من الألوان، الروائح والأصوات. تفاوض على الكاكاو العطري، اشم رائحة الفانيلا الطازجة، تذوق الفواكه العصيرية. كل كشك يحكي قصة، كل ابتسامة ترحب بك كصديق.',
+                'site2-feature1': 'كاكاو ممتاز من المنطقة',
+                'site2-feature2': 'فانيلا بوربون استثنائية',
+                'site2-feature3': 'حرف يدوية محلية أصلية',
+                'site2-feature4': 'لقاءات دافئة',
+                
+                'site3-title': 'الجسر على نهر سامبيرانو',
+                'site3-subtitle': 'شرفة على الحياة النهرية',
+                'site3-description': 'في الساعة الذهبية، يشتعل الجسر. شاهد القوارب تنزلق على الماء المرآة، استمع إلى ضحكات الأطفال الذين يستحمون، اشعر بنسيم الجبل المنعش. أفضل مكان للتصوير لالتقاط روح المنطقة.',
+                'site3-feature1': 'غروب شمس مذهل',
+                'site3-feature2': 'حياة نهرية أصلية',
+                'site3-feature3': 'نقطة مشاهدة بانورامية',
+                'site3-feature4': 'أجواء محلية فريدة',
+                
+                'site4-title': 'مزارع كاكاو كريولو',
+                'site4-subtitle': 'الذهب البني لسامبيرانو',
+                'site4-description': 'التق بحراس أفضل كاكاو في العالم. من الحبة إلى اللوح، اكتشف أسرار الشوكولاتة الاستثنائية. تذوق خاص مع المنتجين، تجربة تذوقية لا تنسى.',
+                'site4-feature1': 'كاكاو كريولو استثنائي',
+                'site4-feature2': 'جولة إرشادية في المزارع',
+                'site4-feature3': 'تذوق حصري',
+                'site4-feature4': 'لقاء مع المنتجين',
+                
+                'site-link': 'اكتشف',
+                
+                // Destinations
+                'destinations-title': 'وجهات أمبانجا الكاملة',
+                'destinations-intro': 'استكشف بالتفصيل كنوز منطقة أمبانجا. كل وجهة تقدم تجربة فريدة ومناظر طبيعية استثنائية لرحلة لا تُنسى في قلب سامبيرانو.',
+                'location-heart': 'قلب أمبانجا',
+                'location-periphery': 'ضواحي أمبانجا',
+                'location-hills': 'التلال المحيطة',
+                'location-region': 'منطقة أمبانجا',
+                
+                'dest1-title': 'وادي سامبيرانو',
+                'dest1-description': 'الوادي الخصب الذي يعطي الحياة للمنطقة. أراضي غنية بالطمي، مناخ مثالي للكاكاو، مناظر خضراء أينما تممت عينيك. اكتشف النظام البيئي الفريد الذي يجعل أمبانجا غنية.',
+                'dest1-feature1': 'خصوبة استثنائية للتربة',
+                'dest1-feature2': 'مناخ مصغر استوائي مثالي',
+                'dest1-feature3': 'نهر سامبيرانو المغذي',
+                'dest1-feature4': 'تنوع بيولوجي ملحوظ',
+                
+                'dest2-title': 'المزارع التاريخية',
+                'dest2-description': 'عقارات زراعية تعود إلى العصر الاستعماري، تحافظ على طرق الزراعة التقليدية للكاكاو. هندسة معمارية استعمارية، معرفة تقليدية قديمة وجودة استثنائية للمنتجات.',
+                'dest2-feature1': 'هندسة معمارية استعمارية محفوظة',
+                'dest2-feature2': 'طرق زراعة تقليدية',
+                'dest2-feature3': 'تاريخ المنطقة الساحر',
+                'dest2-feature4': 'جودة كاكاو معترف بها عالمياً',
+                
+                'dest3-title': 'الغابات المقدسة',
+                'dest3-description': 'ملاذات طبيعية محفوظة بالتقاليد المحلية. أماكن عبادة وتأمل حيث تُبجل الطبيعة. اكتشف الروحانية الملغاشية في بيئتها الأكثر أصالة.',
+                'dest3-feature1': 'مواقع روحية قديمة',
+                'dest3-feature2': 'تنوع بيولوجي محفوظ',
+                'dest3-feature3': 'رحلات مشي سلمية',
+                'dest3-feature4': 'لقاءات مع الحراس التقليديين',
+                
+                'dest4-title': 'القرى التقليدية',
+                'dest4-description': 'مجتمعات ترحيبية تديم التقاليد الملغاشية. منازل من الطين والنباتات، حرف يدوية محلية، مطبخ أصيل. انغمار كامل في الحياة اليومية لوادي سامبيرانو.',
+                'dest4-feature1': 'هندسة معمارية تقليدية',
+                'dest4-feature2': 'حرف يدوية محلية أصلية',
+                'dest4-feature3': 'مطبخ ملغاشي تقليدي',
+                'dest4-feature4': 'ترحيب حار من السكان',
+                
+                'destination-link': 'استكشف',
+                
+                // Services
+                'services-title': 'خدماتنا الحصرية في أمبانجا',
+                'services-intro': 'آيلاند مادا ترافل ترافقك لخلق رحلة أحلامك إلى أمبانجا. خدمات مخصصة لتجربة أصلية لا تُنسى في قلب بلد الكاكاو.',
+                'service1-title': 'زيارات المزارع',
+                'service1-desc': 'اكتشاف مزارع كاكاو كريولو مع مرشدينا الخبراء. من الحبة إلى اللوح، عملية التصنيع بأكملها.',
+                'service2-title': 'تذوقات خاصة',
+                'service2-desc': 'تذوق حصري لكاكاو وشوكولاتة استثنائية مع منتجين محليين. تجربة تذوقية فريدة.',
+                'service3-title': 'رحلات مشي طبيعية',
+                'service3-desc': 'استكشاف الغابات المقدسة والتلال المحيطة مع مرشدين طبيعيين. اكتشاف تنوع بيولوجي فريد.',
+                'service4-title': 'إقامة مع السكان المحليين',
+                'service4-desc': 'انغمار كامل في الحياة المحلية. إقامة أصلية، مشاركة التقاليد والمطبخ العائلي.',
+                'service5-title': 'ورش التصوير',
+                'service5-desc': 'التقط جوهر أمبانجا مع مصورنا المحترف. دورات وجلسات تصوير في أفضل الأماكن.',
+                'service6-title': 'زيارات السوق',
+                'service6-desc': 'مرافقة إلى سوق الألف رائحة. اكتشاف المنتجات المحلية وتقنيات المساومة.',
+                'services-btn': 'طلب عرض سعر مخصص',
+                
+                // Contact
+                'contact-title': 'اتصل بآيلاند مادا ترافل',
+                'contact-intro': 'مستعد لاكتشاف كنوز أمبانجا ووادي سامبيرانو؟ فريقنا المحلي تحت تصرفك لتنظيم إقامة أحلامك في العاصمة الملغاشية للكاكاو.',
+                'contact-phone': 'هاتف',
+                'contact-email': 'بريد إلكتروني',
+                'contact-address': 'عنوان',
+                'whatsapp-btn': 'واتساب مباشر',
+                'email-btn': 'إرسال بريد إلكتروني',
+                
+                // Footer
+                'footer-tagline': 'مرشدك الخبير لاكتشاف الكنوز المخفية لأمبانجا ووادي سامبيرانو. تجارب أصلية، مناظر طبيعية فريدة، نكهات لا تُنسى في قلب بلد الكاكاو.',
+                'copyright': 'جميع الحقوق محفوظة.',
+                'privacy': 'سياسة الخصوصية',
+                'terms': 'شروط الاستخدام'
+            },
+            zh: {
+                // Header
+                'logo-title': '马达加斯加岛旅游',
+                'logo-tagline': '安班贾 - 桑比拉诺之心与可可宝藏',
+                'nav-home': '首页',
+                'nav-emblematic': '标志性景点',
+                'nav-destinations': '目的地',
+                'nav-services': '服务',
+                'nav-contact': '联系我们',
+                'select-language': '更改语言',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-ar': '阿拉伯语',
+                'lang-zh': '中文',
+                
+                // Hero
+                'hero-title': '探索安班贾',
+                'hero-subtitle': '马达加斯加的可可之都！在肥沃的桑比拉诺山谷中心，探索克里奥罗可可的秘密、千年神圣猴面包树、千香市场和马达加斯加的生活甜蜜。',
+                'feature1-title': '神圣猴面包树',
+                'feature1-desc': '千年古树，安班贾秘密的守护者。该地区的活象征，世代的见证。',
+                'feature2-title': '千香市场',
+                'feature2-desc': '经济和文化中心。色彩、香气和地道风味的节日。',
+                'feature3-title': '克里奥罗可可',
+                'feature3-desc': '桑比拉诺的棕色黄金。在历史悠久的种植园中发现世界上最好的可可。',
+                'hero-btn': '探索景点',
+                
+                // Sites Emblématiques
+                'emblematic-title': '安班贾的标志性宝藏',
+                'emblematic-intro': '探索该地区最著名的景点。每个景点都提供独特的体验和令人惊叹的景观，使桑比拉诺山谷闻名遐迩。',
+                'badge-sacred': '神圣',
+                'badge-market': '市场',
+                'badge-view': '景观',
+                'badge-tasting': '品尝',
+                
+                // Sites spécifiques
+                'site1-title': '伟大神圣猴面包树',
+                'site1-subtitle': '安班贾的活象征',
+                'site1-description': '不仅是一棵树，更是秘密的守护者。这棵千年猴面包树是城市跳动的心脏，世代沉默的见证者。来触摸它粗糙的树皮，聆听它在晚风中低语的传说。',
+                'site1-feature1': '神圣和历史遗址',
+                'site1-feature2': '独特难忘的摄影',
+                'site1-feature3': '迷人的当地传说',
+                'site1-feature4': '传统聚集点',
+                
+                'site2-title': '千香市场',
+                'site2-subtitle': '经济与文化中心',
+                'site2-description': '色彩、香气和声音的节日。讨价还价芳香的可可，闻到新鲜的香草，品尝多汁的水果。每个摊位讲述一个故事，每个微笑像朋友一样欢迎您。',
+                'site2-feature1': '地区优质可可',
+                'site2-feature2': '卓越的波旁香草',
+                'site2-feature3': '地道当地手工艺品',
+                'site2-feature4': '温暖的邂逅',
+                
+                'site3-title': '桑比拉诺河桥',
+                'site3-subtitle': '河流生活的阳台',
+                'site3-description': '黄金时刻，桥梁熠熠生辉。观看独木舟在镜面水上滑行，聆听沐浴儿童的笑声，感受来自山间的清新微风。捕捉该地区灵魂的最佳拍照点。',
+                'site3-feature1': '壮观的日落',
+                'site3-feature2': '地道的河流生活',
+                'site3-feature3': '全景视点',
+                'site3-feature4': '独特的当地氛围',
+                
+                'site4-title': '克里奥罗可可种植园',
+                'site4-subtitle': '桑比拉诺的棕色黄金',
+                'site4-description': '遇见世界上最好可可的守护者。从豆到棒，发现卓越巧克力的秘密。与生产者的私人品尝，难忘的味觉体验。',
+                'site4-feature1': '卓越的克里奥罗可可',
+                'site4-feature2': '种植园导览',
+                'site4-feature3': '独家品尝',
+                'site4-feature4': '与生产者会面',
+                
+                'site-link': '发现',
+                
+                // Destinations
+                'destinations-title': '安班贾完整目的地',
+                'destinations-intro': '详细探索安班贾地区的宝藏。每个目的地提供独特的体验和非凡的景观，在桑比拉诺中心带来难忘之旅。',
+                'location-heart': '安班贾中心',
+                'location-periphery': '安班贾周边',
+                'location-hills': '周围山丘',
+                'location-region': '安班贾地区',
+                
+                'dest1-title': '桑比拉诺山谷',
+                'dest1-description': '赋予该地区生命的肥沃山谷。富含冲积土的土地，理想的可可气候，一望无际的绿色景观。发现使安班贾富有的独特生态系统。',
+                'dest1-feature1': '卓越的土壤肥力',
+                'dest1-feature2': '理想的热带小气候',
+                'dest1-feature3': '滋养的桑比拉诺河',
+                'dest1-feature4': '显著的生物多样性',
+                
+                'dest2-title': '历史种植园',
+                'dest2-description': '源自殖民时代的农业庄园，保护传统的可可种植方法。殖民建筑，古老技艺和卓越的产品质量。',
+                'dest2-feature1': '保存完好的殖民建筑',
+                'dest2-feature2': '传统种植方法',
+                'dest2-feature3': '迷人的地区历史',
+                'dest2-feature4': '全球认可的可可质量',
+                
+                'dest3-title': '神圣森林',
+                'dest3-description': '受当地传统保护的自然圣地。崇拜和冥想的地方，自然受到崇敬。在最真实的环境中探索马达加斯加灵性。',
+                'dest3-feature1': '古老的精神遗址',
+                'dest3-feature2': '受保护的生物多样性',
+                'dest3-feature3': '宁静的徒步',
+                'dest3-feature4': '与传统守护者的会面',
+                
+                'dest4-title': '传统村庄',
+                'dest4-description': '延续马达加斯加传统的热情社区。土和植被房屋，当地手工艺品，地道美食。完全沉浸在桑比拉诺山谷的日常生活中。',
+                'dest4-feature1': '传统建筑',
+                'dest4-feature2': '地道当地手工艺品',
+                'dest4-feature3': '传统马达加斯加美食',
+                'dest4-feature4': '居民的热情欢迎',
+                
+                'destination-link': '探索',
+                
+                // Services
+                'services-title': '我们在安班贾的独家服务',
+                'services-intro': '马达加斯加岛旅游陪伴您打造安班贾梦想之旅。量身定制的服务，在可可之乡中心带来真实难忘的体验。',
+                'service1-title': '种植园参观',
+                'service1-desc': '与我们的专家向导一起探索克里奥罗可可种植园。从豆到棒，整个制造过程。',
+                'service2-title': '私人品尝',
+                'service2-desc': '与当地生产者一起独家品尝卓越可可和巧克力。独特的味觉体验。',
+                'service3-title': '自然徒步',
+                'service3-desc': '与自然学家向导一起探索神圣森林和周围山丘。发现独特的生物多样性。',
+                'service4-title': '民宿体验',
+                'service4-desc': '完全融入当地生活。地道住宿，分享传统和家庭美食。',
+                'service5-title': '摄影工作坊',
+                'service5-desc': '与我们的专业摄影师一起捕捉安班贾的精髓。在最佳地点进行课程和摄影会话。',
+                'service6-title': '市场参观',
+                'service6-desc': '陪同前往千香市场。发现当地产品和讨价还价技巧。',
+                'services-btn': '请求定制报价',
+                
+                // Contact
+                'contact-title': '联系马达加斯加岛旅游',
+                'contact-intro': '准备好探索安班贾和桑比拉诺山谷的宝藏了吗？我们的当地团队随时为您服务，为您组织在马达加斯加可可之都的梦想之旅。',
+                'contact-phone': '电话',
+                'contact-email': '电子邮件',
+                'contact-address': '地址',
+                'whatsapp-btn': '直接WhatsApp',
+                'email-btn': '发送邮件',
+                
+                // Footer
+                'footer-tagline': '您探索安班贾和桑比拉诺山谷隐藏宝藏的专家向导。真实体验，独特景观，在可可之乡中心带来难忘风味。',
+                'copyright': '版权所有。',
+                'privacy': '隐私政策',
+                'terms': '使用条款'
+            }
+        };
+
+        // Langue par défaut
+        let currentLang = 'fr';
+
+        // Charger la langue depuis localStorage ou détecter
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('islandMadaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            } else {
+                currentLang = 'fr';
+            }
+            
+            updateLanguage();
+        }
+
+        // Mettre à jour toutes les traductions
+        function updateLanguage() {
+            // Mettre à jour les textes avec data-translate
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            // Mettre à jour les indicateurs de langue
+            currentLangElements.forEach(el => {
+                el.textContent = currentLang.toUpperCase();
+            });
+
+            // Mettre à jour les options actives
+            languageOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Sauvegarder la préférence
+            localStorage.setItem('islandMadaLang', currentLang);
+            
+            // Fermer le menu mobile si ouvert
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Gérer le clic sur les options de langue
+        languageOptions.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                
+                if (position < windowHeight - 100) {
+                    element.style.animationPlayState = 'running';
+                }
+            });
+        }
+
+        // ===== NAVIGATION ACTIVE STATE =====
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // ===== IMAGE LOADING =====
+        function loadImages() {
+            const images = document.querySelectorAll('.loading');
+            
+            images.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                    image.onload = () => {
+                        img.classList.remove('loading');
+                    };
+                }
+            });
+        }
+
+        // ===== HEADER SCROLL EFFECT =====
+        function handleHeaderScroll() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '8px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(139, 69, 19, 0.3)';
+            } else {
+                header.style.padding = '12px 5%';
+                header.style.boxShadow = '0 5px 20px rgba(139, 69, 19, 0.2)';
+            }
+        }
+
+        // ===== INITIALISATION =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // Charger la langue
+            loadLanguage();
+            
+            // Mettre à jour l'année du copyright
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Charger les images
+            loadImages();
+            
+            // Événements de scroll
+            window.addEventListener('scroll', () => {
+                handleScrollAnimations();
+                updateActiveNav();
+                handleHeaderScroll();
+            });
+            
+            // Initialiser les animations
+            handleScrollAnimations();
+            updateActiveNav();
+            handleHeaderScroll();
+            
+            // Fermer le menu au clic en dehors
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && e.target !== menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Gestion des touches Échap
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // ===== ORIENTATION CHANGE =====
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                handleScrollAnimations();
+                updateActiveNav();
+            }, 300);
+        });
+
+        // ===== PREVENT CONTEXT MENU ON MOBILE =====
+        document.addEventListener('contextmenu', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

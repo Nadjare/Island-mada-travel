@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Island Mada Travel - Galerie & Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --color-primary: #9b59b6;
+            --color-secondary: #f1c40f;
+            --color-dark: #1a0a1a;
+            --color-light: #ffffff;
+            --color-success: #2ecc71;
+            --color-whatsapp: #25D366;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 100%);
+            color: var(--color-light);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: rgba(26, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px 0;
+            border-bottom: 3px solid var(--color-primary);
+            box-shadow: 0 5px 20px rgba(155, 89, 182, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-img{
+            width: 50px;     /* ajuste la taille */
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            border: 2px solid var(--color-secondary);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+        }
+
+        /* ===== SELECTEUR DE LANGUE ===== */
+        .language-selector {
+            position: relative;
+        }
+
+        .language-btn {
+            background: rgba(155, 89, 182, 0.2);
+            border: 2px solid var(--color-primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+            background: rgba(155, 89, 182, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 200px;
+            background: rgba(26, 10, 26, 0.98);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+            display: none;
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .language-option:hover {
+            background: rgba(155, 89, 182, 0.2);
+        }
+
+        .language-option.active {
+            background: linear-gradient(90deg, rgba(155, 89, 182, 0.3), rgba(241, 196, 15, 0.3));
+            color: var(--color-secondary);
+        }
+
+        .flag-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--color-secondary);
+        }
+
+        /* ===== GALERIE PAR RÉGIONS ===== */
+        .gallery-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            color: white;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 2px;
+        }
+
+        /* Onglets des régions */
+        .region-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .region-tab {
+            background: rgba(155, 89, 182, 0.1);
+            border: 2px solid rgba(155, 89, 182, 0.3);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .region-tab:hover {
+            background: rgba(155, 89, 182, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .region-tab.active {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            border-color: var(--color-secondary);
+        }
+
+        /* Galeries par région */
+        .region-gallery {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .region-gallery.active {
+            display: block;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(155, 89, 182, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: var(--color-secondary);
+            transform: rotate(90deg);
+        }
+
+        /* ===== FORMULAIRE SIMPLIFIÉ ===== */
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #251025 0%, #3a1a3a 100%);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: rgba(155, 89, 182, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(155, 89, 182, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* ===== BOUTONS ===== */
+        .submit-btn {
+            background: linear-gradient(135deg, var(--color-whatsapp), #128C7E);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 30px auto 0;
+            border: 2px solid #128C7E;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            width: 100%;
+            justify-content: center;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.6);
+            background: linear-gradient(135deg, #128C7E, var(--color-whatsapp));
+        }
+
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* ===== CONTACT INFO SIMPLIFIÉ ===== */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-card {
+            background: rgba(155, 89, 182, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid rgba(241, 196, 15, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+            background: rgba(155, 89, 182, 0.15);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+        }
+
+        .info-content a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info-content a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: rgba(10, 5, 10, 0.95);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 3px solid var(--color-primary);
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .region-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .region-tab {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .form-container {
+                padding: 25px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-icon">
+                          <img src="logo.png" alt="Island Mada Travel Logo" class="logo-img">
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-title" data-translate="agency-name">ISLAND MADA TRAVEL</div>
+                        <div class="logo-subtitle" data-translate="agency-tagline">Votre expert en voyages à Madagascar</div>
+                    </div>
+                </div>
+                
+                <div class="language-selector">
+                    <div class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        <span class="current-lang">FR</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="language-dropdown">
+                        <div class="language-option active" data-lang="fr">
+                            <img src="https://flagcdn.com/w20/fr.png" class="flag-icon" alt="Français">
+                            <span data-translate="lang-fr">Français</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <img src="https://flagcdn.com/w20/us.png" class="flag-icon" alt="English">
+                            <span data-translate="lang-en">English</span>
+                        </div>
+                        <div class="language-option" data-lang="de">
+                            <img src="https://flagcdn.com/w20/de.png" class="flag-icon" alt="Deutsch">
+                            <span data-translate="lang-de">Deutsch</span>
+                        </div>
+                        <div class="language-option" data-lang="es">
+                            <img src="https://flagcdn.com/w20/es.png" class="flag-icon" alt="Español">
+                            <span data-translate="lang-es">Español</span>
+                        </div>
+                        <div class="language-option" data-lang="it">
+                            <img src="https://flagcdn.com/w20/it.png" class="flag-icon" alt="Italiano">
+                            <span data-translate="lang-it">Italiano</span>
+                        </div>
+                        <div class="language-option" data-lang="ar">
+                            <img src="https://flagcdn.com/w20/sa.png" class="flag-icon" alt="العربية">
+                            <span data-translate="lang-ar">العربية</span>
+                        </div>
+                        <div class="language-option" data-lang="zh">
+                            <img src="https://flagcdn.com/w20/cn.png" class="flag-icon" alt="中文">
+                            <span data-translate="lang-zh">中文</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== GALERIE PAR RÉGIONS ===== -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title fade-in" data-translate="gallery-title">Galerie Photos</h2>
+            
+            <!-- Onglets des régions -->
+            <div class="region-tabs fade-in">
+                <div class="region-tab active" data-region="nosybe">
+                    <i class="fas fa-umbrella-beach"></i>
+                    <span>Nosy Be</span>
+                </div>
+                <div class="region-tab" data-region="diego">
+                    <i class="fas fa-mountain"></i>
+                    <span>Diego Suarez</span>
+                </div>
+                <div class="region-tab" data-region="ambanja">
+                    <i class="fas fa-leaf"></i>
+                    <span>Ambanja</span>
+                </div>
+                <div class="region-tab" data-region="tananarive">
+                    <i class="fas fa-city"></i>
+                    <span>Antananarivo</span>
+                </div>
+                <div class="region-tab" data-region="morondava">
+                    <i class="fas fa-tree"></i>
+                    <span>Morondava</span>
+                </div>
+                <div class="region-tab" data-region="sud">
+                    <i class="fas fa-sun"></i>
+                    <span>Sud</span>
+                </div>
+            </div>
+
+            <!-- Galerie Nosy Be -->
+            <div class="region-gallery active" id="nosybe-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3a.webp" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1519046904884-53103b34b206?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3b.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3c.png" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3d.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3e.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3f.avif" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3g.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3h.webp" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3i.webp" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3j.webp" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3k.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3l.jpg" alt="Nosy Be">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="3m.jpg" alt="Nosy Be">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Galerie Diego Suarez -->
+            <div class="region-gallery" id="diego-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1a.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1b.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1c.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1d.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1e.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1f.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1g.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1h.jpeg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1i.jpeg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1j.png" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1k.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1l.jpeg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1m.jpg" alt="Diego Suarez">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="1n.jpg" alt="Diego Suarez">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Galerie Ambanja -->
+            <div class="region-gallery" id="ambanja-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2a.jpg" alt="Ambanja">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2b.webp" alt="Ambanja">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2c.webp" alt="Ambanja">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2d.webp" alt="Ambanja">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2e.jpg" alt="Ambanja">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2f.webp" alt="Ambanja">
+                    
+                    </div> <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2g.webp" alt="Ambanja">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2h.webp" alt="Ambanja">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2i.jpg" alt="Ambanja">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1502082553048-f009c37129b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="2j.png" alt="Ambanja">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Antananarivo -->
+            <div class="region-gallery" id="tananarive-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4a.jpeg" alt="Antananarivo">
+                    </div>    
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4b.jpg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4c.jpg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4d.jpeg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4e.webp" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4f.jpg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4g.webp" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4h.jpg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4i.jpeg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4j.jpg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4k.jpeg" alt="Antananarivo">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="4l.webp" alt="Antananarivo">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Galerie Morondava -->
+            <div class="region-gallery" id="morondava-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6a.jpg" alt="Morondava">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6b.jpg" alt="Morondava">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505765050516-f72dcac9c60e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6c.webp" alt="Morondava">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6d.jpg" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6e.jpeg" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6f.jpeg" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6g.png" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6h.jpeg" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6i.jpg" alt="Morondava">
+                    </div>
+                     <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6j.webp" alt="Morondava">
+                    </div> 
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6k.webp" alt="Morondava">
+                    </div> 
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="6l.jpg" alt="Morondava">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Sud -->
+            <div class="region-gallery" id="sud-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5a.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5b.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5c.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5d.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5e.jpeg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5f.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5g.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5h.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5i.jpg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5j.jpeg" alt="Sud">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <img src="5k.jpg" alt="Sud">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="">
+    </div>
+
+    <!-- ===== FORMULAIRE SIMPLIFIÉ ===== -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <h2 class="section-title fade-in" data-translate="contact-title">Contact Rapide</h2>
+                
+                <div class="form-container fade-in delay-1">
+                    <form id="contactForm">
+                        <!-- Seulement 4 champs essentiels -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="form-name">Nom complet *</label>
+                                <input type="text" class="form-input" id="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" data-translate="form-phone">WhatsApp *</label>
+                                <input type="tel" class="form-input" id="phone" required placeholder="+33">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" data-translate="form-destination">Destination souhaitée</label>
+                                <select class="form-select" id="destination">
+                                    <option value="" data-translate="option-choose">Choisir une destination</option>
+                                    <option value="Nosy Be" data-translate="option-nosybe">Nosy Be</option>
+                                    <option value="Diego Suarez" data-translate="option-diego">Diego Suarez</option>
+                                    <option value="Morondava" data-translate="option-morondava">Morondava</option>
+                                    <option value="Autre" data-translate="option-other">Autre région</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" data-translate="form-dates">Dates approximatives</label>
+                                <input type="text" class="form-input" id="dates" placeholder="JJ/MM - JJ/MM">
+                            </div>
+                        </div>
+                        
+                        <!-- Un seul champ message -->
+                        <div class="form-group">
+                            <label class="form-label" data-translate="form-message">Votre message *</label>
+                            <textarea class="form-textarea" id="message" placeholder="Ex: Nous sommes 2 personnes, durée 10 jours, budget moyen..." required data-translate="form-placeholder"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-translate="form-submit">Envoyer sur WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact info simplifié -->
+                <div class="contact-info fade-in delay-2">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-translate="contact-whatsapp">WhatsApp Direct</h3>
+                            <p><a href="https://wa.me/261325539635" target="_blank">+261 32 55 396 35</a></p>
+                            <p data-translate="contact-direct">Réponse rapide 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3 data-translate="contact-email">Email</h3>
+                            <p><a href="mailto:anjaraamadym@gmail.com">anjaraamadym@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fas fa-mountain"></i>
+                <span>ISLAND MADA TRAVEL</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> <span data-translate="footer-rights">Tous droits réservés.</span></p>
+                <p style="margin-top: 10px;" data-translate="footer-tagline">Votre expert pour des voyages inoubliables à Madagascar</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Données de traduction SIMPLIFIÉES
+        const translations = {
+            fr: {
+                // Général
+                'agency-name': 'ISLAND MADA TRAVEL',
+                'agency-tagline': 'Votre expert en voyages à Madagascar',
+                'lang-fr': 'Français',
+                'lang-en': 'English',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'العربية',
+                'lang-zh': '中文',
+                
+                // Galerie
+                'gallery-title': 'Galerie Photos',
+                
+                // Formulaire simplifié
+                'contact-title': 'Contact Rapide',
+                'form-name': 'Nom complet *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': 'Destination souhaitée',
+                'form-dates': 'Dates approximatives',
+                'form-message': 'Votre message *',
+                'form-placeholder': 'Ex: Nous sommes 2 personnes, durée 10 jours, budget moyen...',
+                'form-submit': 'Envoyer sur WhatsApp',
+                
+                // Options simplifiées
+                'option-choose': 'Choisir une destination',
+                'option-nosybe': 'Nosy Be',
+                'option-diego': 'Diego Suarez',
+                'option-morondava': 'Morondava',
+                'option-other': 'Autre région',
+                
+                // Contact simplifié
+                'contact-whatsapp': 'WhatsApp Direct',
+                'contact-direct': 'Réponse rapide 24/7',
+                'contact-email': 'Email',
+                
+                // Footer
+                'footer-rights': 'Tous droits réservés.',
+                'footer-tagline': 'Votre expert pour des voyages inoubliables à Madagascar'
+            },
+            en: {
+                // General
+                'agency-name': 'ISLAND MADA TRAVEL',
+                'agency-tagline': 'Your Madagascar travel expert',
+                'lang-fr': 'French',
+                'lang-en': 'English',
+                'lang-de': 'German',
+                'lang-es': 'Spanish',
+                'lang-it': 'Italian',
+                'lang-ar': 'Arabic',
+                'lang-zh': 'Chinese',
+                
+                // Gallery
+                'gallery-title': 'Photo Gallery',
+                
+                // Simplified form
+                'contact-title': 'Quick Contact',
+                'form-name': 'Full name *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': 'Desired destination',
+                'form-dates': 'Approximate dates',
+                'form-message': 'Your message *',
+                'form-placeholder': 'Ex: We are 2 people, 10 days trip, medium budget...',
+                'form-submit': 'Send via WhatsApp',
+                
+                // Simplified options
+                'option-choose': 'Choose a destination',
+                'option-nosybe': 'Nosy Be',
+                'option-diego': 'Diego Suarez',
+                'option-morondava': 'Morondava',
+                'option-other': 'Other region',
+                
+                // Simplified contact
+                'contact-whatsapp': 'Direct WhatsApp',
+                'contact-direct': 'Quick response 24/7',
+                'contact-email': 'Email',
+                
+                // Footer
+                'footer-rights': 'All rights reserved.',
+                'footer-tagline': 'Your expert for unforgettable trips to Madagascar'
+            },
+            de: {
+                // Allgemein
+                'agency-name': 'ISLAND MADA TRAVEL',
+                'agency-tagline': 'Ihr Madagaskar Reiseexperte',
+                'lang-fr': 'Französisch',
+                'lang-en': 'Englisch',
+                'lang-de': 'Deutsch',
+                'lang-es': 'Spanisch',
+                'lang-it': 'Italienisch',
+                'lang-ar': 'Arabisch',
+                'lang-zh': 'Chinesisch',
+                
+                // Galerie
+                'gallery-title': 'Fotogalerie',
+                
+                // Vereinfachtes Formular
+                'contact-title': 'Schnellkontakt',
+                'form-name': 'Vollständiger Name *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': 'Gewünschtes Reiseziel',
+                'form-dates': 'Ungefähre Daten',
+                'form-message': 'Ihre Nachricht *',
+                'form-placeholder': 'Z.B.: Wir sind 2 Personen, 10 Tage Reise, mittleres Budget...',
+                'form-submit': 'Über WhatsApp senden',
+                
+                // Vereinfachte Optionen
+                'option-choose': 'Ziel wählen',
+                'option-nosybe': 'Nosy Be',
+                'option-diego': 'Diego Suarez',
+                'option-morondava': 'Morondava',
+                'option-other': 'Andere Region',
+                
+                // Vereinfachter Kontakt
+                'contact-whatsapp': 'Direkt WhatsApp',
+                'contact-direct': 'Schnelle Antwort 24/7',
+                'contact-email': 'E-Mail',
+                
+                // Footer
+                'footer-rights': 'Alle Rechte vorbehalten.',
+                'footer-tagline': 'Ihr Experte für unvergessliche Reisen nach Madagaskar'
+            },
+            es: {
+                // General
+                'agency-name': 'ISLAND MADA TRAVEL',
+                'agency-tagline': 'Su experto en viajes a Madagascar',
+                'lang-fr': 'Francés',
+                'lang-en': 'Inglés',
+                'lang-de': 'Alemán',
+                'lang-es': 'Español',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Árabe',
+                'lang-zh': 'Chino',
+                
+                // Galería
+                'gallery-title': 'Galería de Fotos',
+                
+                // Formulario simplificado
+                'contact-title': 'Contacto Rápido',
+                'form-name': 'Nombre completo *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': 'Destino deseado',
+                'form-dates': 'Fechas aproximadas',
+                'form-message': 'Su mensaje *',
+                'form-placeholder': 'Ej: Somos 2 personas, viaje de 10 días, presupuesto medio...',
+                'form-submit': 'Enviar por WhatsApp',
+                
+                // Opciones simplificadas
+                'option-choose': 'Elegir un destino',
+                'option-nosybe': 'Nosy Be',
+                'option-diego': 'Diego Suarez',
+                'option-morondava': 'Morondava',
+                'option-other': 'Otra región',
+                
+                // Contacto simplificado
+                'contact-whatsapp': 'WhatsApp Directo',
+                'contact-direct': 'Respuesta rápida 24/7',
+                'contact-email': 'Correo electrónico',
+                
+                // Footer
+                'footer-rights': 'Todos los derechos reservados.',
+                'footer-tagline': 'Su experto para viajes inolvidables a Madagascar'
+            },
+            it: {
+                // Generale
+                'agency-name': 'ISLAND MADA TRAVEL',
+                'agency-tagline': 'Il tuo esperto di viaggi in Madagascar',
+                'lang-fr': 'Francese',
+                'lang-en': 'Inglese',
+                'lang-de': 'Tedesco',
+                'lang-es': 'Spagnolo',
+                'lang-it': 'Italiano',
+                'lang-ar': 'Arabo',
+                'lang-zh': 'Cinese',
+                
+                // Galleria
+                'gallery-title': 'Galleria Fotografica',
+                
+                // Form semplificato
+                'contact-title': 'Contatto Rapido',
+                'form-name': 'Nome completo *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': 'Destinazione desiderata',
+                'form-dates': 'Date approssimative',
+                'form-message': 'Il tuo messaggio *',
+                'form-placeholder': 'Es: Siamo 2 persone, viaggio di 10 giorni, budget medio...',
+                'form-submit': 'Invia via WhatsApp',
+                
+                // Opzioni semplificate
+                'option-choose': 'Scegli una destinazione',
+                'option-nosybe': 'Nosy Be',
+                'option-diego': 'Diego Suarez',
+                'option-morondava': 'Morondava',
+                'option-other': 'Altra regione',
+                
+                // Contatto semplificato
+                'contact-whatsapp': 'WhatsApp Diretto',
+                'contact-direct': 'Risposta rapida 24/7',
+                'contact-email': 'Email',
+                
+                // Footer
+                'footer-rights': 'Tutti i diritti riservati.',
+                'footer-tagline': 'Il tuo esperto per viaggi indimenticabili in Madagascar'
+            },
+            ar: {
+                // عام
+                'agency-name': 'آيلاند مادا ترافل',
+                'agency-tagline': 'خبيرك في السفر إلى مدغشقر',
+                'lang-fr': 'الفرنسية',
+                'lang-en': 'الإنجليزية',
+                'lang-de': 'الألمانية',
+                'lang-es': 'الإسبانية',
+                'lang-it': 'الإيطالية',
+                'lang-ar': 'العربية',
+                'lang-zh': 'الصينية',
+                
+                // معرض الصور
+                'gallery-title': 'معرض الصور',
+                
+                // نموذج مبسط
+                'contact-title': 'اتصال سريع',
+                'form-name': 'الاسم الكامل *',
+                'form-phone': 'واتساب *',
+                'form-destination': 'الوجهة المطلوبة',
+                'form-dates': 'التواريخ التقريبية',
+                'form-message': 'رسالتك *',
+                'form-placeholder': 'مثال: نحن شخصان، رحلة 10 أيام، ميزانية متوسطة...',
+                'form-submit': 'إرسال عبر واتساب',
+                
+                // خيارات مبسطة
+                'option-choose': 'اختر وجهة',
+                'option-nosybe': 'نوسي بي',
+                'option-diego': 'دييغو سواريس',
+                'option-morondava': 'موروندافا',
+                'option-other': 'منطقة أخرى',
+                
+                // اتصال مبسط
+                'contact-whatsapp': 'واتساب مباشر',
+                'contact-direct': 'رد سريع 24/7',
+                'contact-email': 'البريد الإلكتروني',
+                
+                // تذييل الصفحة
+                'footer-rights': 'جميع الحقوق محفوظة.',
+                'footer-tagline': 'خبيرك لرحلات لا تنسى إلى مدغشقر'
+            },
+            zh: {
+                // 通用
+                'agency-name': '马达加斯加岛旅游',
+                'agency-tagline': '您的马达加斯加旅行专家',
+                'lang-fr': '法语',
+                'lang-en': '英语',
+                'lang-de': '德语',
+                'lang-es': '西班牙语',
+                'lang-it': '意大利语',
+                'lang-ar': '阿拉伯语',
+                'lang-zh': '中文',
+                
+                // 画廊
+                'gallery-title': '照片画廊',
+                
+                // 简化表单
+                'contact-title': '快速联系',
+                'form-name': '全名 *',
+                'form-phone': 'WhatsApp *',
+                'form-destination': '期望目的地',
+                'form-dates': '大致日期',
+                'form-message': '您的消息 *',
+                'form-placeholder': '例如：我们2个人，10天旅行，中等预算...',
+                'form-submit': '通过WhatsApp发送',
+                
+                // 简化选项
+                'option-choose': '选择目的地',
+                'option-nosybe': '诺西贝',
+                'option-diego': '迭戈苏亚雷斯',
+                'option-morondava': '穆龙达瓦',
+                'option-other': '其他地区',
+                
+                // 简化联系
+                'contact-whatsapp': '直接WhatsApp',
+                'contact-direct': '快速响应 24/7',
+                'contact-email': '电子邮件',
+                
+                // 页脚
+                'footer-rights': '版权所有。',
+                'footer-tagline': '您在马达加斯加难忘旅行的专家'
+            }
+        };
+
+        // Système de langue
+        let currentLang = 'fr';
+        const langBtn = document.querySelector('.language-btn .current-lang');
+        const langOptions = document.querySelectorAll('.language-option');
+
+        function loadLanguage() {
+            const savedLang = localStorage.getItem('islandMadaLang');
+            const browserLang = navigator.language.slice(0, 2);
+            
+            if (savedLang && translations[savedLang]) {
+                currentLang = savedLang;
+            } else if (translations[browserLang]) {
+                currentLang = browserLang;
+            }
+            
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+
+            langBtn.textContent = currentLang.toUpperCase();
+            
+            langOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === currentLang) {
+                    option.classList.add('active');
+                }
+            });
+
+            localStorage.setItem('islandMadaLang', currentLang);
+        }
+
+        langOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                if (lang && translations[lang]) {
+                    currentLang = lang;
+                    updateLanguage();
+                }
+            });
+        });
+
+        // Système d'onglets de galerie
+        const regionTabs = document.querySelectorAll('.region-tab');
+        const regionGalleries = document.querySelectorAll('.region-gallery');
+
+        regionTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const region = tab.getAttribute('data-region');
+                
+                regionTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                regionGalleries.forEach(gallery => {
+                    gallery.classList.remove('active');
+                    if (gallery.id === `${region}-gallery`) {
+                        gallery.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Lightbox
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fermer lightbox avec ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Fermer lightbox en cliquant à l'extérieur
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Animation au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // WhatsApp API Integration
+        const whatsappNumber = "261325539635"; // Votre numéro WhatsApp
+
+        function sendToWhatsApp(formData) {
+            // Construire le message simplifié
+            let messageTitle;
+            
+            switch(currentLang) {
+                case 'fr':
+                    messageTitle = '📋 *NOUVELLE DEMANDE - ISLAND MADA TRAVEL* 📋';
+                    break;
+                case 'en':
+                    messageTitle = '📋 *NEW REQUEST - ISLAND MADA TRAVEL* 📋';
+                    break;
+                case 'de':
+                    messageTitle = '📋 *NEUE ANFRAGE - ISLAND MADA TRAVEL* 📋';
+                    break;
+                case 'es':
+                    messageTitle = '📋 *NUEVA SOLICITUD - ISLAND MADA TRAVEL* 📋';
+                    break;
+                case 'it':
+                    messageTitle = '📋 *NUOVA RICHIESTA - ISLAND MADA TRAVEL* 📋';
+                    break;
+                case 'ar':
+                    messageTitle = '📋 *طلب جديد - آيلاند مادا ترافل* 📋';
+                    break;
+                case 'zh':
+                    messageTitle = '📋 *新请求 - 马达加斯加岛旅游* 📋';
+                    break;
+                default:
+                    messageTitle = '📋 *NOUVELLE DEMANDE - ISLAND MADA TRAVEL* 📋';
+            }
+
+            const message = `${messageTitle}
+
+👤 *${currentLang === 'en' ? 'Contact:' : 
+        currentLang === 'de' ? 'Kontakt:' :
+        currentLang === 'es' ? 'Contacto:' :
+        currentLang === 'it' ? 'Contatto:' :
+        currentLang === 'ar' ? 'الاتصال:' :
+        currentLang === 'zh' ? '联系人:' : 'Contact:'}*
+• ${currentLang === 'en' ? 'Name:' : 
+   currentLang === 'de' ? 'Name:' :
+   currentLang === 'es' ? 'Nombre:' :
+   currentLang === 'it' ? 'Nome:' :
+   currentLang === 'ar' ? 'الاسم:' :
+   currentLang === 'zh' ? '姓名:' : 'Nom:'} ${formData.fullName}
+• WhatsApp: ${formData.phone}
+
+🌍 *${currentLang === 'en' ? 'Trip Info:' : 
+        currentLang === 'de' ? 'Reiseinfo:' :
+        currentLang === 'es' ? 'Info viaje:' :
+        currentLang === 'it' ? 'Info viaggio:' :
+        currentLang === 'ar' ? 'معلومات الرحلة:' :
+        currentLang === 'zh' ? '旅行信息:' : 'Info voyage:'}*
+• ${currentLang === 'en' ? 'Destination:' : 
+   currentLang === 'de' ? 'Ziel:' :
+   currentLang === 'es' ? 'Destino:' :
+   currentLang === 'it' ? 'Destinazione:' :
+   currentLang === 'ar' ? 'الوجهة:' :
+   currentLang === 'zh' ? '目的地:' : 'Destination:'} ${formData.destination}
+• ${currentLang === 'en' ? 'Dates:' : 
+   currentLang === 'de' ? 'Daten:' :
+   currentLang === 'es' ? 'Fechas:' :
+   currentLang === 'it' ? 'Date:' :
+   currentLang === 'ar' ? 'التواريخ:' :
+   currentLang === 'zh' ? '日期:' : 'Dates:'} ${formData.dates}
+
+💬 *${currentLang === 'en' ? 'Message:' : 
+        currentLang === 'de' ? 'Nachricht:' :
+        currentLang === 'es' ? 'Mensaje:' :
+        currentLang === 'it' ? 'Messaggio:' :
+        currentLang === 'ar' ? 'الرسالة:' :
+        currentLang === 'zh' ? '消息:' : 'Message:'}*
+${formData.message}
+
+📱 *${currentLang === 'en' ? 'Sent from website' : 
+        currentLang === 'de' ? 'Von Website gesendet' :
+        currentLang === 'es' ? 'Enviado desde sitio web' :
+        currentLang === 'it' ? 'Inviato dal sito web' :
+        currentLang === 'ar' ? 'مرسل من الموقع' :
+        currentLang === 'zh' ? '从网站发送' : 'Envoyé depuis le site'}*`;
+
+            // Encoder le message pour URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Créer l'URL WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Ouvrir dans un nouvel onglet
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Formulaire simplifié
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les données du formulaire simplifié
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                destination: document.getElementById('destination').value || (currentLang === 'en' ? 'Not specified' :
+                    currentLang === 'de' ? 'Nicht angegeben' :
+                    currentLang === 'es' ? 'No especificado' :
+                    currentLang === 'it' ? 'Non specificato' :
+                    currentLang === 'ar' ? 'غير محدد' :
+                    currentLang === 'zh' ? '未指定' : 'Non spécifié'),
+                dates: document.getElementById('dates').value || (currentLang === 'en' ? 'Not specified' :
+                    currentLang === 'de' ? 'Nicht angegeben' :
+                    currentLang === 'es' ? 'No especificado' :
+                    currentLang === 'it' ? 'Non specificato' :
+                    currentLang === 'ar' ? 'غير محدد' :
+                    currentLang === 'zh' ? '未指定' : 'Non spécifié'),
+                message: document.getElementById('message').value
+            };
+            
+            // Messages de confirmation multilingues
+            const confirmationMessages = {
+                fr: 'Le formulaire va être envoyé sur WhatsApp. Assurez-vous que WhatsApp est installé sur votre appareil.',
+                en: 'The form will be sent via WhatsApp. Make sure WhatsApp is installed on your device.',
+                de: 'Das Formular wird über WhatsApp gesendet. Stellen Sie sicher, dass WhatsApp auf Ihrem Gerät installiert ist.',
+                es: 'El formulario se enviará por WhatsApp. Asegúrese de que WhatsApp esté instalado en su dispositivo.',
+                it: 'Il modulo verrà inviato tramite WhatsApp. Assicurati che WhatsApp sia installato sul tuo dispositivo.',
+                ar: 'سيتم إرسال النموذج عبر واتساب. تأكد من تثبيت واتساب على جهازك.',
+                zh: '表格将通过WhatsApp发送。请确保您的设备上安装了WhatsApp。'
+            };
+
+            const successMessages = {
+                fr: '✅ Demande envoyée! Vous allez être redirigé vers WhatsApp.',
+                en: '✅ Request sent! You will be redirected to WhatsApp.',
+                de: '✅ Anfrage gesendet! Sie werden zu WhatsApp weitergeleitet.',
+                es: '✅ ¡Solicitud enviada! Será redirigido a WhatsApp.',
+                it: '✅ Richiesta inviata! Verrai reindirizzato a WhatsApp.',
+                ar: '✅ تم إرسال الطلب! سيتم تحويلك إلى واتساب.',
+                zh: '✅ 请求已发送！您将被重定向到WhatsApp。'
+            };
+            
+            if (confirm(confirmationMessages[currentLang] || confirmationMessages['fr'])) {
+                sendToWhatsApp(formData);
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                
+                // Message de succès
+                setTimeout(() => {
+                    alert(successMessages[currentLang] || successMessages['fr']);
+                }, 500);
+            }
+        });
+
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            loadLanguage();
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Animation initiale
+            document.querySelectorAll('.fade-in').forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
